@@ -25,6 +25,7 @@ Pure Squirrel-OS/2 Warp-style hardware development.
 | Terminal | Planned | `terminal/` |
 | Macro Pad | Planned | `macro-pad/` |
 | Drawing Pads (range) | Scaffolded | `drawing-pads/` |
+| Fighter Jet | Scaffolded | `fighter-jet/` |
 
 ## Repository Layout
 
@@ -41,6 +42,10 @@ international-squirrel-machines/
 │   ├── libraries/
 │   └── branding/
 ├── keyboard/
+│   ├── README.md
+│   ├── kicad/
+│   └── shell/
+├── fighter-jet/
 │   ├── README.md
 │   ├── kicad/
 │   └── shell/
