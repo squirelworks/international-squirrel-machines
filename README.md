@@ -24,6 +24,7 @@ Pure Squirrel-OS/2 Warp-style hardware development.
 | Network Card | Planned | `network-card/` |
 | Terminal | Planned | `terminal/` |
 | Macro Pad | Planned | `macro-pad/` |
+| Drawing Pads (range) | Scaffolded | `drawing-pads/` |
 
 ## Repository Layout
 
