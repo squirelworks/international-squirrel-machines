@@ -19,3 +19,5 @@ Current official list:
 - network-card
 - terminal
 - macro-pad
+- drawing-pads
+- fighter-jet
