@@ -47,33 +47,38 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 
 ## Phase 6 — Aerospace / Fighter Jet program
 
-Scaffold for the fighter jet (avionics KiCad + OpenSCAD airframe) landed via PR #68. That is **not** the full program. The ISM fighter jet is a real airframe effort: structure → systems → avionics → weapons/sensors → software → validation.
+Scaffold (PR #68) and the design-program documentation baseline (PR #86: diagrams, materials, mechanical, hydraulics, FBW, avionics, sensors/weapons) are in-tree. That is still **not** a finished product — remaining work is freeze decisions, Gerbers/STLs, ICD pinouts, software/Flight Lab, and validation, tracked by the issue set below.
 
 **Directory:** `fighter-jet/`  
 **Device note:** `docs/devices/fighter-jet.md`  
 **Program epic:** [#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)  
 **Original thin roadmap:** [#36](https://github.com/squirelworks/international-squirrel-machines/issues/36) — superseded by #85 (close #36 as duplicate when able).
 
-### 6.0 — Scaffold (complete)
+### 6.0 — Scaffold & design-program docs (complete)
 - [x] Device directory + README
 - [x] Avionics KiCad project stub (`fighter-jet/kicad/`)
 - [x] Parametric OpenSCAD airframe stub (`fighter-jet/shell/`)
 - [x] Device design note stub
+- [x] Fighter jet design program — diagrams, materials, mechanical, hydraulics, FBW, avionics, sensors/weapons (PR #86)
 
 ### 6.1 — Structure (diagrams → materials → airframe)
+Design-doc baselines live under `fighter-jet/diagrams/`, `materials/`, `mechanical/`. Issues track remaining productization against those docs.
 - [ ] [#70](https://github.com/squirelworks/international-squirrel-machines/issues/70) Diagrams & blueprints (3-views, sections, ICDs)
 - [ ] [#71](https://github.com/squirelworks/international-squirrel-machines/issues/71) Materials: metallurgy + composites stack-up and allowables
 - [ ] [#72](https://github.com/squirelworks/international-squirrel-machines/issues/72) Mechanical airframe, landing gear & control surfaces
 
 ### 6.2 — Systems (hydraulics / actuation / flight controls)
+Baselines under `fighter-jet/hydraulics/`, `flight-controls/`.
 - [ ] [#73](https://github.com/squirelworks/international-squirrel-machines/issues/73) Hydraulics / actuation architecture
 - [ ] [#74](https://github.com/squirelworks/international-squirrel-machines/issues/74) Fly-by-wire & flight controls (inceptors → computer → surfaces)
 
 ### 6.3 — Avionics (beyond the bay PCB scaffold)
+Baselines under `fighter-jet/avionics/` (+ KiCad bay PCB).
 - [ ] [#75](https://github.com/squirelworks/international-squirrel-machines/issues/75) Avionics architecture (schematic, bus, bay, harness)
 - [ ] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
 
 ### 6.4 — Weapons & sensors
+Baselines under `fighter-jet/sensors-weapons/`.
 - [ ] [#76](https://github.com/squirelworks/international-squirrel-machines/issues/76) Radar / EO / IR sensor suite
 - [ ] [#77](https://github.com/squirelworks/international-squirrel-machines/issues/77) Missiles / stores / pylons / safeing
 
@@ -97,6 +102,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [ ] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
 
 ### 6.6 — Integration, BOM, validation
+- [ ] Freeze product decisions; Gerbers/STLs; ICD pinouts
 - [ ] [#78](https://github.com/squirelworks/international-squirrel-machines/issues/78) Full airframe BOM, assembly notes, ICD freeze, validation campaign, polish
 
 ### Sibling aerospace stubs (still Planned)
