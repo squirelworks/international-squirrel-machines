@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 320" width="980" height="320" role="img" aria-label="ISM-FJ-1 fuselage station blueprint">
+  <title>ISM-FJ-1 Fuselage Stations</title>
+  <style>
+    .bg { fill: #f3f0ea; }
+    .fuse { fill: #d5cec2; stroke: #3a3530; stroke-width: 1.5; }
+    .sta { stroke: #8b6b4a; stroke-width: 1.2; }
+    .label { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 10px; fill: #2c2824; }
+    .title { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 16px; font-weight: 600; fill: #2c2824; }
+    .sub { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #5a534c; }
+  </style>
+  <rect class="bg" width="980" height="320"/>
+  <text class="title" x="24" y="28">ISM-FJ-1 — Fuselage Station Blueprint (side)</text>
+  <text class="sub" x="24" y="46">% FS from nose · study length 420 mm maps 1:1 to % × L</text>
+
+  <g transform="translate(40,80)">
+    <path class="fuse" d="M20,70 C60,40 120,30 200,35 L420,45 L700,55 L860,60 L880,75 L860,95 L700,100 L420,105 L200,110 C120,110 60,100 20,70 Z"/>
+    <!-- stations -->
+    <g stroke-dasharray="3 2">
+      <line class="sta" x1="20" y1="20" x2="20" y2="130"/><!-- 0 -->
+      <line class="sta" x1="114" y1="20" x2="114" y2="130"/><!-- 12 -->
+      <line class="sta" x1="193" y1="20" x2="193" y2="130"/><!-- 22 -->
+      <line class="sta" x1="398" y1="20" x2="398" y2="130"/><!-- 48 -->
+      <line class="sta" x1="458" y1="20" x2="458" y2="130"/><!-- 55 -->
+      <line class="sta" x1="518" y1="20" x2="518" y2="130"/><!-- 62 -->
+      <line class="sta" x1="774" y1="20" x2="774" y2="130"/><!-- 90 -->
+      <line class="sta" x1="860" y1="20" x2="860" y2="130"/><!-- 100 -->
+    </g>
+    <text class="label" x="10" y="150">FS-0</text>
+    <text class="label" x="95" y="150">FS-12 radar</text>
+    <text class="label" x="170" y="165">FS-22 cockpit</text>
+    <text class="label" x="370" y="150">FS-48 avionics</text>
+    <text class="label" x="440" y="165">FS-55 MLG</text>
+    <text class="label" x="500" y="150">FS-62 wing box</text>
+    <text class="label" x="750" y="150">FS-90 eng</text>
+    <text class="label" x="840" y="165">FS-100</text>
+    <!-- bay hatch hint -->
+    <rect x="360" y="48" width="80" height="14" fill="none" stroke="#8b6b4a" stroke-width="1.2"/>
+    <text class="label" x="368" y="42">dorsal hatch / KiCad bay</text>
+  </g>
+  <text class="sub" x="24" y="300">Cross-ref diagrams/stations.md · Independent ISM drawing</text>
+</svg>

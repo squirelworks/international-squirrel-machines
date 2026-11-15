@@ -45,8 +45,10 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [ ] Laptop / portable chassis
 - [ ] Docking station
 
-## Phase 6 — Aerospace (scaffold line)
+## Phase 6 — Aerospace
 - [x] Fighter jet scaffold (`fighter-jet/`) — avionics KiCad + OpenSCAD airframe
+- [x] Fighter jet design program — diagrams, materials, mechanical, hydraulics, FBW, avionics, sensors/weapons
+- [ ] Fighter jet: freeze product decisions; Gerbers/STLs; ICD pinouts
 - [ ] Bombers / rocket / satellite / carrier siblings (still Planned stubs)
 
 Each device follows the same cycle. Issues track the current open work.

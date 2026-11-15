@@ -1,0 +1,13 @@
+# Mechanical Design — ISM-FJ-1
+
+Airframe structure, landing gear, control surfaces, actuators/hinges, load paths, access panels, and maintainability.
+
+| Doc | Focus |
+|-----|-------|
+| `airframe.md` | Primary structure, carry-through, load paths |
+| `landing-gear.md` | NLG/MLG concept, retract, loads |
+| `control-surfaces.md` | Aileron, flaperon, elevator, rudder, hinges |
+| `maintainability.md` | Access panels, LRU paths, break points |
+| `propulsion.md` | Twin turbofan concept, mounts, interfaces |
+
+Materials callouts live in `../materials/`. Station numbers in `../diagrams/stations.md`.
