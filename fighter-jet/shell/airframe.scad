@@ -1,10 +1,12 @@
-// ISM Fighter Jet — parametric airframe shell
-// International Squirrel Machines
-// Pure Squirrel-OS/2 Warp hardware
-// Units: millimeters. Export STLs after tuning parameters.
+// ISM Fighter Jet — parametric airframe shell (study model)
+// International Squirrel Machines · Pure Squirrel-OS/2 Warp hardware
+// Units: millimeters. Full air-vehicle program lives in sibling dirs
+// (diagrams/, materials/, mechanical/, hydraulics/, flight-controls/,
+// avionics/, sensors-weapons/). This file is the proportion / print slice.
+// Station % FS maps: see diagrams/stations.md (FS-0 nose → FS-100 nozzle).
 
 /* [Overall] */
-fuselage_length = 420;
+fuselage_length = 420; // study length; %FS * this = station mm
 fuselage_width  = 48;
 fuselage_height = 56;
 nose_length     = 90;
@@ -117,6 +119,26 @@ module ism_badge_boss() {
             cylinder(h=badge_depth, d=12, $fn=32);
 }
 
+// Station reference discs (debug / alignment with diagrams/stations.md)
+show_stations = true;
+module station_marker(fs_pct, d=3) {
+    translate([fuselage_length * fs_pct, 0, fuselage_height + 4])
+        color("SaddleBrown") sphere(d=d, $fn=12);
+}
+
+module station_set() {
+    if (show_stations) {
+        station_marker(0.00); // FS-0 nose
+        station_marker(0.12); // radar/EO bulkhead
+        station_marker(0.22); // pressure bulkhead
+        station_marker(0.48); // avionics bay
+        station_marker(0.55); // MLG
+        station_marker(0.62); // wing carry-through
+        station_marker(0.90); // engine mounts
+        station_marker(1.00); // nozzle
+    }
+}
+
 module airframe() {
     fuselage();
     wing_half(+1);
@@ -124,6 +146,7 @@ module airframe() {
     horizontal_stabilizer();
     vertical_stabilizer();
     ism_badge_boss();
+    station_set();
 }
 
 // Preview assembly. Comment out and call parts for separate STLs.
