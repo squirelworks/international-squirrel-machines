@@ -1,42 +1,48 @@
 # International Squirrel Machines — Roadmap
 
-## Phase 0 — Repository Scaffold (current)
-- [x] Repository created
-- [x] Core documentation
-- [x] Device directory stubs
-- [x] Initial issues for every device
+Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → inquire for release.
 
-## Phase 1 — Keyboard (first device)
-- Scaffold KiCad schematic + PCB layout (hot-swap MX, RP2040-class MCU)
-- Scaffold parametric OpenSCAD shell (top/bottom, mounting, USB cutout, ISM branding)
-- Implement first-pass Gerbers and STLs
-- Polish BOM, assembly notes, and renders
-- Inquire for release
+## Phase 0 — Repository Scaffold (complete)
+- [x] Repository created
+- [x] Core documentation (principles, branding, devices)
+- [x] Device directory stubs (including drawing pads range)
+- [x] Roadmap
+- [ ] Issues created for every device (in progress)
+
+## Phase 1 — Keyboard (first production device)
+**Directory:** `keyboard/`
+- [ ] Design note: layout, MCU, matrix, hot-swap, mounting
+- [ ] KiCad schematic + PCB (`keyboard/kicad/`)
+- [ ] Parametric OpenSCAD shell (`keyboard/shell/`) — top/bottom, USB, ISM badge
+- [ ] First Gerbers + STLs
+- [ ] BOM, assembly notes, renders
+- [ ] Polish and inquire for release
 
 ## Phase 2 — Input Devices
-- Mouse
-- Trackball
-- Macro pad
-- Typewriter (mechanical + electronics)
+- [ ] Mouse (`mouse/`)
+- [ ] Trackball (`trackball/`)
+- [ ] Macro pad (`macro-pad/`)
+- [ ] Typewriter (`typewriter/`)
+- [ ] Drawing pads range — small / medium / large (`drawing-pads/`)
 
 ## Phase 3 — Output Devices
-- Monitor (enclosure + controller board)
-- Printer
-- Plotter
-- Camera
+- [ ] Monitor (`monitor/`)
+- [ ] Printer (`printer/`)
+- [ ] Plotter (`plotter/`)
+- [ ] Camera (`camera/`)
 
 ## Phase 4 — Core System
-- Computer case
-- Motherboard
-- CPU (or SoC module)
-- Graphics card
-- Sound card
-- Network card
-- Power supply
+- [ ] Computer case (`case/`)
+- [ ] Motherboard (`motherboard/`)
+- [ ] CPU (`cpu/`)
+- [ ] Graphics card (`graphics-card/`)
+- [ ] Sound card (`sound-card/`)
+- [ ] Network card (`network-card/`)
+- [ ] Power supply (to be added)
 
 ## Phase 5 — Complements
-- Terminal
-- Laptop / portable chassis
-- Docking station
+- [ ] Terminal (`terminal/`)
+- [ ] Laptop / portable chassis
+- [ ] Docking station
 
-All phases follow: scaffold → implement → polish → inquire for push.
+Each device follows the same cycle. Issues track the current open work.
