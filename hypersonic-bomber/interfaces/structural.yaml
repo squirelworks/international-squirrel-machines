@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+bomber_id: "ISM-HB-1"
+revision: "A"
+status: stub
+issue: 37
+provisional: true
+scope: educational_primary_structure_under_tps_shell
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming
+  - employment
+  - scramjet_recipes
+  - classified_tps
+  - itar_ear
+source_docs:
+  - hypersonic-bomber/docs/structural.md
+  - hypersonic-bomber/docs/design-note.md
+related_interfaces:
+  - aerothermal.yaml
+  - tps-placeholders.yaml
+  - thermal-board.yaml
+shell: hypersonic-bomber/shell/blunt_cone_study.scad
+
+members:
+  - id: NOSE_BULKHEAD
+    role: sphere_cone_junction_stub
+  - id: RING_FRAMES
+    role: circumferential_station_stubs
+    count_study: 6
+  - id: LONGERONS
+    role: axial_load_stubs
+  - id: TPS_ATTACH_RAILS
+    role: packaging_attach_stubs
+    notes: class_placeholder_not_recipe
+  - id: AFT_BULKHEAD
+    role: base_attach_stub
+  - id: THERMAL_BOARD_TRAY
+    role: kicad_board_mount_stub
+
+expected_behaviour:
+  educational_structure_only: true
+  no_weapons: true
+  no_tps_recipes: true
+  no_stress_certification: true
