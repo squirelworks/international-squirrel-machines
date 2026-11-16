@@ -8,8 +8,9 @@ Radar/EO/#76 sensors ICD, stores integration, EW stubs. **Fictional ISM systems 
 |-----|---------|
 | `radar-eo.md` | Sensor suite, mounts, power/data, FOV (#76) |
 | `sensor-fov-keepouts.svg` | Nose FOV / NLG keep-out sketch |
-| `stores.md` | Stations, pylons, release/safeing |
-| `stores-integration.md` | Rails/ejectors, inert models, SMS (#94) |
+| `stores.md` | Stations, pylons, safeing philosophy (#77) |
+| `stores-safeing.md` | Force-SAFE table, SMC discretes, lab policy (#77) |
+| `stores-integration.md` | Rails/ejectors, inert models (#94) |
 | `multi-origin-stores.md` | NATO/RU/CN/JP adapters (#101) |
 | `ew.md` | EW / self-protect stubs |
 

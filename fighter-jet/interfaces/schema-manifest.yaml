@@ -44,8 +44,9 @@ files:
     purpose: inert_store_models
     issue: 94
   - path: sms-interface.yaml
-    purpose: sms_and_separation
-    issue: 94
+    purpose: sms_safeing_and_separation
+    issue: 77
+    related_issues: [94, 101]
   - path: manufacturing.yaml
     purpose: manufacturing_supply_research
     issue: 100

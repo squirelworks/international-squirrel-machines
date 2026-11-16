@@ -91,7 +91,7 @@ Baselines under `fighter-jet/avionics/` (+ KiCad bay PCB).
 ### 6.4 — Weapons & sensors
 Baselines under `fighter-jet/sensors-weapons/`.
 - [x] [#76](https://github.com/squirelworks/international-squirrel-machines/issues/76) Radar / EO / IR sensor suite
-- [ ] [#77](https://github.com/squirelworks/international-squirrel-machines/issues/77) Missiles / stores / pylons / safeing
+- [x] [#77](https://github.com/squirelworks/international-squirrel-machines/issues/77) Missiles / stores / pylons / safeing
 
 ### 6.5 — Software & SquirrelSoft applications
 Build our own software. Third-party sims are **not** source of truth.
