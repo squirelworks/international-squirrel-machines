@@ -1,9 +1,8 @@
 schema_version: "1.0.0"
 program: "ISM-HB-1"
-revision: "A"
+revision: "B"
 status: stub
 issue: 37
-batch: B1
 note: Open/public educational citations only. No export-controlled TPS recipes.
 
 citations:
@@ -30,3 +29,17 @@ citations:
     url: "https://en.wikipedia.org/wiki/Thermal_protection_system"
     access_date: "2026-11-16"
     used_for: "High-level TPS class names only (B1)"
+
+  - id: wiki-stagnation
+    title: "Stagnation temperature (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Stagnation_temperature"
+    access_date: "2026-11-16"
+    used_for: "Teaching stagnation / recovery temperature (#37 deepen)"
+
+  - id: wiki-reentry
+    title: "Atmospheric entry (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Atmospheric_entry"
+    access_date: "2026-11-16"
+    used_for: "Public blunt-body heating / TPS context (#37 deepen)"

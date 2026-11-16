@@ -1,30 +1,35 @@
-# ISM Hypersonic Bomber — B1 (#37)
+# ISM Hypersonic Bomber — (#37)
 
 **Program ID:** ISM-HB-1 (study name TBD)  
-**This PR scope (B1):** educational **aerothermal** and **heat-shield / TPS** design notes only.
+**This PR:** aerothermal / TPS **deepen** — machine-readable stubs + teaching heat-flux check.
+
+## Prior slice
+B1 (#137) delivered aerothermal/TPS notes, stagnation examples, and blunt-cone study OML. This PR adds interfaces and a teaching heat-flux identity — still **educational aerothermal only**.
 
 ## Out of scope (hard limits)
 
-This tree does **not** cover:
-
 - Weapons, munitions, guidance, seekers, warheads, fuzing, or arming
 - Operational employment, targeting, or mission planning
-- Scramjet / propulsion **design recipes** or performance prediction for a real vehicle
-- Export-controlled (ITAR/EAR) TPS formulations, classified materials data, or “derived from leaks” sources
+- Scramjet / propulsion **design recipes** or performance prediction
+- Export-controlled (ITAR/EAR) TPS formulations, classified materials data
 - Full airframe / avionics / KiCad productization (later roadmap steps)
 
-## B1 deliverables
+## Deliverables
 
 | Path | Role |
 |------|------|
-| `docs/aerothermal-concepts.md` | Textbook hypersonic heat-transfer concepts |
-| `docs/heat-shield-tps.md` | Heat-shield / TPS **class** trades (educational) |
+| `docs/design-note.md` | Deepen summary (aerothermal + TPS classes) |
+| `docs/aerothermal-concepts.md` | Textbook heat-transfer concepts (B1) |
+| `docs/heat-shield-tps.md` | TPS class trades (B1) |
 | `docs/citations.yaml` | Open / public citations |
-| `docs/stagnation_examples.py` | Canonical stagnation-temperature teaching check |
-| `shell/blunt_cone_study.scad` | Blunt sphere-cone study OML (heat-shield geometry teaching) |
+| `docs/stagnation_examples.py` | Stagnation-temperature teaching check |
+| `docs/heat_flux_examples.py` | Teaching cold-wall heat-flux stub |
+| `interfaces/aerothermal.yaml` | Mach / T∞ / bluntness stubs |
+| `interfaces/tps-placeholders.yaml` | TPS **class** placeholders only |
+| `shell/blunt_cone_study.scad` | Blunt sphere-cone + outer TPS shell sketch |
 
-## Roadmap (#37) status after B1
-- [x] Design note — **aerothermal / heat-shield slice only** (this PR)
+## Roadmap (#37) status
+- [x] Design note — aerothermal / heat-shield (B1 + deepen)
 - [ ] KiCad boards
 - [ ] Structural / mechanical design (beyond study OML)
 - [ ] Gerbers + mechanical files
@@ -32,4 +37,4 @@ This tree does **not** cover:
 - [ ] Polish and inquire for release
 
 ## Weapons boundary
-Same military-lane rule as the fighter program: integration / ICD later if needed — **never** guidance, seekers, munition propulsion, warheads, or fuzing in-repo.
+**Never** guidance, seekers, munition propulsion, warheads, or fuzing in-repo.

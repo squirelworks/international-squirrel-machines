@@ -22,7 +22,7 @@ Current official list:
 - macro-pad
 - drawing-pads
 - fighter-jet
-- hypersonic-bomber (B1: aerothermal / TPS education only)
+- hypersonic-bomber (#37 deepen: educational aerothermal / TPS classes only) (B1: aerothermal / TPS education only)
 - subsonic-bomber (#38 deepen: inert bay / SAFE-INHIBIT stubs)
 - supersonic-bomber (#39 deepen: cruise thermal + inert bay stubs)
 - warship (B2: hydrostatics; weapons/sensors = mass/footprint only)
