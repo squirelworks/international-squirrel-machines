@@ -1,40 +1,49 @@
-# Supersonic bomber — design note (B1 #39)
+# Supersonic bomber — design note (#39 deepen)
 
 **Product:** ISM-XB-1 study  
-**Regime:** supersonic cruise class (textbook M ≈ 1.5–3) — **not** hypersonic TPS (#37)
+**Regime:** supersonic cruise class (textbook M ≈ 1.5–3) — **not** hypersonic TPS (#37).  
+**Prior:** B1 design-note slice; this revision adds machine-readable stubs.
 
-## Out of scope
-Weapons boundary: inert payload only. No guidance, seekers, munition propulsion, warheads, fuzing, or employment. No scramjet / hypersonic TPS recipes here — see `hypersonic-bomber/docs/`.
+## Out of scope (hard limits)
+
+- Guidance, seekers, munition propulsion, warheads, fuzing, arming codes
+- Employment or targeting content
+- Scramjet / hypersonic TPS recipes — see `hypersonic-bomber/docs/`
+- Export-controlled (ITAR/EAR) munition or fire-control designs
+
+Payload appears **only** as inert bay mass/volume/SAFE-INHIBIT stubs — see `../interfaces/payload-placeholders.yaml`.
 
 ---
 
 ## 1. Airframe layout (study)
 
-| Feature | Baseline study choice | Rationale |
-|---------|----------------------|-----------|
-| Planform | Low-aspect swept or delta-ish | Wave-drag awareness at M>1 |
-| Fuselage | Area-ruled slender body (qualitative) | Textbook Sears–Haack / area-rule hygiene |
-| Inlets | Side or under-fuselage | Packaging vs bay volume — product decision |
+| Feature | Baseline study | Notes |
+|---------|----------------|-------|
+| Planform | Low-aspect swept / delta-ish | Wave-drag awareness at M>1 |
+| Fuselage | Area-ruled slender body (qualitative) | Sears–Haack / area-rule hygiene |
+| Inlets | Side or under-fuselage | Packaging vs bay — product decision |
 | Empennage | Fin + all-moving stab or V-tail option | Later ICD |
 
-Study OML: `../shell/airframe_study.scad`.
+Stations / dimensions: `../interfaces/airframe.yaml`. Study OML: `../shell/airframe_study.scad`.
 
 ---
 
 ## 2. Avionics (conceptual)
 
-Same partition idea as subsonic (#38): FCC safety-critical, MC owns bay/safeing discretes, nav/EO stubs without targeting employment. Bus topology TBD; may align patterns with `fighter-jet/interfaces/` later without copying weapons topics.
+Same partition idea as subsonic (#38): FCC safety-critical, MC owns bay/SAFE-INHIBIT discretes, nav/EO stubs without targeting employment. May align bus patterns with `fighter-jet/interfaces/` later without copying weapons topics.
 
 ---
 
 ## 3. Thermal (cruise — not hypersonic TPS)
 
-| Topic | B1 stance |
-|-------|-----------|
-| Kinetic heating | Present but milder than hypersonic; skin temperature rise is a materials/coatings **class** question |
-| Hot spots | Leading edges, inlet lips, canopy — flag for materials note later |
-| TPS | No ablative/reusable hypersonic TPS stack in this tree; point to #37 for educational hypersonic heat-shield classes |
-| Avionics cooling | ECS / liquid cold-plate stubs when KiCad lands |
+| Topic | Stance |
+|-------|--------|
+| Kinetic heating | Milder than hypersonic; recovery-temperature **class** stub |
+| Hot spots | Leading edges, inlet lips, canopy — materials flag |
+| TPS | No ablative/reusable hypersonic stack here → #37 |
+| Avionics cooling | ECS / cold-plate stubs when KiCad lands |
+
+Teaching adiabatic recovery temperature: `thermal_examples.py` (classroom γ, M — not a materials allowables product).
 
 ---
 
@@ -42,15 +51,31 @@ Same partition idea as subsonic (#38): FCC safety-critical, MC owns bay/safeing 
 
 | Item | Baseline |
 |------|----------|
-| Class | Low-bypass turbofan or turbojet **class** with afterburner option (public class language) |
-| Count | Twin — packaging preference for yaw on engine-out |
-| Interfaces | Mounts, inlet duct keep-outs, nozzle clearance vs empennage |
-| Not in B1 | Detailed cycle deck, plume IR prediction, or fuel chemistry |
+| Class | Low-bypass turbofan or turbojet **class** (+ afterburner option, public language) |
+| Count | Twin — yaw on engine-out packaging |
+| Interfaces | Mounts, inlet duct keep-outs, nozzle vs empennage |
+| Not here | Cycle deck, plume IR prediction, fuel chemistry |
 
 ---
 
-## 5. Payload / bay
-Internal inert bay volume reserved. Future stores work follows the fighter weapons boundary (integration / SAFE-INHIBIT only).
+## 5. Payload / bay (inert only)
+
+| ID | Kind | Purpose |
+|----|------|---------|
+| BAY-MAIN | volume stub | Internal bay keep-out |
+| PLD-INERT-A/B | mass/CG boxes | Training / inert class |
+| DOOR-SAFE | discrete stub | SAFE/INHIBIT only |
+
+**SAFE / INHIBIT** (integration only — no arming or live release):
+
+| Condition | SAFE | INHIBIT bay release |
+|-----------|------|---------------------|
+| Ground maintenance | asserted | asserted |
+| Weight-on-wheels | asserted | asserted |
+| Inert present, no sim auth | asserted | asserted |
+| Sim inert release auth | deasserted* | deasserted* |
+
+\*Simulated inert only — **no** live munitions.
 
 ## 6. Next steps
-KiCad, structure, Gerbers/STLs, BOM, validation — later PRs.
+KiCad, structure, Gerbers/STLs, BOM, polish.

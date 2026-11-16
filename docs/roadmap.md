@@ -132,7 +132,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Gundam design note — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) actuators / sensors / power / cockpit; weapons = stores/SAFE-INHIBIT placeholders only.
 - [x] Aircraft carrier design-note deepen — [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45) flight deck / aviation / propulsion; weapons & combat sensors = mass/footprint only.
 - [x] Subsonic bomber design-note deepen — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) airframe interfaces + inert bay/SAFE-INHIBIT stubs.
-- [ ] Supersonic bomber deepen / remaining siblings / FJ gaps (later batches)
+- [x] Supersonic bomber design-note deepen — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) airframe / cruise thermal + inert bay/SAFE-INHIBIT stubs.
+- [ ] Remaining siblings / FJ gaps (later batches)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.

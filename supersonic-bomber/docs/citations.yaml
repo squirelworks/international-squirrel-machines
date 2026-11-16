@@ -1,0 +1,38 @@
+schema_version: "1.0.0"
+program: "ISM-XB-1"
+revision: "B"
+status: stub
+issue: 39
+note: >
+  Open educational / public supersonic cruise language only.
+  Payload = inert bay placeholders. No ITAR/EAR munitions content.
+  Hypersonic TPS education remains under hypersonic-bomber/ (#37).
+
+citations:
+  - id: wiki-supersonic
+    title: "Supersonic aircraft (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Supersonic_aircraft"
+    access_date: "2026-11-16"
+    used_for: "Supersonic cruise airframe teaching language (#39)"
+
+  - id: wiki-stagnation
+    title: "Stagnation temperature (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Stagnation_temperature"
+    access_date: "2026-11-16"
+    used_for: "Teaching recovery/stagnation temperature stub (#39)"
+
+  - id: wiki-area-rule
+    title: "Area rule (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Area_rule"
+    access_date: "2026-11-16"
+    used_for: "Qualitative area-ruled fuselage language (#39)"
+
+  - id: ism-sb-payload
+    title: "ISM subsonic bomber payload-placeholders (in-repo pattern)"
+    org: ISM
+    path: subsonic-bomber/interfaces/payload-placeholders.yaml
+    access_date: "2026-11-16"
+    used_for: "Inert bay / SAFE-INHIBIT boundary pattern (#39)"

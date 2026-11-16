@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-XB-1"
+revision: "B"
+status: stub
+issue: 39
+provisional: true
+scope: educational_supersonic_cruise_airframe
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - employment
+  - hypersonic_tps_recipes
+  - itar_ear_munitions
+source_docs:
+  - supersonic-bomber/docs/design-note.md
+related_interfaces:
+  - payload-placeholders.yaml
+related_programs:
+  - hypersonic-bomber  # educational TPS only (#37)
+
+study_model:
+  units: mm
+  fuselage_length_mm: 480
+  fuselage_diameter_mm: 42
+  wing_span_mm: 240
+  wing_root_chord_mm: 120
+  wing_tip_chord_mm: 20
+  wing_sweep_le_deg: 45
+  bay_l_mm: 140
+  bay_w_mm: 30
+  bay_h_mm: 24
+  cruise_mach_class: 2.0
+
+full_scale_class:
+  provisional: true
+  length_m_class: 35.0
+  span_m_class: 25.0
+  note: "Teaching class only"
+
+propulsion:
+  class: low_bypass_turbofan_or_turbojet
+  afterburner_option: true
+  count_options: [2]
+  cycle_design: false
+
+thermal:
+  recovery_temperature_teaching: true
+  hypersonic_tps: false
+
+shell: supersonic-bomber/shell/airframe_study.scad
+
+expected_behaviour:
+  weapons_are_inert_bay_only: true
+  no_hypersonic_tps_in_this_tree: true
+  kicad_next: true
