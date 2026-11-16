@@ -28,7 +28,7 @@ Current official list:
 - warship (#43: hydrostatics + KiCad scale-model control; weapons = mass/footprint only)
 - aircraft-carrier (#45 deepen: flight deck / aviation; combat = mass/footprint only)
 - submarine (B3: hull/trim; sonar = mass/footprint only)
-- rocket (B4: hobby; certified motors; passive logger; no guidance)
+- rocket (#41: hobby + KiCad passive logger/recovery; no guidance)
 - satellite (B5: bus + payload; weapons boundary)
 - space-station (#42: modules / ECLSS / docking; weapons boundary)
 - sonar (#40: educational echo-sounder; B3-style acoustic limits)

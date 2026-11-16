@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+rocket_id: "ISM-RK-1"
+board_id: "ism-rocket-logger"
+revision: "A"
+status: stub
+issue: 41
+provisional: true
+scope: passive_logger_and_recovery_only
+excluded:
+  - guidance
+  - steering
+  - active_flight_control
+  - seekers
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - ballistic_missile
+  - reentry_vehicle
+  - itar_ear
+source_docs:
+  - rocket/docs/design-note.md
+  - rocket/kicad/README.md
+related_interfaces:
+  - airframe.yaml
+  - avionics-passive.yaml
+kicad_project: rocket/kicad/ism-rocket-logger
+
+channels:
+  - id: I2C_IMU_BARO
+    role: passive_logger_sensing
+  - id: SPI_RADIO
+    role: telemetry_or_flash_stub
+  - id: PWM_DROGUE
+    header: J1
+    role: recovery_drogue_channel_stub
+  - id: PWM_MAIN
+    header: J2
+    role: recovery_main_channel_stub
+  - id: PWM_BUZZER
+    header: J3
+    role: locator_buzzer_stub
+  - id: PWM_SAFE_LED
+    header: J4
+    role: safe_inhibit_status_led
+
+motor:
+  note: "Certified commercial hobby motor only — not designed on this board"
+
+expected_behaviour:
+  no_guidance: true
+  no_steering: true
+  no_seekers: true
+  no_warheads: true
+  passive_logger_only: true
