@@ -1,0 +1,29 @@
+schema_version: "1.0.0"
+program: "ISM-SAT-1"
+revision: "A"
+status: stub
+issue: 31
+batch: B5
+note: Open cubesat / smallsat teaching sources only. No ITAR/EAR weapons content.
+
+citations:
+  - id: cubesat-design-spec
+    title: "CubeSat Design Specification (public Cal Poly / CubeSat program literature)"
+    org: Cal Poly CubeSat / public CDS
+    url: "https://www.cubesat.org/"
+    access_date: "2026-11-16"
+    used_for: "3U form factor / rail language (B5)"
+
+  - id: wiki-cubesat
+    title: "CubeSat (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/CubeSat"
+    access_date: "2026-11-16"
+    used_for: "Bus/payload teaching overview (B5)"
+
+  - id: nasa-cubesat-101
+    title: "NASA CubeSat 101 (public educational)"
+    org: NASA
+    url: "https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"
+    access_date: "2026-11-16"
+    used_for: "Educational bus subsystem checklist language (B5)"

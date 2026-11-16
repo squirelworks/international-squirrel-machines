@@ -123,7 +123,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Warship B2 design note — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) hull/hydrostatics/stability/powering; weapons & combat sensors as mass/footprint placeholders only. Carrier light slice with [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45).
 - [x] Submarine B3 design note — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) hull/trim/pressure-hull concept; sonar = mass/footprint only; no quieting/acoustics/life-support.
 - [x] Rocket B4 design note — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) hobby-class; certified motors; passive logger/recovery; no guidance or active control.
-- [ ] Satellite B5 / gundam siblings (later batches)
+- [x] Satellite B5 design note — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) bus + payload; weapons boundary (payload mass/power/data only).
+- [ ] Gundam / remaining siblings (later batches)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.

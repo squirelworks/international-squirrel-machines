@@ -1,0 +1,55 @@
+schema_version: "1.0.0"
+spacecraft_id: "ISM-SAT-1"
+revision: "A"
+status: stub
+issue: 31
+batch: B5
+provisional: true
+scope: educational_bus_architecture
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - itar_ear_payloads
+source_docs:
+  - satellite/docs/design-note.md
+related_interfaces:
+  - payload-placeholders.yaml
+
+form_factor:
+  class: cubesat_3u
+  envelope_mm: {x: 100, y: 100, z: 340}
+
+subsystems:
+  - id: OBC
+    role: onboard_computer
+    power_w_orbit_avg: 0.8
+  - id: EPS
+    role: electrical_power
+    solar_w_orbit_avg_class: 6.0
+    battery_wh_class: 20
+  - id: ADCS
+    role: attitude_detumble_coarse
+    power_w_orbit_avg: 0.5
+    weapons_pointing: false
+  - id: COMMS
+    role: beacon_command_telemetry
+    power_w_orbit_avg: 1.2
+    bands_class: [uhf_vhf_edu, s_band_edu]
+
+power_budget_w:
+  obc: 0.8
+  comms: 1.2
+  adcs: 0.5
+  payload: 1.0
+  margin_charge: 1.5
+  total: 5.0
+
+shell: satellite/shell/bus_study.scad
+
+expected_behaviour:
+  educational_bus_only: true
+  no_weapons_payloads: true
+  kicad_next: true
