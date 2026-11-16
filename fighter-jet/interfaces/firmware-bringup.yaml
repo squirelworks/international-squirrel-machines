@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 84
+provisional: true
+source_docs:
+  - fighter-jet/firmware/README.md
+  - fighter-jet/kicad/README.md
+  - fighter-jet/avionics/architecture.md
+related_interfaces:
+  - avionics-bus.yaml
+  - actuators.yaml
+  - flight-controls.yaml
+
+board:
+  id: ISM-FJ-BAY-IO
+  firmware_version: "0.1.0"
+  kicad: fighter-jet/kicad/
+  role: bay_io_concentrator_not_fcc
+
+toolchain:
+  host:
+    compiler: gcc
+    standard: c11
+    build: "cd fighter-jet/firmware && make && make test"
+  target_optional:
+    mcu_class: RP2040
+    sdk: pico_sdk
+    status: deferred
+
+uart_stdio_profile:
+  purpose: hil_and_analyzer_hook
+  commands: [help, bit, act, inc, uplink, brownout, tick, quit]
+  bit_line_fields:
+    - board
+    - ver
+    - rail28
+    - rail5
+    - rail3v3
+    - imu
+    - radio
+    - uplink
+    - brownout
+    - safe
+    - act_vector
+    - inc_vector
+
+channels:
+  actuators:
+    map: [J1, J2, J3, J4]
+    trunks: [A1, A2, A3, A4]
+    range: [-1.0, 1.0]
+  inceptors:
+    map: [stick_pitch, stick_roll, throttle, pedal_yaw]
+    range: [-1.0, 1.0]
+    note: aligns_flight-controls_inceptors_icd_subset
+
+safe_state:
+  triggers: [brownout, uplink_loss]
+  action: neutral_all_actuator_cmds
+  commands_rejected_while_safe: true
+  test: make_test_target_test_safe_state
+
+bus_hooks:
+  bit_topic: bay_io.bit
+  bus: ISM-Bus-A
+  rate_hz_target: 10
+  host_substitute: uart_stdio_bit_line
+
+expected_behaviour:
+  soft_hil_may_spawn_ism_bay_host: true
+  analyzer_parses_bit_line: true
+  fcc_laws_not_in_this_tree: true

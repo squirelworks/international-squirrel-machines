@@ -34,6 +34,9 @@ files:
   - path: avionics-architecture.yaml
     purpose: lru_split_connectors_schematic_coverage
     issue: 75
+  - path: firmware-bringup.yaml
+    purpose: bay_io_firmware_hooks_safe_state
+    issue: 84
   - path: materials-zones.yaml
     purpose: zone_material_map
     issue: 92

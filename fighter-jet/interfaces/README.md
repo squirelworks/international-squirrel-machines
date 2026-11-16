@@ -14,6 +14,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `hydraulics.yaml` | Routing keep-outs / EHA pack envelopes | Stub (#73) |
 | `avionics-bus.yaml` | Bus topology, topics, power | Stub (#75) |
 | `avionics-architecture.yaml` | LRU split, connectors, schematic coverage | Stub (#75) |
+| `firmware-bringup.yaml` | Bay I/O FW hooks, BIT UART profile, safe-state | Stub (#84) |
 | `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
 | `carrier-loads.yaml` | Arrestment / catapult / sink-rate / wing-fold cases | Stub (#93) |
 | `inert-stores.yaml` | Inert store mass/dims/drag/CG (public class figures) | Stub (#94) |
