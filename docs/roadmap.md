@@ -25,7 +25,7 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Mouse (`mouse/`) — fab-ready with 60% in PR #128 · [#3](https://github.com/squirelworks/international-squirrel-machines/issues/3)
 - [x] Trackball (`trackball/`) — [#8](https://github.com/squirelworks/international-squirrel-machines/issues/8) (PR #152)
 - [x] Macro pad (`macro-pad/`) — [#9](https://github.com/squirelworks/international-squirrel-machines/issues/9) (PR #154)
-- [ ] Typewriter (`typewriter/`)
+- [x] Typewriter (`typewriter/`) — [#4](https://github.com/squirelworks/international-squirrel-machines/issues/4) (this PR)
 - [ ] Drawing pads range — small / medium / large (`drawing-pads/`)
 
 ## Phase 3 — Output Devices
@@ -35,7 +35,7 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [ ] Camera (`camera/`)
 
 ## Phase 4 — Core System
-- [x] Memory / RAM modules (`memory/`) — fab-ready · [#110](https://github.com/squirelworks/international-squirrel-machines/issues/110) (this PR)
+- [x] Memory / RAM modules (`memory/`) — fab-ready · [#110](https://github.com/squirelworks/international-squirrel-machines/issues/110) (PR #156)
 - [ ] Computer case (`case/`)
 - [ ] Motherboard (`motherboard/`)
 - [ ] CPU (`cpu/`)
