@@ -1,29 +1,37 @@
-# Fly-by-Wire Architecture — ISM-FJ-1
+# Fly-by-Wire Architecture — ISM-FJ-1 (#74)
+
+**Contracts:** `../interfaces/flight-controls.yaml` · surface cmds ↔ `../interfaces/actuators.yaml`  
+**Block diagram:** `fcs-block.svg`
 
 ## Redundancy
-- **Quadruplex FCC** (four lanes) as baseline; triplex acceptable only with strong analytical justification (**product decision**).
-- Dissimilar software lanes optional for Block 2; Block 1 same-code with physical separation of ISM-Bus A/B and power feeds.
-- Sensors: redundant air-data, dual/tri IMU, dual AOA/sideslip probes where fitted.
+- **Quadruplex FCC** (four lanes) baseline; triplex only with strong analytical justification (**product decision**).
+- Block 1: same-code lanes with physical separation of ISM-Bus A/B and power feeds. Dissimilar software = Block 2 option.
+- Sensors: redundant air-data, dual/tri IMU, dual AOA/sideslip where fitted.
+- Voting: mid-value select; actuator model comparison for hardover; cross-channel data links; frame counters.
+- First iron-bird may run dual-lane hardware with quad software emulation — still FBW topology.
+
+## FCC vs mission computer
+| Box | Owns |
+|-----|------|
+| **FCC** | Inner-loop laws, envelope, voted surface commands, NWS, gear-gated modes, BIT |
+| **MC** | Outer mode requests, autopilot targets, **stores_config** to FCC |
+
+MC **never** bypasses FCC to actuators.
 
 ## Stick / throttle → surface path
 
 ```
-[Side-stick] --sensors--> [FCC lanes] --vote--> [surface commands]
+[Side-stick] --100 Hz--> [FCC lanes] --vote--> [cmd.surface.*]
 [Throttle quadrant] ------^                 |
-[Pedals] -----------------^                 v
-                                      [EHA controllers]
+[Pedals / brakes] --------^                 v
+                                      [EHA controllers]  ← actuators.yaml
                                             |
                                       [Aileron / HT / Rudder / Flaperon]
 ```
 
-- HOTAS inceptors are electrical only (force sensors / RVDTs).
-- Bay PCB (`kicad/`) provides a **development and study-model** PWM path paralleling the same logical channels; flight article uses FCC→EHA digital links as primary.
-- Autopilot / auto-throttle are FCC application modes, not separate boxes (MC may request modes).
-
-## Voting & monitors
-- Mid-value select or weighted vote among lanes.
-- Actuator model comparison for hardover detection.
-- Frame counters and cross-channel data links between lanes.
+- HOTAS inceptors are electrical only (force sensors / RVDTs). ICD ranges/topics in `flight-controls.yaml` → `inceptors_icd`.
+- Bay PCB (`kicad/`) = **development / study** PWM path paralleling the same logical channels; flight article uses FCC→EHA digital primary.
+- Autopilot / auto-throttle are FCC application modes (MC may request).
 
 ## Ground vs flight
-WOW + airspeed validity switch control laws (see `control-laws.md`). Nose-wheel steering engaged on ground.
+WOW + airspeed validity switch laws (`control-laws.md`). NWS on ground only.

@@ -81,7 +81,7 @@ Ship YAML/JSON under `fighter-jet/` for Flight Lab; one PR per coherent chunk.
 ### 6.2 — Systems (hydraulics / actuation / flight controls)
 Baselines under `fighter-jet/hydraulics/`, `flight-controls/`.
 - [x] [#73](https://github.com/squirelworks/international-squirrel-machines/issues/73) Hydraulics / actuation architecture
-- [ ] [#74](https://github.com/squirelworks/international-squirrel-machines/issues/74) Fly-by-wire & flight controls (inceptors → computer → surfaces)
+- [x] [#74](https://github.com/squirelworks/international-squirrel-machines/issues/74) Fly-by-wire & flight controls (inceptors → computer → surfaces)
 
 ### 6.3 — Avionics (beyond the bay PCB scaffold)
 Baselines under `fighter-jet/avionics/` (+ KiCad bay PCB).

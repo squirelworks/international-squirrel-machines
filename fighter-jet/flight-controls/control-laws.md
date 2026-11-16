@@ -1,6 +1,6 @@
-# Control Laws (Design Level) — ISM-FJ-1
+# Control Laws (Design Level) — ISM-FJ-1 (#74)
 
-Not coded here — architecture for future Squirrel-OS/2 flight software partitions.
+Not production-coded here — architecture for Squirrel-OS/2 partitions and Flight Lab models.
 
 ## Axes & effectors
 | Axis | Primary effectors | Secondary / blend |
@@ -10,14 +10,19 @@ Not coded here — architecture for future Squirrel-OS/2 flight software partiti
 | Yaw | Rudder | Differential thrust; aileron-rudder interconnect |
 | Speed | Throttles / nozzles | Speedbrake stub (Block 2) |
 
-## Modes
-1. **Powered approach** — higher gains, AOA emphasis, gentle pitch response.
-2. **Up-and-away / combat** — pitch-rate / Nz command blended with AOA limit.
-3. **Direct (degraded)** — reduced augmentation if sensors lost; still FBW, not mechanical.
-4. **Ground** — NWS, restricted surface rates, thrust idle logic.
+## Modes (entry / exit)
+
+| Mode | Intent | Entry | Exit |
+|------|--------|-------|------|
+| **powered_approach** | High gains, AOA emphasis | Gear down or land flap; KEAS in approach band | Gear+flap up, or select up-and-away |
+| **up_and_away** | Pitch-rate / Nz blend + AOA limit | Weight off wheels; KEAS above climb-out | Gear down, degraded, or ground |
+| **direct_degraded** | Reduced augmentation; still FBW | Sensor disagree / lane loss beyond threshold | Sensors valid + crew reset |
+| **ground** | NWS; surface rate ×0.4; thrust idle logic | Any WOW true | All WOW false + KEAS valid |
+
+Authoritative machine-readable copy: `flight-controls.yaml` → `modes`.
 
 ## Gains & scheduling
-Schedule on dynamic pressure, Mach (when available), gear, flap, stores config. Stores config from MC via ISM-Bus.
+Schedule on dynamic pressure, Mach (when available), gear, flap, stores config (from MC via ISM-Bus).
 
-## Carefree handling intent
+## Carefree handling
 Pilot commands stay inside envelope protections (`envelope.md`); FCC rejects or shapes commands that would exceed AOA, Nz, or roll-rate limits.
