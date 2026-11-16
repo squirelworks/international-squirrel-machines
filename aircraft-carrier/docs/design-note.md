@@ -1,42 +1,83 @@
-# Aircraft carrier — B2 design-note slice (#45 with warship #43)
+# Aircraft carrier — design note (#45 deepen)
 
 **Product:** ISM-CV-1 study  
-**B2 role:** arrangements / mass placeholders only — not a full #45 delivery.
+**Level:** public / textbook naval-architecture and carrier-arrangements language.  
+**Prior:** B2 light slice with warship #43; this revision completes the #45 design-note checkbox.
 
 ## Out of scope (hard limits)
-Same as warship B2: no weapons interfaces, fire control, combat-system internals, seekers, guidance, warheads, fuzing, or ITAR/EAR combat data. Aviation ordnance appears only as inert mass/footprint boxes if listed later.
+
+- Weapons interfaces, fire control, combat-system internals
+- Seekers, guidance, warheads, fuzing, arming codes, engagement doctrine
+- Export-controlled (ITAR/EAR) combat, acoustic, or nuclear-plant design detail
+- Classified catapult / EMALS plant internals (keep-out / load class only)
+
+Weapons and combat sensors exist **only** as mass and deck-footprint placeholders — see `../interfaces/mass-placeholders.yaml`.
 
 ---
 
-## 1. Flight deck (study)
+## 1. Flight deck
 
-| Feature | Baseline | Notes |
-|---------|----------|-------|
-| Deck area | Long rectangle study | Proportion sketch in `../shell/deck_study.scad` |
-| Landing area | Aft angled stub (qualitative) | Geometry packaging — no ops doctrine |
-| Catapult / launch | Forward zone keep-out box | Mass/volume stub only |
-| Island | Starboard superstructure mass box | KG / windage — no combat consoles |
+| Feature | Baseline study | Notes |
+|---------|----------------|-------|
+| Deck plan | Long rectangle + angled landing stub | `../shell/deck_study.scad` |
+| Landing area | Aft angled keep-out | Packaging — no ops doctrine |
+| Launch zone | Forward catapult keep-outs | Mass / length class stubs |
+| Arresting | Aft wire zone keep-out | Load-class stub only |
+| Island | Starboard superstructure | KG / windage mass box |
+| Elevators | Two deck openings | Mass + footprint in aviation stubs |
+
+Teaching deck-area parking budget: `deck_area_examples.py`.
 
 ---
 
-## 2. Aviation systems (placeholders)
+## 2. Aviation systems
 
 | ID | Kind | Mass (t) | Footprint | Purpose |
 |----|------|----------|-----------|---------|
-| AV-ELEV-1 | Elevator mass box | 80 | 15 × 12 m | Elevator structure mass |
-| AV-ELEV-2 | Elevator mass box | 80 | 15 × 12 m | Elevator structure mass |
-| AV-JP5 | Fuel mass stub | 500 | tank volume TBD | Aviation fuel mass — no weapons |
-| AV-ORD-INERT | Inert ordnance mass box | 50 | magazine footprint TBD | **Inert** mass only |
+| AV-ELEV-1 | Elevator mass box | 80 | 15 × 12 m | Structure mass |
+| AV-ELEV-2 | Elevator mass box | 80 | 15 × 12 m | Structure mass |
+| AV-JP5 | Fuel mass stub | 500 | tank volume class | Aviation fuel — no weapons |
+| AV-ORD-INERT | Inert ordnance mass box | 50 | magazine footprint | **Inert** mass only |
+| AV-HANGAR | Hangar deck volume stub | — | area class | Parking / service |
+| AV-CAT-1/2 | Catapult keep-out | 40 each | length class | Mass / keep-out — no plant design |
+| AV-ARREST | Arresting gear mass | 30 | zone footprint | Load-class stub |
 
-No aircraft combat-system internals; fighter program owns air-vehicle ICD separately (`fighter-jet/`).
+Machine-readable: `../interfaces/aviation.yaml`. Air-vehicle ICD remains with `fighter-jet/`.
 
 ---
 
-## 3. Propulsion / powering
-Nuclear or conventional island-power **class** as a product decision later. B2 stores only: machinery-box volume and electrical MW stub — no plant design.
+## 3. Combat systems (placeholders only)
 
-## 4. Combat sensors / weapons
-Inherit warship policy: mass/footprint placeholders only (`../../warship/interfaces/mass-placeholders.yaml` pattern). Carrier-specific combat boxes deferred until a dedicated #45 PR if needed.
+Carrier-specific combat boxes (same policy as warship B2):
 
-## 5. Next (#45)
-KiCad, structure, Gerbers/STLs, BOM, polish — not this slice.
+| ID | Kind | Purpose |
+|----|------|---------|
+| WP-CIWS-FWD / AFT | weapon_mass_box | Point-defense mount mass only |
+| WP-VLS-FWD | weapon_mass_box | Launch mass/volume only — no cells/FC |
+| SEN-RADAR-ISLAND | combat_sensor_mass_box | Radar house mass / windage |
+| SEN-EO-DIR | combat_sensor_mass_box | Director mass only |
+| SEN-TACAN-IFF | sensor_mass_box | Nav/ident mass stub — no waveforms |
+
+No track files, fire-control logic, or engagement doctrine. See `../interfaces/mass-placeholders.yaml`.
+
+---
+
+## 4. Propulsion / powering
+
+| Topic | Study stance |
+|-------|--------------|
+| Plant class | Nuclear **or** conventional island-power — product decision later |
+| Machinery box | Volume / mass stub amidships–aft |
+| Electrical | MW-class hotel + aviation load stub |
+| Propulsors | Twin/quad shaft stubs — packaging only |
+
+No nuclear-plant design, no classified EMALS power electronics.
+
+---
+
+## 5. Structure study
+
+`../shell/deck_study.scad` — hull + flight deck + island + elevator openings + topside radar/CIWS mass boxes (geometry packaging only).
+
+## 6. Next steps
+KiCad, structural design, Gerbers/STLs, BOM, polish.

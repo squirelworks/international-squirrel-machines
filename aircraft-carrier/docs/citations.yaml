@@ -1,0 +1,30 @@
+schema_version: "1.0.0"
+program: "ISM-CV-1"
+revision: "B"
+status: stub
+issue: 45
+note: >
+  Open educational / public carrier-arrangements language only.
+  Weapons and combat sensors = mass/footprint placeholders. No ITAR/EAR combat data.
+
+citations:
+  - id: wiki-aircraft-carrier
+    title: "Aircraft carrier (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Aircraft_carrier"
+    access_date: "2026-11-16"
+    used_for: "Flight-deck / island / aviation arrangements teaching (#45)"
+
+  - id: wiki-flight-deck
+    title: "Flight deck (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Flight_deck"
+    access_date: "2026-11-16"
+    used_for: "Angled deck / elevator / catapult keep-out language (#45)"
+
+  - id: ism-ws-mass
+    title: "ISM warship mass-placeholders interface (in-repo pattern)"
+    org: ISM
+    path: warship/interfaces/mass-placeholders.yaml
+    access_date: "2026-11-16"
+    used_for: "Combat weapons/sensor mass-footprint policy (#45)"

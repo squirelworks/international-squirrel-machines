@@ -1,0 +1,67 @@
+schema_version: "1.0.0"
+ship_id: "ISM-CV-1"
+revision: "B"
+status: stub
+issue: 45
+provisional: true
+scope: aviation_mass_footprint_keepouts_only
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - live_ordnance
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - classified_catapult_plant
+source_docs:
+  - aircraft-carrier/docs/design-note.md
+related_interfaces:
+  - mass-placeholders.yaml
+
+note: >
+  Aviation gear is mass, footprint, and keep-out only.
+  Ordnance listed is inert mass — not live munitions.
+
+systems:
+  - id: AV-ELEV-1
+    kind: elevator_mass_box
+    mass_t: 80.0
+    footprint_m: {l: 15.0, b: 12.0}
+  - id: AV-ELEV-2
+    kind: elevator_mass_box
+    mass_t: 80.0
+    footprint_m: {l: 15.0, b: 12.0}
+  - id: AV-JP5
+    kind: fuel_mass_stub
+    mass_t: 500.0
+    note: "Aviation fuel mass — no weapons"
+  - id: AV-ORD-INERT
+    kind: inert_ordnance_mass_box
+    mass_t: 50.0
+    note: "Inert magazine mass only"
+  - id: AV-HANGAR
+    kind: hangar_area_stub
+    area_m2_class: 8000.0
+  - id: AV-CAT-1
+    kind: catapult_keepout
+    mass_t: 40.0
+    length_m_class: 90.0
+  - id: AV-CAT-2
+    kind: catapult_keepout
+    mass_t: 40.0
+    length_m_class: 90.0
+  - id: AV-ARREST
+    kind: arresting_gear_mass
+    mass_t: 30.0
+
+deck_study:
+  length_m: 300.0
+  beam_m: 70.0
+  angled_landing_m2: 3500.0
+  parking_spot_m2: 120.0
+
+expected_behaviour:
+  no_live_ordnance: true
+  no_fire_control: true
+  no_classified_catapult_plant: true
