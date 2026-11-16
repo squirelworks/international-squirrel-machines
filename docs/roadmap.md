@@ -37,10 +37,10 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 ## Phase 4 — Core System
 - [x] Memory / RAM modules (`memory/`) — fab-ready · [#110](https://github.com/squirelworks/international-squirrel-machines/issues/110) (PR #156)
 - [x] Computer case (`case/`) — fab-ready · [#11](https://github.com/squirelworks/international-squirrel-machines/issues/11) (PR #186)
-- [x] Motherboard (`motherboard/`) — fab-ready · [#12](https://github.com/squirelworks/international-squirrel-machines/issues/12) (this PR)
-- [x] CPU (`cpu/`) — fab-ready · [#13](https://github.com/squirelworks/international-squirrel-machines/issues/13) (this PR)
-- [x] Graphics card (`graphics-card/`) — fab-ready · [#14](https://github.com/squirelworks/international-squirrel-machines/issues/14) (this PR)
-- [ ] Sound card (`sound-card/`)
+- [x] Motherboard (`motherboard/`) — fab-ready · [#12](https://github.com/squirelworks/international-squirrel-machines/issues/12) (PR #189)
+- [x] CPU (`cpu/`) — fab-ready · [#13](https://github.com/squirelworks/international-squirrel-machines/issues/13) (PR #198)
+- [x] Graphics card (`graphics-card/`) — fab-ready · [#14](https://github.com/squirelworks/international-squirrel-machines/issues/14) (PR #203)
+- [x] Sound card (`sound-card/`) — fab-ready · [#15](https://github.com/squirelworks/international-squirrel-machines/issues/15) (this PR)
 - [ ] Network card (`network-card/`)
 - [ ] Power supply (to be added)
 
