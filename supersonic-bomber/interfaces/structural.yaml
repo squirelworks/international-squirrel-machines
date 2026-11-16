@@ -1,0 +1,62 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-XB-1"
+revision: "A"
+status: stub
+issue: 39
+provisional: true
+scope: educational_primary_structure
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming
+  - employment
+  - live_ejectors
+  - hypersonic_tps_recipes
+  - itar_ear
+source_docs:
+  - supersonic-bomber/docs/structural.md
+  - supersonic-bomber/docs/design-note.md
+related_interfaces:
+  - airframe.yaml
+  - payload-placeholders.yaml
+  - bay-board.yaml
+shell: supersonic-bomber/shell/airframe_study.scad
+
+members:
+  - id: WING_SPAR_FRONT
+    role: wing_bending_stub
+  - id: WING_SPAR_REAR
+    role: wing_torsion_stub
+  - id: WING_CARRY_THROUGH
+    role: fuselage_carry_through_stub
+  - id: WING_RIBS
+    role: chordwise_shape_stubs
+    count_study: 5
+  - id: FUSELAGE_FRAMES
+    role: station_frames_stub
+    notes: clear_bay_keepout
+  - id: KEEL_LONGERONS
+    role: axial_load_around_bay
+  - id: NLG_ATTACH
+    role: nose_gear_hardpoint_stub
+  - id: MLG_ATTACH
+    role: main_gear_hardpoint_stub
+  - id: EMPENNAGE_SPAR
+    role: fin_stabilizer_stub
+
+gear:
+  layout: tricycle
+  carrier_suitability: false
+
+bay:
+  id: BAY-MAIN
+  role: inert_volume_keepout_only
+  structural_cutout: true
+
+expected_behaviour:
+  weapons_are_inert_bay_only: true
+  educational_structure_only: true
+  no_stress_certification: true
