@@ -38,7 +38,7 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Memory / RAM modules (`memory/`) — fab-ready · [#110](https://github.com/squirelworks/international-squirrel-machines/issues/110) (PR #156)
 - [x] Computer case (`case/`) — fab-ready · [#11](https://github.com/squirelworks/international-squirrel-machines/issues/11) (PR #186)
 - [x] Motherboard (`motherboard/`) — fab-ready · [#12](https://github.com/squirelworks/international-squirrel-machines/issues/12) (this PR)
-- [ ] CPU (`cpu/`)
+- [x] CPU (`cpu/`) — fab-ready · [#13](https://github.com/squirelworks/international-squirrel-machines/issues/13) (this PR)
 - [ ] Graphics card (`graphics-card/`)
 - [ ] Sound card (`sound-card/`)
 - [ ] Network card (`network-card/`)

@@ -57,6 +57,7 @@ SCRIPT_DEVICE_PREFIXES = (
     ("scripts/build_camera.py", "camera/"),
     ("scripts/build_case.py", "case/"),
     ("scripts/build_motherboard.py", "motherboard/"),
+    ("scripts/build_cpu.py", "cpu/"),
     ("scripts/build_memory.py", "memory/"),
     ("scripts/build_trackball.py", "trackball/"),
     ("scripts/build_mouse.py", "mouse/"),
