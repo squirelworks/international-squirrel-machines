@@ -23,7 +23,8 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Firmware (bay I/O) | `fighter-jet/firmware/` (#84) |
 | BOM / assembly / validation | `fighter-jet/docs/bom/`, `assembly-notes.md`, `validation.md` (#78) |
 | Bay PCB | `fighter-jet/kicad/` |
-| Study shell | `fighter-jet/shell/` |
+| Bay fab (study Gerbers) | `fighter-jet/fab/` |
+| Study shell + STL | `fighter-jet/shell/` |
 
 ## ICD freeze (Rev A)
 Pinned interface list: [`fighter-jet/interfaces/icd-freeze.yaml`](../../fighter-jet/interfaces/icd-freeze.md) · manifest [`schema-manifest.yaml`](../../fighter-jet/interfaces/schema-manifest.yaml). Key renames require Rev B.
@@ -40,3 +41,6 @@ Warm grays / soft browns; single accent TBD. See `docs/branding.md`.
 6. FCC quadruplex vs triplex
 7. Internal gun vs clean bay / EW pallet
 8. Accent color for livery and HUD chrome
+
+## Weapons boundary
+Stores / weapons in-program = **mass / footprint / SAFE / INHIBIT** placeholders only. Bay board has no stores fire channels. **No** seekers, guidance, munition propulsion, warheads, fuzing, or arming.

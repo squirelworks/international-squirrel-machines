@@ -40,7 +40,8 @@ fighter-jet/
 ├── tooling/                  assembly jigs, fixtures, layup tools, dies (#106)
 ├── firmware/                 bay I/O bring-up (host BIT/UART profile) (#84)
 ├── kicad/                    bay controller PCB (electrical slice)
-└── shell/                    parametric OpenSCAD study airframe
+├── fab/                      study Gerbers + CPL + BOM stub
+└── shell/                    parametric OpenSCAD study airframe (+ airframe.stl)
 ```
 
 | Area | Directory | Status |
@@ -54,12 +55,13 @@ fighter-jet/
 | Fly-by-wire | `flight-controls/` | Design program |
 | Avionics (beyond bay PCB) | `avionics/` | Design program |
 | Sensors & weapons | `sensors-weapons/` | Design program (fictional) |
-| Bay PCB | `kicad/` | Scaffold (KiCad project present) |
+| Bay PCB | `kicad/` | Study project present |
+| Bay fab | `fab/` | Study Gerbers + CPL + BOM |
 | Bay firmware | `firmware/` | Host BIT/UART bring-up (#84) |
-| Study shell | `shell/` | Scaffold (parametric OpenSCAD) |
+| Study shell | `shell/` | Parametric OpenSCAD + `airframe.stl` |
 
 ## Status
-**Design program in progress.** Concept architecture, diagrams, and materials/mechanical/FBW/avionics narratives are in-tree. PCB routing, production STLs, and detailed FEA/CFD remain next-cycle work.
+**Design program in progress.** Concept architecture, diagrams, and materials/mechanical/FBW/avionics narratives are in-tree. Bay study Gerbers + airframe STL are exported; detailed FEA/CFD and production tooling remain next-cycle work.
 
 ## Branding
 Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM squirrel badge on the vertical stabilizer and avionics silkscreen. No external trademarks. See `docs/branding.md`.
@@ -69,7 +71,7 @@ Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM sq
 2. Carrier suitability load cases YAML (hook / catapult / wing fold).
 3. Stores integration inert models + SMS interface YAML (no seeker/warhead/fuze).
 4. Comparative fighter programme survey under `docs/research/`.
-5. Lock product decisions; expand KiCad; export study STLs; freeze bay connector pinout.
+5. Lock product decisions; expand KiCad beyond study bay; freeze bay connector pinout beyond Rev A stubs.
 
 ## Open product decisions
 1. Twin vs single engine (baseline docs assume twin).
