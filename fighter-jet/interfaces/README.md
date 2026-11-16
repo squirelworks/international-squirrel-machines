@@ -20,6 +20,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `multi-origin-stores.yaml` | Family×station×adapter + inert catalogue | Stub (#101) |
 | `viability-criteria.yaml` | Sanity gates + class bands (canonical) | Stub (#103) |
 | `materials-allowables.yaml` | Spec callouts, allowables, stack-ups, joints | Stub (#71) |
+| `mechanical-airframe.yaml` | Load paths, gear envelopes, hinge/actuator geom | Stub (#72) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).

@@ -52,6 +52,9 @@ files:
   - path: materials-allowables.yaml
     purpose: materials_allowables_stackups_joints
     issue: 71
+  - path: mechanical-airframe.yaml
+    purpose: load_paths_gear_envelopes_hinges
+    issue: 72
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

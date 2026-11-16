@@ -65,7 +65,7 @@ Scaffold (PR #68) and the design-program documentation baseline (PR #86: diagram
 Design-doc baselines live under `fighter-jet/diagrams/`, `materials/`, `mechanical/`. Issues track remaining productization against those docs.
 - [x] [#70](https://github.com/squirelworks/international-squirrel-machines/issues/70) Diagrams & blueprints (3-views, sections, ICDs) — drawing index + DWG-010…070, interfaces stubs
 - [x] [#71](https://github.com/squirelworks/international-squirrel-machines/issues/71) Materials: metallurgy + composites stack-up and allowables (trade baseline in #92)
-- [ ] [#72](https://github.com/squirelworks/international-squirrel-machines/issues/72) Mechanical airframe, landing gear & control surfaces
+- [x] [#72](https://github.com/squirelworks/international-squirrel-machines/issues/72) Mechanical airframe, landing gear & control surfaces
 
 ### 6.1b — Continuous research tracks (military program)
 Ship YAML/JSON under `fighter-jet/` for Flight Lab; one PR per coherent chunk.
