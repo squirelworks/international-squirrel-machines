@@ -1,0 +1,89 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 78
+provisional: true
+source_docs:
+  - fighter-jet/docs/validation.md
+  - fighter-jet/interfaces/icd-freeze.yaml
+
+# venue: bench | hil | flight_lab | analysis | blocked_soft
+matrix:
+  - id: VAL-GEOM
+    interface: aircraft-geometry.yaml
+    co_check: study_shell_vs_FS_WS_tables
+    venue: bench
+    status: ready_ism
+  - id: VAL-MASS
+    interface: mass-properties.yaml
+    co_check: cg_inertia_sanity_vs_viability
+    venue: analysis
+    status: ready_ism
+  - id: VAL-MAT
+    interface: materials-allowables.yaml
+    co_check: zone_map_vs_allowables
+    venue: analysis
+    status: ready_ism
+  - id: VAL-GEAR
+    interface: mechanical-airframe.yaml
+    co_check: gear_envelopes_vs_shell_cutouts
+    venue: bench
+    status: ready_ism
+  - id: VAL-CARRIER
+    interface: carrier-loads.yaml
+    co_check: load_case_import_flight_lab
+    venue: flight_lab
+    status: blocked_soft
+    soft_issue: 79
+  - id: VAL-FBW
+    interface: flight-controls.yaml
+    co_check: mode_entry_exit_envelope
+    venue: flight_lab
+    status: blocked_soft
+    soft_issue: 79
+  - id: VAL-ACT
+    interface: actuators.yaml
+    co_check: cmd_to_eha_channel_map
+    venue: hil
+    status: blocked_soft
+    soft_issue: 80
+  - id: VAL-FW
+    interface: firmware-bringup.yaml
+    co_check: make_test_bit_uart_safe_state
+    venue: bench
+    status: ready_ism
+  - id: VAL-BUS
+    interface: avionics-bus.yaml
+    co_check: topic_list_vs_analyzer
+    venue: hil
+    status: blocked_soft
+    soft_issue: 83
+  - id: VAL-SENS
+    interface: sensors.yaml
+    co_check: stub_tracks_bit_topics
+    venue: flight_lab
+    status: blocked_soft
+    soft_issue: 79
+  - id: VAL-SMS
+    interface: sms-interface.yaml
+    co_check: force_safe_and_inhibit
+    venue: hil
+    status: blocked_soft
+    soft_issue: 80
+  - id: VAL-STORES
+    interface: inert-stores.yaml
+    co_check: mass_drag_increments
+    venue: flight_lab
+    status: blocked_soft
+    soft_issue: 79
+  - id: VAL-VIAB
+    interface: viability-criteria.yaml
+    co_check: sanity_gates
+    venue: analysis
+    status: ready_ism
+
+blockers:
+  - "Soft Flight Lab MVP (#79) and HIL UI (#80) required for blocked_soft rows"
+  - "Coupon allowables (#78 long-pole with materials) still provisional"
+  - "No live ordnance / seeker / fuze tests — integration inert only"

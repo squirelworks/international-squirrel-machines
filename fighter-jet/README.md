@@ -31,6 +31,10 @@ fighter-jet/
 ├── sensors-weapons/          radar/EO, stores, EW (fictional ISM)
 ├── docs/research/            comparative survey + citations (#95)
 ├── docs/viability.md         viability ladder (#103)
+├── docs/bom/                 master BOM stub (#78)
+├── docs/assembly-notes.md    prototype build sequence (#78)
+├── docs/validation*.md/yaml  co-check matrix (#78)
+├── docs/icd-freeze.md        Rev A ICD pin (#78)
 ├── geometry/                 OpenVSP/AVL/CalculiX + Eric scale-model targets
 ├── tooling/                  assembly jigs, fixtures, layup tools, dies (#106)
 ├── firmware/                 bay I/O bring-up (host BIT/UART profile) (#84)
