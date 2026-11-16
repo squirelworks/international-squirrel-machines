@@ -15,4 +15,5 @@ First device in the International Squirrel Machines line.
 Shared KiCad libraries and shell templates can live at the keyboard root; size-specific projects go in the subdirectories.
 
 ## Status
-Scaffolded. Ready for schematic and layout work per size.
+- Fab-ready: `60-percent/`, `65-percent/`, `75-percent/`, `tkl/`, `full-size/`
+- Still scaffold: `40-percent/`, `large/`, `extra-large/`

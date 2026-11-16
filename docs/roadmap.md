@@ -14,8 +14,9 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] 60% fab-ready (KiCad ERC/DRC 0, fab/, shell STL/STEP, TinyUSB) — PR #128 · [#61](https://github.com/squirelworks/international-squirrel-machines/issues/61)
 - [x] 65% fab-ready — PR #133 · [#62](https://github.com/squirelworks/international-squirrel-machines/issues/62)
 - [x] 75% fab-ready — PR #136 · [#63](https://github.com/squirelworks/international-squirrel-machines/issues/63)  
-- [ ] TKL fab-ready — [#64](https://github.com/squirelworks/international-squirrel-machines/issues/64) (this PR)
-- [ ] Other sizes (full-size / etc.) — one PR each; full-size scaffold exists with pre-existing ERC/DRC debt
+- [x] TKL fab-ready — PR #138 · [#64](https://github.com/squirelworks/international-squirrel-machines/issues/64)
+- [x] Full-size fab-ready — [#65](https://github.com/squirelworks/international-squirrel-machines/issues/65) (this PR)
+- [ ] Other sizes (40% / large / XL / etc.) — one PR each; file issues for gaps
 - [ ] Polish and inquire for release
 
 ## Phase 2 — Input Devices
