@@ -4,6 +4,9 @@ Parametric OpenSCAD airframe — **proportion / printable study slice** of the I
 
 ## Files
 - `airframe.scad` — fuselage (avionics + gear wells), wings (hinge grooves), empennage, spar/rib planes, deployed gear, FS markers
+- `propulsion_keepouts.scad` — engine/duct/nozzle packaging modules (A2 #120)
+- `propulsion_keepouts_preview.scad` — render keep-outs
+- `propulsion_intersection_check.scad` — must report **Current top level object is empty** (no bay/gear overlap)
 
 ## STL exports
 Debug flags `show_stations` / `show_structure_planes` default **false** (single manifold `airframe()` solid when gear included). Set true only for on-screen FS/WS planes.

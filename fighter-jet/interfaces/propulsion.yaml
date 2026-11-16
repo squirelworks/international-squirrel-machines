@@ -1,0 +1,161 @@
+# Propulsion integration contract — packaging level (A2 #120)
+# Scale: full-scale SI unless field ends in _study_mm. Engine is a black-box public-class envelope.
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 120
+provisional: true
+source_docs:
+  - fighter-jet/mechanical/propulsion.md
+  - fighter-jet/docs/research/engine-class-bounds.md
+  - fighter-jet/docs/research/twin-vs-single.md
+  - fighter-jet/diagrams/stations.md
+related_interfaces:
+  - viability-criteria.yaml
+  - mass-properties.yaml
+  - mechanical-airframe.yaml
+  - materials-zones.yaml
+
+product_decision:
+  baseline: twin
+  single_engine_alternate: open
+  note: "Twin is packaging baseline; single alternate sized in twin-vs-single.md"
+
+engine_count: 2
+
+# Class totals for viability gates (twin baseline)
+thrust_class_dry_kN: 120.0    # 2 × ~60 kN class
+thrust_class_wet_kN: 180.0    # 2 × ~90 kN class
+sfc_class:
+  cruise_per_hr: 0.85
+  cruise_per_s: 0.000236    # 0.85/3600 — provisional class
+  military_per_hr: 0.90
+  provisional: true
+  citation_ids: [raymer-ads, ef-tecguide-2013]
+
+envelope:
+  # Per-engine public-class band (not a single copied engine)
+  length_m: {min: 3.5, max: 4.2, nominal: 3.9, citation_ids: [ef-tecguide-2013, wiki-ej200, wiki-m88]}
+  max_dia_m: {min: 0.70, max: 0.90, nominal: 0.80, citation_ids: [ef-tecguide-2013, wiki-f414]}
+  dry_mass_kg: {min: 900, max: 1200, nominal: 1050, citation_ids: [ef-tecguide-2013, wiki-m88, wiki-f414]}
+  study_mm:
+    scale_from_full: 36.9
+    length_nominal: 106   # 3.9e3/36.9
+    max_dia_nominal: 22
+    note: "Study OML packaging only"
+
+mount_points:
+  - id: thrust_link_L
+    fs_pct: 0.90
+    side: left
+    loads: [thrust_fwd, inertia_1g_manoeuvre, gyroscopic_stub]
+    frame: FS-90_primary
+  - id: thrust_link_R
+    fs_pct: 0.90
+    side: right
+    loads: [thrust_fwd, inertia_1g_manoeuvre, gyroscopic_stub]
+    frame: FS-90_primary
+  - id: side_link_L_fwd
+    fs_pct: 0.85
+    side: left
+    loads: [lateral, vertical_inertia]
+  - id: side_link_R_fwd
+    fs_pct: 0.85
+    side: right
+    loads: [lateral, vertical_inertia]
+  - id: side_link_L_aft
+    fs_pct: 0.94
+    side: left
+    loads: [lateral, nozzle_interface]
+  - id: side_link_R_aft
+    fs_pct: 0.94
+    side: right
+    loads: [lateral, nozzle_interface]
+
+inlet:
+  capture_area_m2_total: 0.72   # twin; provisional textbook sizing
+  capture_area_m2_per_inlet: 0.36
+  design_mach_range: [0.0, 1.6]
+  duct_length_m: 2.4            # FS-60 → FS-82 class
+  offset_ratio: 0.35            # offset/duct_length — S-duct mild
+  diffuser_area_ratio: 1.6
+  study_mm:
+    duct_length: 65             # 2.4e3/36.9
+    capture_dia_per_inlet: 18
+  citation_ids: [seddon-goldsmith, mattingly-aed, raymer-ads]
+  packaging_note: "Ducts stay outboard of dorsal bay FS-48 and above MLG wells FS-55"
+  open_risks: [inlet_distortion, engine_inlet_compatibility, no_cfd_yet]
+
+offtakes:
+  gen_kVA_per_engine: 40
+  gen_kVA_total_twin: 80
+  bleed: customer_bleed_stub
+  feeds: [PDU_28VDC, essential_cross_tie]
+  citation_ids: [buses-power, raymer-ads]
+  note: "Sized to cover bay PDU + EHA converters class load; provisional"
+
+fire_zones:
+  - id: engine_bay_L
+    fs_pct_range: [0.82, 0.95]
+  - id: engine_bay_R
+    fs_pct_range: [0.82, 0.95]
+firewall_ref: materials-zones.yaml#aft_hot_structure
+
+removal:
+  path: aft_on_rails
+  cockpit_separation_required: false
+  rail_fs_pct: [0.82, 0.98]
+  clearance_note: "Maintainability.md — aft without cockpit separation"
+  citation_ids: [maintainability]
+
+viability_inputs:
+  # Wired so G-TW-MTOW / G-FUEL-FRAC / G-BREGUET read propulsion class (no missing input)
+  thrust_sl_dry_total_n: 120000
+  thrust_sl_reheat_total_n: 180000
+  sfc_cruise_per_s: 0.000236
+  source: this_file
+
+citations:
+  - id: ef-tecguide-2013
+    path: fighter-jet/docs/research/citations.yaml
+  - id: eurofighter-features
+    path: fighter-jet/docs/research/citations.yaml
+  - id: raymer-ads
+    title: "Aircraft Design: A Conceptual Approach (Raymer)"
+    doi: "10.2514/4.104909"
+    kind: textbook
+  - id: mattingly-aed
+    title: "Aircraft Engine Design (Mattingly et al.)"
+    doi: "10.2514/4.861444"
+    kind: textbook
+  - id: seddon-goldsmith
+    title: "Intake Aerodynamics (Seddon & Goldsmith)"
+    doi: "10.2514/4.473616"
+    kind: textbook
+  - id: wiki-ej200
+    title: "Eurojet EJ200 (encyclopedia)"
+    url: "https://en.wikipedia.org/wiki/Eurojet_EJ200"
+    access_date: "2026-11-16"
+  - id: wiki-m88
+    title: "Snecma M88 (encyclopedia)"
+    url: "https://en.wikipedia.org/wiki/Snecma_M88"
+    access_date: "2026-11-16"
+  - id: wiki-f414
+    title: "General Electric F414 (encyclopedia)"
+    url: "https://en.wikipedia.org/wiki/General_Electric_F414"
+    access_date: "2026-11-16"
+  - id: ge-f414-product
+    title: "GE Aerospace F414 product page"
+    url: "https://www.geaerospace.com/propulsion/military/f414"
+    access_date: "2026-11-16"
+    http_status_note: "301 redirect observed 2026-11-16"
+  - id: buses-power
+    path: fighter-jet/avionics/buses-power.md
+  - id: maintainability
+    path: fighter-jet/mechanical/maintainability.md
+
+expected_behaviour:
+  no_engine_internals: true
+  no_weapon_propulsion: true
+  public_class_bands_only: true

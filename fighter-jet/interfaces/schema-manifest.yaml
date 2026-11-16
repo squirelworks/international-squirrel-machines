@@ -81,6 +81,9 @@ files:
   - path: hydraulics.yaml
     purpose: actuation_routing_keepouts
     issue: 73
+  - path: propulsion.yaml
+    purpose: propulsion_envelope_inlet_mounts_offtakes
+    issue: 120
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

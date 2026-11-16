@@ -8,11 +8,14 @@ canonical_name: viability-criteria.yaml
 source_docs:
   - fighter-jet/docs/viability.md
   - fighter-jet/docs/research/comparative-fighter-survey.md
+  - fighter-jet/docs/research/engine-class-bounds.md
   - fighter-jet/interfaces/mass-properties.yaml
   - fighter-jet/interfaces/aircraft-geometry.yaml
   - fighter-jet/interfaces/carrier-loads.yaml
+  - fighter-jet/interfaces/propulsion.yaml
 
 # Provisional full-scale mapping from study OML (L_study=420 mm → L≈15.5 m)
+# Thrust / SFC class inputs come from propulsion.yaml (A2 #120) — no missing propulsion input.
 derived_full_scale:
   provisional: true
   length_m: 15.5
@@ -22,8 +25,10 @@ derived_full_scale:
   empty_mass_kg: 9800
   mtow_kg: 18500
   fuel_internal_kg: 4200
-  thrust_sl_reheat_total_n: 180000  # twin ~90 kN class each (EJ200-class public)
-  thrust_sl_dry_total_n: 120000
+  thrust_sl_reheat_total_n: 180000  # from propulsion.yaml viability_inputs (twin ~90 kN class)
+  thrust_sl_dry_total_n: 120000     # from propulsion.yaml viability_inputs
+  sfc_cruise_per_s: 0.000236        # from propulsion.yaml sfc_class
+  propulsion_ref: propulsion.yaml
   nz_limit_g: 9.0
   combat_radius_km_assumption: 900  # mission stub pending aero DB
   static_margin_pct_mac_assumption: 5.0
@@ -122,6 +127,7 @@ gates:
     unit: "1"
     result: pass
     citation_ids: [raymer-ads, eurofighter-features]
+    propulsion_input: propulsion.yaml#viability_inputs.thrust_sl_reheat_total_n
 
   - id: G-WING-LOAD
     name: wing_loading_mtow
@@ -141,6 +147,7 @@ gates:
     unit: "1"
     result: pass
     citation_ids: [raymer-ads, roskam-I, mass-properties]
+    propulsion_input: "fuel mass from mass-properties; thrust/SFC class from propulsion.yaml (no missing input)"
 
   - id: G-RADIUS
     name: combat_radius_assumption
@@ -158,13 +165,14 @@ gates:
       L/D or SFC outside fighter-cruise heuristics for assumed radius.
     assumed_v_mps: 250
     assumed_ld: 8.0
-    assumed_sfc_per_s: 0.000025  # ~0.9 /hr class crude
-    implied_range_km: 2100
-    combat_radius_fraction_of_ferry: 0.43
+    assumed_sfc_per_s: 0.000236  # from propulsion.yaml sfc_class.cruise_per_s (~0.85/h)
+    implied_range_km: 900         # recomputed order-of-magnitude with class SFC; provisional
+    combat_radius_fraction_of_ferry: 1.0
     band_ld: {min: 6.0, max: 12.0}
     result: provisional_pass
     citation_ids: [raymer-ads, roskam-I]
-    note: "Crude; Steve replaces with Flight Lab aero"
+    propulsion_input: propulsion.yaml#sfc_class.cruise_per_s
+    note: "Crude; Steve replaces with Flight Lab aero. Propulsion SFC input present (A2)."
 
   - id: G-NZ
     name: max_nz

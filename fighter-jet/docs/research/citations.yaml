@@ -102,3 +102,50 @@ citations:
     org: Wikipedia
     url: "https://en.wikipedia.org/wiki/Global_Combat_Air_Programme"
     used_for: "UK–Italy–Japan next-gen partnership high-level"
+
+  # A2 #120 propulsion class bounds
+  - id: wiki-ej200
+    title: "Eurojet EJ200 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Eurojet_EJ200"
+    access_date: "2026-11-16"
+    used_for: "EJ200-class dry/reheat and envelope order-of-magnitude"
+
+  - id: wiki-m88
+    title: "Snecma M88 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Snecma_M88"
+    access_date: "2026-11-16"
+    used_for: "M88-class thrust/mass envelope bounds"
+
+  - id: wiki-f414
+    title: "General Electric F414 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/General_Electric_F414"
+    access_date: "2026-11-16"
+    used_for: "F414-class thrust/diameter/mass bounds"
+
+  - id: ge-f414-product
+    title: "GE Aerospace F414 product page"
+    org: GE Aerospace
+    url: "https://www.geaerospace.com/propulsion/military/f414"
+    access_date: "2026-11-16"
+    used_for: "Public F414 product-page class context (HTTP 301 observed)"
+
+  - id: raymer-ads
+    title: "Aircraft Design: A Conceptual Approach (Raymer)"
+    org: AIAA
+    doi: "10.2514/4.104909"
+    used_for: "Textbook propulsion/fuel integration and rubber-sizing (A2)"
+
+  - id: mattingly-aed
+    title: "Aircraft Engine Design (Mattingly, Heiser, Pratt)"
+    org: AIAA
+    doi: "10.2514/4.861444"
+    used_for: "Textbook inlet/nozzle installation sizing (A2)"
+
+  - id: seddon-goldsmith
+    title: "Intake Aerodynamics (Seddon & Goldsmith)"
+    org: AIAA
+    doi: "10.2514/4.473616"
+    used_for: "Textbook inlet capture / S-duct basics (A2)"
