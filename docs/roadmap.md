@@ -85,7 +85,7 @@ Baselines under `fighter-jet/hydraulics/`, `flight-controls/`.
 
 ### 6.3 — Avionics (beyond the bay PCB scaffold)
 Baselines under `fighter-jet/avionics/` (+ KiCad bay PCB).
-- [ ] [#75](https://github.com/squirelworks/international-squirrel-machines/issues/75) Avionics architecture (schematic, bus, bay, harness)
+- [x] [#75](https://github.com/squirelworks/international-squirrel-machines/issues/75) Avionics architecture (schematic, bus, bay, harness)
 - [ ] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
 
 ### 6.4 — Weapons & sensors

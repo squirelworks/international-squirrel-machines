@@ -1,11 +1,17 @@
 # Avionics Program — ISM-FJ-1
 
-Beyond the bay controller PCB: mission computer, buses, power, navigation sensors, data links, HUD/HMI, and software partitioning. The KiCad project under `../kicad/` is the **bay I/O concentrator** slice, not the whole avionics suite.
+Beyond the bay controller PCB (#75): architecture, buses, power, connectors, MC/FCC roles, HUD/HMI, partitioning. KiCad under `../kicad/` is the **bay I/O concentrator** slice.
 
 | Doc | Content |
 |-----|---------|
-| `mission-computer.md` | MC roles, lanes, interfaces |
+| `architecture.md` | Aircraft-level architecture + schematic coverage |
+| `bus-topology.svg` | Masters / peers diagram |
+| `connectors-pinouts.md` | HOTAS / actuation / sense / power drafts |
+| `bay-pcb-placement.md` | Placement zones + multi-board split |
+| `mission-computer.md` | MC roles, lanes |
 | `buses-power.md` | ISM-Bus, power architecture |
-| `sensors-nav.md` | IMU, GPS/GNSS, air-data |
-| `hmi-hud.md` | HUD, LAD, HOTAS, caution |
-| `software-partitioning.md` | Safety partitions, Squirrel-OS/2 notes |
+| `sensors-nav.md` | IMU, GNSS, air-data |
+| `hmi-hud.md` | HUD, LAD, HOTAS |
+| `software-partitioning.md` | Safety partitions |
+
+**Steve / Flight Lab:** `../interfaces/avionics-architecture.yaml` · `../interfaces/avionics-bus.yaml`

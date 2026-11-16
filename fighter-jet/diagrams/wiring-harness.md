@@ -42,7 +42,10 @@ The current KiCad board is the **local I/O concentrator** in the avionics bay: M
 3. No single connector failure kills more than one FCC lane.
 4. Field replaceable harness segments at FS-42 and FS-72 splices.
 
+## Pinout drafts (#75)
+See `../avionics/connectors-pinouts.md` and `../interfaces/avionics-architecture.yaml`. Connector **series** still TBD; pin functions drafted for HOTAS, J1–J4, J_SENS, J_PWR, J_BUS.
+
 ## Still stubbed
-- Exact connector series and pin maps
-- Fiber vs copper for S1
+- Exact connector series (mil circular vs study headers)
+- Fiber vs copper for S1 final choice
 - HVDC for future electric actuation growth
