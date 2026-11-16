@@ -13,5 +13,7 @@ Beyond the bay controller PCB (#75): architecture, buses, power, connectors, MC/
 | `sensors-nav.md` | IMU, GNSS, air-data |
 | `hmi-hud.md` | HUD, LAD, HOTAS |
 | `software-partitioning.md` | Safety partitions |
+| `computing-platform.md` | Flight-critical RTOS vs OS/2 ground/lab; SquirrelBIOS trial |
 
-**Steve / Flight Lab:** `../interfaces/avionics-architecture.yaml` · `../interfaces/avionics-bus.yaml`
+**Steve / Flight Lab:** `../interfaces/avionics-architecture.yaml` · `../interfaces/avionics-bus.yaml`  
+**Ground/lab OS:** [squirrel-os2#225](https://github.com/squirelworks/squirrel-os2/issues/225) — see `computing-platform.md`.
