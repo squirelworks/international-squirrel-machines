@@ -23,7 +23,7 @@ Current official list:
 - drawing-pads
 - fighter-jet
 - hypersonic-bomber (B1: aerothermal / TPS education only)
-- subsonic-bomber
+- subsonic-bomber (#38 deepen: inert bay / SAFE-INHIBIT stubs)
 - supersonic-bomber
 - warship (B2: hydrostatics; weapons/sensors = mass/footprint only)
 - aircraft-carrier (#45 deepen: flight deck / aviation; combat = mass/footprint only)

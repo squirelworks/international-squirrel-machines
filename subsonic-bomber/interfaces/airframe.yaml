@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-SB-1"
+revision: "B"
+status: stub
+issue: 38
+provisional: true
+scope: educational_subsonic_airframe
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - employment
+  - itar_ear_munitions
+source_docs:
+  - subsonic-bomber/docs/design-note.md
+related_interfaces:
+  - payload-placeholders.yaml
+
+study_model:
+  units: mm
+  fuselage_length_mm: 520
+  fuselage_diameter_mm: 48
+  wing_span_mm: 360
+  wing_root_chord_mm: 90
+  wing_tip_chord_mm: 35
+  wing_sweep_le_deg: 25
+  bay_l_mm: 160
+  bay_w_mm: 36
+  bay_h_mm: 28
+
+full_scale_class:
+  provisional: true
+  length_m_class: 35.0
+  span_m_class: 40.0
+  empty_mass_kg: 45000
+  note: "Teaching class only"
+
+propulsion:
+  class: high_bypass_turbofan
+  count_options: [2]
+  cycle_design: false
+
+shell: subsonic-bomber/shell/airframe_study.scad
+
+expected_behaviour:
+  weapons_are_inert_bay_only: true
+  kicad_next: true

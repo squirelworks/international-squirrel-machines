@@ -1,6 +1,6 @@
-// ISM-SB-1 subsonic bomber study OML — B1 #38
-// Units: mm. Proportion sketch only — not structural authority.
-// No stores / munitions geometry.
+// ISM-SB-1 subsonic bomber study OML — #38 deepen
+// Units: mm. Proportion sketch + inert bay volume box.
+// No munitions / seeker / guidance geometry.
 
 fuselage_length = 520;
 fuselage_d = 48;
@@ -39,8 +39,15 @@ module empennage() {
         cube([35, 90, 4], center = true);
 }
 
-echo("B1 #38: subsonic bomber study OML — inert airframe only");
+module inert_bay_volume() {
+    // BAY-MAIN keep-out / mass volume — packaging only
+    translate([240, -18, 8])
+        cube([160, 36, 28]);
+}
+
+echo("#38: subsonic bomber study — inert bay volume only; no munitions");
 fuselage();
 wing(+1);
 wing(-1);
 empennage();
+inert_bay_volume();
