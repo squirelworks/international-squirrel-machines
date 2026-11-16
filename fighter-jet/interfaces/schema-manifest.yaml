@@ -37,6 +37,16 @@ files:
   - path: firmware-bringup.yaml
     purpose: bay_io_firmware_hooks_safe_state
     issue: 84
+  - path: bit-frame.yaml
+    purpose: bay_io_bit_field_list_rates_encoding
+    issue: 119
+  - path: safe-state.yaml
+    purpose: trigger_channel_output_test_matrix
+    issue: 119
+  - path: bay-io.ismfj-iface
+    purpose: bay_io_concentrator_iface
+    issue: 119
+    related_issues: [84, 88]
   - path: icd-freeze.yaml
     purpose: rev_a_icd_pin_list
     issue: 78

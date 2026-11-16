@@ -84,6 +84,51 @@ topics:
     bus: ISM-Bus-A
     rate_hz: 10
     payload: concentrator_health
+    bit_frame: bit-frame.yaml
+    consumers: [HIL_80, MC_81, HUD_82, analyzer_83]
+
+  # A1 #119 — message set for mission-computer stubs (#81), HUD (#82), analyzer (#83)
+  - name: mc.nav_state
+    bus: ISM-Bus-A
+    rate_hz: 50
+    payload: lat_lon_alt_vn_ve_vd_stub
+    consumers: [MC_81, HUD_82]
+  - name: mc.mission_phase
+    bus: ISM-Bus-A
+    rate_hz: 5
+    payload: phase_enum_stub
+    consumers: [MC_81, HUD_82]
+  - name: hud.symbology_cmd
+    bus: ISM-Bus-A
+    rate_hz: 30
+    payload: cue_list_stub
+    consumers: [HUD_82]
+  - name: hud.caution_advisory
+    bus: ISM-Bus-A
+    rate_hz: 10
+    payload: cautions_from_bit_and_mc
+    consumers: [HUD_82]
+  - name: bay_io.actuator_fb
+    bus: ISM-Bus-A
+    rate_hz: 100
+    payload: j1_j4_cmd_echo_normalized
+    consumers: [HIL_80, analyzer_83]
+  - name: bay_io.inceptor
+    bus: ISM-Bus-A
+    rate_hz: 100
+    payload: stick_throttle_pedal_normalized
+    consumers: [MC_81, HIL_80, analyzer_83]
+  - name: analyzer.capture_meta
+    bus: ISM-Bay-Debug
+    rate_hz: 1
+    payload: capture_id_rate_filter
+    consumers: [analyzer_83]
+  - name: analyzer.frame_tap
+    bus: ISM-Bay-Debug
+    rate_hz: 0
+    payload: mirrored_bus_frames
+    consumers: [analyzer_83]
+    note: on_demand_tap_not_periodic
 
 power:
   primary_vdc: 28

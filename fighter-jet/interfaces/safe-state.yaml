@@ -1,0 +1,114 @@
+# Safe-state table — every bay-io output channel → required state + bench/HIL test ID
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 119
+related_issues: [84, 80]
+provisional: true
+source_docs:
+  - fighter-jet/firmware/README.md
+  - fighter-jet/interfaces/bay-io.ismfj-iface
+  - fighter-jet/interfaces/bit-frame.yaml
+  - fighter-jet/diagrams/wiring-harness.md
+reference_patterns:
+  - document: MIL-STD-704F
+    section: "transient / interrupt categories (brownout test idea)"
+    use: test_category_labels_only
+safety_note: >
+  Bench tests use current-limited supplies and no live hydraulics.
+  Safe-state on real servos/EHAs can injure people or damage parts.
+
+defaults:
+  actuator_cmd_normalized: 0.0
+  discrete_safe_level: inactive
+  commands_rejected_while_safe: true
+
+triggers:
+  - id: brownout
+    description: Essential rail brownout / under-voltage
+    enters_safe: true
+  - id: watchdog_reset
+    description: Watchdog timeout or post-reset hold
+    enters_safe: true
+  - id: uplink_loss
+    description: Loss of FCC/MC uplink or ISM-Bus-A schedule
+    enters_safe: true
+  - id: inceptor_loss
+    description: Loss of inceptor validity (timeout / invalid frame)
+    enters_safe: true
+
+# One row per output channel in bay-io.ismfj-iface (100% coverage)
+rows:
+  - channel_id: J1_PWM_AIL
+    kind: actuator_pwm
+    map: aileron_study
+    trunk: A1
+    for_triggers: [brownout, watchdog_reset, uplink_loss, inceptor_loss]
+    required_output: neutral_cmd_0
+    discrete: null
+    test_ids: [SS-BO-01, SS-WD-01, SS-UL-01, SS-IN-01]
+  - channel_id: J2_PWM_ELE
+    kind: actuator_pwm
+    map: elevator_study
+    trunk: A2
+    for_triggers: [brownout, watchdog_reset, uplink_loss, inceptor_loss]
+    required_output: neutral_cmd_0
+    test_ids: [SS-BO-01, SS-WD-01, SS-UL-01, SS-IN-01]
+  - channel_id: J3_PWM_RUD
+    kind: actuator_pwm
+    map: rudder_study
+    trunk: A3
+    for_triggers: [brownout, watchdog_reset, uplink_loss, inceptor_loss]
+    required_output: neutral_cmd_0
+    test_ids: [SS-BO-01, SS-WD-01, SS-UL-01, SS-IN-01]
+  - channel_id: J4_PWM_THR
+    kind: actuator_pwm
+    map: throttle_study
+    trunk: A4
+    for_triggers: [brownout, watchdog_reset, uplink_loss, inceptor_loss]
+    required_output: neutral_cmd_0
+    test_ids: [SS-BO-01, SS-WD-01, SS-UL-01, SS-IN-01]
+  - channel_id: DISC_RADIO_ENABLE
+    kind: discrete_out
+    map: radio_enable_stub
+    for_triggers: [brownout, watchdog_reset, uplink_loss]
+    required_output: inactive
+    test_ids: [SS-BO-01, SS-WD-01, SS-UL-01]
+  - channel_id: DISC_IMU_SAMPLE_GATE
+    kind: discrete_out
+    map: imu_sample_gate_stub
+    for_triggers: [brownout, watchdog_reset]
+    required_output: inactive
+    test_ids: [SS-BO-01, SS-WD-01]
+
+tests:
+  - id: SS-BO-01
+    name: brownout_forces_neutral
+    trigger: brownout
+    method: host_stub
+    script: fighter-jet/firmware/scripts/test_brownout.sh
+    covers_channels: [J1_PWM_AIL, J2_PWM_ELE, J3_PWM_RUD, J4_PWM_THR, DISC_RADIO_ENABLE, DISC_IMU_SAMPLE_GATE]
+  - id: SS-UL-01
+    name: uplink_loss_forces_neutral
+    trigger: uplink_loss
+    method: host_stub
+    script: fighter-jet/firmware/scripts/test_uplink_loss.sh
+    covers_channels: [J1_PWM_AIL, J2_PWM_ELE, J3_PWM_RUD, J4_PWM_THR, DISC_RADIO_ENABLE]
+  - id: SS-WD-01
+    name: watchdog_reset_hold_safe
+    trigger: watchdog_reset
+    method: host_stub
+    script: fighter-jet/firmware/scripts/test_watchdog.sh
+    covers_channels: [J1_PWM_AIL, J2_PWM_ELE, J3_PWM_RUD, J4_PWM_THR, DISC_RADIO_ENABLE, DISC_IMU_SAMPLE_GATE]
+  - id: SS-IN-01
+    name: inceptor_loss_forces_neutral
+    trigger: inceptor_loss
+    method: host_stub
+    script: fighter-jet/firmware/scripts/test_inceptor_loss.sh
+    covers_channels: [J1_PWM_AIL, J2_PWM_ELE, J3_PWM_RUD, J4_PWM_THR]
+
+expected_behaviour:
+  every_bay_io_output_has_row: true
+  at_least_one_brownout_and_uplink_script: true
+  no_live_hydraulics_on_bench: true

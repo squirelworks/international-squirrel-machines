@@ -1,0 +1,113 @@
+# Bay I/O concentrator interface — ISM-FJ (#88 / A1 #119)
+# Loadable by Flight Lab / HIL. Study-scale board in fighter-jet/kicad/.
+schema_version: "1.0.0"
+iface_id: bay-io
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 119
+related_issues: [84, 88, 80]
+provisional: true
+kicad_project: fighter-jet/kicad/ism-fighter-jet
+firmware: fighter-jet/firmware/
+bit_frame: bit-frame.yaml
+safe_state: safe-state.yaml
+
+mcu:
+  part: RP2040
+  package_study: QFN-56-1EP_7x7mm (ISM study pitch 1.27 mm — not production 0.4 mm)
+  datasheet: "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf"
+  reference_manual: "https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf"
+  clock_tree_study: "external/xtal TBD; on-chip PLL → clk_sys; USB PLL when debug USB used"
+  rails: [3V3, GND]
+  debug: [SWD_stub, UART_stdio_host_profile, USB_dev_optional]
+
+power:
+  board_rails: [3V3, 5V, GND]
+  study_note: "28 V aircraft essential is upstream of bay PDU; board sees 5V/3V3 regulated"
+
+buses:
+  - id: I2C_IMU
+    nets: [I2C_SDA, I2C_SCL]
+    peers: [U2_IMU]
+  - id: SPI_RADIO
+    nets: [SPI_SCK, SPI_MOSI, SPI_MISO]
+    peers: [U3_RADIO]
+  - id: ISM_Bus_A_stub
+    role: uplink_from_FCC_MC
+    host_substitute: uart_stdio
+
+inputs:
+  - id: INC_STICK_PITCH
+    kind: inceptor
+    range: [-1.0, 1.0]
+  - id: INC_STICK_ROLL
+    kind: inceptor
+    range: [-1.0, 1.0]
+  - id: INC_THROTTLE
+    kind: inceptor
+    range: [-1.0, 1.0]
+  - id: INC_PEDAL_YAW
+    kind: inceptor
+    range: [-1.0, 1.0]
+  - id: UPLINK_VALID
+    kind: discrete_in
+  - id: IMU_DATA
+    kind: sensor_stream
+    bus: I2C_IMU
+
+# Output channels — each must appear in safe-state.yaml
+outputs:
+  - id: J1_PWM_AIL
+    kind: actuator_pwm
+    connector: J1
+    net: PWM_AIL
+    trunk: A1
+    surface_study: aileron
+    range: [-1.0, 1.0]
+  - id: J2_PWM_ELE
+    kind: actuator_pwm
+    connector: J2
+    net: PWM_ELE
+    trunk: A2
+    surface_study: elevator
+    range: [-1.0, 1.0]
+  - id: J3_PWM_RUD
+    kind: actuator_pwm
+    connector: J3
+    net: PWM_RUD
+    trunk: A3
+    surface_study: rudder
+    range: [-1.0, 1.0]
+  - id: J4_PWM_THR
+    kind: actuator_pwm
+    connector: J4
+    net: PWM_THR
+    trunk: A4
+    surface_study: throttle
+    range: [-1.0, 1.0]
+  - id: DISC_RADIO_ENABLE
+    kind: discrete_out
+    net: RADIO_EN_stub
+  - id: DISC_IMU_SAMPLE_GATE
+    kind: discrete_out
+    net: IMU_GATE_stub
+
+calibration:
+  imu:
+    store: parameters/ism-fj-1.ismfj-params
+    keys: [imu.accel_bias_mps2, imu.gyro_bias_rps, imu.temp_comp]
+  inceptors:
+    store: parameters/ism-fj-1.ismfj-params
+    keys: [inceptor.stick_pitch, inceptor.stick_roll, inceptor.throttle, inceptor.pedal_yaw]
+
+loop_rates:
+  flight_critical_proxy_hz: 100  # provisional until measured
+  housekeeping_hz: 10
+  bit_hz: 10
+  jitter_budget_us_provisional: 500
+  note: "Marked provisional — needs logic analyzer on article/dev-kit (A1 risk)."
+
+expected_behaviour:
+  stores_signals: inert_placeholders_only
+  no_weapon_release_logic: true

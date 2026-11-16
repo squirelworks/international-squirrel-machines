@@ -1,6 +1,7 @@
-/* Host UART/stdio profile demo for HIL / analyzer hooks (#84).
+/* Host UART/stdio profile demo for HIL / analyzer hooks (#84 / A1 #119).
  * Commands (one per line):
- *   help | bit | act <ch> <cmd> | inc <idx> <val> | uplink 0|1 | brownout 0|1 | tick
+ *   help | bit | act <ch> <cmd> | inc <idx> <val>
+ *   uplink 0|1 | brownout 0|1 | watchdog 0|1 | inceptor_ok 0|1 | tick | quit
  */
 #include "ism_bay_fw.h"
 
@@ -9,7 +10,7 @@
 #include <string.h>
 
 static void print_bit(const ism_bay_state_t *s) {
-  char line[256];
+  char line[384];
   ism_bay_format_bit_line(s, line, (int)sizeof(line));
   fputs(line, stdout);
   fflush(stdout);
@@ -20,7 +21,6 @@ int main(void) {
   char line[128];
 
   ism_bay_init(&st);
-  /* Leave safe after init until uplink proven — tick clears if uplink ok. */
   st.safe_state = true;
   puts("ISM-FJ bay firmware host profile " ISM_FW_VERSION);
   puts("type 'help'");
@@ -33,7 +33,7 @@ int main(void) {
     if (n < 1) continue;
     if (strcmp(cmd, "help") == 0) {
       puts("bit | act <0-3> <-1..1> | inc <0-3> <-1..1> | uplink 0|1 | "
-           "brownout 0|1 | tick | quit");
+           "brownout 0|1 | watchdog 0|1 | inceptor_ok 0|1 | tick | quit");
     } else if (strcmp(cmd, "bit") == 0) {
       print_bit(&st);
     } else if (strcmp(cmd, "act") == 0 && n >= 3) {
@@ -53,6 +53,14 @@ int main(void) {
       print_bit(&st);
     } else if (strcmp(cmd, "brownout") == 0 && n >= 2) {
       ism_bay_set_brownout(&st, a != 0.0f);
+      ism_bay_tick(&st);
+      print_bit(&st);
+    } else if (strcmp(cmd, "watchdog") == 0 && n >= 2) {
+      ism_bay_set_watchdog(&st, a != 0.0f);
+      ism_bay_tick(&st);
+      print_bit(&st);
+    } else if (strcmp(cmd, "inceptor_ok") == 0 && n >= 2) {
+      ism_bay_set_inceptor_ok(&st, a != 0.0f);
       ism_bay_tick(&st);
       print_bit(&st);
     } else if (strcmp(cmd, "tick") == 0) {

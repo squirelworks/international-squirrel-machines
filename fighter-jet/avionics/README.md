@@ -15,5 +15,6 @@ Beyond the bay controller PCB (#75): architecture, buses, power, connectors, MC/
 | `software-partitioning.md` | Safety partitions |
 | `computing-platform.md` | Flight-critical RTOS vs OS/2 ground/lab; SquirrelBIOS trial |
 
-**Steve / Flight Lab:** `../interfaces/avionics-architecture.yaml` · `../interfaces/avionics-bus.yaml`  
+**Steve / Flight Lab:** `../interfaces/avionics-architecture.yaml` · `../interfaces/avionics-bus.yaml` · `../interfaces/bit-frame.yaml` · `../interfaces/bay-io.ismfj-iface`  
+**Bring-up checklist (A1):** `bringup-log.md` · firmware `../firmware/`  
 **Ground/lab OS:** [squirrel-os2#225](https://github.com/squirelworks/squirrel-os2/issues/225) — see `computing-platform.md`.
