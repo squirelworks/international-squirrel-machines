@@ -32,6 +32,7 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [ ] Camera (`camera/`)
 
 ## Phase 4 — Core System
+- [ ] Memory / RAM modules (`memory/`) — DIMM/SODIMM-style modules for the ISM bench
 - [ ] Computer case (`case/`)
 - [ ] Motherboard (`motherboard/`)
 - [ ] CPU (`cpu/`)
