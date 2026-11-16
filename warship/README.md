@@ -1,7 +1,7 @@
-# ISM Warship — B2 (#43)
+# ISM Warship — (#43)
 
 **Program ID:** ISM-WS-1 (study name TBD)  
-**Plan:** Fred research plan B2 — hull form, hydrostatics, stability, powering.
+**This PR:** KiCad scale-model control board slice (navigation / trim / thruster stubs).
 
 ## Scope limits (hard)
 
@@ -9,10 +9,11 @@
 - **No** weapons interfaces, fire control, combat-system internals, seekers, guidance, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) data
 - **Public-domain hydrodynamics only** (textbook naval architecture)
+- KiCad outputs are **scale-model actuator / telemetry stubs** only
 
-Aircraft carrier flight-deck / aviation packaging as a sibling study: `../aircraft-carrier/` (roadmap [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45); B2 includes a light design-note slice with the same weapons/sensor placeholder rule).
+Aircraft carrier sibling: `../aircraft-carrier/` (#45).
 
-## B2 deliverables
+## Deliverables
 
 | Path | Role |
 |------|------|
@@ -21,11 +22,13 @@ Aircraft carrier flight-deck / aviation packaging as a sibling study: `../aircra
 | `docs/hydrostatics_examples.py` | Displacement / KB / BM teaching check |
 | `interfaces/hydrostatics.yaml` | Machine-readable study hydro numbers |
 | `interfaces/mass-placeholders.yaml` | Weapons / combat-sensor mass & footprints only |
+| `interfaces/control-board.yaml` | Scale-model control channel map |
+| `kicad/ism-warship-control.*` | Study KiCad control board |
 | `shell/hull_study.scad` | Simplified hull study OML |
 
-## Roadmap (#43) status after B2
+## Roadmap (#43) status
 - [x] Design note (hull form, hydrostatics, stability, propulsion/powering, mass/footprint placeholders)
-- [ ] KiCad boards (navigation, power, scale-model control)
+- [x] KiCad boards (scale-model control — this PR)
 - [ ] Structural design
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly

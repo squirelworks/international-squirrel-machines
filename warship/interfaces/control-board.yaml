@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+ship_id: "ISM-WS-1"
+board_id: "ism-warship-control"
+revision: "A"
+status: stub
+issue: 43
+provisional: true
+scope: scale_model_control_only
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - arming_codes
+  - engagement_doctrine
+source_docs:
+  - warship/docs/design-note.md
+  - warship/kicad/README.md
+related_interfaces:
+  - hydrostatics.yaml
+  - mass-placeholders.yaml
+kicad_project: warship/kicad/ism-warship-control
+
+channels:
+  - id: I2C_IMU
+    role: attitude_trim_stub
+  - id: SPI_RADIO
+    role: telemetry_stub
+  - id: PWM_PORT
+    header: J1
+    role: port_thruster_stub
+  - id: PWM_STBD
+    header: J2
+    role: stbd_thruster_stub
+  - id: PWM_RUDDER
+    header: J3
+    role: rudder_servo_stub
+  - id: PWM_BALLAST
+    header: J4
+    role: ballast_trim_stub
+
+expected_behaviour:
+  no_weapons_interfaces: true
+  no_fire_control: true
+  scale_model_actuators_only: true
