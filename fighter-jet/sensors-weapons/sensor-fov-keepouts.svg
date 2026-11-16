@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" font-family="ui-sans-serif,system-ui,sans-serif" font-size="11">
+  <title>ISM-FJ-1 sensor FOV / keep-outs (#76)</title>
+  <rect width="640" height="280" fill="#eef2f5"/>
+  <text x="14" y="20" font-size="13" font-weight="600">ISM-FJ-1 sensor FOV &amp; keep-outs (schematic) · #76</text>
+  <!-- fuselage side view -->
+  <ellipse cx="280" cy="140" rx="200" ry="36" fill="#d7dde5" stroke="#333"/>
+  <text x="60" y="145" font-size="9">FS-0</text>
+  <text x="450" y="145" font-size="9">FS-100</text>
+  <!-- radome / radar cone -->
+  <path d="M80,140 L40,100 L40,180 Z" fill="#90caf9" fill-opacity="0.45" stroke="#1565c0"/>
+  <text x="8" y="90" fill="#1565c0">ISM-R1 FOR</text>
+  <!-- EO chin cone -->
+  <path d="M120,165 L90,220 L150,220 Z" fill="#a5d6a7" fill-opacity="0.5" stroke="#2e7d32"/>
+  <text x="95" y="240" fill="#2e7d32">ISM-EO1</text>
+  <!-- NLG keepout -->
+  <rect x="100" y="170" width="40" height="50" fill="#ef9a9a" fill-opacity="0.55" stroke="#c62828"/>
+  <text x="102" y="255" fill="#c62828" font-size="9">NLG door</text>
+  <!-- canopy -->
+  <ellipse cx="200" cy="110" rx="40" ry="18" fill="#bbdefb" stroke="#333"/>
+  <text x="180" y="100" font-size="9">canopy</text>
+  <!-- bay IMU -->
+  <rect x="250" y="125" width="36" height="20" fill="#ffe082" stroke="#f9a825"/>
+  <text x="252" y="138" font-size="9">IMU</text>
+  <text x="14" y="272" fill="#555">MC owns tracks · FCC cueing only · no seeker/weapon RF internals</text>
+</svg>

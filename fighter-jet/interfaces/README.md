@@ -8,7 +8,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `aircraft-geometry.yaml` | Datum, study scale, major dimensions, stations | Stub with numbers |
 | `mass-properties.yaml` | Mass, CG, inertia tensor placeholders | Stub schema + provisional numbers |
 | `flight-controls.yaml` | Inceptors ICD, modes, surface cmds ↔ EHA, envelope | Stub (#74) |
-| `sensors.yaml` | Nav/air-data/radar-EO I/O limits & rates | Stub |
+| `sensors.yaml` | Suite mounts, power/data ICD, FOV, Flight Lab stubs | Stub (#76) |
 | `hardpoints.yaml` | Stores stations, mass classes, safeing flags | Stub aligned to DWG-040 |
 | `actuators.yaml` | EHA/gear channels, I/F table, safe failure | Stub (#73) |
 | `hydraulics.yaml` | Routing keep-outs / EHA pack envelopes | Stub (#73) |
