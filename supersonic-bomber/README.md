@@ -1,7 +1,10 @@
 # ISM Supersonic Bomber — (#39)
 
 **Program ID:** ISM-XB-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + airframe STL package.
+
+## Prior slices
+Design-note (airframe / avionics / thermal / propulsion). KiCad inert-bay SAFE/INHIBIT board. Structural layout. Gerbers + airframe STL. This PR adds educational master BOM + assembly sequence.
 
 ## Hypersonic vs this tree
 Sustained **hypersonic** aerothermal / TPS education lives under `hypersonic-bomber/` (#37). This tree is **supersonic cruise** (textbook M≈1.5–3) with milder thermal notes.
@@ -21,6 +24,8 @@ Sustained **hypersonic** aerothermal / TPS education lives under `hypersonic-bom
 | `docs/design-note.md` | Airframe / avionics / thermal / propulsion |
 | `docs/structural.md` | Primary-structure layout study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/thermal_examples.py` | Teaching recovery-temperature stub |
 | `interfaces/*.yaml` | Airframe / payload / bay / structure |
@@ -33,6 +38,6 @@ Sustained **hypersonic** aerothermal / TPS education lives under `hypersonic-bom
 - [x] Design note (airframe, avionics, thermal, propulsion)
 - [x] KiCad boards (inert bay SAFE/INHIBIT)
 - [x] Structural design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release

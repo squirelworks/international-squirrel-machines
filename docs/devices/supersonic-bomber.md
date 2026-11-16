@@ -2,6 +2,6 @@
 
 **Directory:** `supersonic-bomber/` · **Issue:** [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39)
 
-**Scope:** supersonic cruise airframe study (M≈1.5–3); payload = inert bay mass/volume + SAFE/INHIBIT only. KiCad board is bay door + SAFE/INHIBIT/WOW stubs. Structural slice adds educational spars/ribs/frames around an inert bay keep-out. Fab slice adds study Gerbers + airframe STL. **No** seekers, guidance, munition propulsion, warheads, or fuzing.
+**Scope:** educational supersonic-cruise bomber packaging (not hypersonic TPS — see `hypersonic-bomber/`). KiCad board is inert-bay SAFE/INHIBIT stubs. Structural + Gerbers slices add airframe study STL and fab package. BOM/assembly notes cover study build sequence. Payload = **inert mass / CG / volume / SAFE / INHIBIT only**. **No** seekers, guidance, munition propulsion, warheads, fuzing, or arming.
 
 See `supersonic-bomber/README.md`.
