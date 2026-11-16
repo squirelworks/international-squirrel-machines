@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+bomber_id: "ISM-HB-1"
+board_id: "ism-hb-thermal"
+revision: "A"
+status: stub
+issue: 37
+provisional: true
+scope: educational_thermal_tps_sense_only
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming
+  - employment
+  - targeting
+  - scramjet_recipes
+  - classified_tps
+  - itar_ear
+source_docs:
+  - hypersonic-bomber/docs/design-note.md
+  - hypersonic-bomber/kicad/README.md
+related_interfaces:
+  - aerothermal.yaml
+  - tps-placeholders.yaml
+kicad_project: hypersonic-bomber/kicad/ism-hb-thermal
+
+channels:
+  - id: I2C_SENSORS
+    role: airframe_sensing_stub
+  - id: SPI_FLASH
+    role: telemetry_or_flash_stub
+  - id: ADC_TC1
+    header: J1
+    role: thermocouple_or_rtd_sense_stub
+  - id: ADC_TC2
+    header: J2
+    role: second_thermal_sense_stub
+  - id: GPIO_TPS_OK
+    header: J3
+    role: tps_health_status_stub
+  - id: GPIO_OVERTEMP
+    header: J4
+    role: overtemp_inhibit_packaging_stub
+
+expected_behaviour:
+  no_seekers: true
+  no_guidance: true
+  no_warheads: true
+  educational_thermal_only: true
+  no_propulsion_recipes: true

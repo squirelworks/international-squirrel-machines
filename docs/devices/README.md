@@ -22,7 +22,7 @@ Current official list:
 - macro-pad
 - drawing-pads
 - fighter-jet
-- hypersonic-bomber (#37 deepen: educational aerothermal / TPS classes only) (B1: aerothermal / TPS education only)
+- hypersonic-bomber (#37: deepen + KiCad educational thermal / TPS sense)
 - subsonic-bomber (#38: deepen + KiCad inert bay SAFE/INHIBIT)
 - supersonic-bomber (#39: deepen + KiCad inert bay SAFE/INHIBIT)
 - warship (#43: hydrostatics + KiCad scale-model control; weapons = mass/footprint only)
