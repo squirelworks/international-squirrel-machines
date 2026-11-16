@@ -8,8 +8,8 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `aircraft-geometry.yaml` | Datum, study scale, major dimensions, stations | Stub with numbers |
 | `mass-properties.yaml` | Mass, CG, inertia tensor placeholders | Stub schema + provisional numbers |
 | `flight-controls.yaml` | Inceptors ICD, modes, surface cmds ↔ EHA, envelope | Stub (#74) |
-| `sensors.yaml` | Suite mounts, power/data ICD, FOV, Flight Lab stubs | Stub (#76) |
-| `hardpoints.yaml` | Stores stations, mass classes, safeing flags | Stub aligned to DWG-040 |
+| `sensors.yaml` | Suite mounts, apertures[], power/data ICD, FOV stubs | Stub (#76 / A4 #122) |
+| `hardpoints.yaml` | Stations, max_store_class, lug_class, clearance | Stub (#77 / A4 #122) |
 | `actuators.yaml` | EHA/gear channels, I/F table, safe failure | Stub (#73) |
 | `hydraulics.yaml` | Routing keep-outs / EHA pack envelopes | Stub (#73) |
 | `avionics-bus.yaml` | Bus topology, topics, power | Stub (#75) |
@@ -29,6 +29,9 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `materials-allowables.yaml` | Spec callouts, allowables, stack-ups, joints | Stub (#71) |
 | `mechanical-airframe.yaml` | Load paths, gear envelopes, hinge/actuator geom | Stub (#72) |
 | `propulsion.yaml` | Engine envelope, inlet/duct, mounts, offtakes | Stub (A2 #120) |
+| `carriage-drag.yaml` | ΔCD0 per store/loadout + illegal fixture | Stub (A4 #122) |
+| `safe-inhibit-table.yaml` | Condition → SAFE/INHIBIT truth table | Stub (A4 #122) |
+| `loadout_validate.py` | SS#173 loadout legality check | Stub (A4 #122) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).

@@ -168,3 +168,32 @@ citations:
     org: Progress in Aerospace Sciences
     doi: "10.1016/j.paerosci.2007.06.002"
     used_for: "Peer-reviewed IR review — general/textbook sections only (A3)"
+
+  # A4 #122 sensors / stores integration (public / Distribution A)
+  - id: mil-std-8591
+    title: "MIL-STD-8591 Change 1 — Airborne Stores Suspension / Carriage"
+    org: DoD (public / Distribution A mirror)
+    url: "https://everyspec.com/MIL-STD/MIL-STD-3000-9999/MIL-STD-8591_CHG-1_49641/"
+    access_date: "2026-11-16"
+    used_for: "Carriage loads, suspension, clearance design criteria (A4)"
+
+  - id: mil-hdbk-1763
+    title: "MIL-HDBK-1763 Aircraft/Stores Compatibility"
+    org: DoD (public / Distribution A mirror)
+    url: "https://everyspec.com/MIL-HDBK/MIL-HDBK-1500-1799/MIL_HDBK_1763_1775/"
+    access_date: "2026-11-16"
+    used_for: "Fit / carriage / clearance data-package checklist (A4)"
+
+  - id: mil-std-1760e
+    title: "MIL-STD-1760E Aircraft/Store Electrical Interconnection System"
+    org: DoD (public / Distribution A mirror)
+    url: "https://everyspec.com/MIL-STD/MIL-STD-1700-1799/MIL-STD-1760E_10197/"
+    access_date: "2026-11-16"
+    used_for: "Connector / interface class only — no release/arming semantics (A4)"
+
+  - id: datcom-vol1
+    title: "USAF Stability and Control DATCOM Vol. I Users Manual (AFFDL-TR-79-3032)"
+    org: AFFDL / DTIC ADA086557
+    url: "https://archive.org/details/DTIC_ADA086557"
+    access_date: "2026-11-16"
+    used_for: "Public archive — store drag buildup context (A4)"

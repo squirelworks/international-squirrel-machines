@@ -47,6 +47,10 @@ pinned_interfaces:
     boundary: stores_inert
   - path: multi-origin-stores.yaml
     boundary: stores_adapters
+  - path: carriage-drag.yaml
+    boundary: stores_carriage_drag
+  - path: safe-inhibit-table.yaml
+    boundary: stores_safe_inhibit
   - path: viability-criteria.yaml
     boundary: analysis
 

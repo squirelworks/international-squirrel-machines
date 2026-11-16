@@ -1,0 +1,119 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 122
+related_issues: [77, 94, 101]
+provisional: true
+scope: carriage_drag_buildup_inert_only
+excluded:
+  - guidance
+  - seekers
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - release_performance
+  - employment
+source_docs:
+  - fighter-jet/sensors-weapons/stores-integration.md
+  - fighter-jet/sensors-weapons/lab-policy.md
+related_interfaces:
+  - inert-stores.yaml
+  - hardpoints.yaml
+  - multi-origin-stores.yaml
+  - mass-properties.yaml
+
+method:
+  name: textbook_parasite_drag_buildup
+  primary_citation: raymer-ads
+  secondary_citation: datcom-vol1
+  note: >
+    ΔCD0 applied at aircraft reference area (S_ref from aircraft-geometry.yaml).
+    Store cd_increment in inert-stores / multi-origin catalogues is at store
+    frontal area; convert via (cd_store * A_store) / S_ref. Values provisional
+    for Flight Lab / SS#173 loadout validation — not flight-cleared.
+
+citations:
+  - id: raymer-ads
+    title: "Aircraft Design: A Conceptual Approach (Raymer)"
+    doi: "10.2514/4.104909"
+    used_for: "External-store parasite drag buildup (textbook)"
+  - id: datcom-vol1
+    title: "USAF Stability and Control DATCOM Vol. I Users Manual (AFFDL-TR-79-3032)"
+    dtic: ADA086557
+    url: "https://archive.org/details/DTIC_ADA086557"
+    used_for: "Public archive copy — store drag buildup context"
+  - id: mil-hdbk-1763
+    title: "MIL-HDBK-1763 Aircraft/Stores Compatibility"
+    url: "https://everyspec.com/MIL-HDBK/MIL-HDBK-1500-1799/MIL_HDBK_1763_1775/"
+    used_for: "Compatibility data-package checklist (carriage/clearance)"
+
+# Aircraft reference for conversion (study twin; full-scale later)
+aircraft_ref:
+  s_ref_m2: 0.028   # study model wing area order-of-magnitude; provisional
+  note: "Replace with aircraft-geometry S_ref when frozen; ΔCD0 scales"
+
+# Per-store carriage ΔCD0 at aircraft S_ref
+stores:
+  - store_id: ISM-INERT-AAM-S
+    delta_cd0: 0.00036
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+  - store_id: ISM-INERT-AGM-M
+    delta_cd0: 0.00107
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+  - store_id: ISM-INERT-FUEL-600
+    delta_cd0: 0.0227
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+  - store_id: ISM-INERT-AAM-M
+    delta_cd0: 0.00133
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+  - store_id: ISM-INERT-RU-AAM-S
+    delta_cd0: 0.00089
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+  - store_id: ISM-INERT-CN-AAM-L
+    delta_cd0: 0.00202
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+  - store_id: ISM-INERT-JP-AAM-M
+    delta_cd0: 0.00197
+    method: raymer_buildup
+    citation_ids: [raymer-ads]
+
+# Example loadouts for SS#173 (inert / fixture only)
+loadouts:
+  - id: LO-CLEAN
+    stations: {}
+    delta_cd0_total: 0.0
+    lateral_cg_offset_mm: 0.0
+    roll_trim_note: none
+  - id: LO-TIP-AAM-SYM
+    stations: {STA-1: ISM-INERT-AAM-S, STA-2: ISM-INERT-AAM-S}
+    delta_cd0_total: 0.00072
+    lateral_cg_offset_mm: 0.0
+    roll_trim_note: symmetric_zero
+  - id: LO-ASYM-TIP-L
+    stations: {STA-1: ISM-INERT-AAM-S}
+    delta_cd0_total: 0.00036
+    lateral_cg_offset_mm: -18.0  # mass*BL / MTOW stub; provisional
+    roll_trim_note: left_heavy_requires_right_aileron_trim_stub
+  - id: LO-INBOARD-FUEL-SYM
+    stations: {STA-7: ISM-INERT-FUEL-600, STA-8: ISM-INERT-FUEL-600}
+    delta_cd0_total: 0.0454
+    lateral_cg_offset_mm: 0.0
+    roll_trim_note: symmetric_zero
+  - id: LO-ILLEGAL-TIP-FUEL
+    stations: {STA-1: ISM-INERT-FUEL-600}
+    deliberately_illegal: true
+    reject_reason: store_mass_exceeds_station_max_and_incompatible_hardware
+    note: "Fixture for SS#173 — validator must reject"
+
+expected_behaviour:
+  ss173_loads: carriage-drag.yaml
+  reject_deliberately_illegal: true
+  asymmetry_reported_to_fcc: true
+  inert_only: true

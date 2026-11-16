@@ -8,6 +8,12 @@ Parametric OpenSCAD airframe — **proportion / printable study slice** of the I
 - `propulsion_keepouts_preview.scad` — render keep-outs
 - `propulsion_intersection_check.scad` — cad-verify witness cube + echo (clash-free packaging)
 - `check_propulsion_packaging.sh` — assert empty ∩ (bay∪gear) via temp driver including `lib/propulsion_keepouts.scad` (expects OpenSCAD “empty”)
+- `lib/sensor_aperture_keepouts.scad` — R1/EO1 envelopes + structural keep-outs (A4 #122; LIB)
+- `sensor_aperture_preview.scad` / `sensor_aperture_check.scad` — render / witness
+- `check_sensor_apertures.sh` — aperture∩keepouts empty + R1 inside nose
+- `lib/stores_clearance.scad` — adjacent-station store envelopes (A4 #122; LIB)
+- `stores_clearance_preview.scad` / `stores_adjacent_clearance_check.scad` — render / witness
+- `check_stores_clearance.sh` — adjacent store ∩ empty at max deflection
 
 ## STL exports
 Debug flags `show_stations` / `show_structure_planes` default **false** (single manifold `airframe()` solid when gear included). Set true only for on-screen FS/WS planes.
