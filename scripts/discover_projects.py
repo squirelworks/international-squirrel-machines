@@ -51,6 +51,7 @@ SCRIPT_DEVICE_PREFIXES = (
     ("scripts/build_macro_pad.py", "macro-pad/"),
     ("scripts/build_typewriter.py", "typewriter/"),
     ("scripts/build_drawing_pads.py", "drawing-pads/"),
+    ("scripts/build_monitor.py", "monitor/"),
     ("scripts/build_memory.py", "memory/"),
     ("scripts/build_trackball.py", "trackball/"),
     ("scripts/build_mouse.py", "mouse/"),
