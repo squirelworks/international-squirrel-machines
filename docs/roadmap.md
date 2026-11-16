@@ -86,7 +86,7 @@ Baselines under `fighter-jet/hydraulics/`, `flight-controls/`.
 ### 6.3 — Avionics (beyond the bay PCB scaffold)
 Baselines under `fighter-jet/avionics/` (+ KiCad bay PCB).
 - [x] [#75](https://github.com/squirelworks/international-squirrel-machines/issues/75) Avionics architecture (schematic, bus, bay, harness)
-- [ ] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
+- [x] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
 
 ### 6.4 — Weapons & sensors
 Baselines under `fighter-jet/sensors-weapons/`.
@@ -110,7 +110,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [ ] [#81](https://github.com/squirelworks/international-squirrel-machines/issues/81) Mission-computer stubs
 - [ ] [#82](https://github.com/squirelworks/international-squirrel-machines/issues/82) HUD / HMI tooling
 - [ ] [#83](https://github.com/squirelworks/international-squirrel-machines/issues/83) Data-bus analyzer
-- [ ] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
+- [x] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
 
 ### 6.6 — Integration, BOM, validation
 - [ ] Freeze product decisions; Gerbers/STLs; ICD pinouts

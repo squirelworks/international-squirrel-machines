@@ -33,6 +33,7 @@ fighter-jet/
 ├── docs/viability.md         viability ladder (#103)
 ├── geometry/                 OpenVSP/AVL/CalculiX + Eric scale-model targets
 ├── tooling/                  assembly jigs, fixtures, layup tools, dies (#106)
+├── firmware/                 bay I/O bring-up (host BIT/UART profile) (#84)
 ├── kicad/                    bay controller PCB (electrical slice)
 └── shell/                    parametric OpenSCAD study airframe
 ```
@@ -49,6 +50,7 @@ fighter-jet/
 | Avionics (beyond bay PCB) | `avionics/` | Design program |
 | Sensors & weapons | `sensors-weapons/` | Design program (fictional) |
 | Bay PCB | `kicad/` | Scaffold (KiCad project present) |
+| Bay firmware | `firmware/` | Host BIT/UART bring-up (#84) |
 | Study shell | `shell/` | Scaffold (parametric OpenSCAD) |
 
 ## Status

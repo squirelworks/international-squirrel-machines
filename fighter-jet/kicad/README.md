@@ -24,6 +24,6 @@ See `../avionics/bay-pcb-placement.md`. Pinouts: `../avionics/connectors-pinouts
 ## Next
 1. Associate footprints; route; Gerbers.
 2. Freeze connector series against harness ICD.
-3. Firmware bring-up (#84) against this baseline.
+3. Firmware bring-up (#84) — see `../firmware/` (host `make test` / UART profile).
 
 Pure Squirrel-OS/2 development. Soft UI apps are out of scope here.
