@@ -31,6 +31,9 @@ files:
   - path: materials-zones.yaml
     purpose: zone_material_map
     issue: 92
+  - path: carrier-loads.yaml
+    purpose: carrier_load_cases
+    issue: 93
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

@@ -13,6 +13,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `actuators.yaml` | EHA channels, authority, failure behaviour | Stub |
 | `avionics-bus.yaml` | Bus names, frame rates, topic list | Stub |
 | `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
+| `carrier-loads.yaml` | Arrestment / catapult / sink-rate / wing-fold cases | Stub (#93) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).
