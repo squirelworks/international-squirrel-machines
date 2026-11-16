@@ -1,0 +1,566 @@
+ERC report (2026-11-16T16:47:49+0000, Encoding UTF8)
+
+***** Sheet /
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(127.0000 mm, 38.1000 mm): Symbol #PWR03 [GND]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 25.4000 mm): Symbol #FLG01 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 25.4000 mm): Symbol #PWR01 [+5V]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(88.9000 mm, 25.4000 mm): Symbol #PWR02 [+3V3]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 88.9000 mm): Symbol J1 [USB_C_Receptacle_USB2.0_16P]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 76.2000 mm): Symbol R1 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(139.7000 mm, 38.1000 mm): Symbol #FLG02 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(203.2000 mm, 88.9000 mm): Symbol U2 [USBLC6-2SC6]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 203.2000 mm): Symbol U1 [RP2040_MOD]
+[global_label_dangling]: Global label not connected anywhere else in the schematic
+    ; warning
+    @(165.1000 mm, 185.4200 mm): Global Label 'COL14'
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 101.6000 mm): Symbol R2 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(113.0300 mm, 304.8000 mm): Symbol D4 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(132.0800 mm, 304.8000 mm): Symbol SW5 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(111.7600 mm, 304.8000 mm): Symbol SW4 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(91.4400 mm, 304.8000 mm): Symbol SW3 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(92.7100 mm, 304.8000 mm): Symbol D3 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 276.8600 mm): Symbol C3 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 281.9400 mm): Symbol C4 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 266.7000 mm): Symbol C1 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 271.7800 mm): Symbol C2 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(133.3500 mm, 304.8000 mm): Symbol D5 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 304.8000 mm): Symbol SW6 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(153.6700 mm, 304.8000 mm): Symbol D6 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 304.8000 mm): Symbol SW1 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(52.0700 mm, 304.8000 mm): Symbol D1 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(71.1200 mm, 304.8000 mm): Symbol SW2 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(72.3900 mm, 304.8000 mm): Symbol D2 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 190.5000 mm): Symbol R4 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 215.9000 mm): Symbol R5 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 190.5000 mm): Symbol SW_RST [SW_Push]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 215.9000 mm): Symbol D_PWR [LED]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(254.0000 mm, 304.8000 mm): Symbol SW11 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(255.2700 mm, 304.8000 mm): Symbol D11 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(274.3200 mm, 304.8000 mm): Symbol SW12 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(275.5900 mm, 304.8000 mm): Symbol D12 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(233.6800 mm, 304.8000 mm): Symbol SW10 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(234.9500 mm, 304.8000 mm): Symbol D10 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(213.3600 mm, 304.8000 mm): Symbol SW9 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(214.6300 mm, 304.8000 mm): Symbol D9 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(314.9600 mm, 304.8000 mm): Symbol SW14 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(295.9100 mm, 304.8000 mm): Symbol D13 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(294.6400 mm, 304.8000 mm): Symbol SW13 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(316.2300 mm, 304.8000 mm): Symbol D14 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(173.9900 mm, 304.8000 mm): Symbol D7 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(193.0400 mm, 304.8000 mm): Symbol SW8 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(194.3100 mm, 304.8000 mm): Symbol D8 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(172.7200 mm, 304.8000 mm): Symbol SW7 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 320.0400 mm): Symbol SW20 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(132.0800 mm, 320.0400 mm): Symbol SW19 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(133.3500 mm, 320.0400 mm): Symbol D19 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(132.0800 mm, 335.2800 mm): Symbol SW33 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(133.3500 mm, 335.2800 mm): Symbol D33 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(153.6700 mm, 320.0400 mm): Symbol D20 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 335.2800 mm): Symbol SW34 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(153.6700 mm, 335.2800 mm): Symbol D34 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(71.1200 mm, 320.0400 mm): Symbol SW16 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(72.3900 mm, 320.0400 mm): Symbol D16 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 320.0400 mm): Symbol SW15 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(52.0700 mm, 320.0400 mm): Symbol D15 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(113.0300 mm, 320.0400 mm): Symbol D18 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(111.7600 mm, 320.0400 mm): Symbol SW18 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(71.1200 mm, 335.2800 mm): Symbol SW30 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(72.3900 mm, 335.2800 mm): Symbol D30 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(111.7600 mm, 335.2800 mm): Symbol SW32 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(113.0300 mm, 335.2800 mm): Symbol D32 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(91.4400 mm, 335.2800 mm): Symbol SW31 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(92.7100 mm, 335.2800 mm): Symbol D31 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(92.7100 mm, 320.0400 mm): Symbol D17 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(91.4400 mm, 320.0400 mm): Symbol SW17 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 335.2800 mm): Symbol SW29 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(52.0700 mm, 335.2800 mm): Symbol D29 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(133.3500 mm, 350.5200 mm): Symbol D47 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 350.5200 mm): Symbol SW48 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(153.6700 mm, 350.5200 mm): Symbol D48 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 365.7600 mm): Symbol SW62 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(153.6700 mm, 365.7600 mm): Symbol D62 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(132.0800 mm, 365.7600 mm): Symbol SW61 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(133.3500 mm, 365.7600 mm): Symbol D61 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(132.0800 mm, 350.5200 mm): Symbol SW47 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 381.0000 mm): Symbol SW76 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(153.6700 mm, 381.0000 mm): Symbol D76 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(132.0800 mm, 381.0000 mm): Symbol SW75 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(133.3500 mm, 381.0000 mm): Symbol D75 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 365.7600 mm): Symbol SW57 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(52.0700 mm, 365.7600 mm): Symbol D57 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(71.1200 mm, 365.7600 mm): Symbol SW58 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(72.3900 mm, 365.7600 mm): Symbol D58 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 350.5200 mm): Symbol SW43 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(52.0700 mm, 350.5200 mm): Symbol D43 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(71.1200 mm, 350.5200 mm): Symbol SW44 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(72.3900 mm, 350.5200 mm): Symbol D44 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 381.0000 mm): Symbol SW71 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(52.0700 mm, 381.0000 mm): Symbol D71 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(71.1200 mm, 381.0000 mm): Symbol SW72 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(72.3900 mm, 381.0000 mm): Symbol D72 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(193.0400 mm, 320.0400 mm): Symbol SW22 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(172.7200 mm, 320.0400 mm): Symbol SW21 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(173.9900 mm, 320.0400 mm): Symbol D21 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(172.7200 mm, 335.2800 mm): Symbol SW35 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(173.9900 mm, 335.2800 mm): Symbol D35 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(194.3100 mm, 320.0400 mm): Symbol D22 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(193.0400 mm, 335.2800 mm): Symbol SW36 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(194.3100 mm, 335.2800 mm): Symbol D36 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(193.0400 mm, 350.5200 mm): Symbol SW50 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(194.3100 mm, 350.5200 mm): Symbol D50 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(172.7200 mm, 365.7600 mm): Symbol SW63 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(173.9900 mm, 365.7600 mm): Symbol D63 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(193.0400 mm, 365.7600 mm): Symbol SW64 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(194.3100 mm, 365.7600 mm): Symbol D64 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(172.7200 mm, 350.5200 mm): Symbol SW49 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(173.9900 mm, 350.5200 mm): Symbol D49 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(172.7200 mm, 381.0000 mm): Symbol SW77 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(173.9900 mm, 381.0000 mm): Symbol D77 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(193.0400 mm, 381.0000 mm): Symbol SW78 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(194.3100 mm, 381.0000 mm): Symbol D78 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(92.7100 mm, 365.7600 mm): Symbol D59 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(91.4400 mm, 365.7600 mm): Symbol SW59 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(111.7600 mm, 365.7600 mm): Symbol SW60 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(113.0300 mm, 365.7600 mm): Symbol D60 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(91.4400 mm, 350.5200 mm): Symbol SW45 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(92.7100 mm, 350.5200 mm): Symbol D45 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(91.4400 mm, 381.0000 mm): Symbol SW73 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(92.7100 mm, 381.0000 mm): Symbol D73 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(111.7600 mm, 381.0000 mm): Symbol SW74 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(113.0300 mm, 381.0000 mm): Symbol D74 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(111.7600 mm, 350.5200 mm): Symbol SW46 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(113.0300 mm, 350.5200 mm): Symbol D46 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(275.5900 mm, 320.0400 mm): Symbol D26 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(274.3200 mm, 320.0400 mm): Symbol SW26 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(254.0000 mm, 320.0400 mm): Symbol SW25 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(255.2700 mm, 320.0400 mm): Symbol D25 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(254.0000 mm, 335.2800 mm): Symbol SW39 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(255.2700 mm, 335.2800 mm): Symbol D39 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(274.3200 mm, 335.2800 mm): Symbol SW40 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(275.5900 mm, 335.2800 mm): Symbol D40 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(234.9500 mm, 320.0400 mm): Symbol D24 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(233.6800 mm, 320.0400 mm): Symbol SW24 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(213.3600 mm, 320.0400 mm): Symbol SW23 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(214.6300 mm, 320.0400 mm): Symbol D23 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(213.3600 mm, 335.2800 mm): Symbol SW37 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(214.6300 mm, 335.2800 mm): Symbol D37 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(234.9500 mm, 335.2800 mm): Symbol D38 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(233.6800 mm, 335.2800 mm): Symbol SW38 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(294.6400 mm, 350.5200 mm): Symbol SW55 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(295.9100 mm, 350.5200 mm): Symbol D55 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(314.9600 mm, 381.0000 mm): Symbol SW84 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(316.2300 mm, 381.0000 mm): Symbol D84 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(295.9100 mm, 381.0000 mm): Symbol D83 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(294.6400 mm, 381.0000 mm): Symbol SW83 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(314.9600 mm, 350.5200 mm): Symbol SW56 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(316.2300 mm, 350.5200 mm): Symbol D56 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(314.9600 mm, 365.7600 mm): Symbol SW70 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(316.2300 mm, 365.7600 mm): Symbol D70 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(294.6400 mm, 365.7600 mm): Symbol SW69 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(295.9100 mm, 365.7600 mm): Symbol D69 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(213.3600 mm, 365.7600 mm): Symbol SW65 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(214.6300 mm, 365.7600 mm): Symbol D65 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(233.6800 mm, 365.7600 mm): Symbol SW66 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(234.9500 mm, 365.7600 mm): Symbol D66 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(213.3600 mm, 350.5200 mm): Symbol SW51 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(214.6300 mm, 350.5200 mm): Symbol D51 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(213.3600 mm, 381.0000 mm): Symbol SW79 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(214.6300 mm, 381.0000 mm): Symbol D79 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(234.9500 mm, 350.5200 mm): Symbol D52 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(233.6800 mm, 350.5200 mm): Symbol SW52 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(295.9100 mm, 320.0400 mm): Symbol D27 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(314.9600 mm, 320.0400 mm): Symbol SW28 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(316.2300 mm, 320.0400 mm): Symbol D28 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(316.2300 mm, 335.2800 mm): Symbol D42 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(294.6400 mm, 320.0400 mm): Symbol SW27 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(294.6400 mm, 335.2800 mm): Symbol SW41 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(295.9100 mm, 335.2800 mm): Symbol D41 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(314.9600 mm, 335.2800 mm): Symbol SW42 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(275.5900 mm, 365.7600 mm): Symbol D68 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(274.3200 mm, 365.7600 mm): Symbol SW68 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(275.5900 mm, 350.5200 mm): Symbol D54 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(274.3200 mm, 350.5200 mm): Symbol SW54 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(274.3200 mm, 381.0000 mm): Symbol SW82 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(275.5900 mm, 381.0000 mm): Symbol D82 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(254.0000 mm, 365.7600 mm): Symbol SW67 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(255.2700 mm, 365.7600 mm): Symbol D67 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(233.6800 mm, 381.0000 mm): Symbol SW80 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(234.9500 mm, 381.0000 mm): Symbol D80 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(254.0000 mm, 350.5200 mm): Symbol SW53 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(255.2700 mm, 350.5200 mm): Symbol D53 [D]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(254.0000 mm, 381.0000 mm): Symbol SW81 [SW_MX]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(255.2700 mm, 381.0000 mm): Symbol D81 [D]
+
+ ** ERC messages: 187  Errors 0  Warnings 187
