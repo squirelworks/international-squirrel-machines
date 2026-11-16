@@ -9,7 +9,7 @@ Airframe structure, landing gear, control surfaces, actuators/hinges, load paths
 | `carrier-suitability.md` | Hook, catapult, sink-rate, wing fold, salt (#93) |
 | `control-surfaces.md` | Hinge schedule, actuator attach (#72) |
 | `maintainability.md` | Access panels, LRU paths, break points |
-| `propulsion.md` | Twin turbofan concept, mounts, interfaces |
+| `propulsion.md` | Twin turbofan packaging, inlet/mounts/offtakes (A2 #120) |
 
-**Flight Lab contracts:** `../interfaces/mechanical-airframe.yaml` (#72), `carrier-loads.yaml`  
-Materials: `../materials/`. Stations: `../diagrams/stations.md`. Shell: `../shell/airframe.scad`.
+**Flight Lab contracts:** `../interfaces/mechanical-airframe.yaml` (#72), `carrier-loads.yaml`, `propulsion.yaml` (#120)  
+Materials: `../materials/`. Stations: `../diagrams/stations.md`. Shell: `../shell/airframe.scad` + `propulsion_keepouts.scad`.

@@ -28,6 +28,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `viability-criteria.yaml` | Sanity gates + class bands (canonical) | Stub (#103) |
 | `materials-allowables.yaml` | Spec callouts, allowables, stack-ups, joints | Stub (#71) |
 | `mechanical-airframe.yaml` | Load paths, gear envelopes, hinge/actuator geom | Stub (#72) |
+| `propulsion.yaml` | Engine envelope, inlet/duct, mounts, offtakes | Stub (A2 #120) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).
