@@ -119,6 +119,7 @@ Build our own software. Third-party sims are **not** source of truth.
 ### 6.6 — Integration, BOM, validation
 - [ ] Freeze product decisions; Gerbers/STLs; ICD pinouts
 - [x] [#78](https://github.com/squirelworks/international-squirrel-machines/issues/78) Full airframe BOM, assembly notes, ICD freeze, validation campaign, polish
+- [x] [#88](https://github.com/squirelworks/international-squirrel-machines/issues/88) Soft-parseable `ism-fj-1.ismfj-params` + `bay-io.ismfj-iface` for Flight Lab (stores inert only)
 
 ### Sibling aerospace (bombers B1 / surface B2)
 - [x] Bombers B1 design-note slice — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) hypersonic educational aerothermal/TPS; [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) subsonic; [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) supersonic (weapons boundary). KiCad / structure / BOM still open.

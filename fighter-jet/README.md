@@ -22,7 +22,8 @@ Open product decisions are listed at the bottom of this README and in `docs/devi
 fighter-jet/
 ├── README.md                 ← you are here
 ├── diagrams/                 numbered drawings DWG-010…070, stations, ICDs
-├── interfaces/               machine-readable YAML for Flight Lab (Steve)
+├── parameters/               Soft-loadable ism-fj-1.ismfj-params (#88)
+├── interfaces/               YAML + bay-io.ismfj-iface for Flight Lab (Steve)
 ├── materials/                alloys, composites, fasteners, environments
 ├── mechanical/               airframe, gear, surfaces, access
 ├── hydraulics/               actuation architecture & failures
