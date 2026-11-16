@@ -29,7 +29,7 @@ fighter-jet/
 ├── flight-controls/          FBW laws, redundancy, envelope
 ├── avionics/                 mission computer, buses, HUD/HMI, software
 ├── sensors-weapons/          radar/EO, stores, EW (fictional ISM)
-├── docs/research/            comparative / trade-study notes (as filed)
+├── docs/research/            comparative survey + citations (#95)
 ├── kicad/                    bay controller PCB (electrical slice)
 └── shell/                    parametric OpenSCAD study airframe
 ```

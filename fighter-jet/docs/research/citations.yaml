@@ -1,0 +1,104 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 95
+document: comparative-fighter-survey.md
+note: Open/public citations only. Contemporaries are reference for problem classes — not SoT for ISM geometry.
+
+citations:
+  - id: rusi-ru-cn-2019
+    title: "Russian and Chinese Combat Air Trends"
+    org: RUSI
+    url: "https://static.rusi.org/russian_and_chinese_combat_air_trends_whr_final_web_version.pdf"
+    used_for: "Russia/China fleet themes, Flanker family traits, J-20 LO mention"
+
+  - id: dassault-rafale-2023
+    title: "RAFALE Press Release — Paris Air Show 2023"
+    org: Dassault Aviation
+    url: "https://www.dassault-aviation.com/wp-content/blogs.dir/2/files/2023/06/RAFALE-Press-Release-Paris-Air-Show-2023.pdf"
+    used_for: "Rafale B/C/M commonality; composites ~70% wetted area; naval vs land deltas"
+
+  - id: eurofighter-programme
+    title: "The Programme | Eurofighter Typhoon"
+    org: Eurofighter GmbH
+    url: "https://www.eurofighter.com/the-programme"
+    used_for: "UK/Germany/Spain/Italy partnership; industrial split"
+
+  - id: eurofighter-aircraft
+    title: "The Aircraft | Eurofighter Typhoon"
+    org: Eurofighter GmbH
+    url: "https://www.eurofighter.com/the-aircraft"
+    used_for: "Twin-engine canard-delta multirole description"
+
+  - id: eurofighter-features
+    title: "Features | Eurofighter Typhoon"
+    org: Eurofighter GmbH
+    url: "https://www.eurofighter.com/the-aircraft/features"
+    used_for: "Composite airframe claims; twin EJ200 thrust class"
+
+  - id: ef-tecguide-2013
+    title: "Eurofighter TecGuide 2013 (public PDF mirror)"
+    org: Eurofighter (via public mirror)
+    url: "https://www.sldinfo.com/wp-content/uploads/2015/09/EF_TecGuide_2013-1.pdf"
+    used_for: "CFC/GRP/metal mix; EJ200 dry/reheat class; quadruplex FBW"
+
+  - id: iiss-eu-combat-2022
+    title: "European Combat Air Power: A Snapshot"
+    org: IISS
+    url: "https://www.iiss.org/globalassets/media-library---content--migration/files/research-papers/2022/03/european-combat-air-power-a-snapshot.pdf"
+    used_for: "UK–Japan engine cooperation context; European future combat air"
+
+  - id: mhi-f2
+    title: "F-2 Fighter | Mitsubishi Heavy Industries"
+    org: MHI
+    url: "https://www.mhi.com/business/products-services/space-defense/defense-aircraft/f-2-fighter"
+    used_for: "F-2 composite integral wing; Japan–US co-development"
+
+  - id: gao-f2-1997
+    title: "U.S.-Japan Fighter Aircraft: Agreement on F-2 Production (NSIAD-97-76)"
+    org: U.S. GAO
+    url: "https://www.gao.gov/assets/nsiad-97-76.pdf"
+    used_for: "Co-cured composite wing; larger wing vs F-16 baseline"
+
+  - id: wiki-su57
+    title: "Sukhoi Su-57 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Sukhoi_Su-57"
+    used_for: "High-level twin-engine LO layout reference"
+
+  - id: wiki-j20
+    title: "Chengdu J-20 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Chengdu_J-20"
+    used_for: "High-level canard/delta LO layout reference"
+
+  - id: wiki-j15
+    title: "Shenyang J-15 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Shenyang_J-15"
+    used_for: "Carrier Flanker-derived type mention"
+
+  - id: wiki-rafale
+    title: "Dassault Rafale (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Dassault_Rafale"
+    used_for: "Carrier Rafale M / land commonality overview"
+
+  - id: wiki-typhoon
+    title: "Eurofighter Typhoon (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Eurofighter_Typhoon"
+    used_for: "Partner nations; canard-delta twin EJ200 overview"
+
+  - id: wiki-f2
+    title: "Mitsubishi F-2 (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Mitsubishi_F-2"
+    used_for: "Single-engine F-16-derived layout; composite wing"
+
+  - id: wiki-gcap
+    title: "Global Combat Air Programme (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Global_Combat_Air_Programme"
+    used_for: "UK–Italy–Japan next-gen partnership high-level"
