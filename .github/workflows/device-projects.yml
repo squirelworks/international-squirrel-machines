@@ -1,0 +1,94 @@
+name: device-projects
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: device-projects-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Discover projects
+        id: set
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+            MATRIX=$(python3 scripts/discover_projects.py --all)
+          else
+            BASE="${{ github.event.pull_request.base.sha || github.event.before }}"
+            HEAD="${{ github.event.pull_request.head.sha || github.sha }}"
+            if [[ -z "$BASE" || "$BASE" == "0000000000000000000000000000000000000000" ]]; then
+              MATRIX=$(python3 scripts/discover_projects.py --all)
+            else
+              MATRIX=$(python3 scripts/discover_projects.py --base "$BASE" --head "$HEAD")
+            fi
+          fi
+          {
+            echo "matrix<<EOF"
+            echo "$MATRIX"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "Discovered matrix: $MATRIX"
+
+  check:
+    needs: discover
+    if: needs.discover.outputs.matrix != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - name: Skip placeholder
+        if: matrix.project == '__none__'
+        run: echo "No projects to check"
+
+      - uses: actions/checkout@v4
+        if: matrix.project != '__none__'
+
+      - name: Cache KiCad 8 + OpenSCAD
+        if: matrix.project != '__none__'
+        uses: actions/cache@v4
+        with:
+          path: |
+            /usr/share/kicad
+            /usr/bin/kicad-cli
+            /usr/bin/openscad
+            /var/cache/apt/archives
+          key: kicad8-openscad-${{ runner.os }}-v1
+
+      - name: Install KiCad 8 + OpenSCAD
+        if: matrix.project != '__none__'
+        run: |
+          set -euo pipefail
+          if ! command -v kicad-cli >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y software-properties-common
+            sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases
+            sudo apt-get update
+            sudo apt-get install -y kicad
+          fi
+          if ! command -v openscad >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y openscad
+          fi
+          kicad-cli version
+          openscad --version | head -1
+
+      - name: Check project
+        if: matrix.project != '__none__'
+        run: |
+          chmod +x scripts/ci_check_project.sh
+          scripts/ci_check_project.sh "${{ matrix.project }}"
