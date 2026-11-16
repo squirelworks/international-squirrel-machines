@@ -34,10 +34,10 @@ Study solid: `../shell/hull_study.scad` (mm; printable proportion sketch).
 |-------|-----------|
 | Concept | Inner pressure hull + outer free-flooding casing (textbook two-hull language) |
 | Material class | Steel or Al study class for **scale model** — not a certified pressure vessel |
-| Frames / rings | Spacing stub for later structural PR |
+| Frames / rings | Study spacing in `structural.md` / `structural.yaml` / shell |
 | Not in B3 | Collapse pressure calculation as a certified design; life-support penetrations |
 
-Full-scale structural / pressure-hull design remains a later roadmap checkbox.
+Study structural / pressure-hull layout: `structural.md` + `interfaces/structural.yaml` (still not a certified vessel).
 
 ---
 
@@ -93,4 +93,4 @@ Teaching check: `python3 submarine/docs/trim_examples.py`.
 Authoritative rows: `../interfaces/mass-placeholders.yaml`.
 
 ## 7. Next steps
-KiCad scale-model control, structural pressure-hull design, Gerbers/STLs, BOM, polish.
+Gerbers/STLs, BOM, polish remain open after structural study.

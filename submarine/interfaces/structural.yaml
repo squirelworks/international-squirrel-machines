@@ -1,0 +1,55 @@
+schema_version: "1.0.0"
+submarine_id: "ISM-SS-1"
+revision: "A"
+status: stub
+issue: 44
+provisional: true
+scope: educational_pressure_hull_structure
+excluded:
+  - quieting
+  - acoustics
+  - life_support_design
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - fire_control
+  - itar_ear
+source_docs:
+  - submarine/docs/structural.md
+  - submarine/docs/design-note.md
+related_interfaces:
+  - hydrostatics.yaml
+  - mass-placeholders.yaml
+  - control-board.yaml
+shell: submarine/shell/hull_study.scad
+
+members:
+  - id: PRESSURE_HULL
+    role: inner_watertight_stub
+  - id: RING_FRAMES
+    role: circumferential_stiffener_stubs
+    count_study: 8
+  - id: OUTER_CASING
+    role: free_flooding_fairing_stub
+  - id: SAIL_STRUCTURE
+    role: fairwater_trunk_stub
+  - id: STERNPLANE_SPARS
+    role: cruciform_control_stubs
+  - id: MACHINERY_FOUNDATION
+    role: aft_propulsor_keepout
+  - id: BALLAST_BAY_FORE
+    role: trim_volume_stub
+  - id: BALLAST_BAY_AFT
+    role: trim_volume_stub
+
+sensors:
+  sonar_and_others: mass_footprint_placeholders_only
+
+expected_behaviour:
+  educational_structure_only: true
+  no_collapse_pressure_certification: true
+  no_weapons_interfaces: true
+  no_quieting_or_acoustics: true
