@@ -14,6 +14,8 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `avionics-bus.yaml` | Bus names, frame rates, topic list | Stub |
 | `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
 | `carrier-loads.yaml` | Arrestment / catapult / sink-rate / wing-fold cases | Stub (#93) |
+| `inert-stores.yaml` | Inert store mass/dims/drag/CG (public class figures) | Stub (#94) |
+| `sms-interface.yaml` | SMS topics, safeing, separation envelopes | Stub (#94) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).
@@ -24,7 +26,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 ## Consumer map
 | Consumer | Primary files |
 |----------|---------------|
-| Flight Lab (#79 / SS#168) | geometry, mass, flight-controls, hardpoints, sensors |
+| Flight Lab (#79 / SS#168) | geometry, mass, flight-controls, hardpoints, sensors, inert-stores, sms, carrier-loads, materials-zones |
 | HIL bench (#80) | actuators, avionics-bus, sensors |
 | Mission-computer stubs (#81) | avionics-bus, sensors, hardpoints |
 | HUD/HMI (#82) | flight-controls (modes), sensors |

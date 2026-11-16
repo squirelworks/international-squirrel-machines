@@ -34,6 +34,12 @@ files:
   - path: carrier-loads.yaml
     purpose: carrier_load_cases
     issue: 93
+  - path: inert-stores.yaml
+    purpose: inert_store_models
+    issue: 94
+  - path: sms-interface.yaml
+    purpose: sms_and_separation
+    issue: 94
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will
