@@ -2,6 +2,6 @@
 
 **Directory:** `submarine/` · **Issue:** [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44)
 
-**Scope:** scale-model hull / trim / pressure-hull study. KiCad board is prop/planes/ballast stubs. Structural slice adds educational ring frames / casing / sail spars. Sensors = mass/footprint only. **No** quieting, acoustics, life-support, weapons, seekers, guidance, warheads, or fuzing.
+**Scope:** educational hull / trim / scale-model control. Structural slice added pressure-hull rings and casing stubs. Fab slice adds study Gerbers + hull STL. Sonar = mass/footprint only. **No** quieting, acoustics, weapons, seekers, or fuzing.
 
 See `submarine/README.md`.
