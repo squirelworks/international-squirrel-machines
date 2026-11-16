@@ -2,23 +2,42 @@ schema_version: "1.0.0"
 aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
+issue: 75
+provisional: true
 source_docs:
   - fighter-jet/avionics/buses-power.md
+  - fighter-jet/avionics/architecture.md
+  - fighter-jet/avionics/bus-topology.svg
   - fighter-jet/diagrams/wiring-harness.md
+related: avionics-architecture.yaml
 
 buses:
   - id: ISM-Bus-A
     role: primary_mission_flight
     media: dual_redundant_digital
     frame_rate_hz_default: 100
+    schedule_owner: FCC
+    peers: [FCC, MC, bay_io, radios, HUD_sym_gen, PDU]
   - id: ISM-Bus-B
     role: secondary_isolation
     media: dual_redundant_digital
     frame_rate_hz_default: 100
+    schedule_owner: FCC_lane2_side
+    peers: [FCC, MC, PDU]
+  - id: Sensor-Fabric-S1
+    role: radar_eo_to_mc
+    media: fiber_stub_preferred
+    master: MC
+    flight_article: true
+  - id: FCC-XChannel
+    role: lane_sync
+    media: deterministic_short_period
+    peers: [FCC_L1, FCC_L2, FCC_L3, FCC_L4]
   - id: ISM-Bay-Debug
     role: development_usb
     media: usb
     flight_article: false
+    gated_by: [WOW, maintenance_pin]
 
 topics:
   - name: fcc.surface_cmd
@@ -53,13 +72,29 @@ topics:
     bus: ISM-Bus-B
     rate_hz: 10
     payload: rail_health
+  - name: fcc.lane_health
+    bus: ISM-Bus-B
+    rate_hz: 10
+    payload: vote_bit_status
+  - name: mc.bit
+    bus: ISM-Bus-B
+    rate_hz: 10
+    payload: mc_lru_health
+  - name: bay_io.bit
+    bus: ISM-Bus-A
+    rate_hz: 10
+    payload: concentrator_health
 
 power:
   primary_vdc: 28
   essential_bus: true
+  essential_feeds: [FCC, IMU, essential_HUD, radios]
+  hvdc_stub_v: 270
   bay_pcb_study: true
+  cross_tie: true
 
 expected_behaviour:
-  pinouts: freeze_with_bay_connector_icd
+  pinouts: see_connectors-pinouts_and_avionics-architecture
   analyzer_fixtures: future_under_interfaces_or_fixtures
   third_party_sim_not_sot: true
+  protocol_ism_original: true

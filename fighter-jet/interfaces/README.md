@@ -12,7 +12,8 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `hardpoints.yaml` | Stores stations, mass classes, safeing flags | Stub aligned to DWG-040 |
 | `actuators.yaml` | EHA/gear channels, I/F table, safe failure | Stub (#73) |
 | `hydraulics.yaml` | Routing keep-outs / EHA pack envelopes | Stub (#73) |
-| `avionics-bus.yaml` | Bus names, frame rates, topic list | Stub |
+| `avionics-bus.yaml` | Bus topology, topics, power | Stub (#75) |
+| `avionics-architecture.yaml` | LRU split, connectors, schematic coverage | Stub (#75) |
 | `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
 | `carrier-loads.yaml` | Arrestment / catapult / sink-rate / wing-fold cases | Stub (#93) |
 | `inert-stores.yaml` | Inert store mass/dims/drag/CG (public class figures) | Stub (#94) |

@@ -1,17 +1,29 @@
 # ISM Fighter Jet — KiCad (Bay I/O Concentrator)
 
-This project is the **avionics-bay electrical slice** of ISM-FJ-1, not the whole aircraft. Mission computer, FCC, buses, FBW, and sensors are documented under `../avionics/`, `../flight-controls/`, and siblings.
+Avionics-bay **electrical slice** of ISM-FJ-1 (#75) — not the whole aircraft. FCC, MC, buses, FBW, and sensors: `../avionics/`, `../flight-controls/`.
 
-Project files:
+## Files
 - `ism-fighter-jet.kicad_pro`
-- `ism-fighter-jet.kicad_sch` (MCU, IMU, radio, actuator headers)
-- `ism-fighter-jet.kicad_pcb` (bay outline scaffold)
+- `ism-fighter-jet.kicad_sch` — MCU, IMU, radio, actuator headers J1–J4, USB, power pins
+- `ism-fighter-jet.kicad_pcb` — bay outline scaffold (~120×80 mm)
 
-Logical PWM channels J1–J4 map to actuation trunks A1–A4 in `../diagrams/wiring-harness.md` (aileron, elevator, rudder, throttle).
+## Schematic coverage (#75)
+| Block | Status |
+|-------|--------|
+| IMU I2C | Present (`ISM:IMU`) |
+| Radio SPI | Present (`ISM:RADIO`) |
+| Actuator PWM headers | J1–J4 → trunks A1–A4 |
+| USB debug | DP/DM on MCU |
+| Power tree | 3V3/GND on symbols; 28 V→5 V/3V3 tree documented in `../avionics/bay-pcb-placement.md` / architecture (PDU upstream) |
 
-## Next implementation steps
-1. Expand schematic: full IMU bus, radio, crystal, decoupling, USB-C/UART debug, EHA/servo drivers, power tree.
-2. Freeze connector pinout against harness ICD.
-3. Associate footprints; place; route; export Gerbers.
+Logical PWM: J1 aileron, J2 HT, J3 rudder, J4 flaperon/throttle study — aligned with `../interfaces/actuators.yaml` study path.
 
-Pure Squirrel-OS/2 development.
+## Placement
+See `../avionics/bay-pcb-placement.md`. Pinouts: `../avionics/connectors-pinouts.md`.
+
+## Next
+1. Associate footprints; route; Gerbers.
+2. Freeze connector series against harness ICD.
+3. Firmware bring-up (#84) against this baseline.
+
+Pure Squirrel-OS/2 development. Soft UI apps are out of scope here.

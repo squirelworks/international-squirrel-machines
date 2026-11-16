@@ -28,7 +28,11 @@ files:
   - path: actuators.yaml
     purpose: eha_channels
   - path: avionics-bus.yaml
-    purpose: bus_topics_rates
+    purpose: bus_topics_rates_topology
+    issue: 75
+  - path: avionics-architecture.yaml
+    purpose: lru_split_connectors_schematic_coverage
+    issue: 75
   - path: materials-zones.yaml
     purpose: zone_material_map
     issue: 92

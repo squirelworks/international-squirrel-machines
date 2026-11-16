@@ -1,0 +1,101 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 75
+provisional: true
+source_docs:
+  - fighter-jet/avionics/architecture.md
+  - fighter-jet/avionics/connectors-pinouts.md
+  - fighter-jet/avionics/bay-pcb-placement.md
+  - fighter-jet/avionics/buses-power.md
+  - fighter-jet/kicad/README.md
+source_drawings: ["ISM-FJ-DWG-020", "ISM-FJ-DWG-070"]
+related_interfaces:
+  - avionics-bus.yaml
+  - actuators.yaml
+  - flight-controls.yaml
+  - sensors.yaml
+
+# Multi-board split (justified): bay I/O concentrator ≠ FCC ≠ MC
+boards_lrus:
+  - id: bay_io_pcb
+    path: fighter-jet/kicad/
+    role: study_and_hil_io_concentrator
+    contains: [MCU, local_IMU_footprint, radio_module, PWM_headers_J1-J4, USB_debug, 3V3_LDO]
+    not_flight_sole_critical_path: true
+  - id: FCC_lanes
+    bay_slot: B
+    role: flight_critical_laws
+    count: 4
+  - id: MC
+    bay_slot: A
+    role: mission_fusion_stores_display
+    lanes: 2
+  - id: PDU
+    bay_slot: C
+    role: 28V_distribution_cross_tie
+  - id: IMU_tray
+    bay_slot: D
+    role: primary_nav_imu
+  - id: radio_datalink
+    bay_slot: E
+    role: comms
+
+bus_topology:
+  masters:
+    - bus: ISM-Bus-A
+      schedule_owner: FCC_lane1_as_bus_controller_or_TDMA_peer
+      peers: [FCC_all_lanes, MC, bay_io, radios, HUD_sym_gen, PDU]
+    - bus: ISM-Bus-B
+      schedule_owner: FCC_lane2_dissimilar_route
+      peers: [FCC_all_lanes, MC, PDU]
+  sensor_fabric:
+    id: S1
+    media: fiber_stub_preferred
+    from: [radar_processor, eo_processor]
+    to: MC
+    master: MC
+  fcc_cross_channel:
+    media: deterministic_short_period
+    peers: [FCC_lane1, FCC_lane2, FCC_lane3, FCC_lane4]
+  maintenance:
+    gated_by: [WOW, maintenance_pin]
+    media: ISM-Bay-Debug_USB
+
+schematic_coverage_bay_io:
+  imu_bus: {status: present, nets: [I2C_SDA, I2C_SCL, 3V3, GND], notes: local_footprint_plus_tray_feed}
+  radio: {status: present, nets: [SPI_MOSI, SPI_MISO, SPI_SCK, 3V3, GND]}
+  power_tree: {status: documented, rails: [28V_in, 5V_act, 3V3_logic], note: LDO_on_bay_pcb_PDU_upstream}
+  actuator_drivers: {status: present_headers, connectors: [J1, J2, J3, J4], map: [A1_aileron, A2_elevator_ht, A3_rudder, A4_throttle_or_flaperon]}
+  usb_debug: {status: present, nets: [USB_DP, USB_DM]}
+
+connectors:  # draft pinouts — see connectors-pinouts.md
+  - id: J_HOTAS
+    mates: [side_stick, throttle]
+  - id: J1
+    family: A1
+    function: aileron_cmd_study
+  - id: J2
+    family: A2
+    function: ht_cmd_study
+  - id: J3
+    family: A3
+    function: rudder_cmd_study
+  - id: J4
+    family: A4
+    function: flaperon_or_throttle_study
+  - id: J_SENS
+    mates: [air_data, wow, imu_tray]
+  - id: J_PWR
+    mates: [PDU_P2]
+
+bit_health:
+  topics: [pdu.power_status, fcc.lane_health, mc.bit, bay_io.bit]
+  rate_hz: 10
+  consumers: [HUD_caution, Flight_Lab, HIL]
+
+expected_behaviour:
+  firmware_bringup_issue_84_may_start_from_this_baseline: true
+  steve_imports_avionics_bus_and_architecture_yaml: true
+  soft_ui_apps_out_of_scope: true
