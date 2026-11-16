@@ -11,7 +11,7 @@ Host-buildable bring-up for the **bay I/O concentrator** (`../kicad/`). Maps log
 | Debug | UART/stdio host profile; SWD/USB on article later |
 | Datasheet | https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf |
 
-## Toolchain
+## Toolchain / CI
 | Target | Toolchain |
 |--------|-----------|
 | **Host stub (default, CI)** | `gcc` C11, `-Wall -Wextra -Werror` — `make` / `make test` |
@@ -26,6 +26,15 @@ make run                          # interactive UART/stdio profile
 ```
 
 Builds **without** the board attached.
+
+**CI (#130):** GitHub Actions workflow `.github/workflows/fighter-jet-firmware.yml` runs on PRs/pushes that touch `fighter-jet/firmware/**` (or the workflow file):
+
+```bash
+cd fighter-jet/firmware
+make clean && make && make test
+```
+
+on `ubuntu-24.04` with stock `gcc` / `build-essential`. Any compiler warning (`-Werror`), build error, or test failure fails the job.
 
 ## Behaviour
 - **BIT line** (stdio / `bay_io.bit`): board id, version, `fw_hash`, rails, IMU self-test, uptime, fault bits, actuator + inceptor vectors — see `../interfaces/bit-frame.yaml`.

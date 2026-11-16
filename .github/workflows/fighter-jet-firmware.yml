@@ -1,0 +1,38 @@
+# CI: fighter-jet bay I/O host firmware — make && make test (#130 / A1 #119)
+name: fighter-jet-firmware
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "fighter-jet/firmware/**"
+      - ".github/workflows/fighter-jet-firmware.yml"
+  pull_request:
+    paths:
+      - "fighter-jet/firmware/**"
+      - ".github/workflows/fighter-jet-firmware.yml"
+
+concurrency:
+  group: fighter-jet-firmware-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: make && make test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install gcc
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends build-essential
+          gcc --version
+
+      - name: Build and test (Wall Wextra Werror)
+        working-directory: fighter-jet/firmware
+        run: |
+          set -euo pipefail
+          make clean && make && make test
