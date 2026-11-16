@@ -6,7 +6,7 @@ Parametric OpenSCAD airframe — **proportion / printable study slice** of the I
 - `airframe.scad` — fuselage (avionics + gear wells), wings (hinge grooves), empennage, spar/rib planes, deployed gear, FS markers
 
 ## STL exports
-Set `show_stations = false`, `show_structure_planes = false`, then:
+Debug flags `show_stations` / `show_structure_planes` default **false** (single manifold `airframe()` solid when gear included). Set true only for on-screen FS/WS planes.
 
 ```bash
 openscad -o fuselage.stl -D 'show_stations=false' -D 'show_structure_planes=false' -D 'show_gear_deployed=false' -D 'airframe(); fuselage();' airframe.scad

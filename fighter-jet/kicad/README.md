@@ -1,29 +1,25 @@
 # ISM Fighter Jet — KiCad (Bay I/O Concentrator)
 
-Avionics-bay **electrical slice** of ISM-FJ-1 (#75) — not the whole aircraft. FCC, MC, buses, FBW, and sensors: `../avionics/`, `../flight-controls/`.
+Avionics-bay **electrical slice** (#75 / Fred verify fixes). Open with **KiCad 8**.
 
-## Files
-- `ism-fighter-jet.kicad_pro`
-- `ism-fighter-jet.kicad_sch` — MCU, IMU, radio, actuator headers J1–J4, USB, power pins
-- `ism-fighter-jet.kicad_pcb` — bay outline scaffold (~120×80 mm)
+## Project-local libraries
+| File | Role |
+|------|------|
+| `sym-lib-table` | Points at `ISM.kicad_sym` |
+| `fp-lib-table` | Points at `ISM.pretty/` |
+| `ISM.kicad_sym` | MCU, IMU, RADIO, CONN_SERVO |
+| `ISM.pretty/` | QFN-56-1EP_7x7mm_P0.4mm, LGA-14_3x2.5mm_P0.5mm, RADIO_Module, PinHeader_1x03, MountingHole_M3 |
 
-## Schematic coverage (#75)
-| Block | Status |
-|-------|--------|
-| IMU I2C | Present (`ISM:IMU`) |
-| Radio SPI | Present (`ISM:RADIO`) |
-| Actuator PWM headers | J1–J4 → trunks A1–A4 |
-| USB debug | DP/DM on MCU |
-| Power tree | 3V3/GND on symbols; 28 V→5 V/3V3 tree documented in `../avionics/bay-pcb-placement.md` / architecture (PDU upstream) |
+Stock KiCad 8 may not ship the QFN-56 / LGA-14 names we use — **always** open this folder so `${KIPRJMOD}` resolves.
 
-Logical PWM: J1 aileron, J2 HT, J3 rudder, J4 flaperon/throttle study — aligned with `../interfaces/actuators.yaml` study path.
+## Schematic / PCB
+- Nets wired: I2C, SPI, PWM J1–J4, 3V3 / 5V / GND
+- Footprints assigned on symbols; mounting holes **H1–H4**
+- U2 (IMU) pads 1–2 spaced with mask margin to avoid SDA/SCL short
+- Tracks on F.Cu for bring-up connectivity
 
-## Placement
-See `../avionics/bay-pcb-placement.md`. Pinouts: `../avionics/connectors-pinouts.md`.
+## Firmware
+Host BIT/UART: `../firmware/` (`make test`).
 
-## Next
-1. Associate footprints; route; Gerbers.
-2. Freeze connector series against harness ICD.
-3. Firmware bring-up (#84) — see `../firmware/` (host `make test` / UART profile).
-
-Pure Squirrel-OS/2 development. Soft UI apps are out of scope here.
+## ERC / DRC
+Target **0 errors** in KiCad 8.0.9 (open project from this directory). Warnings may remain for study pin-count vs full RP2040.

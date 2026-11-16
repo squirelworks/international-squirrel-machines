@@ -1,0 +1,8 @@
+(footprint "MountingHole_3.2mm_M3"
+  (version 20240108)
+  (generator "ism_agent")
+  (layer "F.Cu")
+  (descr "M3 mounting hole")
+  (attr through_hole exclude_from_pos_files exclude_from_bom)
+  (pad "" thru_hole circle (at 0 0) (size 6.4 6.4) (drill 3.2) (layers "*.Cu" "*.Mask"))
+)
