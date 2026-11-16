@@ -31,6 +31,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `propulsion.yaml` | Engine envelope, inlet/duct, mounts, offtakes | Stub (A2 #120) |
 | `carriage-drag.yaml` | ΔCD0 per store/loadout + illegal fixture | Stub (A4 #122) |
 | `safe-inhibit-table.yaml` | Condition → SAFE/INHIBIT truth table | Stub (A4 #122) |
+| `ew-placeholders.yaml` | EW RWR/CMDS/jammer mass + SAFE/INHIBIT | Stub (#85 FJ remaining) |
 | `loadout_validate.py` | SS#173 loadout legality check | Stub (A4 #122) |
 
 ## Rules

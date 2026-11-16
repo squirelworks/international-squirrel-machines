@@ -14,6 +14,6 @@ Radar/EO/#76 sensors ICD, stores integration, EW stubs. **Fictional ISM systems 
 | `lab-policy.md` | Simulated vs physical fit (A4 #122) |
 | `stores-integration.md` | Rails/ejectors, inert models (#94) |
 | `multi-origin-stores.md` | NATO/RU/CN/JP adapters (#101) |
-| `ew.md` | EW / self-protect stubs |
+| `ew.md` | EW / self-protect textbook stubs + SAFE/INHIBIT |
 
-**Flight Lab YAML:** `../interfaces/sensors.yaml`, `hardpoints.yaml`, `inert-stores.yaml`, `sms-interface.yaml`, `multi-origin-stores.yaml`, `carriage-drag.yaml`, `safe-inhibit-table.yaml` · validator `loadout_validate.py`
+**Flight Lab YAML:** `../interfaces/sensors.yaml`, `hardpoints.yaml`, `inert-stores.yaml`, `sms-interface.yaml`, `multi-origin-stores.yaml`, `carriage-drag.yaml`, `safe-inhibit-table.yaml`, `ew-placeholders.yaml` · validator `loadout_validate.py` · EW check `../docs/ew_inhibit_examples.py`
