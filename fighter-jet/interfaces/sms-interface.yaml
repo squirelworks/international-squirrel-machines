@@ -2,9 +2,10 @@ schema_version: "1.0.0"
 aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
-issue: 94
+issue: 77
+related_issues: [94, 101]
 provisional: true
-scope: integration_sms_and_separation
+scope: integration_sms_safeing_separation
 excluded:
   - guidance
   - seekers
@@ -12,24 +13,39 @@ excluded:
   - warheads
   - fuzing
   - fuze_programming
+  - arming_codes
+  - weapon_protocol_message_internals
 source_docs:
-  - fighter-jet/sensors-weapons/stores-integration.md
   - fighter-jet/sensors-weapons/stores.md
-  - fighter-jet/interfaces/inert-stores.yaml
-  - fighter-jet/interfaces/hardpoints.yaml
-  - fighter-jet/interfaces/avionics-bus.yaml
+  - fighter-jet/sensors-weapons/stores-integration.md
+  - fighter-jet/sensors-weapons/stores-safeing.md
+source_drawings: ["ISM-FJ-DWG-040", "ISM-FJ-DWG-030", "ISM-FJ-DWG-060"]
+related_interfaces:
+  - hardpoints.yaml
+  - inert-stores.yaml
+  - multi-origin-stores.yaml
+  - avionics-bus.yaml
+  - flight-controls.yaml
 
 roles:
   mc: owns_inventory_consent_release_logic
   fcc: envelope_wow_veto_and_jettison_limits
-  sms: logical_partition_on_mc  # not a separate LRU in Block 1
+  sms: logical_partition_on_mc  # Block 1 — not a separate LRU
+  smc_alias: sms  # Stores Management Computer = SMS partition
 
+# SMC / SMS message + discrete interface (arm/safe/release inhibit) — no arming codes
 topics:
   - name: mc.stores_config
     bus: ISM-Bus-A
     rate_hz: 10
     payload:
-      stations: "map station_id -> {store_id|empty, hung, selected}"
+      stations: "map station_id -> {store_id|empty, hung, selected, captive|inert|jettisonable}"
+  - name: mc.stores_mode
+    bus: ISM-Bus-A
+    rate_hz: 5
+    payload:
+      mode: [safe, armed_consent, captive_carry, training_sim]
+      notes: "armed_consent is dual-consent ready — not fuze arm"
   - name: mc.stores_release_cmd
     bus: ISM-Bus-A
     rate_hz: on_event
@@ -43,10 +59,18 @@ topics:
     rate_hz: 20
     payload:
       inhibit: boolean
-      reason: [envelope, wow, sensor_disagree, structural]
+      reason: [envelope, wow, sensor_disagree, structural, gear_unsafe]
   - name: sms.safe_arm_discrete
     path: independent_discrete
+    states: [SAFE, CONSENT]
     dual_consent_with: mc.stores_logic
+    notes: "CONSENT ≠ munition arming; integration-level only"
+  - name: sms.release_inhibit_discrete
+    path: independent_discrete
+    active_means: release_blocked
+  - name: sms.jettison_guard_discrete
+    path: guarded_discrete
+    requires: [pilot_guard_lift, mc_consent]
 
 safeing:
   mechanical_ground_pins: true
@@ -55,6 +79,46 @@ safeing:
   fcc_envelope_veto: true
   jettison_guarded: true
   live_fuzing_in_repo: false
+  arming_codes_in_repo: false
+
+# Conditions that force SAFE (authoritative table)
+force_safe_conditions:
+  - id: FS-01
+    condition: any_wow_true
+    unless: maintenance_override_pin
+  - id: FS-02
+    condition: mechanical_ground_pin_installed
+  - id: FS-03
+    condition: fcc.stores_inhibit.inhibit_true
+  - id: FS-04
+    condition: sms.safe_arm_discrete_eq_SAFE
+  - id: FS-05
+    condition: mc.stores_mode_eq_safe_or_training_sim
+  - id: FS-06
+    condition: outside_separation_envelope
+  - id: FS-07
+    condition: sensor_disagree_degraded_fcs
+  - id: FS-08
+    condition: hung_store_detected
+    effect: inhibit_that_station_and_report
+  - id: FS-09
+    condition: power_essential_bus_abnormal
+  - id: FS-10
+    condition: lab_bench_sim_only_policy
+
+lab_demo_policy:
+  documentation_and_bench_only: true
+  flight_lab:
+    simulated: [release_cmd, inhibit, safe_arm_state, separation_gates, inventory]
+    physically_actuated: []
+  hil_bench:
+    simulated: [munition_internals, fuzing, seekers]
+    physically_actuated_allowed:
+      - pylon_discrete_loopback
+      - safe_arm_switch_hardware
+      - ejector_squib_simulator_resistive_load
+    never_actuated_in_repo_demos: [live_ordnance, real_squibs, arming_devices]
+  note: "No unlawful weaponization guidance; ICD/lab scope only."
 
 separation_envelopes:
   provisional: true
@@ -99,11 +163,17 @@ station_hardware_defaults:
   STA-8: pylon_ejector_heavy
   STA-9: pylon_ejector_heavy
 
+drawing_links:
+  station_map: ISM-FJ-DWG-040
+  spar_hardpoint_pads: ISM-FJ-DWG-030
+  wing_plan_ws: ISM-FJ-DWG-060
+
 expected_behaviour:
   release_blocked_if:
     - wow_and_not_override
     - fcc_inhibit
     - safe_arm_disagree
     - outside_separation_envelope
+    - force_safe_condition_active
   asymmetry_reported_to_fcc: true
-  flight_lab_consumes: [inert-stores.yaml, hardpoints.yaml, this_file]
+  flight_lab_consumes: [inert-stores.yaml, hardpoints.yaml, multi-origin-stores.yaml, this_file]

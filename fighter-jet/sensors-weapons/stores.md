@@ -1,35 +1,38 @@
-# Stores Stations & Safeing — ISM-FJ-1
+# Stores Stations & Safeing — ISM-FJ-1 (#77)
+
+**Safeing / SMC detail:** `stores-safeing.md` · **YAML:** `../interfaces/sms-interface.yaml` · `hardpoints.yaml`
+
+## Hard stop
+No guidance, seekers, propulsion, warheads, fuzing, or arming codes in-repo. Integration + ICD + lab policy only.
 
 ## Stations (fictional ISM pylons)
 
-| Station | Location | Typical use (fictional) |
-|---------|----------|-------------------------|
-| STA-1/2 | Wingtip rail | Short-range IR missile (ISM-AAM-S) |
-| STA-3/4 | WS-6 | Light AAM / pod |
-| STA-5/6 | WS-4 | Medium AAM / fuel / strike (ISM-AAM-M / ISM-GBU-stub) |
-| STA-7/8 | WS-2 | Heavy strike / fuel |
-| STA-9 | Centerline | Fuel / EW pod / large store |
-| Internal | Gun bay opt. | ISM gun concept or fuel/EW pallet |
+| Station | Location | Typical inert / store class | Mass max |
+|---------|----------|----------------------------|----------|
+| STA-1/2 | Wingtip rail | Short-range AAM-class inert | 150 kg |
+| STA-3/4 | WS~0.75 | Light AAM / pod | 300 kg |
+| STA-5/6 | WS~0.50 | Medium AAM / fuel / strike-class inert | 700 kg |
+| STA-7/8 | WS~0.25 | Heavy / fuel | 1200 kg |
+| STA-9 | Centerline | Fuel / EW / large | 1500 kg |
+| Internal | Gun bay opt. | Product decision vs fuel/EW | — |
 
-Hardpoints reinforce spars per `diagrams/wing-plan.svg` and `mechanical/airframe.md` (DWG-040 / DWG-060).
+Hardpoints → spars: `ISM-FJ-DWG-040` / `030` / `060`. Geometry & BL/WL: `hardpoints.yaml`.
 
-## Integration track (#94)
-- Design note: `stores-integration.md` (rails/ejectors, inert models, SMS)
-- Inert models: `../interfaces/inert-stores.yaml` (AIM-9 / AGM-114 *class* public figures only)
-- SMS + separation envelopes: `../interfaces/sms-interface.yaml`
-- **Hard stop:** no guidance, seeker, propulsion, warhead, or fuzing design in-repo
+## Prior tracks
+- **#94** inert models + SMS stub — `stores-integration.md`, `inert-stores.yaml`
+- **#101** multi-origin adapters — integration only
+- **#77** (this) safeing table, SMC discretes, lab/demo policy
 
 ## Release / safeing philosophy
 1. **Mechanical safe** on ground with pins; WOW inhibits release unless maintenance override.
-2. **Dual consent:** MC stores logic **and** independent safe/arm discrete path.
+2. **Dual consent:** MC stores logic **and** independent safe/arm discrete (`CONSENT` ≠ munition arm).
 3. **FCC veto:** envelope / AOA / gear unsafe → inhibit.
-4. **Jettison:** separate guarded path for emergency store clear; still respects some structural limits.
-5. **No live fuzing detail in-repo** — only interface philosophy.
+4. **Jettison:** separate guarded path; structural limits still apply.
+5. **Force-SAFE** whenever FS-01…FS-10 conditions hold (`stores-safeing.md`).
 
 ## Harness
 Stores serial + discretes on trunk W1 (`diagrams/wiring-harness.md`).
 
-## Product decisions
+## Product decisions (open)
 - Internal gun vs clean bay
-- Max store weight class
-- Wet vs dry wing hardpoints
+- Wet vs dry wing hardpoints (baseline **dry**)

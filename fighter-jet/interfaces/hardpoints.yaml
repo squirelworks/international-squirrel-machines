@@ -2,18 +2,26 @@ schema_version: "1.0.0"
 aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
-source_drawings: ["ISM-FJ-DWG-040"]
+issue: 77
+related_issues: [94, 101]
+source_drawings: ["ISM-FJ-DWG-040", "ISM-FJ-DWG-030", "ISM-FJ-DWG-060"]
 source_docs:
   - fighter-jet/diagrams/hardpoints.md
   - fighter-jet/sensors-weapons/stores.md
+  - fighter-jet/sensors-weapons/stores-safeing.md
   - fighter-jet/sensors-weapons/stores-integration.md
 related_interfaces:
   - inert-stores.yaml
   - sms-interface.yaml
+  - multi-origin-stores.yaml
 
 wet_hardpoints: false  # product decision baseline dry
 gun_bay: optional_product_decision
 issue_integration: 94
+drawing_ids:
+  station_map: ISM-FJ-DWG-040
+  spar_pads: ISM-FJ-DWG-030
+  wing_plan: ISM-FJ-DWG-060
 
 stations:
   - id: STA-1
