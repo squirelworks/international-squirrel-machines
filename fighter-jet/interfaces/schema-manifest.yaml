@@ -19,7 +19,8 @@ files:
   - path: mass-properties.yaml
     purpose: mass_cg_inertia
   - path: flight-controls.yaml
-    purpose: surfaces_laws_envelope
+    purpose: surfaces_laws_envelope_inceptors_icd
+    issue: 74
   - path: sensors.yaml
     purpose: sensor_io_limits
   - path: hardpoints.yaml

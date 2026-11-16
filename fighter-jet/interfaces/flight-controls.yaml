@@ -2,18 +2,110 @@ schema_version: "1.0.0"
 aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
-source_drawings: ["ISM-FJ-DWG-010", "ISM-FJ-DWG-030"]
+issue: 74
+provisional: true
+source_drawings: ["ISM-FJ-DWG-010", "ISM-FJ-DWG-030", "ISM-FJ-DWG-070"]
 source_docs:
   - fighter-jet/flight-controls/fly-by-wire.md
   - fighter-jet/flight-controls/control-laws.md
   - fighter-jet/flight-controls/envelope.md
+  - fighter-jet/flight-controls/fcs-handoff.md
+related_interfaces:
+  - actuators.yaml
+  - sensors.yaml
+  - avionics-bus.yaml
+  - mechanical-airframe.yaml
 
 architecture:
   fbw: true
   mechanical_backup: false
   fcc_lanes: 4  # product decision baseline quadruplex
   voting: mid_value_select
+  fcc_vs_mission_computer: >
+    FCC owns inner-loop laws, envelope, surface commands, NWS, gear-gated modes.
+    Mission computer (MC) requests outer modes / autopilot targets and provides
+    stores_config; MC never bypasses FCC to actuators.
   inceptors: [side_stick, throttle_quadrant, pedals]
+
+# Block diagram nodes (sensors → laws → actuators). SVG: flight-controls/fcs-block.svg
+block_diagram:
+  nodes:
+    - id: inceptors
+      outputs: [stick_pitch_roll, throttle, pedal_yaw]
+    - id: air_data
+      outputs: [keas, mach, baro_alt, aoa, aos]
+    - id: imu
+      outputs: [p, q, r, nx, ny, nz]
+    - id: surface_position
+      outputs: [delta_ail, delta_flap, delta_ht, delta_rud]
+    - id: wow
+      outputs: [WOW_NLG, WOW_MLG_L, WOW_MLG_R]
+    - id: fcc_laws
+      inputs: [inceptors, air_data, imu, surface_position, wow, stores_config]
+      outputs: [surface_cmds, nws_cmd, mode_state]
+    - id: eha_controllers
+      ref: actuators.yaml
+  edges:
+    - [inceptors, fcc_laws]
+    - [air_data, fcc_laws]
+    - [imu, fcc_laws]
+    - [surface_position, fcc_laws]
+    - [wow, fcc_laws]
+    - [fcc_laws, eha_controllers]
+
+inceptors_icd:
+  update_rate_hz: 100
+  bus: ISM-Bus-A
+  defaults_on_loss: hold_last_valid_then_neutral_after_timeout_ms
+  timeout_ms: 50
+  channels:
+    - id: stick_pitch
+      sensing: force_or_rvdt
+      range: {min: -1.0, max: 1.0}
+      units: normalized
+      topic: inceptor.stick.pitch
+      default: 0.0
+    - id: stick_roll
+      sensing: force_or_rvdt
+      range: {min: -1.0, max: 1.0}
+      units: normalized
+      topic: inceptor.stick.roll
+      default: 0.0
+    - id: stick_paddle_ap_disengage
+      sensing: discrete
+      topic: inceptor.stick.ap_disconnect
+      default: false
+    - id: throttle_L
+      sensing: rvdt
+      range: {min: 0.0, max: 1.0}
+      topic: inceptor.throttle.L
+      default: 0.0
+    - id: throttle_R
+      sensing: rvdt
+      range: {min: 0.0, max: 1.0}
+      topic: inceptor.throttle.R
+      default: 0.0
+    - id: pedal_yaw
+      sensing: force_or_rvdt
+      range: {min: -1.0, max: 1.0}
+      topic: inceptor.pedal.yaw
+      default: 0.0
+    - id: toe_brake_L
+      sensing: pot
+      range: {min: 0.0, max: 1.0}
+      topic: inceptor.brake.L
+      default: 0.0
+    - id: toe_brake_R
+      sensing: pot
+      range: {min: 0.0, max: 1.0}
+      topic: inceptor.brake.R
+      default: 0.0
+
+fcs_sensors:
+  imu: {lanes: 2, rate_hz: 200, ref: sensors.yaml}
+  air_data: {lanes: 2, rate_hz: 50, includes: [keas, aoa, aos, baro]}
+  surface_position: {source: eha_feedback, rate_hz: 100}
+  wow: {discretes: [WOW_NLG, WOW_MLG_L, WOW_MLG_R]}
 
 surfaces:
   - id: aileron_L
@@ -22,22 +114,26 @@ surfaces:
     deflection_deg: {min: -25, max: 25}
     rate_limit_deg_s: 80
     actuator: eha_aileron_L
+    cmd_topic: cmd.surface.aileron_L
   - id: aileron_R
     axis: roll
     hinge_ws_pct: 0.92
     deflection_deg: {min: -25, max: 25}
     rate_limit_deg_s: 80
     actuator: eha_aileron_R
+    cmd_topic: cmd.surface.aileron_R
   - id: flaperon_L
     axis: [roll, lift]
     deflection_deg: {min: -15, max: 35}
     rate_limit_deg_s: 40
     actuator: eha_flaperon_L
+    cmd_topic: cmd.surface.flaperon_L
   - id: flaperon_R
     axis: [roll, lift]
     deflection_deg: {min: -15, max: 35}
     rate_limit_deg_s: 40
     actuator: eha_flaperon_R
+    cmd_topic: cmd.surface.flaperon_R
   - id: ht
     axis: pitch
     type: all_moving
@@ -45,26 +141,66 @@ surfaces:
     deflection_deg: {min: -25, max: 15}
     rate_limit_deg_s: 60
     actuator: eha_ht
+    cmd_topic: cmd.surface.ht
   - id: rudder
     axis: yaw
     deflection_deg: {min: -30, max: 30}
     rate_limit_deg_s: 70
     actuator: eha_rudder
+    cmd_topic: cmd.surface.rudder
+
+# Surface command ICD — must match actuators.yaml channel ids
+surface_command_icd:
+  rate_hz: 100
+  units: deg_surface_or_normalized_internal
+  voted_output: true
+  channels:
+    - cmd_topic: cmd.surface.aileron_L
+      actuator: eha_aileron_L
+    - cmd_topic: cmd.surface.aileron_R
+      actuator: eha_aileron_R
+    - cmd_topic: cmd.surface.flaperon_L
+      actuator: eha_flaperon_L
+    - cmd_topic: cmd.surface.flaperon_R
+      actuator: eha_flaperon_R
+    - cmd_topic: cmd.surface.ht
+      actuator: eha_ht
+    - cmd_topic: cmd.surface.rudder
+      actuator: eha_rudder
+    - cmd_topic: cmd.gear.nws
+      actuator: act_nws
+      gated_by: ground_mode
 
 modes:
   - id: powered_approach
     gains: high
     emphasis: aoa
+    entry: [gear_down_or_flap_land, keas_below_approach_band]
+    exit: [gear_up_and_flap_up, or_mode_select_ua]
   - id: up_and_away
     command: pitch_rate_nz_blend
     aoa_limit: true
+    entry: [weight_off_wheels, keas_above_climbout]
+    exit: [gear_down, or_degraded, or_ground]
   - id: direct_degraded
     augmentation: reduced
     still_fbw: true
+    entry: [sensor_disagree_or_lane_loss_beyond_threshold]
+    exit: [sensors_valid_and_crew_reset]
   - id: ground
     nws: true
     surface_rate_derate: 0.4
     thrust_idle_logic: true
+    entry: [any_wow_true]
+    exit: [all_wow_false_and_keas_valid]
+
+redundancy_bit:
+  fcc_lanes: 4
+  voting: mid_value_select
+  cross_channel_data_link: true
+  actuator_model_monitor: true
+  bit_on_deck: true
+  prototype_note: first_iron_bird_may_run_dual_lane_with_quad_software_emulation
 
 envelope:
   provisional: true
@@ -77,9 +213,31 @@ envelope:
   gear_extend_max_keas_kt: 250
   flap_extend_max_keas_kt: 230
 
+handoff:
+  flight_lab:
+    issue: 79
+    runs:
+      - aero_fcs_co_check_trim_stability
+      - mode_entry_exit_scripts
+      - envelope_limiter_response
+      - stores_asymmetry_derate
+  hil_bench:
+    issue: 80
+    runs:
+      - inceptor_to_eha_latency
+      - wow_mode_switch
+      - bit_and_lane_fail_injection
+      - actuator_hardover_monitor
+  hardware_article:
+    runs:
+      - iron_bird_surface_rig
+      - taxi_nws
+  note: Flight Lab is source of law behaviour checks; HIL proves electrical/timing ICD.
+
 expected_behaviour:
   carefree_handling: true
   stores_asymmetry_derates_roll: true
   wow_switches_laws: true
   sensor_disagree_widens_protections: true
   schedule_on: [dynamic_pressure, mach, gear, flap, stores_config]
+  mc_cannot_bypass_fcc_to_actuators: true
