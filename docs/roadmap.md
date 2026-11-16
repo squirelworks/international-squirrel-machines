@@ -138,7 +138,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Warship KiCad scale-model control — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) thruster/rudder/ballast stubs; no weapons/fire-control.
 - [x] Rocket KiCad passive logger / recovery — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41); no guidance/steering/seekers.
 - [x] Submarine KiCad scale-model control — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) prop/planes/ballast stubs; no acoustics/weapons/seekers.
-- [ ] Satellite KiCad / remaining siblings / FJ gaps
+- [x] Satellite KiCad bus OBC/EPS/radio — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31); payload mass/power/data only.
+- [ ] Carrier KiCad (#45 / #166) when merged; remaining siblings / FJ gaps
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
