@@ -1,7 +1,10 @@
 # ISM Submarine — (#44)
 
 **Program ID:** ISM-SS-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + hull STL package.
+
+## Prior slices
+Design-note (hull / trim / packaging). KiCad scale-model control board. Structural rings / casing. Gerbers + hull STL. This PR adds educational master BOM + assembly sequence.
 
 ## Scope limits (hard) — B3 spirit
 
@@ -19,6 +22,8 @@
 | `docs/design-note.md` | Hull / trim / packaging |
 | `docs/structural.md` | Pressure-hull rings / casing study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `interfaces/*.yaml` | Hydrostatics / mass / board / structure |
 | `kicad/ism-submarine-control.*` | Scale-model control board |
 | `fab/` | Study Gerbers + CPL + BOM stub |
@@ -29,6 +34,6 @@
 - [x] Design note (hull form, pressure hull concept, ballast/trim, propulsion packaging, controls for scale model)
 - [x] KiCad boards (scale-model control)
 - [x] Structural / pressure hull design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
