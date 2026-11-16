@@ -1,0 +1,173 @@
+ERC report (2026-11-16T23:41:47+0000, Encoding UTF8)
+
+***** Sheet /
+[no_connect_dangling]: Unconnected "no connection" flag
+    ; warning
+    @(83.8200 mm, 304.8000 mm): No Connect
+[no_connect_connected]: Pin with 'no connection' type is connected
+    ; warning
+    @(83.8200 mm, 304.8000 mm): Symbol J3 Hidden pin 7 [NC, Unconnected, Line]
+    @(83.8200 mm, 304.8000 mm): No Connect
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 304.8000 mm): Symbol J3 [RJ45_Hanrun_HR911105A_Horizontal]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(88.9000 mm, 25.4000 mm): Symbol #PWRG101 [GND]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(101.6000 mm, 25.4000 mm): Symbol #FLG2 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 25.4000 mm): Symbol #PWR33 [+3V3]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 88.9000 mm): Symbol J1 [Conn_01x10]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(76.2000 mm, 152.4000 mm): Symbol C4 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 152.4000 mm): Symbol C3 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(101.6000 mm, 152.4000 mm): Symbol C5 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(38.1000 mm, 25.4000 mm): Symbol #PWR5 [+5V]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 25.4000 mm): Symbol #FLG0 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(38.1000 mm, 152.4000 mm): Symbol C1 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 152.4000 mm): Symbol C2 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(190.5000 mm, 88.9000 mm): Symbol J2 [USB_C_Receptacle_USB2.0_16P]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 76.2000 mm): Symbol R1 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 88.9000 mm): Symbol U2 [USBLC6-2SC6]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 101.6000 mm): Symbol R2 [R]
+[no_connect_dangling]: Unconnected "no connection" flag
+    ; warning
+    @(368.3000 mm, 208.2800 mm): No Connect
+[no_connect_dangling]: Unconnected "no connection" flag
+    ; warning
+    @(368.3000 mm, 205.7400 mm): No Connect
+[no_connect_connected]: Pin with 'no connection' type is connected
+    ; warning
+    @(368.3000 mm, 208.2800 mm): Symbol U3 Hidden pin 12 [NC, Unconnected, Line]
+    @(368.3000 mm, 208.2800 mm): No Connect
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(342.9000 mm, 241.3000 mm): Symbol C12 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(368.3000 mm, 241.3000 mm): Symbol C13 [C]
+[no_connect_dangling]: Unconnected "no connection" flag
+    ; warning
+    @(368.3000 mm, 210.8200 mm): No Connect
+[no_connect_dangling]: Unconnected "no connection" flag
+    ; warning
+    @(368.3000 mm, 213.3600 mm): No Connect
+[no_connect_dangling]: Unconnected "no connection" flag
+    ; warning
+    @(368.3000 mm, 215.9000 mm): No Connect
+[no_connect_connected]: Pin with 'no connection' type is connected
+    ; warning
+    @(368.3000 mm, 210.8200 mm): Symbol U3 Hidden pin 13 [NC, Unconnected, Line]
+    @(368.3000 mm, 210.8200 mm): No Connect
+[no_connect_connected]: Pin with 'no connection' type is connected
+    ; warning
+    @(368.3000 mm, 213.3600 mm): Symbol U3 Hidden pin 46 [NC, Unconnected, Line]
+    @(368.3000 mm, 213.3600 mm): No Connect
+[no_connect_connected]: Pin with 'no connection' type is connected
+    ; warning
+    @(368.3000 mm, 215.9000 mm): Symbol U3 Hidden pin 47 [NC, Unconnected, Line]
+    @(368.3000 mm, 215.9000 mm): No Connect
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(355.6000 mm, 215.9000 mm): Symbol U3 [W5500]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(368.3000 mm, 190.5000 mm): Symbol D1 [LED]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(393.7000 mm, 241.3000 mm): Symbol C14 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(342.9000 mm, 266.7000 mm): Symbol R7 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(368.3000 mm, 266.7000 mm): Symbol R8 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(419.1000 mm, 241.3000 mm): Symbol C15 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(241.3000 mm, 241.3000 mm): Symbol Y1 [Crystal]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 241.3000 mm): Symbol R3 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(292.1000 mm, 241.3000 mm): Symbol C11 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(292.1000 mm, 266.7000 mm): Symbol R5 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(292.1000 mm, 292.1000 mm): Symbol D3 [LED]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 266.7000 mm): Symbol R6 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(241.3000 mm, 292.1000 mm): Symbol D2 [LED]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 292.1000 mm): Symbol R11 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 241.3000 mm): Symbol C10 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 292.1000 mm): Symbol R12 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 190.5000 mm): Symbol U1 [RP2040_MOD]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(127.0000 mm, 152.4000 mm): Symbol C6 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(139.7000 mm, 152.4000 mm): Symbol C7 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 152.4000 mm): Symbol C8 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(165.1000 mm, 152.4000 mm): Symbol C9 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(393.7000 mm, 190.5000 mm): Symbol R9 [R]
+[no_connect_connected]: Pin with 'no connection' type is connected
+    ; warning
+    @(368.3000 mm, 205.7400 mm): Symbol U3 Hidden pin 7 [DNC, Unconnected, Line]
+    @(368.3000 mm, 205.7400 mm): No Connect
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(368.3000 mm, 152.4000 mm): Symbol SW_BOOT [SW_Push]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(393.7000 mm, 152.4000 mm): Symbol R10 [R]
+
+ ** ERC messages: 54  Errors 0  Warnings 54
