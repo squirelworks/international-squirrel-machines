@@ -32,3 +32,4 @@ Current official list:
 - satellite (B5: bus + payload; weapons boundary)
 - space-station (#42: modules / ECLSS / docking; weapons boundary)
 - sonar (#40: educational echo-sounder; B3-style acoustic limits)
+- gundam (#46: mecha packaging; stores/integration placeholders only)
