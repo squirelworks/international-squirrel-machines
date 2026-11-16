@@ -2,6 +2,6 @@
 
 **Directory:** `gundam/` · **Issue:** [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46)
 
-**Scope:** mecha packaging — actuators, sensors, power, cockpit. Stores = mass/footprint + SAFE/INHIBIT only. KiCad board is limb actuator + SAFE/INHIBIT stubs. Structural slice adds torso/limb spars, joint stubs, armor keep-outs, and control-board tray. **No** seekers, guidance, munition propulsion, warheads, fuzing, or live launch.
+**Scope:** educational mecha frame packaging. KiCad board is actuator + SAFE/INHIBIT stubs. Structural slice adds spars/joints/armor. Fab slice adds study Gerbers + frame STL. Stores = **mass / footprint / SAFE / INHIBIT only**. **No** seekers, guidance, munition propulsion, warheads, fuzing, or arming.
 
 See `gundam/README.md`.
