@@ -1,0 +1,51 @@
+schema_version: "1.0.0"
+spacecraft_id: "ISM-SAT-1"
+revision: "A"
+status: stub
+issue: 31
+batch: B5
+provisional: true
+scope: payload_mass_power_data_stubs_only
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - kinetic_payloads
+  - directed_energy
+  - munitions
+source_docs:
+  - satellite/docs/design-note.md
+related_interfaces:
+  - bus.yaml
+
+note: >
+  Payloads are mass, average power, and data-rate stubs for bus sizing.
+  No targeting, weapons, or combat employment content.
+
+payloads:
+  - id: PL-EO-EDU
+    mass_kg: 0.35
+    power_w_orbit_avg: 1.0
+    data_kbps_stub: 10
+    purpose: educational_imager_mass_power_only
+    targeting: false
+  - id: PL-SCI-RADIO
+    mass_kg: 0.20
+    power_w_orbit_avg: 0.5
+    data_kbps_stub: 5
+    purpose: science_radio_experiment_stub
+  - id: PL-TECH-DEMO
+    mass_kg: 0.15
+    power_w_orbit_avg: 0.3
+    data_kbps_stub: 2
+    purpose: bus_tech_demo_mass
+
+totals:
+  mass_kg: 0.70
+  power_w_orbit_avg: 1.8
+
+expected_behaviour:
+  no_weapons: true
+  bus_consumes_mass_power_data: true
