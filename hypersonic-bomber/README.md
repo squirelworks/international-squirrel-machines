@@ -1,10 +1,10 @@
 # ISM Hypersonic Bomber — (#37)
 
 **Program ID:** ISM-HB-1 (study name TBD)  
-**This PR:** structural / mechanical study slice (frames / rails under TPS shell).
+**This PR:** Gerbers + mechanical STL export slice.
 
 ## Prior slices
-B1 (#137) aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. KiCad thermal board landed. This PR adds educational primary-structure ghosts under the TPS packaging shell.
+B1 aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. KiCad thermal board + structural ghosts under TPS shell landed. This PR exports study Gerbers and STL.
 
 ## Out of scope (hard limits)
 
@@ -12,7 +12,7 @@ B1 (#137) aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-f
 - Operational employment, targeting, or mission planning
 - Scramjet / propulsion **design recipes** or performance prediction
 - Export-controlled (ITAR/EAR) TPS formulations, classified materials data
-- Structural outputs are **educational layout stubs** — not certified
+- Fab/STL outputs are **educational study packages** — not certified
 
 ## Deliverables
 
@@ -20,23 +20,23 @@ B1 (#137) aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-f
 |------|------|
 | `docs/design-note.md` | Deepen summary (aerothermal + TPS classes) |
 | `docs/structural.md` | Primary-structure layout under TPS shell |
+| `docs/fab-mechanical.md` | Gerber + STL notes |
 | `docs/aerothermal-concepts.md` | Textbook heat-transfer concepts (B1) |
 | `docs/heat-shield-tps.md` | TPS class trades (B1) |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/stagnation_examples.py` | Stagnation-temperature teaching check |
 | `docs/heat_flux_examples.py` | Teaching cold-wall heat-flux stub |
-| `interfaces/aerothermal.yaml` | Mach / T∞ / bluntness stubs |
-| `interfaces/tps-placeholders.yaml` | TPS **class** placeholders only |
-| `interfaces/thermal-board.yaml` | KiCad channel map |
-| `interfaces/structural.yaml` | Frame / rail / bulkhead map |
+| `interfaces/*.yaml` | Aerothermal / TPS / board / structure |
 | `kicad/ism-hb-thermal.*` | Study KiCad thermal board |
+| `fab/` | Study Gerbers + CPL + BOM stub |
 | `shell/blunt_cone_study.scad` | Blunt cone + TPS shell + ghost structure |
+| `mechanical/blunt_cone_study.stl` | Exported study STL |
 
 ## Roadmap (#37) status
 - [x] Design note — aerothermal / heat-shield (B1 + deepen)
 - [x] KiCad boards (educational thermal / TPS sense)
-- [x] Structural / mechanical design (this PR)
-- [ ] Gerbers + mechanical files
+- [x] Structural / mechanical design
+- [x] Gerbers + mechanical files (this PR)
 - [ ] BOM / assembly
 - [ ] Polish and inquire for release
 
