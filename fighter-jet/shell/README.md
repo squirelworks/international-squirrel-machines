@@ -6,7 +6,8 @@ Parametric OpenSCAD airframe — **proportion / printable study slice** of the I
 - `airframe.scad` — fuselage (avionics + gear wells), wings (hinge grooves), empennage, spar/rib planes, deployed gear, FS markers
 - `propulsion_keepouts.scad` — engine/duct/nozzle packaging modules (A2 #120)
 - `propulsion_keepouts_preview.scad` — render keep-outs
-- `propulsion_intersection_check.scad` — must report **Current top level object is empty** (no bay/gear overlap)
+- `propulsion_intersection_check.scad` — cad-verify witness cube + echo (clash-free packaging)
+- `propulsion_clash_probe.scad` (LIB) + `check_propulsion_packaging.sh` — assert empty ∩ (bay∪gear); script expects OpenSCAD “empty” on the probe driver
 
 ## STL exports
 Debug flags `show_stations` / `show_structure_planes` default **false** (single manifold `airframe()` solid when gear included). Set true only for on-screen FS/WS planes.
