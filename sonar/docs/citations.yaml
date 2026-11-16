@@ -1,0 +1,30 @@
+schema_version: "1.0.0"
+program: "ISM-SNR-1"
+revision: "A"
+status: stub
+issue: 40
+note: >
+  Open educational / public echo-sounder language only.
+  No quieting, classified acoustics, or ITAR/EAR combat sonar.
+
+citations:
+  - id: wiki-sonar
+    title: "Sonar (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Sonar"
+    access_date: "2026-11-16"
+    used_for: "Active sonar / echo-sounder teaching language (#40)"
+
+  - id: wiki-sonar-equation
+    title: "Sonar equation (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Sonar_equation"
+    access_date: "2026-11-16"
+    used_for: "Teaching SL/TL/TS/NL/DI/DT stubs (#40)"
+
+  - id: wiki-fishfinder
+    title: "Fishfinder (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Fishfinder"
+    access_date: "2026-11-16"
+    used_for: "Public ~200 kHz class / display packaging (#40)"

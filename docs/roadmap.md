@@ -126,7 +126,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Rocket B4 design note — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) hobby-class; certified motors; passive logger/recovery; no guidance or active control.
 - [x] Satellite B5 design note — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) bus + payload; weapons boundary (payload mass/power/data only).
 - [x] Space station design note — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) modules / power / ECLSS / docking / avionics; weapons boundary.
-- [ ] Gundam / sonar / carrier-deepen / remaining siblings (later batches)
+- [x] Sonar design note — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) educational echo-sounder; transducers = mass/footprint; no quieting/classified acoustics (B3 spirit).
+- [ ] Gundam / carrier-deepen / remaining siblings (later batches)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.

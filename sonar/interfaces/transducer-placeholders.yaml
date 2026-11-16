@@ -1,0 +1,61 @@
+schema_version: "1.0.0"
+program_id: "ISM-SNR-1"
+revision: "A"
+status: stub
+issue: 40
+provisional: true
+scope: mass_footprint_frequency_class_placeholders_only
+excluded:
+  - quieting
+  - acoustics_design
+  - acoustic_warfare
+  - classified_beamforming
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - itar_ear_combat_sonar
+source_docs:
+  - sonar/docs/design-note.md
+related_interfaces:
+  - signal-chain.yaml
+
+note: >
+  Transducers and array mounts are mass/footprint/frequency-class boxes.
+  Same spirit as submarine B3 sensor placeholders — no acoustic processing
+  or quieting content.
+
+placeholders:
+  - id: XDCR-TX
+    kind: transducer_mass_box
+    role: projector
+    mass_kg: 0.12
+    footprint_mm: {diameter: 50, height: 25}
+    frequency_khz_class: 200
+    note: "Echo-sounder class — no quieting"
+
+  - id: XDCR-RX
+    kind: transducer_mass_box
+    role: hydrophone_receive
+    mass_kg: 0.04
+    footprint_mm: {diameter: 30, height: 15}
+    frequency_khz_class: 200
+    note: "Receive stub — no array SP"
+
+  - id: ARRAY-HULL
+    kind: sensor_mass_box
+    role: hull_strip_mass_only
+    mass_kg: 0.20
+    footprint_mm: {l: 200, b: 40, h: 15}
+    note: "Mass strip only — no beamforming or quieting"
+
+totals:
+  transducers_mass_kg: 0.36
+  note: "Study placeholder sum — not a combat fit"
+
+expected_behaviour:
+  no_quieting: true
+  no_classified_acoustics: true
+  no_weapons: true
