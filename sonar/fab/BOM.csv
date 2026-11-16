@@ -1,0 +1,12 @@
+Ref,Qty,Value,Package,Notes,LCSC
+U1,1,RP2040,QFN-56-1EP_7x7mm_P0.4mm,Echo DSP / control MCU stub,C2040
+U2,1,IMU-6DOF,LGA-14_3x2.5mm_P0.5mm,Packaging attitude stub (generic),
+U3,1,RADIO,RADIO_Module,Telemetry stub (generic footprint),
+J1,1,TX,PinHeader_1x03_P2.54mm,Educational TX pulse enable stub,
+J2,1,AFE,PinHeader_1x03_P2.54mm,Analog front-end envelope stub,
+J3,1,DSP,PinHeader_1x03_P2.54mm,DSP range UART stub,
+J4,1,DISP,PinHeader_1x03_P2.54mm,Display backlight stub,
+H1,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H2,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H3,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H4,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,

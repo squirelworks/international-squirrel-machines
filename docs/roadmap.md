@@ -166,6 +166,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Rocket Gerbers + mechanical STL — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) study fab package; no guidance.
 - [x] Satellite Gerbers + mechanical STL — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) study fab package; payload mass/power/data only.
 - [x] Space station Gerbers + mechanical STL — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) study fab package; habitat only; docking = mass/volume/power.
+- [x] Sonar Gerbers + mechanical STL — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) study fab package; educational echo only; no quieting/weapons.
 - [ ] Remaining siblings Gerbers / FJ gaps
 
 ### Issues
