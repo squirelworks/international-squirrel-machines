@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+program: "ISM-SS-1"
+revision: "A"
+status: stub
+issue: 44
+batch: B3
+note: Public-domain / textbook submarine hydrostatics only. No acoustic or ITAR content.
+
+citations:
+  - id: rawson-tupper
+    title: "Basic Ship Theory (Rawson & Tupper) — public textbook reference"
+    org: Butterworth-Heinemann / Elsevier
+    used_for: "Hull form and buoyancy/trim classroom language (B3)"
+
+  - id: wiki-submarine
+    title: "Submarine (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Submarine"
+    access_date: "2026-11-16"
+    used_for: "High-level teardrop / pressure-hull teaching language (B3)"
+
+  - id: wiki-albacore
+    title: "USS Albacore (AGSS-569) (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/USS_Albacore_(AGSS-569)"
+    access_date: "2026-11-16"
+    used_for: "Public teardrop hull-form teaching reference (B3)"
+
+  - id: pna-sname
+    title: "Principles of Naval Architecture (SNAME) — hydrostatics teaching"
+    org: SNAME
+    used_for: "Displacement / trim concepts (B3)"

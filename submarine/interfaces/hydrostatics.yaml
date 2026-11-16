@@ -1,0 +1,60 @@
+schema_version: "1.0.0"
+ship_id: "ISM-SS-1"
+revision: "A"
+status: stub
+issue: 44
+batch: B3
+provisional: true
+scope: public_domain_hull_trim_teaching
+excluded:
+  - quieting
+  - acoustics
+  - life_support
+  - weapons_interfaces
+  - fire_control
+  - itar_ear_data
+source_docs:
+  - submarine/docs/design-note.md
+related_interfaces:
+  - mass-placeholders.yaml
+
+fluid:
+  scale_model_density_kg_m3: 1000.0  # freshwater teaching
+  note: "Full-scale seawater 1025 later if needed — B3 is scale-model"
+
+study_case:
+  id: SS-SCALE-A
+  length_m: 0.80
+  diameter_m: 0.10
+  volume_submerged_m3: 0.012
+  volume_surfaced_m3: 0.010
+  displacement_sub_kg: 12.0
+  displacement_surf_kg: 10.0
+  reserve_buoyancy_fraction: 0.1667
+  note: "Matches trim_examples.py"
+
+ballast_trim_stubs:
+  - id: TANK-FWD
+    role: trim_forward
+    volume_m3_class: 0.0005
+  - id: TANK-AFT
+    role: trim_aft
+    volume_m3_class: 0.0005
+  - id: TANK-MAIN
+    role: main_ballast
+    volume_m3_class: 0.002
+
+hull_form_study:
+  type: teardrop_of_revolution
+  l_over_d_range: [7.0, 9.0]
+  shell: submarine/shell/hull_study.scad
+
+propulsion_packaging:
+  shafts: 1
+  propulsor_class: ducted_propulsor_stub
+  note: "Packaging only — no quieting or propeller design"
+
+expected_behaviour:
+  positive_reserve_buoyancy: true
+  sensors_only_as_mass_placeholders: true
+  no_acoustics: true

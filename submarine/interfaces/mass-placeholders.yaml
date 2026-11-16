@@ -1,0 +1,62 @@
+schema_version: "1.0.0"
+ship_id: "ISM-SS-1"
+revision: "A"
+status: stub
+issue: 44
+batch: B3
+provisional: true
+scope: mass_and_footprint_placeholders_only
+excluded:
+  - quieting
+  - acoustics
+  - acoustic_processing
+  - life_support
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - arming_codes
+source_docs:
+  - submarine/docs/design-note.md
+related_interfaces:
+  - hydrostatics.yaml
+
+note: >
+  Sonar and other sensors are mass/footprint boxes for trim and arrangements
+  only. No acoustic processing, quieting, or combat interfaces.
+
+placeholders:
+  - id: SEN-SONAR-BOW
+    kind: sensor_mass_box
+    mass_kg: 0.15
+    footprint_mm: {diameter: 40, length: 30}
+    station_m_from_nose: 0.02
+    purpose: bow_dome_mass_only
+    note: "No acoustic content"
+
+  - id: SEN-SONAR-FLANK
+    kind: sensor_mass_box
+    mass_kg: 0.08
+    footprint_mm: {l: 80, b: 20, h: 10}
+    station_m_from_nose: 0.35
+    purpose: flank_array_mass_only
+    note: "Mass strip only — no beamforming or quieting"
+
+  - id: SEN-MAST-OPTO
+    kind: sensor_mass_box
+    mass_kg: 0.05
+    footprint_mm: {l: 20, b: 20, h: 40}
+    station_m_from_nose: 0.28
+    purpose: mast_optics_mass_stub
+
+totals:
+  sensors_mass_kg: 0.28
+  note: "Scale-model placeholder sum — not a combat fit"
+
+expected_behaviour:
+  no_acoustics: true
+  no_quieting: true
+  no_life_support: true
+  hydrostatics_may_consume_mass: true
