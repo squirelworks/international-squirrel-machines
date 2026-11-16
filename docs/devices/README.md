@@ -30,6 +30,6 @@ Current official list:
 - submarine (#44: hull/trim + KiCad + structural pressure-hull study; sonar = mass/footprint only)
 - rocket (#41: hobby + KiCad + structural rings/motor-mount; no guidance)
 - satellite (#31: bus + KiCad + structural 3U rails/trays; payload mass/power/data only)
-- space-station (#42: modules + KiCad EPS/ECLSS/CDH; weapons boundary)
+- space-station (#42: modules + KiCad + structural shells/truss; weapons boundary)
 - sonar (#40: educational echo-sounder + KiCad AFE/DSP; B3-style acoustic limits)
 - gundam (#46: mecha + KiCad control/SAFE-INHIBIT; stores placeholders only)
