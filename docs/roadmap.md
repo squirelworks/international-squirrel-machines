@@ -30,8 +30,8 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 
 ## Phase 3 — Output Devices
 - [x] Monitor (`monitor/`) — [#10](https://github.com/squirelworks/international-squirrel-machines/issues/10) (PR #164)
-- [x] Printer (`printer/`) — [#5](https://github.com/squirelworks/international-squirrel-machines/issues/5) (this PR)
-- [ ] Plotter (`plotter/`)
+- [x] Printer (`printer/`) — [#5](https://github.com/squirelworks/international-squirrel-machines/issues/5) (PR #170)
+- [x] Plotter (`plotter/`) — [#6](https://github.com/squirelworks/international-squirrel-machines/issues/6) (this PR)
 - [ ] Camera (`camera/`)
 
 ## Phase 4 — Core System
