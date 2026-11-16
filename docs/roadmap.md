@@ -152,6 +152,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Hypersonic bomber structural study — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) frames/rails under TPS shell; no weapons/recipes.
 - [x] Warship structural study — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) keel/frames/decks; weapons = mass/footprint only.
 - [x] Aircraft carrier structural study — [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45) keel/frames/hangar; combat = mass/footprint only.
+- [x] Rocket structural / mechanical study — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) rings/motor-mount/fin roots; no guidance.
 - [ ] Remaining siblings structural / Gerbers / FJ gaps
 
 ### Issues

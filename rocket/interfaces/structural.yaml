@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+rocket_id: "ISM-RK-1"
+revision: "A"
+status: stub
+issue: 41
+provisional: true
+scope: educational_hobby_airframe_structure
+excluded:
+  - guidance
+  - steering
+  - active_flight_control
+  - seekers
+  - ballistic_missile
+  - reentry_vehicle
+  - itar_ear
+source_docs:
+  - rocket/docs/structural.md
+  - rocket/docs/design-note.md
+related_interfaces:
+  - airframe.yaml
+  - avionics-passive.yaml
+  - logger-board.yaml
+shell: rocket/shell/airframe_study.scad
+
+members:
+  - id: NOSE_BULKHEAD
+    role: coupler_payload_stub
+  - id: AVIONICS_BULKHEADS
+    role: logger_tray_support
+  - id: CENTERING_RINGS
+    role: motor_tube_support
+    count_study: 3
+  - id: MOTOR_MOUNT_TUBE
+    role: certified_motor_keepout
+  - id: FIN_ROOTS
+    role: fixed_fin_attach_stubs
+  - id: RECOVERY_BULKHEAD
+    role: shock_cord_chute_attach
+
+motors:
+  class: certified_commercial_hobby_only
+  guidance: false
+
+expected_behaviour:
+  educational_structure_only: true
+  passive_avionics_only: true
+  no_guidance: true
+  no_stress_certification: true
