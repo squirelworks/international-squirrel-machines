@@ -9,7 +9,7 @@
     .sub { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #5a534c; }
   </style>
   <rect class="bg" width="980" height="320"/>
-  <text class="title" x="24" y="28">ISM-FJ-1 — Fuselage Station Blueprint (side)</text>
+  <text class="title" x="24" y="28">ISM-FJ-DWG-050 Rev A — Fuselage Station Blueprint (side)</text>
   <text class="sub" x="24" y="46">% FS from nose · study length 420 mm maps 1:1 to % × L</text>
 
   <g transform="translate(40,80)">
@@ -37,5 +37,5 @@
     <rect x="360" y="48" width="80" height="14" fill="none" stroke="#8b6b4a" stroke-width="1.2"/>
     <text class="label" x="368" y="42">dorsal hatch / KiCad bay</text>
   </g>
-  <text class="sub" x="24" y="300">Cross-ref diagrams/stations.md · Independent ISM drawing</text>
+  <text class="sub" x="24" y="300">Cite as ISM-FJ-DWG-050 · Cross-ref stations.md · Independent ISM drawing</text>
 </svg>

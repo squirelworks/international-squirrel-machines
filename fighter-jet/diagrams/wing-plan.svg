@@ -10,7 +10,7 @@
     .sub { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #5a534c; }
   </style>
   <rect class="bg" width="720" height="420"/>
-  <text class="title" x="24" y="28">ISM-FJ-1 — Wing Box Plan (right wing, looking down)</text>
+  <text class="title" x="24" y="28">ISM-FJ-DWG-060 Rev A — Wing Box Plan (right wing, looking down)</text>
   <text class="sub" x="24" y="46">Front spar ~15% chord · Rear spar ~65% chord · Ribs at WS stations</text>
 
   <g transform="translate(80,80)">
@@ -35,4 +35,5 @@
     <text class="label" x="340" y="250">Tip</text>
     <text class="sub" x="0" y="280">Flap / flaperon region between spars, inboard of aileron. Hardpoints at WS-2 and WS-4 (see sensors-weapons/stores.md).</text>
   </g>
+  <text class="sub" x="24" y="400">Cite as ISM-FJ-DWG-060 · Independent ISM drawing</text>
 </svg>

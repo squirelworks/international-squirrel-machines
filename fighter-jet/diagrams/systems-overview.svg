@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="960" height="560" role="img" aria-label="ISM-FJ-1 systems overview">
-  <title>ISM-FJ-1 Systems Overview</title>
+  <title>ISM-FJ-DWG-070 Rev A — ISM-FJ-1 Systems Overview</title>
   <style>
     .bg { fill: #f3f0ea; }
     .box { fill: #e4ddd2; stroke: #3a3530; stroke-width: 1.4; }
@@ -10,7 +10,7 @@
     .sub { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #5a534c; }
   </style>
   <rect class="bg" width="960" height="560"/>
-  <text class="title" x="24" y="32">ISM-FJ-1 — Systems Overview</text>
+  <text class="title" x="24" y="32">ISM-FJ-DWG-070 Rev A — Systems Overview</text>
   <text class="sub" x="24" y="50">Sensors → MC/FCC → Actuation · KiCad bay PCB is I/O slice only</text>
 
   <rect class="box" x="40" y="90" width="140" height="56" rx="4"/>

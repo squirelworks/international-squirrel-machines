@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" role="img" aria-label="ISM-FJ-DWG-020 section through avionics bay">
+  <title>ISM-FJ-DWG-020 Rev A — Section FS-48 Avionics Bay</title>
+  <desc>Cross-section looking aft at FS-48 through dorsal avionics bay. Study mm. Original ISM geometry.</desc>
+  <style>
+    .bg { fill: #f3f0ea; }
+    .skin { fill: #d5cec2; stroke: #3a3530; stroke-width: 1.6; }
+    .cut { fill: #e8e2d6; stroke: #3a3530; stroke-width: 1.2; }
+    .lru { fill: #cfc8bc; stroke: #5a534c; stroke-width: 1; }
+    .dim { stroke: #7a7268; stroke-width: 0.8; fill: none; }
+    .accent { stroke: #8b6b4a; stroke-width: 1.4; fill: none; }
+    .title { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 16px; font-weight: 600; fill: #2c2824; }
+    .sub { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #5a534c; }
+    .label { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 12px; fill: #2c2824; }
+    .tiny { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 10px; fill: #5a534c; }
+  </style>
+  <rect class="bg" width="900" height="520"/>
+  <text class="title" x="24" y="28">ISM-FJ-DWG-020 Rev A — Section cut FS-48 (avionics bay)</text>
+  <text class="sub" x="24" y="46">Looking aft · Units: millimetres (study) · Scale: 1 drawing unit = 1 mm · Datum: FS-0 / BL-0 / WL0</text>
+
+  <!-- fuselage outer -->
+  <g transform="translate(280,90)">
+    <ellipse class="skin" cx="170" cy="180" rx="120" ry="140"/>
+    <!-- inner bay volume -->
+    <rect class="cut" x="90" y="80" width="160" height="100"/>
+    <!-- dorsal hatch -->
+    <path class="accent" d="M90,80 L250,80"/>
+    <text class="label" x="130" y="72">Dorsal hatch</text>
+    <!-- LRUs -->
+    <rect class="lru" x="100" y="90" width="40" height="28"/><text class="tiny" x="108" y="108">MC</text>
+    <rect class="lru" x="150" y="90" width="40" height="28"/><text class="tiny" x="156" y="108">FCC</text>
+    <rect class="lru" x="200" y="90" width="40" height="28"/><text class="tiny" x="208" y="108">PDU</text>
+    <rect class="lru" x="100" y="128" width="60" height="22"/><text class="tiny" x="108" y="143">IMU tray</text>
+    <rect class="lru" x="170" y="128" width="70" height="22"/><text class="tiny" x="178" y="143">Bay PCB</text>
+    <!-- PCB outline note -->
+    <text class="tiny" x="100" y="168">Bay PCB footprint ~120×60 mm study</text>
+    <!-- keel / tunnel -->
+    <rect class="cut" x="145" y="240" width="50" height="40"/>
+    <text class="tiny" x="148" y="264">systems</text>
+    <!-- WL / BL -->
+    <line class="dim" x1="-20" y1="180" x2="360" y2="180"/>
+    <line class="dim" x1="170" y1="20" x2="170" y2="340"/>
+    <text class="tiny" x="350" y="176">WL0</text>
+    <text class="tiny" x="174" y="34">BL-0</text>
+    <!-- dims -->
+    <line class="dim" x1="90" y1="360" x2="250" y2="360"/>
+    <text class="label" x="130" y="378">Bay W ≈ 80 mm</text>
+    <line class="dim" x1="40" y1="80" x2="40" y2="180"/>
+    <text class="label" x="8" y="140">H≈18</text>
+  </g>
+
+  <text class="label" x="24" y="460">Bay contents: see bay-layouts.md · KiCad mounts: fighter-jet/kicad/</text>
+  <text class="sub" x="24" y="500">ISM drawing · Cite as ISM-FJ-DWG-020 · Contemporaries reference only</text>
+</svg>
