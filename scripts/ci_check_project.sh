@@ -199,10 +199,24 @@ if (( ${#scad_files[@]} > 0 )); then
       continue
     fi
     echo "OpenSCAD render: $scad"
+    set +e
     if openscad --help 2>&1 | grep -q -- '--render'; then
-      openscad --render -o /tmp/ism-ci-out.stl "$scad"
+      scad_out="$(openscad --render -o /tmp/ism-ci-out.stl "$scad" 2>&1)"
     else
-      openscad -o /tmp/ism-ci-out.stl "$scad"
+      scad_out="$(openscad -o /tmp/ism-ci-out.stl "$scad" 2>&1)"
+    fi
+    scad_rc=$?
+    set -e
+    echo "$scad_out"
+    if (( scad_rc != 0 )); then
+      # Library / probe SCAD (modules only) intentionally has no top-level solid.
+      # OpenSCAD exits non-zero with "Current top level object is empty" — skip those.
+      if echo "$scad_out" | grep -q 'Current top level object is empty'; then
+        echo "warning: empty top-level OpenSCAD (library/probe) — skip $(basename "$scad")"
+        rm -f /tmp/ism-ci-out.stl
+        continue
+      fi
+      exit "$scad_rc"
     fi
     rm -f /tmp/ism-ci-out.stl
   done
