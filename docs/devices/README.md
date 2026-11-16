@@ -28,7 +28,7 @@ Current official list:
 - warship (#43: hydrostatics + KiCad + structural keel/frames; weapons = mass/footprint only)
 - aircraft-carrier (#45: flight deck + KiCad + structural hangar/frames; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad + structural pressure-hull study; sonar = mass/footprint only)
-- rocket (#41: hobby + KiCad passive logger/recovery; no guidance)
+- rocket (#41: hobby + KiCad + structural rings/motor-mount; no guidance)
 - satellite (#31: bus + KiCad OBC/EPS/radio; payload mass/power/data only)
 - space-station (#42: modules + KiCad EPS/ECLSS/CDH; weapons boundary)
 - sonar (#40: educational echo-sounder + KiCad AFE/DSP; B3-style acoustic limits)
