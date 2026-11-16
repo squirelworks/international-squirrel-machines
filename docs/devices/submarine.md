@@ -2,6 +2,6 @@
 
 **Directory:** `submarine/` · **Issue:** [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44)
 
-**B3 scope:** hull form, pressure-hull concept, ballast/trim, propulsion packaging, scale-model control stubs. Sonar and sensors as **mass/footprint placeholders only**. No quieting, acoustic, or life-support design. No ITAR/EAR data.
+**Scope:** hull/trim/pressure-hull concept; sonar = mass/footprint only; **no** quieting/acoustics/life-support. KiCad scale-model control board (`submarine/kicad/`) — prop/stern-plane/rudder/ballast stubs + IMU/telemetry; **no** weapons, seekers, guidance, munition propulsion, warheads, or fuzing.
 
 See `submarine/README.md`.

@@ -1,7 +1,7 @@
-# ISM Submarine — B3 (#44)
+# ISM Submarine — (#44)
 
 **Program ID:** ISM-SS-1 (study name TBD)  
-**Plan:** Fred research plan B3 — hull study and printable scale model.
+**This PR:** KiCad scale-model control board slice (prop / planes / ballast stubs).
 
 ## Scope limits (hard)
 
@@ -11,8 +11,9 @@
 - **No** life-support design
 - **No** weapons interfaces, fire control, seekers, guidance, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) data
+- KiCad outputs are **scale-model actuator / telemetry stubs** only
 
-## B3 deliverables
+## Deliverables
 
 | Path | Role |
 |------|------|
@@ -21,11 +22,13 @@
 | `docs/trim_examples.py` | Trim / reserve-buoyancy teaching check |
 | `interfaces/hydrostatics.yaml` | Study displacement / stability stubs |
 | `interfaces/mass-placeholders.yaml` | Sonar / sensor mass & footprints only |
+| `interfaces/control-board.yaml` | Scale-model control channel map |
+| `kicad/ism-submarine-control.*` | Study KiCad control board |
 | `shell/hull_study.scad` | Printable scale-model hull study |
 
-## Roadmap (#44) status after B3
+## Roadmap (#44) status
 - [x] Design note (hull form, pressure hull concept, ballast/trim, propulsion packaging, controls for scale model)
-- [ ] KiCad boards (scale-model control)
+- [x] KiCad boards (scale-model control — this PR)
 - [ ] Structural / pressure hull design
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly

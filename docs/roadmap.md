@@ -137,7 +137,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Hypersonic bomber aerothermal deepen — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) interfaces + teaching heat-flux; educational only (no weapons / TPS recipes).
 - [x] Warship KiCad scale-model control — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) thruster/rudder/ballast stubs; no weapons/fire-control.
 - [x] Rocket KiCad passive logger / recovery — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41); no guidance/steering/seekers.
-- [ ] Submarine KiCad (#44 / #161) when merged; satellite KiCad / remaining siblings / FJ gaps
+- [x] Submarine KiCad scale-model control — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) prop/planes/ballast stubs; no acoustics/weapons/seekers.
+- [ ] Satellite KiCad / remaining siblings / FJ gaps
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
