@@ -2,48 +2,204 @@ schema_version: "1.0.0"
 aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
+issue: 73
+provisional: true
 source_docs:
   - fighter-jet/hydraulics/architecture.md
   - fighter-jet/hydraulics/failure-modes.md
+  - fighter-jet/hydraulics/routing.md
+source_drawings: ["ISM-FJ-DWG-030", "ISM-FJ-DWG-070"]
+related_interfaces:
+  - flight-controls.yaml
+  - mechanical-airframe.yaml
+  - avionics-bus.yaml
 
-architecture:
-  primary: electro_hydrostatic  # EHA
-  central_hydraulic: optional_stub
+architecture_decision:
+  primary: electro_hydrostatic  # EHA at each primary surface
+  gear_actuation: electric_prefer  # product decision; EHA alternate OK
+  central_hydraulic: optional_stub_only
   power: "28V_DC_primary"
+  rationale:
+    - eliminate_long_pressurized_tube_runs
+    - modular_lru_matches_ism_maintainability
+    - same_fbw_topology_from_study_pwm_to_full_eha
+  rejected_alternatives:
+    - id: all_central_hydro
+      why: leak_fire_mass_routing_through_avionics_bay
+    - id: all_ema_no_hydro
+      why: deferred_hinge_moment_margin_on_ht_rudder; revisit_block2
 
 channels:
   - id: eha_aileron_L
     surface: aileron_L
+    category: flight_control
     authority_pct: 100
     dual_lane: true
+    sizing_assumption:
+      hinge_moment_nm_study_class: provisional
+      stroke_mm_study: 25
+      rate_deg_s: 80
+    command: {bus: ISM-Bus-A, topic: cmd.surface.aileron_L, backup: analog_pwm_J1}
+    feedback: {position: lvdt_or_resolver, health: [motor_current, pressure]}
+    power: {bus: 28V_DC, breaker: PDU_EHA_AIL_L}
+    mechanical_attach: {ref: mechanical-airframe.yaml, ws_pct: 0.88, structure: rear_spar_fitting}
+    safe_failure: damp_bypass_trail
+    bay_pcb_study_pwm: J1
+
   - id: eha_aileron_R
     surface: aileron_R
+    category: flight_control
     authority_pct: 100
     dual_lane: true
+    sizing_assumption: {stroke_mm_study: 25, rate_deg_s: 80}
+    command: {bus: ISM-Bus-A, topic: cmd.surface.aileron_R, backup: analog_pwm_J2}
+    feedback: {position: lvdt_or_resolver, health: [motor_current, pressure]}
+    power: {bus: 28V_DC, breaker: PDU_EHA_AIL_R}
+    mechanical_attach: {ref: mechanical-airframe.yaml, ws_pct: 0.88, structure: rear_spar_fitting}
+    safe_failure: damp_bypass_trail
+    bay_pcb_study_pwm: J2
+
   - id: eha_flaperon_L
     surface: flaperon_L
+    category: flight_control
     authority_pct: 100
     dual_lane: true
+    sizing_assumption: {stroke_mm_study: 35, rate_deg_s: 40}
+    command: {bus: ISM-Bus-A, topic: cmd.surface.flaperon_L, backup: analog_pwm_J3}
+    feedback: {position: lvdt_or_resolver, health: [motor_current, pressure]}
+    power: {bus: 28V_DC, breaker: PDU_EHA_FLP_L}
+    mechanical_attach: {ref: mechanical-airframe.yaml, ws_pct: 0.40, structure: rear_spar_fitting}
+    safe_failure: damp_hold_last_or_trail
+    bay_pcb_study_pwm: J3
+
   - id: eha_flaperon_R
     surface: flaperon_R
+    category: flight_control
     authority_pct: 100
     dual_lane: true
+    sizing_assumption: {stroke_mm_study: 35, rate_deg_s: 40}
+    command: {bus: ISM-Bus-A, topic: cmd.surface.flaperon_R, backup: analog_pwm_J4}
+    feedback: {position: lvdt_or_resolver, health: [motor_current, pressure]}
+    power: {bus: 28V_DC, breaker: PDU_EHA_FLP_R}
+    mechanical_attach: {ref: mechanical-airframe.yaml, ws_pct: 0.40, structure: rear_spar_fitting}
+    safe_failure: damp_hold_last_or_trail
+    bay_pcb_study_pwm: J4
+
   - id: eha_ht
     surface: ht
+    category: flight_control
     authority_pct: 100
     dual_lane: true
+    sizing_assumption: {stroke_mm_study: 40, rate_deg_s: 60}
+    command: {bus: ISM-Bus-B, topic: cmd.surface.ht, backup: analog_pwm_HT}
+    feedback: {position: resolver, health: [motor_current, pressure]}
+    power: {bus: 28V_DC, breaker: PDU_EHA_HT}
+    mechanical_attach: {ref: mechanical-airframe.yaml, fs_pct: 0.90, structure: aft_bulkhead_fitting}
+    safe_failure: damp_hold  # pitch-critical; avoid free trail
+    bay_pcb_study_pwm: HT
+
   - id: eha_rudder
     surface: rudder
+    category: flight_control
     authority_pct: 100
     dual_lane: true
+    sizing_assumption: {stroke_mm_study: 30, rate_deg_s: 70}
+    command: {bus: ISM-Bus-B, topic: cmd.surface.rudder, backup: analog_pwm_RUD}
+    feedback: {position: lvdt_or_resolver, health: [motor_current, pressure]}
+    power: {bus: 28V_DC, breaker: PDU_EHA_RUD}
+    mechanical_attach: {ref: mechanical-airframe.yaml, fs_pct: 0.94, structure: fin_spar_fitting}
+    safe_failure: damp_bypass_trail
+    bay_pcb_study_pwm: RUD
+
+  - id: act_nlg_retract
+    surface: NLG
+    category: landing_gear
+    authority_pct: 100
+    dual_lane: false
+    sizing_assumption: {stroke_mm_study: 50, type: electric_linear_prefer}
+    command: {bus: ISM-Bus-A, topic: cmd.gear.nlg}
+    feedback: {position: pot_or_lvdt, discretes: [up_lock, down_lock, wow]}
+    power: {bus: 28V_DC, breaker: PDU_GEAR_NLG}
+    mechanical_attach: {fs: FS-18, structure: keel_FS18}
+    safe_failure: free_fall_unlock
+    emergency: gravity_spring_assist
+
+  - id: act_mlg_L_retract
+    surface: MLG_L
+    category: landing_gear
+    authority_pct: 100
+    dual_lane: false
+    sizing_assumption: {stroke_mm_study: 60, type: electric_linear_prefer}
+    command: {bus: ISM-Bus-A, topic: cmd.gear.mlg_L}
+    feedback: {position: pot_or_lvdt, discretes: [up_lock, down_lock, wow]}
+    power: {bus: 28V_DC, breaker: PDU_GEAR_MLG_L}
+    mechanical_attach: {fs: FS-55, structure: trunnion_L}
+    safe_failure: free_fall_unlock
+
+  - id: act_mlg_R_retract
+    surface: MLG_R
+    category: landing_gear
+    authority_pct: 100
+    dual_lane: false
+    sizing_assumption: {stroke_mm_study: 60, type: electric_linear_prefer}
+    command: {bus: ISM-Bus-A, topic: cmd.gear.mlg_R}
+    feedback: {position: pot_or_lvdt, discretes: [up_lock, down_lock, wow]}
+    power: {bus: 28V_DC, breaker: PDU_GEAR_MLG_R}
+    mechanical_attach: {fs: FS-55, structure: trunnion_R}
+    safe_failure: free_fall_unlock
+
+  - id: act_nws
+    surface: NLG_steering
+    category: utility
+    authority_pct: 100
+    dual_lane: true
+    command: {bus: ISM-Bus-A, topic: cmd.gear.nws}
+    feedback: {position: resolver}
+    power: {bus: 28V_DC, breaker: PDU_NWS}
+    mechanical_attach: {fs: FS-18, structure: nlg_strut}
+    safe_failure: damp_center_or_caster
+    gated_by: WOW_NLG
+
+  - id: act_wing_fold_L
+    surface: wing_fold_L
+    category: utility_carrier
+    authority_pct: 100
+    dual_lane: false
+    command: {bus: ISM-Bus-B, topic: cmd.fold.L}
+    feedback: {discretes: [folded, spread, locked]}
+    power: {bus: 28V_DC, breaker: PDU_FOLD_L}
+    mechanical_attach: {ws: WS-4, structure: fold_latch}
+    safe_failure: hold_locks_engaged
+    related_load_case: LC-FOLD-01
+
+  - id: act_wing_fold_R
+    surface: wing_fold_R
+    category: utility_carrier
+    authority_pct: 100
+    dual_lane: false
+    command: {bus: ISM-Bus-B, topic: cmd.fold.R}
+    feedback: {discretes: [folded, spread, locked]}
+    power: {bus: 28V_DC, breaker: PDU_FOLD_R}
+    mechanical_attach: {ws: WS-4, structure: fold_latch}
+    safe_failure: hold_locks_engaged
 
 failure_behaviour:
   hardover: bypass_or_damp_per_surface_icd
-  single_lane_loss: continue_on_ surviving_lane
+  single_lane_loss: continue_on_surviving_lane
   dual_lane_loss: surface_trail_or_locked_per_icd
+  gear_power_loss: free_fall_extension
   monitor: actuator_model_comparison
+
+central_hydro_stub:
+  equipped: false
+  if_enabled:
+    circuits: [A, B]
+    pumps: [EDP_L, EDP_R, EMDP]
+    elements: [reservoirs, accumulators, filters, coolers, priority_valve]
+    priority: flight_controls_over_utilities
 
 expected_behaviour:
   command_source: fcc_voted
   study_bay_pcb_pwm: development_parallel_only
   bit_on_deck: true
+  no_single_actuator_loss_departs_envelope: true

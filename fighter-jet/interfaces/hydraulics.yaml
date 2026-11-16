@@ -1,0 +1,68 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 73
+provisional: true
+source_docs:
+  - fighter-jet/hydraulics/architecture.md
+  - fighter-jet/hydraulics/routing.md
+  - fighter-jet/hydraulics/failure-modes.md
+source_drawings: ["ISM-FJ-DWG-020", "ISM-FJ-DWG-050", "ISM-FJ-DWG-070"]
+
+# Routing / keep-out envelopes (study mm, nose-origin) for power & signal to EHAs.
+# No long pressurized central tubes in baseline — local EHA packs only.
+power_routing_keepouts_study_mm:
+  - id: left_wing_eha_harness
+    description: 28V + cmd/fbk bundle to aileron/flaperon L
+    corridor:
+      x: [160, 280]
+      y: [-140, -20]
+      z: [15, 45]
+    avoid: [avionics_bay_FS48_interior, fuel_cell_cores]
+
+  - id: right_wing_eha_harness
+    corridor:
+      x: [160, 280]
+      y: [20, 140]
+      z: [15, 45]
+    avoid: [avionics_bay_FS48_interior]
+
+  - id: aft_empennage_eha_harness
+    corridor:
+      x: [340, 410]
+      y: [-20, 20]
+      z: [25, 70]
+    avoid: [engine_bay_hot_FS82_plus, nozzle]
+    note: HT and rudder EHA power; heat-shielded near FS-90
+
+  - id: gear_actuator_harness
+    corridor:
+      x: [55, 260]
+      y: [-35, 35]
+      z: [0, 40]
+    along: keel
+    avoid: [NLG_MLG_bay_volumes]
+
+eha_pack_envelopes_study_mm:
+  - channel: eha_aileron_L
+    box: {x: [240, 270], y: [-130, -110], z: [18, 40]}
+  - channel: eha_aileron_R
+    box: {x: [240, 270], y: [110, 130], z: [18, 40]}
+  - channel: eha_flaperon_L
+    box: {x: [190, 220], y: [-70, -50], z: [18, 40]}
+  - channel: eha_flaperon_R
+    box: {x: [190, 220], y: [50, 70], z: [18, 40]}
+  - channel: eha_ht
+    box: {x: [370, 400], y: [-15, 15], z: [20, 45]}
+  - channel: eha_rudder
+    box: {x: [360, 390], y: [-10, 10], z: [50, 85]}
+
+avionics_bay_keepout:
+  station: FS-48
+  rule: no_eha_fluid_reservoirs_inside_bay
+  allow: signal_and_power_feedthroughs_only
+
+expected_behaviour:
+  flight_lab_may_model_pack_boxes_as_masses: true
+  central_line_routing_n_a_unless_stub_enabled: true
