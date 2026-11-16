@@ -1,0 +1,57 @@
+schema_version: "1.0.0"
+ship_id: "ISM-SS-1"
+board_id: "ism-submarine-control"
+revision: "A"
+status: stub
+issue: 44
+provisional: true
+scope: scale_model_control_only
+excluded:
+  - quieting
+  - acoustics
+  - acoustic_processing
+  - life_support
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+source_docs:
+  - submarine/docs/design-note.md
+  - submarine/kicad/README.md
+related_interfaces:
+  - hydrostatics.yaml
+  - mass-placeholders.yaml
+kicad_project: submarine/kicad/ism-submarine-control
+
+channels:
+  - id: I2C_IMU
+    role: attitude_trim_stub
+  - id: SPI_RADIO
+    role: telemetry_stub
+  - id: PWM_PROP
+    header: J1
+    role: propulsor_stub
+  - id: PWM_STERN
+    header: J2
+    role: stern_plane_stub
+  - id: PWM_RUDDER
+    header: J3
+    role: rudder_servo_stub
+  - id: PWM_BALLAST
+    header: J4
+    role: ballast_trim_stub
+
+note: >
+  Sonar is not an electrical channel on this board — mass/footprint only
+  in mass-placeholders.yaml (B3 spirit).
+
+expected_behaviour:
+  no_acoustics: true
+  no_quieting: true
+  no_weapons: true
+  no_seekers_guidance_warheads_fuzing: true
+  scale_model_actuators_only: true
