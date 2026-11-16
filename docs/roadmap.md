@@ -141,7 +141,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Satellite KiCad bus OBC/EPS/radio — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31); payload mass/power/data only.
 - [x] Aircraft carrier KiCad scale-model deck control — [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45) elevator/catapult/arresting/rudder stubs; no weapons/fire-control.
 - [x] Space station KiCad habitat EPS/ECLSS/CDH — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42); no weapons/combat docking.
-- [ ] Sonar KiCad (#40 / #168) when merged; remaining siblings / FJ gaps
+- [x] Sonar KiCad educational echo AFE/DSP — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40); no quieting/classified acoustics/weapons.
+- [ ] Gundam KiCad (#46 / #169) when merged; remaining siblings / FJ gaps
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.

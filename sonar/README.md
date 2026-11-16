@@ -1,7 +1,7 @@
 # ISM Sonar — (#40)
 
 **Program ID:** ISM-SNR-1 (study name TBD)  
-**This PR:** design-note slice — transducers, signal-processing blocks, display, enclosure.
+**This PR:** KiCad echo AFE / DSP / power board slice.
 
 ## Scope limits (hard) — same spirit as submarine B3
 
@@ -13,6 +13,7 @@
 - **No** classified beamforming, ASW tactics, or combat employment
 - **No** weapons interfaces, fire control, seekers, guidance, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) sonar or acoustic-warfare content
+- KiCad outputs are **AFE / DSP / power / display stubs** only
 
 ## Deliverables
 
@@ -23,11 +24,13 @@
 | `docs/range_equation_examples.py` | Teaching active-sonar equation stub |
 | `interfaces/transducer-placeholders.yaml` | Mass / footprint / frequency class |
 | `interfaces/signal-chain.yaml` | Block-diagram SP stubs only |
+| `interfaces/echo-board.yaml` | KiCad channel map |
+| `kicad/ism-sonar-echo.*` | Study KiCad echo board |
 | `shell/enclosure_study.scad` | Handheld / hull-mount enclosure study |
 
 ## Roadmap (#40) status
 - [x] Design note (transducers, signal processing, display, enclosure)
-- [ ] KiCad boards (analog front-end, DSP, power)
+- [x] KiCad boards (analog front-end, DSP, power — this PR)
 - [ ] Mechanical enclosure / array mount
 - [ ] Gerbers + STLs / mechanical files
 - [ ] BOM / assembly
