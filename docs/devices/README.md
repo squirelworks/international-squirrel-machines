@@ -26,7 +26,7 @@ Current official list:
 - subsonic-bomber (#38 deepen: inert bay / SAFE-INHIBIT stubs)
 - supersonic-bomber (#39 deepen: cruise thermal + inert bay stubs)
 - warship (#43: hydrostatics + KiCad scale-model control; weapons = mass/footprint only)
-- aircraft-carrier (#45 deepen: flight deck / aviation; combat = mass/footprint only)
+- aircraft-carrier (#45: flight deck + KiCad scale-model deck control; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad scale-model control; sonar = mass/footprint only)
 - rocket (#41: hobby + KiCad passive logger/recovery; no guidance)
 - satellite (#31: bus + KiCad OBC/EPS/radio; payload mass/power/data only)

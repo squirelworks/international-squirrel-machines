@@ -1,10 +1,7 @@
 # ISM Aircraft Carrier — (#45)
 
 **Program ID:** ISM-CV-1 (study name TBD)  
-**This PR:** design-note deepen — flight deck, aviation, combat (placeholders), propulsion.
-
-## Prior slice
-B2 (#139 with warship #43) delivered a light flight-deck note + `shell/deck_study.scad`. This PR completes the **#45 design-note** checkbox with machine-readable placeholders and a teaching deck-area check.
+**This PR:** KiCad scale-model deck control board slice.
 
 ## Scope limits (hard)
 
@@ -14,6 +11,7 @@ B2 (#139 with warship #43) delivered a light flight-deck note + `shell/deck_stud
 - **No** seekers, guidance, warheads, fuzing, arming codes, or engagement doctrine
 - **No** export-controlled (ITAR/EAR) combat or acoustic data
 - Catapult / arresting gear = load/mass/keep-out stubs (no classified plant design)
+- KiCad outputs are **scale-model deck / steering actuator stubs** only
 
 ## Deliverables
 
@@ -24,11 +22,13 @@ B2 (#139 with warship #43) delivered a light flight-deck note + `shell/deck_stud
 | `docs/deck_area_examples.py` | Teaching deck-area / parking check |
 | `interfaces/aviation.yaml` | Elevators, fuel, inert ordnance stubs |
 | `interfaces/mass-placeholders.yaml` | Combat weapons/sensors mass & footprints |
+| `interfaces/control-board.yaml` | KiCad channel map |
+| `kicad/ism-carrier-deck.*` | Study KiCad deck control board |
 | `shell/deck_study.scad` | Deck + island + elevator/radar mass boxes |
 
 ## Roadmap (#45) status
 - [x] Design note (flight deck, aviation systems, combat systems, propulsion)
-- [ ] KiCad boards
+- [x] KiCad boards (scale-model deck control — this PR)
 - [ ] Structural design
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly
