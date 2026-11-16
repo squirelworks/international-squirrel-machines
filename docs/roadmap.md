@@ -18,13 +18,13 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Full-size fab-ready — PR #141 · [#65](https://github.com/squirelworks/international-squirrel-machines/issues/65)
 - [x] 40% fab-ready — PR #144 · [#60](https://github.com/squirelworks/international-squirrel-machines/issues/60)
 - [x] Large fab-ready — PR #146 · [#66](https://github.com/squirelworks/international-squirrel-machines/issues/66)
-- [x] Extra-large fab-ready — [#67](https://github.com/squirelworks/international-squirrel-machines/issues/67) (this PR)
+- [x] Extra-large fab-ready — [#67](https://github.com/squirelworks/international-squirrel-machines/issues/67) (PR #150)
 - [ ] Polish and inquire for release
 
 ## Phase 2 — Input Devices
 - [x] Mouse (`mouse/`) — fab-ready with 60% in PR #128 · [#3](https://github.com/squirelworks/international-squirrel-machines/issues/3)
-- [x] Trackball (`trackball/`) — [#8](https://github.com/squirelworks/international-squirrel-machines/issues/8) (this PR)
-- [ ] Macro pad (`macro-pad/`)
+- [x] Trackball (`trackball/`) — [#8](https://github.com/squirelworks/international-squirrel-machines/issues/8) (PR #152)
+- [x] Macro pad (`macro-pad/`) — [#9](https://github.com/squirelworks/international-squirrel-machines/issues/9) (this PR)
 - [ ] Typewriter (`typewriter/`)
 - [ ] Drawing pads range — small / medium / large (`drawing-pads/`)
 
