@@ -36,6 +36,21 @@ SHARED_TRIGGERS = (
     "common/kicad/",
 )
 
+# Device generators under scripts/ map to a device prefix — do NOT expand to all projects.
+# Only shared CI/helpers under scripts/ should force a full matrix.
+SCRIPT_DEVICE_PREFIXES = (
+    ("scripts/build_keyboard_65.py", "keyboard/65-percent/"),
+    ("scripts/build_keyboard_final.py", "keyboard/60-percent/"),
+    ("scripts/build_keyboard_60_mod.py", "keyboard/60-percent/"),
+    ("scripts/build_mouse.py", "mouse/"),
+)
+
+SHARED_SCRIPTS = (
+    "scripts/ci_check_project.sh",
+    "scripts/discover_projects.py",
+    "scripts/ism_hw/",
+)
+
 
 def _is_skipped(path: Path) -> bool:
     return any(part in SKIP_DIR_NAMES for part in path.parts)
@@ -103,6 +118,22 @@ def map_files_to_projects(files: list[str], all_projects: list[str]) -> list[str
     for f in files:
         norm = f.replace("\\", "/")
         matched_any = False
+
+        # Shared CI helpers → full matrix
+        if any(norm == s.rstrip("/") or norm.startswith(s) for s in SHARED_SCRIPTS):
+            return list(all_projects)
+
+        # Device-specific generators → that device's projects only
+        for script, prefix in SCRIPT_DEVICE_PREFIXES:
+            if norm == script or norm.startswith(script):
+                for proj in all_projects:
+                    if proj == prefix.rstrip("/") or proj.startswith(prefix):
+                        selected.add(proj)
+                matched_any = True
+                break
+        if matched_any:
+            continue
+
         for proj in all_projects:
             if norm == proj or norm.startswith(proj + "/"):
                 selected.add(proj)
@@ -115,7 +146,7 @@ def map_files_to_projects(files: list[str], all_projects: list[str]) -> list[str
                 selected.add(proj)
                 matched_any = True
         if not matched_any and norm.startswith("scripts/"):
-            # Generators / CI helpers may affect any device project
+            # Unknown scripts/ change — conservative full matrix
             return list(all_projects)
     return sorted(selected)
 
