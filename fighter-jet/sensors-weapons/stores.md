@@ -11,7 +11,13 @@
 | STA-9 | Centerline | Fuel / EW pod / large store |
 | Internal | Gun bay opt. | ISM gun concept or fuel/EW pallet |
 
-Hardpoints reinforce spars per `diagrams/wing-plan.svg` and `mechanical/airframe.md`.
+Hardpoints reinforce spars per `diagrams/wing-plan.svg` and `mechanical/airframe.md` (DWG-040 / DWG-060).
+
+## Integration track (#94)
+- Design note: `stores-integration.md` (rails/ejectors, inert models, SMS)
+- Inert models: `../interfaces/inert-stores.yaml` (AIM-9 / AGM-114 *class* public figures only)
+- SMS + separation envelopes: `../interfaces/sms-interface.yaml`
+- **Hard stop:** no guidance, seeker, propulsion, warhead, or fuzing design in-repo
 
 ## Release / safeing philosophy
 1. **Mechanical safe** on ground with pins; WOW inhibits release unless maintenance override.

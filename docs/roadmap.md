@@ -71,7 +71,7 @@ Design-doc baselines live under `fighter-jet/diagrams/`, `materials/`, `mechanic
 Ship YAML/JSON under `fighter-jet/` for Flight Lab; one PR per coherent chunk.
 - [x] [#92](https://github.com/squirelworks/international-squirrel-machines/issues/92) Materials trade study (Ti / Al / steel / composites → zone map table)
 - [x] [#93](https://github.com/squirelworks/international-squirrel-machines/issues/93) Carrier suitability (hook, catapult/arrestment loads, wing fold, corrosion) + load-case YAML
-- [ ] [#94](https://github.com/squirelworks/international-squirrel-machines/issues/94) Stores integration level (hardpoints, inert store models, SMS I/F) — no seeker/warhead/fuze detail
+- [x] [#94](https://github.com/squirelworks/international-squirrel-machines/issues/94) Stores integration level (hardpoints, inert store models, SMS I/F) — no seeker/warhead/fuze detail
 - [ ] [#95](https://github.com/squirelworks/international-squirrel-machines/issues/95) Comparative fighter programme survey → `fighter-jet/docs/research/`
 
 ### 6.2 — Systems (hydraulics / actuation / flight controls)
