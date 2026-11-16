@@ -30,6 +30,8 @@ fighter-jet/
 ├── avionics/                 mission computer, buses, HUD/HMI, software
 ├── sensors-weapons/          radar/EO, stores, EW (fictional ISM)
 ├── docs/research/            comparative survey + citations (#95)
+├── docs/viability.md         viability ladder (#103)
+├── geometry/                 OpenVSP/AVL/CalculiX + Eric scale-model targets
 ├── kicad/                    bay controller PCB (electrical slice)
 └── shell/                    parametric OpenSCAD study airframe
 ```

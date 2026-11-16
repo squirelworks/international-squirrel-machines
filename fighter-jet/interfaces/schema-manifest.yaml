@@ -46,6 +46,9 @@ files:
   - path: multi-origin-stores.yaml
     purpose: multi_origin_stores_compatibility
     issue: 101
+  - path: viability-criteria.yaml
+    purpose: viability_sanity_gates
+    issue: 103
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

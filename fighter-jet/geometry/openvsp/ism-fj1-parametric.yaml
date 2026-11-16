@@ -1,0 +1,45 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+issue: 103
+format: openvsp_parametric_description
+note: "Not a binary .vsp3 — Steve may author .vsp3 from these parameters."
+units_study: mm
+full_scale_factor: 36.9
+
+fuselage:
+  length_mm: 420
+  max_width_mm: 48
+  max_height_mm: 56
+  nose_length_mm: 90
+
+wing:
+  span_mm: 280
+  root_chord_mm: 110
+  tip_chord_mm: 45
+  thickness_mm: 12
+  le_sweep_deg: 35
+  dihedral_deg: 0
+  incidence_deg: 0
+  position:
+    x_from_nose_mm: 170  # ~FS-40 region LE root approx
+    z_wl_mm: -8
+  airfoil_hint: "symmetric_or_mild_camber_stub"
+
+horizontal_tail:
+  span_mm: 100
+  chord_mm: 50
+  thickness_mm: 6
+  type: all_moving
+  x_from_nose_mm: 350  # ~FS-83
+
+vertical_tail:
+  height_mm: 70
+  chord_mm: 60
+  thickness_mm: 6
+  x_from_nose_mm: 330
+
+engines:
+  count: 2
+  layout: side_by_side_aft
+  inlet_fs_pct: 0.55
+  nozzle_fs_pct: 0.95

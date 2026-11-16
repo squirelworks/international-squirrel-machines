@@ -36,9 +36,11 @@ study_model:
 
 full_scale:
   provisional: true
-  length_class_m: null  # product decision: empty-weight / length class
-  span_m: null
-  note: "Populate when product decision #2 freezes; %FS/%WS remain valid"
+  length_class_m: 15.5  # study×36.9 provisional for viability (#103)
+  span_m: 10.3
+  wing_area_m2: 29.5
+  scale_from_study: 36.9
+  note: "Provisional mapping for viability gates; freeze with product decision #2"
 
 fuselage_stations_pct_fs:
   FS-0: 0.0

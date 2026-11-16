@@ -1,0 +1,43 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+issue: 103
+tool: CalculiX
+fitting: arresting_hook_keel_attach
+material: ISM-Ti-6  # AMS 4928 class
+source_loads: fighter-jet/interfaces/carrier-loads.yaml
+source_drawings: [ISM-FJ-DWG-050]
+
+mesh_intent:
+  element: tet10_or_hex20
+  refine_at: lug_ear_and_keel_bolts
+  note: "Steve builds .inp; ISM owns loads + expected bands"
+
+load_cases:
+  - id: CCX-ARR-01
+    maps_to: LC-ARR-01
+    hook_peak_axial_force_n: 450000
+    boundary: keel_bulkhead_FS72_and_FS62_fixed
+    expected:
+      max_von_mises_mpa: {min: 200, max: 750}
+      bolthole_bearing_ok: true
+      plastic_reserve_factor: {min: 1.2}
+  - id: CCX-ARR-02
+    maps_to: LC-ARR-02
+    hook_peak_axial_force_n: 400000
+    hook_side_force_n: 80000
+    expected:
+      max_von_mises_mpa: {min: 200, max: 800}
+      yaw_load_path_into_keel: true
+  - id: CCX-CAT-HOLD
+    maps_to: LC-CAT-02
+    holdback_peak_force_n: 350000
+    expected:
+      max_von_mises_mpa: {min: 150, max: 700}
+
+tolerances_vs_steve:
+  peak_stress_relative: 0.15
+  reaction_sum_relative: 0.05
+
+pass_rule: >
+  All mapped carrier load cases show von Mises below Ti annealed/STA allowable
+  proxy with ultimate factor ≥ 1.5 on limit; no bolt bearing tear-out.

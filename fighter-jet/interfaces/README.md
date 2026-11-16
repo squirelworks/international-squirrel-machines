@@ -18,6 +18,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `sms-interface.yaml` | SMS topics, safeing, separation envelopes | Stub (#94) |
 | `manufacturing.yaml` | Zone process/spec/NDT/supply (research) | Stub (#100) |
 | `multi-origin-stores.yaml` | Family×station×adapter + inert catalogue | Stub (#101) |
+| `viability-criteria.yaml` | Sanity gates + class bands (canonical) | Stub (#103) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).

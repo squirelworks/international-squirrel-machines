@@ -1,0 +1,54 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+issue: 103
+audience: Eric
+oml_source: fighter-jet/shell/airframe.scad
+drawings: [ISM-FJ-DWG-010, ISM-FJ-DWG-050, ISM-FJ-DWG-060]
+note: >
+  Geometry/CG/inertia *targets* for static display and RC models.
+  Eric owns fabrication and shop machines — ISM does not design CNC/ovens/printers.
+
+full_scale_reference:
+  length_m: 15.5
+  span_m: 10.3
+  empty_mass_kg: 9800
+  cg_fs_pct: 0.56
+  inertia_empty_kg_m2:
+    Ixx: 18000
+    Iyy: 82000
+    Izz: 95000
+
+models:
+  - id: static_display_1_to_36_9
+    scale: 0.0271  # 1/36.9 ≈ study shell size
+    length_mm: 420
+    span_mm: 280
+    mass_target_kg: null  # non-flying
+    cg_fs_pct: 0.56
+    purpose: desk_or_shelf_display
+    finish: warm_gray_soft_brown_ism_badge_fin
+
+  - id: rc_flight_1_to_10
+    scale: 0.10
+    length_mm: 1550
+    span_mm: 1030
+    mass_target_kg: {min: 4.5, max: 7.5}
+    cg_fs_pct: {min: 0.54, max: 0.58}
+    inertia_hint: "Keep mass near wing carry-through; avoid tail-heavy builds"
+    purpose: RC_flight_demo
+    controls: [aileron, elevator_or_ht, rudder, throttle]
+    note: "Not FCS SoT — visualization / handling demo only"
+
+  - id: rc_flight_1_to_7
+    scale: 0.1429
+    length_mm: 2214
+    span_mm: 1471
+    mass_target_kg: {min: 8.0, max: 14.0}
+    cg_fs_pct: {min: 0.54, max: 0.58}
+    purpose: larger_RC_optional
+
+scaling_rules:
+  linear: scale
+  area: scale^2
+  mass_if_volumetric: scale^3
+  inertia_if_volumetric: scale^5
