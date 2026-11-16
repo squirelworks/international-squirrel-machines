@@ -1,0 +1,93 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 92
+scoring_scale: {min: 1, max: 5, higher: better}
+provisional: true
+note: >
+  ISM design judgments for conceptual selection. Public alloy families are
+  reference only; ISM IDs are not OEM equivalents. Not coupon allowables.
+
+criteria:
+  - id: strength_to_weight
+  - id: temperature
+  - id: fatigue
+  - id: carrier_salt_corrosion
+  - id: cost
+  - id: manufacturability
+
+candidates:
+  - id: ISM-Ti-6
+    public_family_ref: "Ti-6Al-4V class"
+    scores:
+      strength_to_weight: 5
+      temperature: 4
+      fatigue: 4
+      carrier_salt_corrosion: 5
+      cost: 2
+      manufacturability: 2
+  - id: ISM-Al-2xxx
+    public_family_ref: "2xxx aluminum (2024-class)"
+    scores:
+      strength_to_weight: 3
+      temperature: 2
+      fatigue: 4
+      carrier_salt_corrosion: 2
+      cost: 4
+      manufacturability: 4
+  - id: ISM-Al-7xxx
+    public_family_ref: "7xxx aluminum (7075-class)"
+    scores:
+      strength_to_weight: 4
+      temperature: 2
+      fatigue: 3
+      carrier_salt_corrosion: 2
+      cost: 4
+      manufacturability: 4
+  - id: ISM-Al-Li
+    public_family_ref: "aluminum-lithium class"
+    scores:
+      strength_to_weight: 5
+      temperature: 2
+      fatigue: 3
+      carrier_salt_corrosion: 2
+      cost: 3
+      manufacturability: 3
+  - id: ISM-Steel-HS
+    public_family_ref: "high-strength steel (300M-class ref)"
+    scores:
+      strength_to_weight: 3
+      temperature: 3
+      fatigue: 4
+      carrier_salt_corrosion: 2
+      cost: 5
+      manufacturability: 3
+  - id: ISM-CFRP-A
+    public_family_ref: "carbon fiber / epoxy"
+    scores:
+      strength_to_weight: 5
+      temperature: 2
+      fatigue: 4
+      carrier_salt_corrosion: 4
+      cost: 3
+      manufacturability: 3
+    notes: "Temp limited by resin Tg; galvanic isolation required at Al joints"
+  - id: ISM-RF-Q
+    public_family_ref: "quartz / epoxy radome"
+    scores:
+      strength_to_weight: 2
+      temperature: 2
+      fatigue: 3
+      carrier_salt_corrosion: 3
+      cost: 3
+      manufacturability: 3
+  - id: ISM-Ni-HT
+    public_family_ref: "nickel / high-temp panel stub"
+    scores:
+      strength_to_weight: 2
+      temperature: 5
+      fatigue: 3
+      carrier_salt_corrosion: 4
+      cost: 1
+      manufacturability: 2

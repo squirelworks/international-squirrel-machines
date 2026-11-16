@@ -1,9 +1,11 @@
 # Structural Material Placement — ISM-FJ-1
 
+Authoritative scored trade + zone table: `trade-study.md`, `../interfaces/materials-zones.yaml` (#92).
+
 | Location | Material (ISM designation) | Why |
 |----------|---------------------------|-----|
 | Outer wing skins | ISM-CFRP-A (carbon/epoxy) | Stiffness-to-weight; fatigue |
-| Wing spars (caps) | ISM-Al-7 or CFRP laminate | Bending load path; hybrid baseline uses Al-7 caps + CFRP webs |
+| Wing spars (caps) | ISM-Al-7xxx or CFRP laminate | Bending load path; hybrid baseline uses Al-7xxx caps + CFRP webs |
 | Wing ribs | ISM-CFRP-A or Al sheet | Shape fuel cells; access holes |
 | Carry-through box | ISM-Ti-6 fittings + Al-7/CFRP box | Side-of-body loads; damage tolerance |
 | Fuselage longerons | ISM-Al-7 | Machinability; repairability |

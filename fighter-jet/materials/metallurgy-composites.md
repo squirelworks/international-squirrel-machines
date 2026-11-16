@@ -4,10 +4,12 @@ Public alloy *families* used as reference only; ISM designations are internal an
 
 ## Alloy / composite families
 
-### ISM-Al-7 (aluminum family)
-- Role: longerons, bulkheads, spar caps (hybrid baseline).
-- Traits: high strength, established repair tooling.
-- Limits: fatigue at fastener holes — use cold working / interference fit where called.
+Trade scores and zone map: `trade-study.md` / `candidates.yaml` / `../interfaces/materials-zones.yaml`.
+
+### ISM-Al-2xxx / ISM-Al-7xxx / ISM-Al-Li (aluminum families)
+- Role: longerons, bulkheads, spar caps (hybrid baseline); 2xxx where fatigue toughness dominates.
+- Traits: high strength (7xxx), established repair tooling; Al-Li for mass.
+- Limits: fatigue at fastener holes — use cold working / interference fit where called; salt coatings required for carrier.
 
 ### ISM-Ti-6 (titanium family)
 - Role: gear, fittings, hot-adjacent structure.
