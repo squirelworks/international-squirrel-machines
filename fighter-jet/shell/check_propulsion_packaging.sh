@@ -6,12 +6,15 @@ tmpdir=$(mktemp -d)
 trap 'rm -rf "$tmpdir"' EXIT
 driver=$tmpdir/probe_driver.scad
 log=$tmpdir/clash.log
-cat >"$driver" <<'EOF'
-include <propulsion_clash_probe.scad>
-propulsion_clash_probe();
-EOF
+# Driver lives under shell/ so include <lib/...> resolves
+cat >"$tmpdir/../probe_driver.scad" 2>/dev/null || true
+driver="$(pwd)/.probe_driver.scad"
+cat >"$driver" <<'SCAD'
+include <lib/propulsion_keepouts.scad>
+propulsion_forbidden_intersection();
+SCAD
+trap 'rm -rf "$tmpdir"; rm -f "$driver"' EXIT
 set +e
-# Run from this directory so include paths resolve
 openscad -o "$tmpdir/clash.stl" "$driver" >"$log" 2>&1
 rc=$?
 set -e

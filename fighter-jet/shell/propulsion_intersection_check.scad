@@ -9,10 +9,10 @@
 // To re-check emptiness locally:
 //   ./check_propulsion_packaging.sh
 // or:
-//   openscad -o /tmp/clash.stl propulsion_clash_probe.scad
+//   openscad -o /tmp/clash.stl temp driver + lib/propulsion_keepouts.scad
 //   → expect "Current top level object is empty."
 
-include <propulsion_keepouts.scad>
+include <lib/propulsion_keepouts.scad>
 
 echo("A2 #120: propulsion∩(bay∪gear) must be empty; witness cube for cad-verify.");
 echo("A2 #120: run shell/check_propulsion_packaging.sh to assert empty clash probe.");
@@ -22,4 +22,4 @@ translate([-200, 0, -20])
     cube(4, center = true);
 
 // Do NOT call propulsion_forbidden_intersection() at top level here (EMPTY → CI fail).
-// Clash geometry lives in propulsion_clash_probe.scad for the empty-object assert.
+// Clash geometry lives in temp driver + lib/propulsion_keepouts.scad for the empty-object assert.
