@@ -26,7 +26,7 @@ Current official list:
 - subsonic-bomber (#38: deepen + KiCad + structural spars/ribs; inert bay only)
 - supersonic-bomber (#39: deepen + KiCad + structural spars/ribs; inert bay only)
 - warship (#43: hydrostatics + KiCad + structural keel/frames; weapons = mass/footprint only)
-- aircraft-carrier (#45: flight deck + KiCad scale-model deck control; combat = mass/footprint only)
+- aircraft-carrier (#45: flight deck + KiCad + structural hangar/frames; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad + structural pressure-hull study; sonar = mass/footprint only)
 - rocket (#41: hobby + KiCad passive logger/recovery; no guidance)
 - satellite (#31: bus + KiCad OBC/EPS/radio; payload mass/power/data only)
