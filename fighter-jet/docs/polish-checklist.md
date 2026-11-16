@@ -8,7 +8,7 @@
 - [ ] Soft Flight Lab MVP (#79) — **blocker (Steve)**
 - [ ] Soft HIL UI (#80) — **blocker (Steve)**
 - [ ] Coupon / allowables campaign replace provisional Ftu/Fty
-- [ ] Gerbers for bay PCB + production STLs for study shell
+- [x] Gerbers for bay PCB + study STL for airframe shell (this Gerbers PR)
 - [ ] Renders / livery accent decision
 - [ ] Inquire-for-release sign-off (Sarah / program)
 

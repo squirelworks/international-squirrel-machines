@@ -21,7 +21,7 @@ Current official list:
 - terminal
 - macro-pad
 - drawing-pads
-- fighter-jet
+- fighter-jet (#85: design program + bay KiCad + study Gerbers/STL; stores = mass/SAFE-INHIBIT only)
 - hypersonic-bomber (#37: deepen + KiCad + structural + study Gerbers/STL; no weapons/recipes)
 - subsonic-bomber (#38: deepen + KiCad + structural + study Gerbers/STL; inert bay only)
 - supersonic-bomber (#39: deepen + KiCad + structural + study Gerbers/STL; inert bay only)

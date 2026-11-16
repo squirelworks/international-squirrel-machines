@@ -168,7 +168,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Space station Gerbers + mechanical STL — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) study fab package; habitat only; docking = mass/volume/power.
 - [x] Sonar Gerbers + mechanical STL — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) study fab package; educational echo only; no quieting/weapons.
 - [x] Gundam Gerbers + mechanical STL — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) study fab package; stores = mass/SAFE-INHIBIT only.
-- [ ] Remaining siblings Gerbers / FJ gaps
+- [x] Fighter-jet bay Gerbers + study airframe STL — [#85](https://github.com/squirelworks/international-squirrel-machines/issues/85) study fab package; stores = mass/SAFE-INHIBIT only.
+- [ ] Remaining FJ productization gaps (BOM/assembly polish #78, open product decisions)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
