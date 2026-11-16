@@ -1,0 +1,64 @@
+schema_version: "1.0.0"
+station_id: "ISM-SSN-1"
+revision: "A"
+status: stub
+issue: 42
+provisional: true
+scope: educational_station_architecture
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - combat_employment
+  - itar_ear_weapons
+source_docs:
+  - space-station/docs/design-note.md
+related_interfaces:
+  - docking-placeholders.yaml
+
+modules:
+  - id: HAB-1
+    role: habitat
+    pressurized: true
+  - id: LAB-1
+    role: science_lab
+    pressurized: true
+  - id: NODE-1
+    role: node_berthing
+    pressurized: true
+  - id: PWR-1
+    role: power_truss_attach
+    pressurized: false
+  - id: LOG-1
+    role: logistics
+    pressurized: true
+
+power:
+  solar_kw_orbit_avg_class: 20.0
+  loads_kw:
+    eclss: 4.0
+    avionics: 2.0
+    comms: 1.5
+    thermal: 3.0
+    payload_science: 2.5
+    margin: 2.0
+    total: 15.0
+
+eclss:
+  crew_nominal: 4
+  o2_kg_per_person_day: 0.84
+  functions: [atmosphere_revitalization, water_recovery, thermal_control, cabin_sensors]
+  note: "Block-diagram / budget level only"
+
+avionics:
+  partitions: [cdh, gnc_stationkeeping, comms, caution_warning]
+  weapons_pointing: false
+
+shell: space-station/shell/module_study.scad
+
+expected_behaviour:
+  civil_habitat_only: true
+  no_weapons: true
+  kicad_next: true

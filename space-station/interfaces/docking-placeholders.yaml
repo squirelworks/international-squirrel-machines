@@ -1,0 +1,43 @@
+schema_version: "1.0.0"
+station_id: "ISM-SSN-1"
+revision: "A"
+status: stub
+issue: 42
+provisional: true
+scope: berthing_mass_volume_power_stubs_only
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - combat_docking
+source_docs:
+  - space-station/docs/design-note.md
+related_interfaces:
+  - station.yaml
+
+note: >
+  Visiting vehicles are mass, berthing envelope, and umbilical power/data stubs.
+  No weapons interfaces or combat employment.
+
+ports:
+  - id: PORT-FWD
+    role: visiting_vehicle
+    capture_envelope_m: {l: 4.0, d: 2.0}
+    mass_limit_t: 15.0
+    umbilical_power_kw_class: 2.0
+  - id: PORT-AFT
+    role: logistics
+    capture_envelope_m: {l: 4.0, d: 2.0}
+    mass_limit_t: 20.0
+    umbilical_power_kw_class: 3.0
+  - id: PORT-RAD
+    role: spare_rescue
+    capture_envelope_m: {l: 3.5, d: 1.8}
+    mass_limit_t: 12.0
+    umbilical_power_kw_class: 1.5
+
+expected_behaviour:
+  no_weapons_on_ports: true
+  station_consumes_mass_power_envelopes: true

@@ -1,0 +1,28 @@
+schema_version: "1.0.0"
+program: "ISM-SSN-1"
+revision: "A"
+status: stub
+issue: 42
+note: Open educational / public station architecture only. No ITAR/EAR weapons content.
+
+citations:
+  - id: wiki-iss
+    title: "International Space Station (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/International_Space_Station"
+    access_date: "2026-11-16"
+    used_for: "Modular station / truss / ECLSS teaching language (#42)"
+
+  - id: nasa-iss-overview
+    title: "NASA ISS overview (public)"
+    org: NASA
+    url: "https://www.nasa.gov/international-space-station/"
+    access_date: "2026-11-16"
+    used_for: "Public module / power / life-support context (#42)"
+
+  - id: wiki-eclss
+    title: "Environmental Control and Life Support System (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Environmental_Control_and_Life_Support_System"
+    access_date: "2026-11-16"
+    used_for: "ECLSS block functions teaching (#42)"
