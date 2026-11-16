@@ -8,13 +8,15 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 ## Program areas (in-repo)
 | Area | Path |
 |------|------|
-| Diagrams / blueprints | `fighter-jet/diagrams/` |
+| Diagrams / blueprints | `fighter-jet/diagrams/` (cite `ISM-FJ-DWG-*`) |
+| Flight Lab interfaces | `fighter-jet/interfaces/` (YAML/JSON) |
 | Materials | `fighter-jet/materials/` |
 | Mechanical | `fighter-jet/mechanical/` |
 | Hydraulics / EHA | `fighter-jet/hydraulics/` |
 | Fly-by-wire | `fighter-jet/flight-controls/` |
 | Avionics | `fighter-jet/avionics/` |
 | Sensors & weapons (fictional) | `fighter-jet/sensors-weapons/` |
+| Research notes | `fighter-jet/docs/research/` |
 | Bay PCB | `fighter-jet/kicad/` |
 | Study shell | `fighter-jet/shell/` |
 

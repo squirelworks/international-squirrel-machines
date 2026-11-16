@@ -38,6 +38,11 @@ Stations are expressed as **% of fuselage length (FS)** from nose tip aft, and *
 - Vertical stabilizer spar roots ≈ FS-88–96; ISM badge boss on fin (~60% fin height).
 
 ## Drawing cross-ref
-- Plan/side/front: `orthographic.svg`
-- Wing box: `wing-plan.svg`
+- Plan/side/front: **ISM-FJ-DWG-010** (`orthographic.svg`)
+- Avionics bay section: **ISM-FJ-DWG-020**
+- Wing root / spar section: **ISM-FJ-DWG-030**
+- Hardpoints ICD: **ISM-FJ-DWG-040** (`hardpoints.md`)
+- Fuselage stations sheet: **ISM-FJ-DWG-050** (`fuselage-stations.svg`)
+- Wing box: **ISM-FJ-DWG-060** (`wing-plan.svg`)
 - Bay contents: `bay-layouts.md`
+- Datum / numbering: `drawing-convention.md`

@@ -21,20 +21,23 @@ Open product decisions are listed at the bottom of this README and in `docs/devi
 ```
 fighter-jet/
 ├── README.md                 ← you are here
-├── diagrams/                 orthographics, stations, bays, harness
+├── diagrams/                 numbered drawings DWG-010…070, stations, ICDs
+├── interfaces/               machine-readable YAML for Flight Lab (Steve)
 ├── materials/                alloys, composites, fasteners, environments
 ├── mechanical/               airframe, gear, surfaces, access
 ├── hydraulics/               actuation architecture & failures
 ├── flight-controls/          FBW laws, redundancy, envelope
 ├── avionics/                 mission computer, buses, HUD/HMI, software
 ├── sensors-weapons/          radar/EO, stores, EW (fictional ISM)
+├── docs/research/            comparative / trade-study notes (as filed)
 ├── kicad/                    bay controller PCB (electrical slice)
 └── shell/                    parametric OpenSCAD study airframe
 ```
 
 | Area | Directory | Status |
 |------|-----------|--------|
-| Diagrams & blueprints | `diagrams/` | Design program — SVG + station notes |
+| Diagrams & blueprints | `diagrams/` | Drawing index Rev A (#70) — cite ISM-FJ-DWG-* |
+| Interfaces (Flight Lab) | `interfaces/` | Stub YAML contracts Rev A |
 | Materials | `materials/` | Design program |
 | Mechanical | `mechanical/` | Design program |
 | Hydraulics / actuation | `hydraulics/` | Design program |
@@ -51,11 +54,11 @@ fighter-jet/
 Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM squirrel badge on the vertical stabilizer and avionics silkscreen. No external trademarks. See `docs/branding.md`.
 
 ## Next concrete steps
-1. Lock product decisions: engine count, empty-weight class, accent color, composite vs aluminum wing box.
-2. Expand `kicad/` schematic (power tree, IMU/radio footprints) and freeze bay connector pinout against `diagrams/wiring-harness.md`.
-3. Export study STLs from `shell/airframe.scad`; add spar/rib station markers matching `diagrams/stations.md`.
-4. Draft interface control documents (ICD) for stick/throttle → FCC → EHA.
-5. Polish package (BOM, assembly, renders) and inquire before any release tag.
+1. Materials trade study + zone map YAML (#71 continuous track).
+2. Carrier suitability load cases YAML (hook / catapult / wing fold).
+3. Stores integration inert models + SMS interface YAML (no seeker/warhead/fuze).
+4. Comparative fighter programme survey under `docs/research/`.
+5. Lock product decisions; expand KiCad; export study STLs; freeze bay connector pinout.
 
 ## Open product decisions
 1. Twin vs single engine (baseline docs assume twin).

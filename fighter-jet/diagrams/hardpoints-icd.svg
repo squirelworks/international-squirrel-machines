@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-label="ISM-FJ-DWG-040 hardpoints ICD">
+  <title>ISM-FJ-DWG-040 Rev A — Hardpoints / Pylons ICD</title>
+  <desc>Plan view with hardpoint stations dimensioned from aircraft datum. Study mm. Original ISM.</desc>
+  <style>
+    .bg { fill: #f3f0ea; }
+    .air { fill: #d9d2c6; stroke: #3a3530; stroke-width: 1.4; }
+    .dim { stroke: #7a7268; stroke-width: 0.8; fill: none; stroke-dasharray: 3 2; }
+    .dim-solid { stroke: #5a534c; stroke-width: 0.9; fill: none; }
+    .hp { fill: #8b6b4a; stroke: #3a3530; stroke-width: 0.8; }
+    .title { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 16px; font-weight: 600; fill: #2c2824; }
+    .sub { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #5a534c; }
+    .label { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 11px; fill: #2c2824; }
+    .tiny { font-family: "IBM Plex Sans", "Segoe UI", sans-serif; font-size: 9px; fill: #5a534c; }
+  </style>
+  <rect class="bg" width="1000" height="640"/>
+  <text class="title" x="24" y="28">ISM-FJ-DWG-040 Rev A — Hardpoint / pylon locations (plan)</text>
+  <text class="sub" x="24" y="46">Datum FS-0 nose · BL-0 CL · Units mm study (L=420, b/2=140) · Twin of interfaces/hardpoints.yaml</text>
+
+  <!-- Plan geometry: nose left, FS increases right. Scale ~1.6 mm/du for fuselage length 420→672 -->
+  <g transform="translate(60,80)">
+    <!-- fuselage -->
+    <ellipse class="air" cx="340" cy="220" rx="300" ry="22"/>
+    <path class="air" d="M40,220 L80,205 L80,235 Z"/>
+    <!-- wings -->
+    <path class="air" d="M250,220 L320,220 L420,60 L340,60 Z"/>
+    <path class="air" d="M250,220 L320,220 L420,380 L340,380 Z"/>
+    <!-- centerline -->
+    <line class="dim" x1="40" y1="220" x2="660" y2="220"/>
+    <text class="tiny" x="650" y="216">BL-0</text>
+    <!-- FS-0 marker -->
+    <line class="dim-solid" x1="40" y1="180" x2="40" y2="260"/>
+    <text class="label" x="28" y="170">FS-0</text>
+
+    <!-- Hardpoints: map FS%*420*1.6≈ FS*6.72 from x=40; BL: 140mm → ~1.0 du/mm from cy=220 -->
+    <!-- STA-9 FS55 → x=40+231*1.6≈410; BL0 -->
+    <circle class="hp" cx="410" cy="248" r="6"/>
+    <text class="label" x="390" y="270">STA-9</text>
+    <text class="tiny" x="378" y="282">FS55 / BL0</text>
+
+    <!-- STA-7/8 WS25 BL±35 → y=220±35 -->
+    <circle class="hp" cx="456" cy="185" r="5"/>
+    <circle class="hp" cx="456" cy="255" r="5"/>
+    <text class="label" x="468" y="180">STA-7</text>
+    <text class="label" x="468" y="270">STA-8</text>
+    <text class="tiny" x="468" y="192">WS25 FS62</text>
+
+    <!-- STA-5/6 WS50 BL±70 -->
+    <circle class="hp" cx="450" cy="150" r="5"/>
+    <circle class="hp" cx="450" cy="290" r="5"/>
+    <text class="label" x="462" y="145">STA-5</text>
+    <text class="label" x="462" y="305">STA-6</text>
+    <text class="tiny" x="462" y="157">WS50</text>
+
+    <!-- STA-3/4 WS75 BL±105 -->
+    <circle class="hp" cx="444" cy="115" r="5"/>
+    <circle class="hp" cx="444" cy="325" r="5"/>
+    <text class="label" x="456" y="110">STA-3</text>
+    <text class="label" x="456" y="340">STA-4</text>
+    <text class="tiny" x="456" y="122">WS75</text>
+
+    <!-- STA-1/2 tip WS100 BL±140 -->
+    <circle class="hp" cx="430" cy="80" r="5"/>
+    <circle class="hp" cx="430" cy="360" r="5"/>
+    <text class="label" x="442" y="76">STA-1 tip</text>
+    <text class="label" x="442" y="374">STA-2 tip</text>
+
+    <!-- BL dimension example -->
+    <line class="dim-solid" x1="500" y1="220" x2="500" y2="150"/>
+    <text class="tiny" x="506" y="188">BL +70 mm</text>
+    <line class="dim-solid" x1="200" y1="400" x2="456" y2="400"/>
+    <text class="tiny" x="280" y="416">FS ≈ 260 mm (62% × 420) to STA-7/8</text>
+  </g>
+
+  <text class="label" x="24" y="560">Table: diagrams/hardpoints.md · Machine-readable: interfaces/hardpoints.yaml</text>
+  <text class="label" x="24" y="580">Pylon lug spacing study: 80 mm fore-aft · Wet pylons: product decision (baseline dry)</text>
+  <text class="sub" x="24" y="620">ISM drawing · Cite as ISM-FJ-DWG-040 · Contemporaries reference only</text>
+</svg>
