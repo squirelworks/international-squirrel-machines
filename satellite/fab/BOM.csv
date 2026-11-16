@@ -1,0 +1,8 @@
+Ref,Qty,Value,Package,Notes,LCSC
+U1,1,RP2040,QFN-56-1EP_7x7mm_P0.4mm,OBC / bus MCU stub,C2040
+U2,1,IMU,LGA-14_3x2.5mm_P0.5mm,ADCS sense stub (generic),
+U3,1,RADIO,RADIO_Module,Comms stub (generic footprint),
+J1,1,PinHeader_1x03,PinHeader_1x03_P2.54mm,EPS / power rail stub,
+J2,1,PinHeader_1x03,PinHeader_1x03_P2.54mm,Radio harness stub,
+J3,1,PinHeader_1x03,PinHeader_1x03_P2.54mm,Magnetorquer drive stub,
+J4,1,PinHeader_1x03,PinHeader_1x03_P2.54mm,Payload enable stub (mass/power/data only),
