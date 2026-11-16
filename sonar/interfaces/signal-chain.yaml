@@ -1,0 +1,45 @@
+schema_version: "1.0.0"
+program_id: "ISM-SNR-1"
+revision: "A"
+status: stub
+issue: 40
+provisional: true
+scope: block_diagram_teaching_only
+excluded:
+  - quieting
+  - classified_beamforming
+  - adaptive_combat_sp
+  - acoustic_warfare
+  - weapons_interfaces
+  - fire_control
+source_docs:
+  - sonar/docs/design-note.md
+related_interfaces:
+  - transducer-placeholders.yaml
+
+note: >
+  Signal chain is a teaching block diagram (TX → path → RX → envelope → display).
+  No classified SP libraries or quieting filters.
+
+blocks:
+  - id: PULSE_GEN
+    role: fixed_width_tx_stub
+  - id: TX_AMP
+    role: power_class_stub
+  - id: RX_PREAMP
+    role: gain_class_stub
+  - id: ENVELOPE
+    role: peak_detect_tof
+  - id: DISPLAY
+    role: depth_readout_stub
+
+teaching_constants:
+  sound_speed_m_s: 1500
+  frequency_khz_class: 200
+  sonar_equation_terms: [SL, TL, TS, NL, DI, DT]
+
+expected_behaviour:
+  block_diagram_only: true
+  no_quieting: true
+  no_combat_sp: true
+  kicad_afe_dsp_next: true
