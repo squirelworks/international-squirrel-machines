@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+station_id: "ISM-SSN-1"
+board_id: "ism-station-hab"
+revision: "A"
+status: stub
+issue: 42
+provisional: true
+scope: habitat_power_eclss_cdh_only
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - combat_docking
+  - weapons_pointing
+  - itar_ear
+source_docs:
+  - space-station/docs/design-note.md
+  - space-station/kicad/README.md
+related_interfaces:
+  - station.yaml
+  - docking-placeholders.yaml
+kicad_project: space-station/kicad/ism-station-hab
+
+channels:
+  - id: I2C_SENSORS
+    role: imu_and_cabin_sensing
+  - id: SPI_FLASH
+    role: telemetry_or_flash_stub
+  - id: I2C_EPS
+    header: J1
+    role: eps_telemetry_stub
+  - id: PWM_ECLSS
+    header: J2
+    role: eclss_fan_valve_stub
+  - id: UART_CDH
+    header: J3
+    role: command_data_handling_uart_stub
+  - id: GPIO_DOCK
+    header: J4
+    role: docking_sense_umbilical_enable_stub
+
+expected_behaviour:
+  no_weapons: true
+  no_seekers: true
+  no_guidance_to_target: true
+  no_warheads: true
+  no_combat_docking: true
+  habitat_only: true
