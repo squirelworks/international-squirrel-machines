@@ -1,0 +1,33 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+issue: 103
+tool: VSPAERO
+geometry_ref: ism-fj1-parametric.yaml
+
+cases:
+  - id: VS-CRUISE-01
+    mach: 0.8
+    altitude_m: 10000
+    alpha_deg_sweep: [-2, 0, 2, 4, 6, 8]
+    expected:
+      cl_alpha_per_deg: {min: 0.05, max: 0.12}
+      ld_max: {min: 6.0, max: 12.0}
+      cm_slope_sign: negative_or_near_zero_with_fbw
+  - id: VS-APPROACH-01
+    mach: 0.25
+    altitude_m: 0
+    alpha_deg_sweep: [0, 4, 8, 12, 14]
+    flaps: flaperon_landing
+    expected:
+      cl_max_stub: {min: 1.2, max: 2.0}
+  - id: VS-TRANS-01
+    mach: 1.2
+    altitude_m: 11000
+    alpha_deg_sweep: [-2, 0, 2, 4]
+    expected:
+      wave_drag_rise: true
+
+tolerances_vs_steve:
+  cl_relative: 0.10
+  cd_relative: 0.15
+  cm_absolute: 0.02

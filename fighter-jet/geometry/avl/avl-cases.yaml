@@ -1,0 +1,22 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+issue: 103
+tool: AVL
+geometry: ism-fj1.avl
+
+cases:
+  - id: AVL-TRIM-01
+    alpha_deg: 2.0
+    beta_deg: 0.0
+    expected:
+      cl: {min: 0.05, max: 0.35}
+      cma_sign: stabilizing_or_near_neutral
+  - id: AVL-SM-01
+    description: Neutral-point / static-margin estimate
+    expected:
+      static_margin_pct_mac: {min: 3.0, max: 15.0}
+      matches_gate: G-SM
+
+tolerances_vs_steve:
+  cl_relative: 0.12
+  static_margin_pp: 2.0

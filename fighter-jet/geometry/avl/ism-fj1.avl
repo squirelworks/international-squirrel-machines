@@ -1,0 +1,75 @@
+# ISM-FJ-1 Nutcracker — AVL stub (study mm)
+# Issue #103 — convert/rescale as needed. Contemporaries reference only.
+ISM-FJ-1
+0.0                                 | Mach
+0     0     0.0                     | iYsym  iZsym  Zsym
+21700.0   280.0   77.5              | Sref Bref Cref  (mm^2, mm, mm) approx study
+0.0   0.0   0.0                     | Xref Yref Zref (set to CG later)
+0.020                               | CDp  (parasite stub)
+
+#==========================================================================
+SURFACE
+Wing
+12  1.0                             | Nchord  Cspace
+1.0                                 | Nspan  Sspace  (override per SECTION)
+
+YDUPLICATE
+0.0
+
+ANGLE
+0.0
+
+COMPONENT
+1
+
+SECTION
+# Xle Yle Zle Chord Angle
+170.0  24.0  -8.0  110.0  0.0
+8  1.0                              | Nspan  Sspace
+
+SECTION
+170.0  140.0  -8.0  45.0  0.0
+8  1.0
+
+#==========================================================================
+SURFACE
+HT
+8  1.0
+1.0
+
+YDUPLICATE
+0.0
+
+ANGLE
+0.0
+
+COMPONENT
+2
+
+SECTION
+350.0  0.0  0.0  50.0  0.0
+6  1.0
+
+SECTION
+350.0  50.0  0.0  40.0  0.0
+6  1.0
+
+#==========================================================================
+SURFACE
+VT
+8  1.0
+1.0
+
+ANGLE
+0.0
+
+COMPONENT
+3
+
+SECTION
+330.0  0.0  20.0  60.0  0.0
+6  1.0
+
+SECTION
+330.0  0.0  90.0  40.0  0.0
+6  1.0
