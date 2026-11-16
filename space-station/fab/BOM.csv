@@ -1,0 +1,12 @@
+Ref,Qty,Value,Package,Notes,LCSC
+U1,1,RP2040,QFN-56-1EP_7x7mm_P0.4mm,Habitat C&DH MCU stub,C2040
+U2,1,IMU-6DOF,LGA-14_3x2.5mm_P0.5mm,Cabin / attitude sense stub (generic),
+U3,1,RADIO,RADIO_Module,Comms stub (generic footprint),
+J1,1,EPS,PinHeader_1x03_P2.54mm,EPS telemetry stub,
+J2,1,ECLSS,PinHeader_1x03_P2.54mm,ECLSS fan/valve stub,
+J3,1,CDH,PinHeader_1x03_P2.54mm,Command/data handling UART stub,
+J4,1,DOCK,PinHeader_1x03_P2.54mm,Docking sense / umbilical enable stub (mass/volume/power only),
+H1,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H2,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H3,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H4,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
