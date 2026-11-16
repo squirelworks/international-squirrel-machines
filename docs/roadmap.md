@@ -23,7 +23,7 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 
 ## Phase 2 — Input Devices
 - [x] Mouse (`mouse/`) — fab-ready with 60% in PR #128 · [#3](https://github.com/squirelworks/international-squirrel-machines/issues/3)
-- [ ] Trackball (`trackball/`)
+- [x] Trackball (`trackball/`) — [#8](https://github.com/squirelworks/international-squirrel-machines/issues/8) (this PR)
 - [ ] Macro pad (`macro-pad/`)
 - [ ] Typewriter (`typewriter/`)
 - [ ] Drawing pads range — small / medium / large (`drawing-pads/`)
