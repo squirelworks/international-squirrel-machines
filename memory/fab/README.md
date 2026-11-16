@@ -9,8 +9,9 @@
 ## LCSC / fab readiness
 
 - Every **SMT/catalog** line has an LCSC number.
+- **Default memory ICs:** `U1,U2` = Lyontek **LY68L6400SLIT** (JLCPCB/LCSC **C261881**), stock SOIC-8.
+- **Optional:** swap land pattern to `ISM:ISM_DRAM_SOIC` for a custom ISM DRAM package (not default fab pop).
 - Rows marked **No LCSC** in Notes are intentional and **do not block** fab readiness:
-  - `U1,U2` — custom ISM DRAM packages
   - `J1` — edge fingers (PCB feature, not an SMT SKU)
   - `H1–H2` — mechanical NPTH mounting holes
 

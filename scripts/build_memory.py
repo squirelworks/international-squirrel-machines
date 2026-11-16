@@ -186,15 +186,20 @@ def build_sch() -> Schematic:
     for num, net in edge_nets.items():
         tie(edge, "ISM_Edge20", num, net)
 
-    # Two DRAM packages
+    # Two memory packages — default population LY68L6400SLIT (SPI PSRAM, LCSC).
+    # Symbol is ISM simplified 8-pin; land pattern = stock SOIC-8 (ISM_DRAM_SOIC optional).
     for i, x in enumerate((50.8, 139.7)):
-        u = add("ISM_DRAM8", f"U{i+1}", "ISM_DRAM8", (x, 177.8), "ISM:ISM_DRAM_SOIC",
-                {"Note": "ISM simplified DRAM"})
-        tie(u, "ISM_DRAM8", "1", "+1V2")
+        u = add(
+            "ISM_DRAM8", f"U{i+1}", "LY68L6400SLIT", (x, 177.8),
+            "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+            {"LCSC": "C261881", "MPN": "LY68L6400SLIT",
+             "Note": "Default SMT pop; optional alt footprint ISM:ISM_DRAM_SOIC"},
+        )
+        # 3.3 V SPI PSRAM (not 1.2 V DRAM core)
+        tie(u, "ISM_DRAM8", "1", "+3V3")
         tie(u, "ISM_DRAM8", "2", "GND")
         tie(u, "ISM_DRAM8", "3", "CLK")
         tie(u, "ISM_DRAM8", "4", "CS")
-        # chip0 → DQ0/DQ1; chip1 → DQ2/DQ3
         if i == 0:
             tie(u, "ISM_DRAM8", "5", "DQ0")
             tie(u, "ISM_DRAM8", "6", "DQ1")
@@ -224,10 +229,10 @@ def build_sch() -> Schematic:
     tie(r2, "R", "1", "SCL"); tie(r2, "R", "2", "+3V3")
     tie(r3, "R", "1", "WP"); tie(r3, "R", "2", "GND")
 
-    # Decoupling
+    # Decoupling (+1V2 kept on edge for future DDR-class option; default ICs on +3V3)
     for i, x in enumerate((50.8, 76.2, 101.6, 127.0)):
         c = add("C", f"C{i+1}", "100nF", (x, 50.8), "Capacitor_SMD:C_0603_1608Metric", {"LCSC": "C14663"})
-        rail = "+1V2" if i < 2 else "+3V3"
+        rail = "+3V3" if i < 3 else "+1V2"
         tie(c, "C", "1", rail); tie(c, "C", "2", "GND")
 
     # Unused command lines: tie to GND via resistors so inputs aren't floating for ERC
@@ -291,17 +296,18 @@ def build_pcb() -> PcbBuilder:
         value="EDGE20", pad_nets=edge_nets, lib_path=ISM_PRETTY,
     )
 
+    # Default SMT: stock SOIC-8 for LY68L6400SLIT. Optional: ISM.pretty/ISM_DRAM_SOIC.
     u1 = b.add_footprint(
-        "ISM.pretty", "ISM_DRAM_SOIC", "U1", 16.0, 10.0, value="ISM_DRAM8",
-        pad_nets={"1": "+1V2", "2": "GND", "3": "CLK", "4": "CS",
+        "Package_SO.pretty", "SOIC-8_3.9x4.9mm_P1.27mm", "U1", 16.0, 10.0,
+        value="LY68L6400SLIT",
+        pad_nets={"1": "+3V3", "2": "GND", "3": "CLK", "4": "CS",
                   "5": "DQ0", "6": "DQ1", "7": "A0", "8": "A1"},
-        lib_path=ISM_PRETTY,
     )
     u2 = b.add_footprint(
-        "ISM.pretty", "ISM_DRAM_SOIC", "U2", 40.0, 10.0, value="ISM_DRAM8",
-        pad_nets={"1": "+1V2", "2": "GND", "3": "CLK", "4": "CS",
+        "Package_SO.pretty", "SOIC-8_3.9x4.9mm_P1.27mm", "U2", 40.0, 10.0,
+        value="LY68L6400SLIT",
+        pad_nets={"1": "+3V3", "2": "GND", "3": "CLK", "4": "CS",
                   "5": "DQ2", "6": "DQ3", "7": "A0", "8": "A1"},
-        lib_path=ISM_PRETTY,
     )
     u3 = b.add_footprint(
         "Package_SO.pretty", "SOIC-8_3.9x4.9mm_P1.27mm", "U3", 64.0, 10.0, value="24LC02",
@@ -314,7 +320,7 @@ def build_pcb() -> PcbBuilder:
                     62.0, 18.0, value="4.7k", pad_nets={"1": "SCL", "2": "+3V3"})
     b.add_footprint("Resistor_SMD.pretty", "R_0603_1608Metric", "R3",
                     70.0, 18.0, value="10k", pad_nets={"1": "WP", "2": "GND"})
-    for i, (x, rail) in enumerate([(12.0, "+1V2"), (20.0, "+1V2"), (48.0, "+3V3"), (56.0, "+3V3")], 1):
+    for i, (x, rail) in enumerate([(12.0, "+3V3"), (20.0, "+3V3"), (48.0, "+3V3"), (56.0, "+1V2")], 1):
         b.add_footprint("Capacitor_SMD.pretty", "C_0603_1608Metric", f"C{i}",
                         x, 18.0, value="100nF", pad_nets={"1": rail, "2": "GND"})
     b.add_footprint(
@@ -360,19 +366,19 @@ def build_pcb() -> PcbBuilder:
 
     # DRAM / SPD / passives → spines then horizontal join on In1
     connections = [
-        (u1, "1", "+1V2"), (u1, "2", "GND"), (u1, "3", "CLK"), (u1, "4", "CS"),
+        (u1, "1", "+3V3"), (u1, "2", "GND"), (u1, "3", "CLK"), (u1, "4", "CS"),
         (u1, "5", "DQ0"), (u1, "6", "DQ1"), (u1, "7", "A0"), (u1, "8", "A1"),
-        (u2, "1", "+1V2"), (u2, "2", "GND"), (u2, "3", "CLK"), (u2, "4", "CS"),
+        (u2, "1", "+3V3"), (u2, "2", "GND"), (u2, "3", "CLK"), (u2, "4", "CS"),
         (u2, "5", "DQ2"), (u2, "6", "DQ3"), (u2, "7", "A0"), (u2, "8", "A1"),
         (u3, "1", "GND"), (u3, "2", "GND"), (u3, "3", "GND"), (u3, "4", "GND"),
         (u3, "5", "SDA"), (u3, "6", "SCL"), (u3, "7", "WP"), (u3, "8", "+3V3"),
         (fp("R1"), "1", "SDA"), (fp("R1"), "2", "+3V3"),
         (fp("R2"), "1", "SCL"), (fp("R2"), "2", "+3V3"),
         (fp("R3"), "1", "WP"), (fp("R3"), "2", "GND"),
-        (fp("C1"), "1", "+1V2"), (fp("C1"), "2", "GND"),
-        (fp("C2"), "1", "+1V2"), (fp("C2"), "2", "GND"),
+        (fp("C1"), "1", "+3V3"), (fp("C1"), "2", "GND"),
+        (fp("C2"), "1", "+3V3"), (fp("C2"), "2", "GND"),
         (fp("C3"), "1", "+3V3"), (fp("C3"), "2", "GND"),
-        (fp("C4"), "1", "+3V3"), (fp("C4"), "2", "GND"),
+        (fp("C4"), "1", "+1V2"), (fp("C4"), "2", "GND"),
         (fp("J2"), "1", "+3V3"), (fp("J2"), "2", "GND"),
         (fp("J2"), "3", "SDA"), (fp("J2"), "4", "SCL"),
     ]
@@ -412,8 +418,8 @@ def export_fab(pcb: Path):
                     "--format", "csv", "--units", "mm", "--side", "both", "--exclude-dnp", str(pcb)], check=False)
     rows = [
         ["Designator", "Value", "Footprint", "Quantity", "Manufacturer", "MPN", "LCSC", "Notes"],
-        ["U1,U2", "ISM_DRAM8", "ISM_DRAM_SOIC", "2", "ISM", "ISM-DRAM8", "",
-         "No LCSC — custom ISM DRAM package (hand-fit / separate sourcing)"],
+        ["U1,U2", "LY68L6400SLIT", "SOIC-8_3.9x4.9mm", "2", "Lyontek", "LY68L6400SLIT", "C261881",
+         "Default SMT pop — 64 Mbit SPI/QPI PSRAM. Optional alt land: ISM:ISM_DRAM_SOIC"],
         ["U3", "24LC02", "SOIC-8", "1", "Microchip", "24LC02B", "C7500", "SPD EEPROM"],
         ["J1", "EDGE20", "ISM_SO_DIMM_Edge20", "1", "ISM", "ISM-EDGE20", "",
          "No LCSC — edge fingers (PCB feature)"],
@@ -439,8 +445,9 @@ def export_fab(pcb: Path):
 ## LCSC / fab readiness
 
 - Every **SMT/catalog** line has an LCSC number.
+- **Default memory ICs:** `U1,U2` = Lyontek **LY68L6400SLIT** (JLCPCB/LCSC **C261881**), stock SOIC-8.
+- **Optional:** swap land pattern to `ISM:ISM_DRAM_SOIC` for a custom ISM DRAM package (not default fab pop).
 - Rows marked **No LCSC** in Notes are intentional and **do not block** fab readiness:
-  - `U1,U2` — custom ISM DRAM packages
   - `J1` — edge fingers (PCB feature, not an SMT SKU)
   - `H1–H2` — mechanical NPTH mounting holes
 

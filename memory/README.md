@@ -10,7 +10,7 @@ Generate: `python3 scripts/build_memory.py` — **ERC 0 / DRC 0**.
 | Block | Notes |
 |-------|--------|
 | Edge | `ISM_SO_DIMM_Edge20` — 20 fingers (power, DQ, CLK/CS/A, SPD I2C) |
-| DRAM | 2× `ISM_DRAM8` / `ISM_DRAM_SOIC` |
+| Memory ICs | **Default:** 2× Lyontek `LY68L6400SLIT` (LCSC **C261881**, stock SOIC-8). Optional land: `ISM:ISM_DRAM_SOIC` |
 | SPD | Microchip-class `24LC02` SOIC-8 (LCSC) |
 | Probe | `J2` 1×4 header (+3V3/GND/SDA/SCL) |
 | PCB | 80 × 36 mm, 4-layer |
@@ -48,7 +48,7 @@ VID/PID **0x1209 / 0x000B**. Wire Pico GP4/GP5 → J2 SDA/SCL.
 
 | Item | Value |
 |------|-------|
-| Edge power | `+1V2` (DRAM), `+3V3` (SPD), `GND` |
+| Edge power | `+3V3` (default PSRAM + SPD), `+1V2` (reserved edge rail), `GND` |
 | SPD bus | I2C addr `0x50`, SDA/SCL on edge + J2 |
 | Probe | J2: 1=+3V3, 2=GND, 3=SDA, 4=SCL |
 | Firmware | USB-CDC printf of first 16 SPD bytes |

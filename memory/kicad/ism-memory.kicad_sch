@@ -617,11 +617,11 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid "e8a86e69-cdb8-7f26-e312-2cd61f9f7951")
   )
-  (global_label "+1V2"
+  (global_label "+3V3"
     (shape input)
     (at 38.100 172.720 0)
     (effects (font (size 1.27 1.27)) (justify left))
-    (uuid "14b6e8d5-a1b9-0953-0433-f15fb71bf2a0")
+    (uuid "fd2269b1-c26f-b18b-e94c-297b0d408673")
   )
   (global_label "GND"
     (shape input)
@@ -665,11 +665,11 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid "03392709-3e15-2cd2-039c-43ac4061caac")
   )
-  (global_label "+1V2"
+  (global_label "+3V3"
     (shape input)
     (at 127.000 172.720 0)
     (effects (font (size 1.27 1.27)) (justify left))
-    (uuid "d33b5f7e-2d36-c182-4b16-b5db81fd82a6")
+    (uuid "5d1e83c2-bd4c-7b2d-c07f-a3146befdccb")
   )
   (global_label "GND"
     (shape input)
@@ -797,11 +797,11 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid "c45d3f65-2a81-009c-daa8-e2812244cde0")
   )
-  (global_label "+1V2"
+  (global_label "+3V3"
     (shape input)
     (at 50.800 46.990 0)
     (effects (font (size 1.27 1.27)) (justify left))
-    (uuid "f7d5458d-03d8-926f-54cd-5c7973a12af1")
+    (uuid "5420e4e1-f02b-4519-34fa-f8548bf8aefc")
   )
   (global_label "GND"
     (shape input)
@@ -809,11 +809,11 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid "b3de71ea-1cdf-6288-e8c5-2415b17bb6ab")
   )
-  (global_label "+1V2"
+  (global_label "+3V3"
     (shape input)
     (at 76.200 46.990 0)
     (effects (font (size 1.27 1.27)) (justify left))
-    (uuid "28abebe7-8ace-6eff-a01d-1a1025c4f3ad")
+    (uuid "d6ed8246-52d1-e32a-79e9-693f7fa9ad3f")
   )
   (global_label "GND"
     (shape input)
@@ -833,11 +833,11 @@
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid "2cc19830-6599-8efe-257c-4f0e7ad14be0")
   )
-  (global_label "+3V3"
+  (global_label "+1V2"
     (shape input)
     (at 127.000 46.990 0)
     (effects (font (size 1.27 1.27)) (justify left))
-    (uuid "f566302d-c141-996b-4d02-79efc5897892")
+    (uuid "7fd4dbf3-77bf-8525-2356-e937adb9ef80")
   )
   (global_label "GND"
     (shape input)
@@ -952,10 +952,12 @@
   (symbol (lib_id "ISM_DRAM8") (at 50.800 177.800 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
     (uuid "1e543ad1-c078-505f-72a9-cd19f5d9e872")
     (property "Reference" "U1" (at 50.800 175.260 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "ISM_DRAM8" (at 50.800 180.340 0) (effects (font (size 1.27 1.27))))
-    (property "Footprint" "ISM:ISM_DRAM_SOIC" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "LY68L6400SLIT" (at 50.800 180.340 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
     (property "Datasheet" "" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
-    (property "Note" "ISM simplified DRAM" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "LCSC" "C261881" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "LY68L6400SLIT" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Note" "Default SMT pop; optional alt footprint ISM:ISM_DRAM_SOIC" (at 50.800 177.800 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "e341bf72-134e-781b-2627-573f485a733f"))
     (pin "2" (uuid "8c777656-0f4a-67db-60b9-49ef659e1593"))
     (pin "3" (uuid "c0cb18dd-9c55-fc9f-3c2e-68a7c8affa6e"))
@@ -968,10 +970,12 @@
   (symbol (lib_id "ISM_DRAM8") (at 139.700 177.800 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (fields_autoplaced yes)
     (uuid "84e75d86-cec0-31b8-3d72-a25f8c57f0ae")
     (property "Reference" "U2" (at 139.700 175.260 0) (effects (font (size 1.27 1.27))))
-    (property "Value" "ISM_DRAM8" (at 139.700 180.340 0) (effects (font (size 1.27 1.27))))
-    (property "Footprint" "ISM:ISM_DRAM_SOIC" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Value" "LY68L6400SLIT" (at 139.700 180.340 0) (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
     (property "Datasheet" "" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
-    (property "Note" "ISM simplified DRAM" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "LCSC" "C261881" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "MPN" "LY68L6400SLIT" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
+    (property "Note" "Default SMT pop; optional alt footprint ISM:ISM_DRAM_SOIC" (at 139.700 177.800 0) (effects (font (size 1.27 1.27)) hide))
     (pin "1" (uuid "3f420dc3-724b-e5d9-2b7e-0a454f4a952d"))
     (pin "2" (uuid "a3cc0dba-06c8-66b1-c46e-46f30606f36e"))
     (pin "3" (uuid "9747dd40-2cf9-92af-e062-549869e02648"))
