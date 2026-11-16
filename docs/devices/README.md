@@ -31,5 +31,5 @@ Current official list:
 - rocket (#41: hobby + KiCad + structural + study Gerbers/STL; no guidance)
 - satellite (#31: bus + KiCad + structural + study Gerbers/STL; payload mass/power/data only)
 - space-station (#42: modules + KiCad + structural + study Gerbers/STL; habitat only; docking = mass/volume/power)
-- sonar (#40: educational echo-sounder + KiCad + structural enclosure; B3-style acoustic limits)
+- sonar (#40: educational echo-sounder + KiCad + structural + study Gerbers/STL; B3-style acoustic limits)
 - gundam (#46: mecha + KiCad + structural spars/joints; stores = mass/SAFE-INHIBIT only)
