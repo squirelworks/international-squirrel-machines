@@ -1,15 +1,16 @@
 # Sensors & Weapons — ISM-FJ-1 (Fictional Product Line)
 
-Radar/EO concept, missile/stores stations, release/safeing philosophy, and EW stubs. **Fictional ISM systems only** — no classified real-world sensor or weapons specifics, no copies of real national systems.
+Radar/EO/#76 sensors ICD, stores integration, EW stubs. **Fictional ISM systems only.** Soft sensor apps → Steve.
 
-**Stores integration (#94)** is inert/attach-level only: **no** guidance, seekers, propulsion, warheads, or fuzing.
+**Weapons boundary:** stores = inert/attach/SMS only — **no** guidance, seekers, propulsion, warheads, fuzing, arming codes.
 
 | Doc | Content |
 |-----|---------|
-| `radar-eo.md` | ISM-R1 AESA concept, EO/IRST |
+| `radar-eo.md` | Sensor suite, mounts, power/data, FOV (#76) |
+| `sensor-fov-keepouts.svg` | Nose FOV / NLG keep-out sketch |
 | `stores.md` | Stations, pylons, release/safeing |
 | `stores-integration.md` | Rails/ejectors, inert models, SMS (#94) |
-| `multi-origin-stores.md` | NATO/RU/CN/JP adapters — integration only (#101) |
+| `multi-origin-stores.md` | NATO/RU/CN/JP adapters (#101) |
 | `ew.md` | EW / self-protect stubs |
 
-**Flight Lab YAML:** `../interfaces/inert-stores.yaml`, `../interfaces/sms-interface.yaml`, `../interfaces/multi-origin-stores.yaml`
+**Flight Lab YAML:** `../interfaces/sensors.yaml`, `inert-stores.yaml`, `sms-interface.yaml`, `multi-origin-stores.yaml`

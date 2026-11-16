@@ -22,7 +22,8 @@ files:
     purpose: surfaces_laws_envelope_inceptors_icd
     issue: 74
   - path: sensors.yaml
-    purpose: sensor_io_limits
+    purpose: sensor_suite_mounts_power_data_stubs
+    issue: 76
   - path: hardpoints.yaml
     purpose: stores_stations
   - path: actuators.yaml
