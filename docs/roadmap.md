@@ -135,7 +135,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Supersonic bomber design-note deepen — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) airframe / cruise thermal + inert bay/SAFE-INHIBIT stubs.
 - [x] Fighter EW textbook stubs — epic [#85](https://github.com/squirelworks/international-squirrel-machines/issues/85): mass/footprint + SAFE/INHIBIT only (no waveforms / live dispense).
 - [x] Hypersonic bomber aerothermal deepen — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) interfaces + teaching heat-flux; educational only (no weapons / TPS recipes).
-- [ ] Warship/sub KiCad / remaining siblings / FJ gaps (later batches)
+- [x] Warship KiCad scale-model control — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) thruster/rudder/ballast stubs; no weapons/fire-control.
+- [ ] Submarine KiCad / remaining siblings / FJ gaps (later batches)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
