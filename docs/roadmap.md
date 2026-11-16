@@ -170,6 +170,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Gundam Gerbers + mechanical STL — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) study fab package; stores = mass/SAFE-INHIBIT only.
 - [x] Fighter-jet bay Gerbers + study airframe STL — [#85](https://github.com/squirelworks/international-squirrel-machines/issues/85) study fab package; stores = mass/SAFE-INHIBIT only.
 - [x] Submarine BOM / assembly — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) educational master BOM + assembly notes; B3 limits.
+- [x] Subsonic bomber BOM / assembly — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) educational master BOM + assembly notes; inert bay only.
 - [ ] Remaining sibling BOM / assembly slices; FJ productization gaps (#78 polish, open product decisions)
 
 ### Issues

@@ -1,7 +1,10 @@
 # ISM Subsonic Bomber — (#38)
 
 **Program ID:** ISM-SB-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + airframe STL package.
+
+## Prior slices
+Design-note (airframe / avionics / payload / propulsion). KiCad inert-bay SAFE/INHIBIT board. Structural layout. Gerbers + airframe STL. This PR adds educational master BOM + assembly sequence.
 
 ## Weapons boundary (hard)
 
@@ -18,6 +21,8 @@
 | `docs/design-note.md` | Airframe / avionics / payload / propulsion |
 | `docs/structural.md` | Primary-structure layout study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/cruise_examples.py` | Teaching Breguet / payload-mass check |
 | `interfaces/*.yaml` | Airframe / payload / bay / structure |
@@ -30,6 +35,6 @@
 - [x] Design note (airframe, avionics, payload, propulsion interface)
 - [x] KiCad boards (inert bay SAFE/INHIBIT)
 - [x] Structural design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
