@@ -1,0 +1,116 @@
+name: cad-verify
+
+# Independent CAD verification for ISM: OpenSCAD renders + KiCad 8 ERC/DRC + fab-readiness.
+# Read-only on the repo: it only writes the job summary and uploads artifacts.
+#
+# Fails on:
+#   - OpenSCAD render ERROR / TIMEOUT / EMPTY (always)
+#   - pull_request: ERC/DRC error-severity violations that are NEW versus the PR base
+#     commit (fingerprint = project + check + type + description + item refs; positions ignored)
+# Report-only on push to main and on manual runs (unless the inputs below say otherwise).
+
+on:
+  pull_request:
+    paths: ["**/*.scad", "**/*.kicad_pro", "**/*.kicad_sch", "**/*.kicad_pcb", "**/*lib-table", "**/fab/**",
+            "tools/cad_verify.py", ".github/workflows/cad-verify.yml"]
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      fail_on_warning:
+        description: "Also fail on OpenSCAD warnings (non-manifold etc.)"
+        type: boolean
+        default: false
+      require_fab:
+        description: "Also fail if any device lacks fab outputs"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cad-verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need the PR base commit for the ERC/DRC baseline
+
+      - name: Install OpenSCAD and KiCad 8
+        run: |
+          set -euxo pipefail
+          sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            openscad xvfb kicad kicad-symbols kicad-footprints python3-pip
+          pip3 install --user --break-system-packages trimesh numpy networkx scipy
+          # kicad-cli needs global symbol/footprint library tables, otherwise every stock
+          # library reports "The current configuration does not include the library ..."
+          mkdir -p ~/.config/kicad/8.0
+          cp /usr/share/kicad/template/sym-lib-table ~/.config/kicad/8.0/
+          cp /usr/share/kicad/template/fp-lib-table  ~/.config/kicad/8.0/
+          openscad --version
+          kicad-cli version
+          kicad-cli version | grep -q '^8\.' || { echo "::error::KiCad 8 expected"; exit 1; }
+
+      - name: ERC/DRC baseline on PR base commit
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          git worktree add --detach "$RUNNER_TEMP/base" "$BASE_SHA"
+          # Use this PR's copy of the script so base and head are measured the same way.
+          python3 tools/cad_verify.py --repo "$RUNNER_TEMP/base" --out cad-verify-base \
+            --skip-scad --kicad-mode report 2>&1 | tee cad-verify-base.log
+
+      - name: Render, ERC/DRC, fab-readiness
+        env:
+          FAIL_ON_WARNING: ${{ inputs.fail_on_warning && '--fail-on-warning' || '' }}
+          REQUIRE_FAB: ${{ inputs.require_fab && '--require-fab' || '' }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -o pipefail
+          if [ "$EVENT" = "pull_request" ]; then
+            KICAD_ARGS="--kicad-mode new --baseline cad-verify-base"
+          else
+            KICAD_ARGS="--kicad-mode report"
+          fi
+          # shellcheck disable=SC2086
+          xvfb-run -a python3 tools/cad_verify.py --repo . --out cad-verify-out \
+            --timeout 600 $KICAD_ARGS $FAIL_ON_WARNING $REQUIRE_FAB 2>&1 | tee cad-verify-out.log
+          rc=${PIPESTATUS[0]}
+          cat cad-verify-out/summary.md >> "$GITHUB_STEP_SUMMARY" || true
+          exit "$rc"
+
+      - name: Upload reports and STLs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cad-verify-${{ github.sha }}
+          path: |
+            cad-verify-out/
+            cad-verify-out.log
+            cad-verify-base/kicad/
+            cad-verify-base/summary.json
+            cad-verify-base.log
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload ERC/DRC JSON reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: erc-drc-reports-${{ github.sha }}
+          path: |
+            cad-verify-out/kicad/**/*.json
+            cad-verify-out/compare.json
+            cad-verify-out/compare.md
+          if-no-files-found: warn
+          retention-days: 90

@@ -1,0 +1,5 @@
+cad-verify-out/
+cad-verify-out.log
+__pycache__/
+cad-verify-base/
+cad-verify-base.log
