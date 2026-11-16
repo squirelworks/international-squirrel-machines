@@ -1,0 +1,34 @@
+schema_version: "1.0.0"
+program: "ISM-RK-1"
+revision: "A"
+status: stub
+issue: 41
+batch: B4
+note: Open hobby/educational sources only. No ITAR/EAR or missile content.
+
+citations:
+  - id: nar-safety
+    title: "National Association of Rocketry — safety / motor certification (public)"
+    org: NAR
+    url: "https://www.nar.org/"
+    access_date: "2026-11-16"
+    used_for: "Hobby motor certification context; certified motors only (B4)"
+
+  - id: tra-safety
+    title: "Tripoli Rocketry Association — public high-power hobby context"
+    org: TRA
+    url: "https://www.tripoli.org/"
+    access_date: "2026-11-16"
+    used_for: "Certified high-power hobby motor class context (B4)"
+
+  - id: wiki-model-rocket
+    title: "Model rocket (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Model_rocket"
+    access_date: "2026-11-16"
+    used_for: "Hobby airframe / recovery teaching language (B4)"
+
+  - id: barrowman
+    title: "Barrowman method — public model-rocket CP teaching summaries"
+    org: Public / NAR educational literature
+    used_for: "Static-margin / CP classroom language (B4)"
