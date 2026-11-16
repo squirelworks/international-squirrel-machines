@@ -1,6 +1,6 @@
 # Software Partitioning — ISM-FJ-1
 
-Aligned with Squirrel-OS/2 / pure ISM development. Partitions are design intent for later implementation — no flight code in this repository yet.
+Aligned with pure ISM development. **Platform split** (flight-critical RTOS + SquirrelBIOS vs Squirrel OS/2 ground/lab): `computing-platform.md`. Partitions below are design intent — production FCC image is out of scope for Soft apps; bay I/O bring-up lives in `../firmware/` (#84).
 
 ## Partitions
 | Partition | Criticality | Host | Notes |
