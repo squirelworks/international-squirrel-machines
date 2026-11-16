@@ -32,11 +32,11 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Monitor (`monitor/`) — [#10](https://github.com/squirelworks/international-squirrel-machines/issues/10) (PR #164)
 - [x] Printer (`printer/`) — [#5](https://github.com/squirelworks/international-squirrel-machines/issues/5) (PR #170)
 - [x] Plotter (`plotter/`) — [#6](https://github.com/squirelworks/international-squirrel-machines/issues/6) (PR #174)
-- [x] Camera (`camera/`) — [#7](https://github.com/squirelworks/international-squirrel-machines/issues/7) (this PR)
+- [x] Camera (`camera/`) — [#7](https://github.com/squirelworks/international-squirrel-machines/issues/7) (PR #176)
 
 ## Phase 4 — Core System
 - [x] Memory / RAM modules (`memory/`) — fab-ready · [#110](https://github.com/squirelworks/international-squirrel-machines/issues/110) (PR #156)
-- [ ] Computer case (`case/`)
+- [x] Computer case (`case/`) — fab-ready · [#11](https://github.com/squirelworks/international-squirrel-machines/issues/11) (this PR)
 - [ ] Motherboard (`motherboard/`)
 - [ ] CPU (`cpu/`)
 - [ ] Graphics card (`graphics-card/`)
