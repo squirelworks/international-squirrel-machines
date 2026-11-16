@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+vehicle_id: "ISM-RK-1"
+revision: "A"
+status: stub
+issue: 41
+batch: B4
+provisional: true
+scope: hobby_educational_airframe
+excluded:
+  - guidance
+  - steering
+  - active_control
+  - ballistic_missile
+  - reentry_vehicle
+  - uncertified_motors
+  - itar_ear_data
+source_docs:
+  - rocket/docs/design-note.md
+related_interfaces:
+  - avionics-passive.yaml
+
+study:
+  body_diameter_m: 0.040
+  body_length_m: 0.70
+  nose_length_m: 0.12
+  fin_count: 4
+  fin_planform: clipped_trapezoid
+  x_cg_from_nose_m: 0.35
+  x_cp_from_nose_m: 0.42
+  static_margin_calibers: 1.75
+  note: "Matches stability_examples.py teaching case"
+
+motor_mount:
+  tube_classes_mm: [18, 24, 29]
+  retention: [engine_hook, screw]
+  motors_allowed: certified_commercial_hobby_only
+  motors_forbidden: [homemade, military_surplus, uncertified]
+
+recovery:
+  modes: [single_event_apogee, dual_event_drogue_main]
+  guided_parafoil: false
+  active_steering: false
+
+shell: rocket/shell/airframe_study.scad
+
+expected_behaviour:
+  passive_stability_only: true
+  no_guidance: true
+  certified_motors_only: true

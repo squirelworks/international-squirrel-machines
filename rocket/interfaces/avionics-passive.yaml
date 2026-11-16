@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+vehicle_id: "ISM-RK-1"
+revision: "A"
+status: stub
+issue: 41
+batch: B4
+provisional: true
+scope: passive_logger_and_recovery_only
+excluded:
+  - guidance
+  - steering
+  - active_flight_control
+  - thrust_vectoring
+  - fin_actuators
+  - closed_loop_navigation
+source_docs:
+  - rocket/docs/design-note.md
+related_interfaces:
+  - airframe.yaml
+
+channels:
+  - id: BARO_ALT
+    role: barometric_altitude_log
+    rate_hz_class: 20_to_100
+  - id: ACCEL
+    role: axial_acceleration_log
+    rate_hz_class: 100_to_400
+  - id: APOGEE_DETECT
+    role: apogee_or_altitude_rule
+    outputs: [RECOVERY_FIRE]
+    note: "Recovery deployment only — not a guidance command"
+  - id: RECOVERY_FIRE
+    role: pyro_or_servo_recovery_channel
+    guidance: false
+  - id: BEACON_OPT
+    role: optional_recovery_beacon
+    guidance: false
+    provisional: true
+
+forbidden_channels:
+  - fin_actuator_cmd
+  - tvc_cmd
+  - steer_cmd
+  - guidance_loop
+
+expected_behaviour:
+  logger_and_recovery_only: true
+  no_active_control: true
+  kicad_next: true

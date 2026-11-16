@@ -28,3 +28,4 @@ Current official list:
 - warship (B2: hydrostatics; weapons/sensors = mass/footprint only)
 - aircraft-carrier (B2 light slice with #43)
 - submarine (B3: hull/trim; sonar = mass/footprint only)
+- rocket (B4: hobby; certified motors; passive logger; no guidance)
