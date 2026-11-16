@@ -35,7 +35,7 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # pinned: kicad-8.0-releases PPA has no 26.04 (resolute) build
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
