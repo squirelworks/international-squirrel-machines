@@ -11,6 +11,11 @@ Generate all sizes: `python3 scripts/build_drawing_pads.py` — **ERC 0 / DRC 0*
 | `medium/` | 120 × 75 mm | 150 × 105 mm |
 | `large/` | 180 × 110 mm | 220 × 150 mm |
 
+## Default vs optional population
+
+- **Default SMT:** XPT2046 (LCSC **C19076**) on TSSOP-16 + `J3` 4-wire panel FPC.
+- **Optional:** `ISM:ISM_Touch4_FPC` direct GPIO/ADC mode (not the fab default).
+
 ## Fab ordering (per size)
 
 1. `python3 scripts/build_drawing_pads.py`
@@ -27,8 +32,8 @@ Generate all sizes: `python3 scripts/build_drawing_pads.py` — **ERC 0 / DRC 0*
 
 ## Assembly
 
-1. SMT controller section; fit RP2040 module + USB-C.
-2. Attach 4-wire touch FPC/overlay to `U3`.
+1. SMT controller section (incl. XPT2046); fit RP2040 module + USB-C.
+2. Attach 4-wire touch overlay to `J3`.
 3. Seat PCB in shell; fit top with active window; clip stylus holder.
 
 ## Flash
@@ -45,7 +50,8 @@ VID/PID **0x1209 / 0x000D**. HID mouse report as digitizer bring-up stand-in.
 
 | Signal | Module pad | GPIO |
 |--------|------------|------|
-| TOUCH_XL/XR/YU/YD | 2–5 | GP0–3 |
+| TOUCH SPI CS/SCLK/MOSI/MISO | 2–5 | GP0–3 |
+| TOUCH_IRQ | 6 | GP4 |
 | BTN_L / BTN_R | 7–8 | GP5–6 |
 | USB | 16–17 | DM/DP |
 

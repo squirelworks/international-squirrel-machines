@@ -1,6 +1,6 @@
 /*
  * ISM Drawing Pad firmware — TinyUSB HID + 4-wire touch ADC sample (original ISM).
- * Module pads: XL=GP0 XR=GP1 YU=GP2 YD=GP3; BTN_L=GP5 BTN_R=GP6
+ * SPI to XPT2046: CS=GP0 SCLK=GP1 MOSI=GP2 MISO=GP3 IRQ=GP4; BTN_L=GP5 BTN_R=GP6
  */
 #include <string.h>
 #include "pico/stdlib.h"
