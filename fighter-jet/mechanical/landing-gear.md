@@ -12,6 +12,7 @@ Tricycle gear. Nose gear (NLG) forward retract; main gear (MLG) retract inboard/
 - Spin-up / spring-back at touchdown sized for design sink rate (TBD with weight class).
 - Side loads into NLG for steering and crosswind.
 - MLG fittings into titanium/steel trunnions tied to keel beam — not to wing skins alone.
+- **Carrier deltas** (hook, catapult launch-bar, sink-rate numbers): `carrier-suitability.md` + `../interfaces/carrier-loads.yaml` (#93).
 
 ## Materials
 - Legs / links: ISM-Ti-6 baseline (see `materials/`).
