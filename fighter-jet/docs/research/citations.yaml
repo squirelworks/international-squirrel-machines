@@ -149,3 +149,22 @@ citations:
     org: AIAA
     doi: "10.2514/4.473616"
     used_for: "Textbook inlet capture / S-duct basics (A2)"
+
+  # A3 #121 signature concepts (textbook / review only)
+  - id: knott-rcs-2004
+    title: "Radar Cross Section, 2nd ed. (Knott, Shaeffer & Tuley)"
+    org: SciTech/IET
+    url: "https://shop.theiet.org/radar-cross-section-2nd-edition"
+    used_for: "Textbook RCS mechanisms and canonical-shape identities (A3)"
+
+  - id: jenn-rlcse-2005
+    title: "Radar and Laser Cross Section Engineering, 2nd ed. (Jenn)"
+    org: AIAA
+    doi: "10.2514/4.477027"
+    used_for: "Textbook shaping and canonical RCS examples (A3)"
+
+  - id: mahulikar-ir-2007
+    title: "Infrared signature studies of aerospace vehicles (Mahulikar et al.)"
+    org: Progress in Aerospace Sciences
+    doi: "10.1016/j.paerosci.2007.06.002"
+    used_for: "Peer-reviewed IR review — general/textbook sections only (A3)"

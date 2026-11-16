@@ -17,6 +17,8 @@ wing:
   root_chord_mm: 110
   tip_chord_mm: 45
   thickness_mm: 12
+  # A3 #121: LE sweep is signature-relevant for edge-alignment hygiene (textbook);
+  # not a predicted RCS driver for ISM-FJ-1.
   le_sweep_deg: 35
   dihedral_deg: 0
   incidence_deg: 0
@@ -41,5 +43,7 @@ vertical_tail:
 engines:
   count: 2
   layout: side_by_side_aft
+  # A3 #121: inlet / nozzle stations are cavity-relevant packaging params (textbook);
+  # no signature prediction or treatment design.
   inlet_fs_pct: 0.55
   nozzle_fs_pct: 0.95
