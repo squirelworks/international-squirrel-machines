@@ -2,6 +2,6 @@
 
 **Directory:** `gundam/` · **Issue:** [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46)
 
-**Scope:** mobile-suit design note — actuators, sensors, power, cockpit, and **stores/hardpoint integration placeholders** (SAFE/INHIBIT). Weapons boundary: no seekers, guidance, munition propulsion, warheads, fuzing, arming, or live launch. No ITAR/EAR weapons content.
+**Scope:** mecha packaging — actuators, sensors, power, cockpit. Stores = mass/footprint + SAFE/INHIBIT only. KiCad board (`gundam/kicad/`) is limb actuator + SAFE/INHIBIT stubs. **No** seekers, guidance, munition propulsion, warheads, fuzing, or live launch.
 
 See `gundam/README.md`.

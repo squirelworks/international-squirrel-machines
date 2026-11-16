@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+mecha_id: "ISM-MS-1"
+board_id: "ism-gundam-control"
+revision: "A"
+status: stub
+issue: 46
+provisional: true
+scope: mecha_actuator_and_safe_inhibit_only
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - live_launch
+  - fire_control
+  - itar_ear
+source_docs:
+  - gundam/docs/design-note.md
+  - gundam/kicad/README.md
+related_interfaces:
+  - suit.yaml
+  - stores-placeholders.yaml
+kicad_project: gundam/kicad/ism-gundam-control
+
+channels:
+  - id: I2C_SENSORS
+    role: imu_joint_sensing_stub
+  - id: SPI_FLASH
+    role: telemetry_or_flash_stub
+  - id: PWM_LEG
+    header: J1
+    role: leg_actuator_stub
+  - id: PWM_ARM
+    header: J2
+    role: arm_actuator_stub
+  - id: GPIO_SAFE
+    header: J3
+    role: stores_safe_discrete_stub
+  - id: GPIO_INHIBIT
+    header: J4
+    role: stores_inhibit_discrete_stub
+
+expected_behaviour:
+  no_seekers: true
+  no_guidance: true
+  no_warheads: true
+  no_live_launch: true
+  stores_safe_inhibit_only: true
