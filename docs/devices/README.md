@@ -30,3 +30,4 @@ Current official list:
 - submarine (B3: hull/trim; sonar = mass/footprint only)
 - rocket (B4: hobby; certified motors; passive logger; no guidance)
 - satellite (B5: bus + payload; weapons boundary)
+- space-station (#42: modules / ECLSS / docking; weapons boundary)
