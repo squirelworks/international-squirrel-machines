@@ -61,6 +61,7 @@ def write_tables(kicad: Path, pro_name: str) -> None:
   (lib (name "power")(type "KiCad")(uri "${KICAD8_SYMBOL_DIR}/power.kicad_sym")(options "")(descr ""))
   (lib (name "Switch")(type "KiCad")(uri "${KICAD8_SYMBOL_DIR}/Switch.kicad_sym")(options "")(descr ""))
   (lib (name "Connector")(type "KiCad")(uri "${KICAD8_SYMBOL_DIR}/Connector.kicad_sym")(options "")(descr ""))
+  (lib (name "Driver_Display")(type "KiCad")(uri "${KICAD8_SYMBOL_DIR}/Driver_Display.kicad_sym")(options "")(descr ""))
   (lib (name "Power_Protection")(type "KiCad")(uri "${KICAD8_SYMBOL_DIR}/Power_Protection.kicad_sym")(options "")(descr ""))
 )
 """,
@@ -70,6 +71,7 @@ def write_tables(kicad: Path, pro_name: str) -> None:
         """(fp_lib_table
   (version 7)
   (lib (name "ISM")(type "KiCad")(uri "${KIPRJMOD}/../../../common/kicad/ISM.pretty")(options "")(descr "ISM"))
+  (lib (name "Package_SO")(type "KiCad")(uri "${KICAD8_FOOTPRINT_DIR}/Package_SO.pretty")(options "")(descr ""))
   (lib (name "Package_TO_SOT_SMD")(type "KiCad")(uri "${KICAD8_FOOTPRINT_DIR}/Package_TO_SOT_SMD.pretty")(options "")(descr ""))
   (lib (name "Connector_USB")(type "KiCad")(uri "${KICAD8_FOOTPRINT_DIR}/Connector_USB.pretty")(options "")(descr ""))
   (lib (name "Resistor_SMD")(type "KiCad")(uri "${KICAD8_FOOTPRINT_DIR}/Resistor_SMD.pretty")(options "")(descr ""))
@@ -135,6 +137,7 @@ def build_sch(size: str) -> Schematic:
     for lib, name in [
         ("ISM.kicad_sym", "RP2040_MOD"),
         ("ISM.kicad_sym", "ISM_Touch4"),
+        ("Driver_Display.kicad_sym", "XPT2046TS"),
         ("Connector.kicad_sym", "USB_C_Receptacle_USB2.0_16P"),
         ("Power_Protection.kicad_sym", "USBLC6-2SC6"),
         ("Device.kicad_sym", "R"),
@@ -203,11 +206,11 @@ def build_sch(size: str) -> Schematic:
 
     u1 = add("RP2040_MOD", "U1", "RP2040_MOD", (152.4, 190.5),
              "ISM:ISM_RP2040_Module", {"MPN": "ISM-RP2040-MOD"})
-    # Only wire the pads we use; NC the rest to keep ERC clean without orphaned labels.
+    # SPI to XPT2046 + buttons; NC unused module pads.
     used = {
         "1": "GND", "14": "+3V3", "15": "+5V", "16": "USB_DM", "17": "USB_DP", "18": "RUN", "26": "GND",
-        "2": "TOUCH_XL", "3": "TOUCH_XR", "4": "TOUCH_YU", "5": "TOUCH_YD",
-        "7": "BTN_L", "8": "BTN_R",
+        "2": "TOUCH_CS", "3": "TOUCH_SCLK", "4": "TOUCH_MOSI", "5": "TOUCH_MISO",
+        "6": "TOUCH_IRQ", "7": "BTN_L", "8": "BTN_R",
     }
     for num, (_dx, _dy, name) in pins["RP2040_MOD"].items():
         xy = abs_pin(u1, "RP2040_MOD", num)
@@ -220,11 +223,34 @@ def build_sch(size: str) -> Schematic:
         else:
             sch.nc(xy)
 
-    touch = add("ISM_Touch4", "U3", "ISM_Touch4", (50.8, 190.5), "ISM:ISM_Touch4_FPC")
-    tie(touch, "ISM_Touch4", "1", "TOUCH_XL")
-    tie(touch, "ISM_Touch4", "2", "TOUCH_XR")
-    tie(touch, "ISM_Touch4", "3", "TOUCH_YU")
-    tie(touch, "ISM_Touch4", "4", "TOUCH_YD")
+    # Default SMT: XPT2046 (LCSC C19076). Optional alt: direct ISM_Touch4 GPIO mode.
+    u3 = add(
+        "XPT2046TS", "U3", "XPT2046", (50.8, 190.5),
+        "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+        {"LCSC": "C19076", "MPN": "XPT2046",
+         "Note": "Default SMT; optional alt ISM:ISM_Touch4_FPC for direct ADC mode"},
+    )
+    for num, net in {
+        "1": "+3V3", "10": "+3V3", "7": "+3V3", "9": "+3V3",
+        "6": "GND",
+        "2": "XP", "3": "YP", "4": "XN", "5": "YN",
+        "15": "TOUCH_CS", "16": "TOUCH_SCLK", "14": "TOUCH_MOSI", "12": "TOUCH_MISO",
+        "11": "TOUCH_IRQ",
+    }.items():
+        tie(u3, "XPT2046TS", num, net)
+    # BUSY / IN unused
+    sch.nc(abs_pin(u3, "XPT2046TS", "13"))
+    sch.nc(abs_pin(u3, "XPT2046TS", "8"))
+    rirq = add("R", "R6", "10k", (88.9, 165.1), "Resistor_SMD:R_0603_1608Metric", {"LCSC": "C25804"})
+    tie(rirq, "R", "1", "TOUCH_IRQ"); tie(rirq, "R", "2", "+3V3")
+
+    # Resistive overlay FPC (mechanical interface — not an IC)
+    panel = add("ISM_Touch4", "J3", "PANEL", (50.8, 266.7), "ISM:ISM_Touch4_FPC",
+                {"Note": "4-wire overlay FPC; optional direct-to-MCU with ISM_Touch4 land"})
+    tie(panel, "ISM_Touch4", "1", "XP")
+    tie(panel, "ISM_Touch4", "2", "XN")
+    tie(panel, "ISM_Touch4", "3", "YP")
+    tie(panel, "ISM_Touch4", "4", "YN")
 
     for ref, net, y in (("SW1", "BTN_L", 266.7), ("SW2", "BTN_R", 292.1)):
         sw = add("SW_Push", ref, "PTS645", (266.7, y),
@@ -304,8 +330,8 @@ def build_pcb(pcb_w: float, pcb_h: float, active_w: float, active_h: float) -> P
     ctrl_y = pcb_h - 22.0
     mcu_x = pcb_w / 2.0
     mod_nets = {
-        "1": "GND", "2": "TOUCH_XL", "3": "TOUCH_XR", "4": "TOUCH_YU", "5": "TOUCH_YD",
-        "7": "BTN_L", "8": "BTN_R",
+        "1": "GND", "2": "TOUCH_CS", "3": "TOUCH_SCLK", "4": "TOUCH_MOSI", "5": "TOUCH_MISO",
+        "6": "TOUCH_IRQ", "7": "BTN_L", "8": "BTN_R",
         "14": "+3V3", "15": "+5V", "16": "USB_DM", "17": "USB_DP", "18": "RUN", "26": "GND",
     }
     u1 = b.add_footprint(
@@ -329,11 +355,24 @@ def build_pcb(pcb_w: float, pcb_h: float, active_w: float, active_h: float) -> P
     b.add_footprint("Package_TO_SOT_SMD.pretty", "SOT-666", "U2",
                     pcb_w / 2 + 28, 14, value="USBLC6-2SC6",
                     pad_nets={"1": "USB_DP", "6": "USB_DP", "3": "USB_DM", "4": "USB_DM", "2": "GND", "5": "+5V"})
+    # Default: XPT2046 TSSOP-16 (C19076). Optional alt land: ISM_Touch4_FPC.
     u3 = b.add_footprint(
-        "ISM.pretty", "ISM_Touch4_FPC", "U3", mcu_x - 30, ctrl_y - 10, value="TOUCH4",
-        pad_nets={"1": "TOUCH_XL", "2": "TOUCH_XR", "3": "TOUCH_YU", "4": "TOUCH_YD"},
+        "Package_SO.pretty", "TSSOP-16_4.4x5mm_P0.65mm", "U3", mcu_x - 32, ctrl_y - 8,
+        value="XPT2046",
+        pad_nets={
+            "1": "+3V3", "10": "+3V3", "7": "+3V3", "9": "+3V3", "6": "GND",
+            "2": "XP", "3": "YP", "4": "XN", "5": "YN",
+            "15": "TOUCH_CS", "16": "TOUCH_SCLK", "14": "TOUCH_MOSI", "12": "TOUCH_MISO",
+            "11": "TOUCH_IRQ",
+        },
+    )
+    j3 = b.add_footprint(
+        "ISM.pretty", "ISM_Touch4_FPC", "J3", mcu_x - 32, ctrl_y + 8, value="PANEL",
+        pad_nets={"1": "XP", "2": "XN", "3": "YP", "4": "YN"},
         lib_path=ISM_PRETTY,
     )
+    b.add_footprint("Resistor_SMD.pretty", "R_0603_1608Metric", "R6",
+                    mcu_x - 18, ctrl_y - 14, value="10k", pad_nets={"1": "TOUCH_IRQ", "2": "+3V3"})
     b.add_footprint("Button_Switch_SMD.pretty", "SW_SPST_PTS645", "SW1",
                     mcu_x + 28, ctrl_y - 8, value="BTN_L", pad_nets={"1": "BTN_L", "2": "GND"})
     b.add_footprint("Button_Switch_SMD.pretty", "SW_SPST_PTS645", "SW2",
@@ -357,10 +396,20 @@ def build_pcb(pcb_w: float, pcb_h: float, active_w: float, active_h: float) -> P
     def fp(ref):
         return next(f for f in b.board.GetFootprints() if f.GetReference() == ref)
 
-    # Touch → MCU
-    for pn, mcu_pad in (("1", "2"), ("2", "3"), ("3", "4"), ("4", "5")):
-        manh(b, pad_xy(u3, pn), pad_xy(u1, mcu_pad), {
-            "1": "TOUCH_XL", "2": "TOUCH_XR", "3": "TOUCH_YU", "4": "TOUCH_YD"}[pn], F, TW)
+    # XPT2046 SPI → MCU
+    for ic_pad, mcu_pad, net in (
+        ("15", "2", "TOUCH_CS"), ("16", "3", "TOUCH_SCLK"),
+        ("14", "4", "TOUCH_MOSI"), ("12", "5", "TOUCH_MISO"), ("11", "6", "TOUCH_IRQ"),
+    ):
+        manh(b, pad_xy(u3, ic_pad), pad_xy(u1, mcu_pad), net, F, TW)
+    manh(b, pad_xy(fp("R6"), "1"), pad_xy(u3, "11"), "TOUCH_IRQ", F, TW)
+    manh(b, pad_xy(fp("R6"), "2"), pad_xy(u1, "14"), "+3V3", F, TW)
+    # Panel FPC → XPT2046
+    for jpad, ic_pad, net in (("1", "2", "XP"), ("2", "4", "XN"), ("3", "3", "YP"), ("4", "5", "YN")):
+        manh(b, pad_xy(j3, jpad), pad_xy(u3, ic_pad), net, F, TW)
+    for ic_pad in ("1", "10", "7", "9"):
+        manh(b, pad_xy(u3, ic_pad), pad_xy(u1, "14"), "+3V3", F, TW)
+    manh(b, pad_xy(u3, "6"), pad_xy(u1, "1"), "GND", F, TW)
 
     # Buttons
     manh(b, pad_xy(fp("SW1"), "1"), pad_xy(u1, "7"), "BTN_L", F, TW)
@@ -453,11 +502,13 @@ def export_fab(fab: Path, pcb: Path, size: str) -> None:
         ["U1", "RP2040_MOD", "ISM_RP2040_Module", "1", "ISM", "ISM-RP2040-MOD", "",
          "No LCSC — custom ISM carrier"],
         ["U2", "USBLC6-2SC6", "SOT-666", "1", "ST", "USBLC6-2SC6", "C7519", "ESD"],
-        ["U3", "ISM_Touch4", "ISM_Touch4_FPC", "1", "ISM", "ISM-TOUCH4", "",
-         "No LCSC — digitizer FPC interface (overlay / film separate)"],
+        ["U3", "XPT2046", "TSSOP-16_4.4x5mm", "1", "XPT", "XPT2046", "C19076",
+         "Default SMT touch controller. Optional alt: ISM:ISM_Touch4_FPC direct-ADC mode"],
         ["J1", "USB4105", "GCT USB-C 16P", "1", "GCT", "USB4105-GF-A", "C165948", ""],
+        ["J3", "PANEL", "ISM_Touch4_FPC", "1", "ISM", "4-wire overlay FPC", "",
+         "No LCSC — resistive overlay FPC interface (film separate)"],
         ["R1,R2", "5.1k", "0603", "2", "", "5.1k", "C23244", "CC"],
-        ["R4", "10k", "0603", "1", "", "10k", "C25804", ""],
+        ["R4,R6", "10k", "0603", "2", "", "10k", "C25804", "RUN + PENIRQ pull-ups"],
         ["R5", "1k", "0603", "1", "", "1k", "C21190", ""],
         ["C1-C4", "100nF", "0603", "4", "", "100nF", "C14663", ""],
         ["D_PWR", "LED", "0603", "1", "", "LED", "C2286", ""],
@@ -480,7 +531,9 @@ def export_fab(fab: Path, pcb: Path, size: str) -> None:
 ## LCSC / fab readiness
 
 - Catalog SMT lines have LCSC numbers.
-- **No LCSC** (intentional): `U1` ISM module, `U3` touch FPC interface, `H1–H4` NPTH.
+- **Default touch IC:** `U3` = **XPT2046** (JLCPCB/LCSC **C19076**), TSSOP-16.
+- **Optional:** swap to `ISM:ISM_Touch4_FPC` for direct GPIO/ADC mode (not default fab pop).
+- **No LCSC** (intentional): `U1` ISM module, `J3` overlay FPC interface, `H1–H4` NPTH.
 
 Regenerate with `python3 scripts/build_drawing_pads.py`.
 """,
