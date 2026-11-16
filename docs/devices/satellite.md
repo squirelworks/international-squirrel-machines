@@ -2,6 +2,6 @@
 
 **Directory:** `satellite/` · **Issue:** [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31)
 
-**B5 scope:** bus architecture (OBC, power, comms, ADCS, structure) + payload mass/power/data stubs. Weapons boundary: no seekers, guidance-to-target, warheads, or munition payloads. No ITAR/EAR combat content.
+**Scope:** civilian/educational bus + payload. Payload as **mass/power/data** stubs only. KiCad board (`satellite/kicad/`) is OBC / EPS / radio / coarse magnetorquer stubs; **no** weapons, seekers, guidance-to-target, warheads, or fuzing.
 
 See `satellite/README.md`.

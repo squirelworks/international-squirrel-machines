@@ -1,7 +1,7 @@
-# ISM Satellite — B5 (#31)
+# ISM Satellite — (#31)
 
 **Program ID:** ISM-SAT-1 (study name TBD)  
-**Plan:** B5 — bus + payload design-note slice.
+**This PR:** KiCad bus board slice (OBC / EPS / radio stubs).
 
 ## Scope / weapons boundary (hard)
 
@@ -9,8 +9,9 @@
 - Payload mass/power/data stubs — **no** weapons, seekers, guidance-to-target, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) bus or payload designs
 - Openly published cubesat / smallsat teaching sources preferred
+- KiCad outputs are **bus OBC / EPS / radio / coarse ADCS stubs** only
 
-## B5 deliverables
+## Deliverables
 
 | Path | Role |
 |------|------|
@@ -19,11 +20,13 @@
 | `docs/power_budget_examples.py` | Teaching power-budget check |
 | `interfaces/bus.yaml` | Machine-readable bus / power / comms stubs |
 | `interfaces/payload-placeholders.yaml` | Payload mass/power/data only |
+| `interfaces/bus-board.yaml` | KiCad channel map |
+| `kicad/ism-satellite-bus.*` | Study KiCad bus board |
 | `shell/bus_study.scad` | 3U-class structure study |
 
-## Roadmap (#31) status after B5
+## Roadmap (#31) status
 - [x] Design note (bus architecture, power, comms, structure, payload)
-- [ ] KiCad boards (OBC, power, radio)
+- [x] KiCad boards (OBC, power, radio — this PR)
 - [ ] Mechanical structure / panels
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly

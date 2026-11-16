@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+satellite_id: "ISM-SAT-1"
+board_id: "ism-satellite-bus"
+revision: "A"
+status: stub
+issue: 31
+provisional: true
+scope: bus_obc_eps_radio_only
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - weapons_pointing
+  - itar_ear
+source_docs:
+  - satellite/docs/design-note.md
+  - satellite/kicad/README.md
+related_interfaces:
+  - bus.yaml
+  - payload-placeholders.yaml
+kicad_project: satellite/kicad/ism-satellite-bus
+
+channels:
+  - id: I2C_SENSORS
+    role: imu_and_bus_sensing
+  - id: SPI_FLASH
+    role: secondary_bus_or_flash_stub
+  - id: I2C_EPS
+    header: J1
+    role: eps_telemetry_control_stub
+  - id: UART_RADIO
+    header: J2
+    role: ttc_radio_uart_stub
+  - id: PWM_MTQ
+    header: J3
+    role: magnetorquer_coarse_adcs_stub
+  - id: GPIO_PL_EN
+    header: J4
+    role: payload_bus_power_enable_stub
+
+payload:
+  note: "Enable is bus power gate only — payload remains mass/power/data stubs"
+
+expected_behaviour:
+  no_weapons: true
+  no_seekers: true
+  no_guidance_to_target: true
+  no_warheads: true
+  no_weapons_pointing: true
+  bus_only: true
