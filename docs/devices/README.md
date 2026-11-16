@@ -25,3 +25,5 @@ Current official list:
 - hypersonic-bomber (B1: aerothermal / TPS education only)
 - subsonic-bomber
 - supersonic-bomber
+- warship (B2: hydrostatics; weapons/sensors = mass/footprint only)
+- aircraft-carrier (B2 light slice with #43)

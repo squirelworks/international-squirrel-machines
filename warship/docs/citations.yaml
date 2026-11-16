@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+program: "ISM-WS-1"
+revision: "A"
+status: stub
+issue: 43
+batch: B2
+note: Public-domain / textbook naval architecture only. No ITAR/EAR combat data.
+
+citations:
+  - id: pna-sname
+    title: "Principles of Naval Architecture (SNAME) — hydrostatics / stability teaching"
+    org: SNAME
+    used_for: "Displacement, KB/BM/GM concepts (B2)"
+
+  - id: wiki-metacentric
+    title: "Metacentric height (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Metacentric_height"
+    access_date: "2026-11-16"
+    used_for: "GM / BM teaching definitions (B2)"
+
+  - id: wiki-displacement
+    title: "Displacement (ship) (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Displacement_(ship)"
+    access_date: "2026-11-16"
+    used_for: "Δ = ρ∇ seawater teaching (B2)"
+
+  - id: rawson-tupper
+    title: "Basic Ship Theory (Rawson & Tupper) — public textbook reference"
+    org: Butterworth-Heinemann / Elsevier
+    used_for: "Hull form and intact stability classroom language (B2)"

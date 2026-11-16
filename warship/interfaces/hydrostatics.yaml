@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+ship_id: "ISM-WS-1"
+revision: "A"
+status: stub
+issue: 43
+batch: B2
+provisional: true
+scope: public_domain_hydrostatics_teaching
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - combat_system_internals
+  - quieting_acoustics
+  - itar_ear_data
+source_docs:
+  - warship/docs/design-note.md
+related_interfaces:
+  - mass-placeholders.yaml
+
+seawater_density_kg_m3: 1025.0
+
+# Study displacement case (matches hydrostatics_examples.py)
+study_case:
+  id: WS-STUDY-A
+  length_wl_m: 100.0
+  beam_wl_m: 12.0
+  volume_displaced_m3: 3500.0
+  displacement_t: 3587.5
+  kb_m: 3.2
+  kg_m: 5.0
+  i_t_m4: 14400.0   # L * B^3 / 12 rectangular waterplane teaching
+  bm_m: 4.114
+  gm_m: 2.314
+  note: "Classroom rectangular waterplane; not a classified offset table"
+
+hull_form_study:
+  type: displacement_monohull
+  l_over_b_range: [7.0, 8.0]
+  b_over_t_range: [2.8, 3.2]
+  shell: warship/shell/hull_study.scad
+
+powering_stub:
+  shafts: 2
+  installed_power_mw_class: 20_to_40
+  note: "Interface / mass stub only — no propeller design"
+
+expected_behaviour:
+  positive_gm_in_study_case: true
+  weapons_only_as_mass_placeholders: true

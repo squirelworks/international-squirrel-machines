@@ -1,0 +1,88 @@
+schema_version: "1.0.0"
+ship_id: "ISM-WS-1"
+revision: "A"
+status: stub
+issue: 43
+batch: B2
+provisional: true
+scope: mass_and_footprint_placeholders_only
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - combat_system_internals
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - arming_codes
+  - engagement_doctrine
+  - track_files
+  - acoustic_processing
+source_docs:
+  - warship/docs/design-note.md
+related_interfaces:
+  - hydrostatics.yaml
+
+note: >
+  Combat topside and magazine-adjacent items are represented solely as mass,
+  vertical CG contribution, and deck footprint / keep-out boxes for hydrostatics
+  and arrangements. No functional combat interfaces exist in this file.
+
+placeholders:
+  - id: WP-GUN-FWD
+    kind: weapon_mass_box
+    mass_t: 25.0
+    footprint_m: {l: 6.0, b: 4.0, h: 3.0}
+    deck: 01
+    station_m_from_fp: 18.0
+    kg_contribution_m: 7.5
+    purpose: forward_mount_mass_kg_only
+
+  - id: WP-VLS-MID
+    kind: weapon_mass_box
+    mass_t: 40.0
+    footprint_m: {l: 8.0, b: 6.0, h: 2.5}
+    deck: 01
+    station_m_from_fp: 45.0
+    kg_contribution_m: 6.0
+    purpose: midships_launch_mass_only
+    note: "Mass/volume box only — no cell, canister, or fire-control content"
+
+  - id: SEN-RADAR-MAIN
+    kind: combat_sensor_mass_box
+    mass_t: 12.0
+    footprint_m: {l: 5.0, b: 5.0, h: 8.0}
+    deck: mast
+    station_m_from_fp: 40.0
+    kg_contribution_m: 18.0
+    purpose: radar_house_mass_windage_box
+    note: "No waveforms, frequencies, or tracking logic"
+
+  - id: SEN-EO-DIR
+    kind: combat_sensor_mass_box
+    mass_t: 2.0
+    footprint_m: {l: 1.5, b: 1.5, h: 2.0}
+    deck: 02
+    station_m_from_fp: 35.0
+    kg_contribution_m: 12.0
+    purpose: director_mass_only
+
+  - id: SEN-SONAR-BOW
+    kind: sensor_mass_box
+    mass_t: 15.0
+    footprint_m: {l: 4.0, b: 3.0, h: 3.0}
+    deck: sonar
+    station_m_from_fp: 5.0
+    kg_contribution_m: 2.0
+    purpose: bow_dome_mass_volume
+    note: "No acoustic processing or quieting content"
+
+totals:
+  weapons_mass_t: 65.0
+  combat_sensors_mass_t: 29.0
+  note: "Sums of placeholder masses — not a weight estimate for a real combatant"
+
+expected_behaviour:
+  no_weapons_interfaces: true
+  no_fire_control: true
+  hydrostatics_may_consume_mass_and_kg: true

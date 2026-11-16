@@ -117,9 +117,10 @@ Build our own software. Third-party sims are **not** source of truth.
 - [ ] Freeze product decisions; Gerbers/STLs; ICD pinouts
 - [x] [#78](https://github.com/squirelworks/international-squirrel-machines/issues/78) Full airframe BOM, assembly notes, ICD freeze, validation campaign, polish
 
-### Sibling aerospace (bombers B1)
+### Sibling aerospace (bombers B1 / surface B2)
 - [x] Bombers B1 design-note slice — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) hypersonic educational aerothermal/TPS; [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) subsonic; [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) supersonic (weapons boundary). KiCad / structure / BOM still open.
-- [ ] Rocket / satellite / carrier / warship siblings (directory stubs or later batches)
+- [x] Warship B2 design note — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) hull/hydrostatics/stability/powering; weapons & combat sensors as mass/footprint placeholders only. Carrier light slice with [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45).
+- [ ] Submarine B3 / rocket / satellite / gundam siblings (later batches)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
