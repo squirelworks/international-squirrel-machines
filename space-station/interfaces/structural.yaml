@@ -1,0 +1,43 @@
+schema_version: "1.0.0"
+station_id: "ISM-SSN-1"
+revision: "A"
+status: stub
+issue: 42
+provisional: true
+scope: educational_habitat_structure
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - combat_employment
+  - itar_ear
+source_docs:
+  - space-station/docs/structural.md
+  - space-station/docs/design-note.md
+related_interfaces:
+  - station.yaml
+  - docking-placeholders.yaml
+  - hab-board.yaml
+shell: space-station/shell/module_study.scad
+
+members:
+  - id: HABITAT_SHELL
+    role: cylindrical_pressure_stub
+  - id: NODE_BERTHING_RINGS
+    role: common_berthing_stubs
+  - id: LAB_SHELL
+    role: cylindrical_pressure_stub
+  - id: TRUSS_LONGERONS
+    role: external_utility_truss
+  - id: HAB_BOARD_TRAY
+    role: kicad_board_mount
+  - id: DOCKING_KEEPOUTS
+    role: berthing_volume_stubs
+
+expected_behaviour:
+  educational_structure_only: true
+  civil_habitat_only: true
+  no_weapons: true
+  no_stress_certification: true
