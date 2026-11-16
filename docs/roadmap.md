@@ -144,7 +144,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Sonar KiCad educational echo AFE/DSP — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40); no quieting/classified acoustics/weapons.
 - [x] Gundam KiCad mecha control / SAFE-INHIBIT — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46); stores placeholders only.
 - [x] Subsonic bomber KiCad inert bay SAFE/INHIBIT — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38); no seekers/warheads.
-- [ ] Supersonic-bomber KiCad (#39 / #172) when merged; remaining siblings / FJ gaps
+- [x] Supersonic bomber KiCad inert bay SAFE/INHIBIT — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39); no seekers/warheads.
+- [ ] Hypersonic-bomber KiCad (#37 / #173) when merged; remaining siblings / FJ gaps
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.

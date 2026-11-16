@@ -24,7 +24,7 @@ Current official list:
 - fighter-jet
 - hypersonic-bomber (#37 deepen: educational aerothermal / TPS classes only) (B1: aerothermal / TPS education only)
 - subsonic-bomber (#38: deepen + KiCad inert bay SAFE/INHIBIT)
-- supersonic-bomber (#39 deepen: cruise thermal + inert bay stubs)
+- supersonic-bomber (#39: deepen + KiCad inert bay SAFE/INHIBIT)
 - warship (#43: hydrostatics + KiCad scale-model control; weapons = mass/footprint only)
 - aircraft-carrier (#45: flight deck + KiCad scale-model deck control; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad scale-model control; sonar = mass/footprint only)
