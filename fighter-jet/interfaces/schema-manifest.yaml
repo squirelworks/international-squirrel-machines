@@ -28,6 +28,9 @@ files:
     purpose: eha_channels
   - path: avionics-bus.yaml
     purpose: bus_topics_rates
+  - path: materials-zones.yaml
+    purpose: zone_material_map
+    issue: 92
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

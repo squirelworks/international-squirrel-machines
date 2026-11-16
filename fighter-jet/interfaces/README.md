@@ -12,6 +12,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `hardpoints.yaml` | Stores stations, mass classes, safeing flags | Stub aligned to DWG-040 |
 | `actuators.yaml` | EHA channels, authority, failure behaviour | Stub |
 | `avionics-bus.yaml` | Bus names, frame rates, topic list | Stub |
+| `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).
