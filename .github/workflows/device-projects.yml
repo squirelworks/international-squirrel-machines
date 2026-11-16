@@ -58,6 +58,9 @@ jobs:
 
       - uses: actions/checkout@v4
         if: matrix.project != '__none__'
+        with:
+          # Need PR base commit reachable for pre-existing ERC/DRC baseline
+          fetch-depth: 0
 
       - name: Install tools for project
         if: matrix.project != '__none__'
@@ -103,6 +106,10 @@ jobs:
 
       - name: Check project
         if: matrix.project != '__none__'
+        env:
+          # On PRs, only fail ERC/DRC when head introduces more errors than base
+          # (shared common/kicad changes otherwise re-fail pre-existing full-size).
+          BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || '' }}
         run: |
           chmod +x scripts/ci_check_project.sh
           scripts/ci_check_project.sh "${{ matrix.project }}"
