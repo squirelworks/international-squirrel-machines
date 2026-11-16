@@ -1,0 +1,12 @@
+Ref,Qty,Value,Package,Notes,LCSC
+U1,1,RP2040,QFN-56-1EP_7x7mm_P0.4mm,Mecha control MCU stub,C2040
+U2,1,IMU-6DOF,LGA-14_3x2.5mm_P0.5mm,Joint / attitude sense stub (generic),
+U3,1,RADIO,RADIO_Module,Telemetry stub (generic footprint),
+J1,1,LEG,PinHeader_1x03_P2.54mm,Leg actuator PWM stub,
+J2,1,ARM,PinHeader_1x03_P2.54mm,Arm actuator PWM stub,
+J3,1,SAFE,PinHeader_1x03_P2.54mm,Stores SAFE discrete stub,
+J4,1,INHIBIT,PinHeader_1x03_P2.54mm,Stores INHIBIT discrete stub,
+H1,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H2,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H3,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,
+H4,1,MountingHole,MountingHole_3.2mm_M3,M3 mounting,

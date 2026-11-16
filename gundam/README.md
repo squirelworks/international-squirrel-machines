@@ -1,7 +1,10 @@
 # ISM Gundam — (#46)
 
 **Program ID:** ISM-MS-1 (study name TBD)  
-**This PR:** mechanical / structural study slice (limbs / armor / frame).
+**This PR:** Gerbers + mechanical STL export slice.
+
+## Prior slices
+Design-note (actuators / sensors / power / cockpit / stores stubs). KiCad control board. Structural spars / joints / armor. This PR exports study Gerbers and STL.
 
 ## Weapons boundary (hard)
 
@@ -9,7 +12,7 @@
 - **No** seekers, guidance, munition propulsion, warheads, fuzing, or arming codes
 - **No** live launch / fire sequences or engagement doctrine
 - **No** export-controlled (ITAR/EAR) weapon or fire-control designs
-- Structural outputs are **educational frame stubs** only
+- Fab/STL outputs are **educational frame stubs** only
 
 ## Deliverables
 
@@ -17,6 +20,7 @@
 |------|------|
 | `docs/design-note.md` | Actuators, sensors, power, cockpit, stores stubs |
 | `docs/structural.md` | Torso/limb spars + joint / armor study |
+| `docs/fab-mechanical.md` | Gerber + STL notes |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/balance_examples.py` | Teaching CG / limb-mass balance check |
 | `interfaces/suit.yaml` | Machine-readable frame / power / actuator stubs |
@@ -24,12 +28,17 @@
 | `interfaces/control-board.yaml` | KiCad channel map |
 | `interfaces/structural.yaml` | Structural member map |
 | `kicad/ism-gundam-control.*` | Study KiCad control board |
+| `fab/` | Study Gerbers + CPL + BOM stub |
 | `shell/frame_study.scad` | Frame + ghost structure |
+| `mechanical/frame_study.stl` | Exported study STL |
 
 ## Roadmap (#46) status
 - [x] Design note (actuators, sensors, power, cockpit, weapons interfaces)
 - [x] KiCad control and power boards
-- [x] Mechanical / structural design (limbs, armor — this PR)
-- [ ] Gerbers + mechanical files
+- [x] Mechanical / structural design (limbs, armor)
+- [x] Gerbers + mechanical files (this PR)
 - [ ] BOM / assembly
 - [ ] Polish and inquire for release
+
+## Weapons boundary
+Stores = **mass / footprint / SAFE / INHIBIT only**. Never seekers, guidance, munition propulsion, warheads, fuzing, or arming in-repo.
