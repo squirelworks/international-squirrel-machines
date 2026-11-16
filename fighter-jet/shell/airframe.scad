@@ -113,34 +113,42 @@ module horizontal_stabilizer() {
             ]);
 }
 
+module ism_badge_boss() {
+    // Rooted in fin midplane, protrudes past starboard face (manifold with fin).
+    translate([fuselage_length - 70, 0,
+               fuselage_height * 0.7 + vtail_height * 0.45])
+        rotate([-90, 0, 0])
+            cylinder(h = vtail_thickness / 2 + badge_depth, d = 12, $fn = 32);
+}
+
 module vertical_stabilizer() {
     difference() {
-        translate([fuselage_length - 90, 0, fuselage_height * 0.7])
-            rotate([90, 0, 0])
-                linear_extrude(height=vtail_thickness, center=true)
-                    polygon([
-                        [0, 0],
-                        [vtail_chord, 0],
-                        [vtail_chord * 0.55, vtail_height],
-                        [vtail_chord * 0.15, vtail_height]
-                    ]);
+        union() {
+            translate([fuselage_length - 90, 0, fuselage_height * 0.7])
+                rotate([90, 0, 0])
+                    linear_extrude(height=vtail_thickness, center=true)
+                        polygon([
+                            [0, 0],
+                            [vtail_chord, 0],
+                            [vtail_chord * 0.55, vtail_height],
+                            [vtail_chord * 0.15, vtail_height]
+                        ]);
+            ism_badge_boss();
+        }
         // Rudder hinge groove (~70% chord)
         translate([fuselage_length - 90 + vtail_chord * 0.70, 0,
                    fuselage_height * 0.7 + vtail_height * 0.35])
             cube([2.5, vtail_thickness + 4, vtail_height * 0.7], center=true);
-        // ISM badge recess
-        translate([fuselage_length - 70, vtail_thickness/2 - 0.1,
+        // Annular badge recess around boss (does not detach boss)
+        translate([fuselage_length - 70, vtail_thickness / 2 - 0.05,
                    fuselage_height * 0.7 + vtail_height * 0.45])
-            rotate([90, 0, 0])
-                cylinder(h=badge_depth + 0.2, d=14, $fn=32);
+            rotate([-90, 0, 0])
+                difference() {
+                    cylinder(h = badge_depth + 0.15, d = 14, $fn = 32);
+                    translate([0, 0, -0.1])
+                        cylinder(h = badge_depth + 0.4, d = 12.2, $fn = 32);
+                }
     }
-}
-
-module ism_badge_boss() {
-    translate([fuselage_length - 70, vtail_thickness/2 + 0.5,
-               fuselage_height * 0.7 + vtail_height * 0.45])
-        rotate([90, 0, 0])
-            cylinder(h=badge_depth, d=12, $fn=32);
 }
 
 module station_marker(fs_pct, d=3) {
@@ -181,28 +189,37 @@ module structure_planes() {
 }
 
 module gear_leg(attach, wheel, tire_od) {
-    // Leg from airframe attach down into wheel hub (real volumetric overlap).
-    leg_top = attach[2];
-    leg_bot = wheel[2];
-    hub_overlap = 4;
-    translate([attach[0], attach[1], leg_bot - hub_overlap])
-        cylinder(h = (leg_top - leg_bot) + hub_overlap + 2, d = 4, $fn = 16);
-    translate(wheel)
-        rotate([0, 90, 0])
-            cylinder(h = 8, d = tire_od, center = true, $fn = 24);
+    // Single manifold strut: hull into airframe structure above the well,
+    // through attach, into wheel hub; tire shares hub volume.
+    hub_r = 5;
+    union() {
+        hull() {
+            translate([attach[0], attach[1], attach[2] + 22])
+                sphere(d = 6, $fn = 16);
+            translate(attach)
+                sphere(d = 5, $fn = 16);
+            translate(wheel)
+                sphere(d = hub_r * 2, $fn = 16);
+        }
+        translate(wheel) {
+            sphere(d = hub_r * 2 + 1, $fn = 20);
+            rotate([0, 90, 0])
+                cylinder(h = max(10, tire_od * 0.4), d = tire_od, center = true, $fn = 28);
+        }
+    }
 }
 
 module landing_gear_deployed() {
-    // Attach / wheel centers aligned to mechanical-airframe.yaml (study mm)
-    gear_leg([75.6, 0, 8], [75.6, 0, -28], 18);     // NLG
-    gear_leg([231, -18, 10], [231, -42, -32], 28);   // MLG L
-    gear_leg([231, 18, 10], [231, 42, -32], 28);     // MLG R
+    // Attach points chosen to penetrate remaining belly solid above gear wells;
+    // wheel centers aligned to mechanical-airframe.yaml (study mm).
+    gear_leg([75.6, 0, 4], [75.6, 0, -28], 18);       // NLG
+    gear_leg([231, -18, 4], [231, -42, -32], 28);     // MLG L
+    gear_leg([231, 18, 4], [231, 42, -32], 28);       // MLG R
 }
 
 module empennage() {
     horizontal_stabilizer();
     vertical_stabilizer();
-    ism_badge_boss();
 }
 
 module wing() {

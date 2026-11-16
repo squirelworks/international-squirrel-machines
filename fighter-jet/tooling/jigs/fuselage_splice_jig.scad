@@ -1,6 +1,6 @@
 // ISM-FJ-TOOL-010 — Fuselage splice assembly jig (study mm)
 // Aligns A01↔A02 at FS-42 and A02↔A03 at FS-72. Issue #106.
-// Single manifold solid: rings seat on saddle with overlap; split cuts through wall.
+// Single manifold solid: X-axis rings seat into saddle with volumetric overlap.
 
 fuse_od = 56;
 ring_t = 8;
@@ -10,20 +10,18 @@ base_l = 200;
 base_w = 120;
 base_t = 12;
 pin_d = 6;
-overlap = 2;
+overlap = 6;
+ring_od = fuse_od + 2 * ring_t;
 
 module splice_ring() {
-    difference() {
-        union() {
-            cylinder(h = ring_w, d = fuse_od + 2 * ring_t, center = true, $fn = 64);
-            translate([fuse_od / 2 + ring_t, 0, 0])
-                cube([12, 20, ring_w], center = true);
+    // Clamp about fuselage X-axis; radial split for open/close.
+    rotate([0, 90, 0])
+        difference() {
+            cylinder(h = ring_w, d = ring_od, center = true, $fn = 64);
+            cylinder(h = ring_w + 2, d = fuse_od, center = true, $fn = 64);
+            translate([0, -(fuse_od / 2 + ring_t / 2), 0])
+                cube([ring_t + 4, ring_t + 2, ring_w + 2], center = true);
         }
-        cylinder(h = ring_w + 2, d = fuse_od, center = true, $fn = 64);
-        // Radial slot through wall (not tangent skim)
-        translate([0, -(fuse_od / 2 + ring_t / 2), 0])
-            cube([ring_t + 4, ring_t + 2, ring_w + 2], center = true);
-    }
 }
 
 module saddle() {
@@ -40,15 +38,21 @@ module base() {
 }
 
 module fuselage_splice_jig() {
+    saddle_top = base_t / 2 + saddle_h;
+    // Ring OD bottom digs `overlap` into the flat saddle top → one solid
+    ring_z = saddle_top - overlap + ring_od / 2;
     union() {
         base();
-        translate([0, 0, base_t / 2 + saddle_h / 2])
+        // Sink saddle into base by 1 mm so the join is volumetric
+        translate([0, 0, base_t / 2 + saddle_h / 2 - 1])
             saddle();
-        // Ring OD rests on saddle top with overlap into saddle
-        saddle_top = base_t / 2 + saddle_h;
-        ring_z = saddle_top + (fuse_od / 2 + ring_t) - overlap;
-        translate([-50, 0, ring_z]) splice_ring();
-        translate([50, 0, ring_z]) splice_ring();
+        // Pegs from saddle into each ring (belt-and-suspenders manifold join)
+        for (x = [-50, 50]) {
+            translate([x, 0, saddle_top - overlap / 2])
+                cube([ring_w * 0.6, 16, overlap + 2], center = true);
+            translate([x, 0, ring_z])
+                splice_ring();
+        }
     }
 }
 
