@@ -1,0 +1,95 @@
+schema_version: "1.0.0"
+ship_id: "ISM-CV-1"
+revision: "B"
+status: stub
+issue: 45
+provisional: true
+scope: mass_and_footprint_placeholders_only
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - combat_system_internals
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - arming_codes
+  - engagement_doctrine
+  - track_files
+  - acoustic_processing
+source_docs:
+  - aircraft-carrier/docs/design-note.md
+related_interfaces:
+  - aviation.yaml
+
+note: >
+  Combat topside items are mass, KG contribution, and deck footprint / keep-out
+  boxes only. Same policy as warship B2. No functional combat interfaces.
+
+placeholders:
+  - id: WP-CIWS-FWD
+    kind: weapon_mass_box
+    mass_t: 8.0
+    footprint_m: {l: 3.0, b: 3.0, h: 4.0}
+    deck: 01
+    station_m_from_fp: 40.0
+    kg_contribution_m: 12.0
+    purpose: point_defense_mount_mass_only
+
+  - id: WP-CIWS-AFT
+    kind: weapon_mass_box
+    mass_t: 8.0
+    footprint_m: {l: 3.0, b: 3.0, h: 4.0}
+    deck: 01
+    station_m_from_fp: 260.0
+    kg_contribution_m: 12.0
+    purpose: point_defense_mount_mass_only
+
+  - id: WP-VLS-FWD
+    kind: weapon_mass_box
+    mass_t: 60.0
+    footprint_m: {l: 10.0, b: 8.0, h: 2.5}
+    deck: 01
+    station_m_from_fp: 55.0
+    kg_contribution_m: 6.0
+    purpose: launch_mass_volume_only
+    note: "Mass/volume box only — no cell, canister, or fire-control content"
+
+  - id: SEN-RADAR-ISLAND
+    kind: combat_sensor_mass_box
+    mass_t: 18.0
+    footprint_m: {l: 6.0, b: 6.0, h: 10.0}
+    deck: island
+    station_m_from_fp: 170.0
+    kg_contribution_m: 25.0
+    purpose: radar_house_mass_windage_box
+    note: "No waveforms, frequencies, or tracking logic"
+
+  - id: SEN-EO-DIR
+    kind: combat_sensor_mass_box
+    mass_t: 2.5
+    footprint_m: {l: 1.5, b: 1.5, h: 2.0}
+    deck: island
+    station_m_from_fp: 175.0
+    kg_contribution_m: 22.0
+    purpose: director_mass_only
+
+  - id: SEN-TACAN-IFF
+    kind: sensor_mass_box
+    mass_t: 1.0
+    footprint_m: {l: 1.0, b: 1.0, h: 3.0}
+    deck: island
+    station_m_from_fp: 180.0
+    kg_contribution_m: 28.0
+    purpose: nav_ident_mass_stub
+    note: "No waveforms or crypto"
+
+totals:
+  weapons_mass_t: 76.0
+  combat_sensors_mass_t: 21.5
+  note: "Sums of placeholder masses — not a weight estimate for a real carrier"
+
+expected_behaviour:
+  no_weapons_interfaces: true
+  no_fire_control: true
+  arrangements_may_consume_mass_and_kg: true

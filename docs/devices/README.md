@@ -26,7 +26,7 @@ Current official list:
 - subsonic-bomber
 - supersonic-bomber
 - warship (B2: hydrostatics; weapons/sensors = mass/footprint only)
-- aircraft-carrier (B2 light slice with #43)
+- aircraft-carrier (#45 deepen: flight deck / aviation; combat = mass/footprint only)
 - submarine (B3: hull/trim; sonar = mass/footprint only)
 - rocket (B4: hobby; certified motors; passive logger; no guidance)
 - satellite (B5: bus + payload; weapons boundary)

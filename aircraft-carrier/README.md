@@ -1,21 +1,35 @@
-# ISM Aircraft Carrier — B2 sibling slice (#45 / with #43)
+# ISM Aircraft Carrier — (#45)
 
-**Program ID:** ISM-CV-1 (study name TBD)
+**Program ID:** ISM-CV-1 (study name TBD)  
+**This PR:** design-note deepen — flight deck, aviation, combat (placeholders), propulsion.
 
-## B2 slice (this PR)
-Light design note aligned with warship B2 (#43): flight-deck / aviation gear as **mass and area placeholders**. Combat systems follow the same rule — mass/footprint only.
-
-Full carrier roadmap (#45) beyond this slice remains open (KiCad, structure, BOM, …).
+## Prior slice
+B2 (#139 with warship #43) delivered a light flight-deck note + `shell/deck_study.scad`. This PR completes the **#45 design-note** checkbox with machine-readable placeholders and a teaching deck-area check.
 
 ## Scope limits (hard)
-- No weapons interfaces, fire control, or combat-system internals
-- No export-controlled data
-- Aviation weapons stay inert mass boxes if listed
 
-## Deliverables (B2)
+- Weapons and combat sensors = **mass / footprint / KG placeholders** only
+- Aviation ordnance = **inert mass boxes** only
+- **No** weapons interfaces, fire control, combat-system internals
+- **No** seekers, guidance, warheads, fuzing, arming codes, or engagement doctrine
+- **No** export-controlled (ITAR/EAR) combat or acoustic data
+- Catapult / arresting gear = load/mass/keep-out stubs (no classified plant design)
+
+## Deliverables
+
 | Path | Role |
 |------|------|
-| `docs/design-note.md` | Flight deck, aviation, propulsion stubs + placeholders |
-| `shell/deck_study.scad` | Flight-deck proportion sketch |
+| `docs/design-note.md` | Flight deck, aviation, combat stubs, propulsion |
+| `docs/citations.yaml` | Open / public citations |
+| `docs/deck_area_examples.py` | Teaching deck-area / parking check |
+| `interfaces/aviation.yaml` | Elevators, fuel, inert ordnance stubs |
+| `interfaces/mass-placeholders.yaml` | Combat weapons/sensors mass & footprints |
+| `shell/deck_study.scad` | Deck + island + elevator/radar mass boxes |
 
-See also `../warship/` for hydrostatics teaching and the shared weapons/sensor placeholder policy.
+## Roadmap (#45) status
+- [x] Design note (flight deck, aviation systems, combat systems, propulsion)
+- [ ] KiCad boards
+- [ ] Structural design
+- [ ] Gerbers + mechanical files
+- [ ] BOM / assembly
+- [ ] Polish and inquire for release

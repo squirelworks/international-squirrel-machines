@@ -129,7 +129,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Space station design note — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) modules / power / ECLSS / docking / avionics; weapons boundary.
 - [x] Sonar design note — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) educational echo-sounder; transducers = mass/footprint; no quieting/classified acoustics (B3 spirit).
 - [x] Gundam design note — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) actuators / sensors / power / cockpit; weapons = stores/SAFE-INHIBIT placeholders only.
-- [ ] Carrier deepen / remaining siblings (later batches)
+- [x] Aircraft carrier design-note deepen — [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45) flight deck / aviation / propulsion; weapons & combat sensors = mass/footprint only.
+- [ ] Remaining siblings / FJ gaps (later batches)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
