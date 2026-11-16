@@ -1,0 +1,32 @@
+schema_version: "1.0.0"
+program: "ISM-HB-1"
+revision: "A"
+status: stub
+issue: 37
+batch: B1
+note: Open/public educational citations only. No export-controlled TPS recipes.
+
+citations:
+  - id: anderson-hypersonic
+    title: "Hypersonic and High-Temperature Gas Dynamics (Anderson)"
+    org: AIAA
+    used_for: "Textbook hypersonic / high-enthalpy aerothermal concepts (B1)"
+
+  - id: bertin-hypersonic
+    title: "Hypersonic Aerothermodynamics (Bertin)"
+    org: AIAA
+    used_for: "Textbook heat transfer, bluntness, TPS context (B1)"
+
+  - id: nasa-tps-edu
+    title: "NASA educational thermal protection system overviews (public)"
+    org: NASA
+    url: "https://www.nasa.gov/centers-and-facilities/armstrong/thermal-protection-system/"
+    access_date: "2026-11-16"
+    used_for: "Public TPS class language — heat sink / ablative / reusable (B1)"
+
+  - id: wiki-tps
+    title: "Thermal protection system (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Thermal_protection_system"
+    access_date: "2026-11-16"
+    used_for: "High-level TPS class names only (B1)"
