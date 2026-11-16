@@ -1,10 +1,7 @@
 # ISM Subsonic Bomber — (#38)
 
 **Program ID:** ISM-SB-1 (study name TBD)  
-**This PR:** design-note deepen — airframe interfaces, inert bay/payload stubs, teaching cruise check.
-
-## Prior slice
-B1 (#137) delivered `docs/design-note.md` + `shell/airframe_study.scad`. This PR adds machine-readable interfaces, citations, and a teaching cruise/payload mass check.
+**This PR:** KiCad inert bay SAFE/INHIBIT board slice.
 
 ## Weapons boundary (hard)
 
@@ -12,6 +9,7 @@ B1 (#137) delivered `docs/design-note.md` + `shell/airframe_study.scad`. This PR
 - **No** guidance, seekers, munition propulsion, warheads, fuzing, or arming codes
 - **No** employment, targeting, or weapons-effectiveness content
 - **No** export-controlled (ITAR/EAR) munition or fire-control designs
+- KiCad outputs are **bay door + SAFE/INHIBIT / WOW stubs** only
 
 ## Deliverables
 
@@ -22,11 +20,13 @@ B1 (#137) delivered `docs/design-note.md` + `shell/airframe_study.scad`. This PR
 | `docs/cruise_examples.py` | Teaching Breguet / payload-mass check |
 | `interfaces/airframe.yaml` | Study OML / stations stubs |
 | `interfaces/payload-placeholders.yaml` | Inert bay mass/volume + SAFE/INHIBIT |
+| `interfaces/bay-board.yaml` | KiCad channel map |
+| `kicad/ism-sb-bay.*` | Study KiCad bay board |
 | `shell/airframe_study.scad` | High-aspect OML + bay volume box |
 
 ## Roadmap (#38) status
 - [x] Design note (airframe, avionics, payload, propulsion interface)
-- [ ] KiCad boards
+- [x] KiCad boards (inert bay SAFE/INHIBIT — this PR)
 - [ ] Structural design
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly
