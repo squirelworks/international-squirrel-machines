@@ -50,6 +50,8 @@ hardware:
     type: ejector_rack
     compatible_stations: [STA-7, STA-8, STA-9]
     eject_impulse_ns: 4000
+
+pylon_geometry:
   lug_spacing_fore_aft_mm: 80
 
 stores:
