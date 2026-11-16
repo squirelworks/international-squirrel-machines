@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+product_id: "ISM-SNR-1"
+revision: "A"
+status: stub
+issue: 40
+provisional: true
+scope: educational_enclosure_structure
+excluded:
+  - quieting
+  - acoustic_signature_design
+  - classified_beamforming
+  - asw_tactics
+  - combat_employment
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - itar_ear
+source_docs:
+  - sonar/docs/structural.md
+  - sonar/docs/design-note.md
+related_interfaces:
+  - transducer-placeholders.yaml
+  - signal-chain.yaml
+  - echo-board.yaml
+shell: sonar/shell/enclosure_study.scad
+
+members:
+  - id: ENCLOSURE_RIBS
+    role: handheld_box_stiffening
+  - id: TRANSDUCER_FACE_MOUNT
+    role: circular_face_keepout
+  - id: ECHO_BOARD_TRAY
+    role: kicad_board_mount
+  - id: DISPLAY_BEZEL
+    role: window_frame_stub
+  - id: HULL_MOUNT_PADS
+    role: optional_mount_feet
+
+expected_behaviour:
+  educational_structure_only: true
+  transducers_mass_footprint_only: true
+  no_quieting: true
+  no_weapons: true
+  no_stress_certification: true
