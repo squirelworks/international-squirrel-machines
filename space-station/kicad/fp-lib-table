@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ISM")(type "KiCad")(uri "${KIPRJMOD}/ISM.pretty")(options "")(descr "ISM space-station habitat passive-logger footprints"))
+)
