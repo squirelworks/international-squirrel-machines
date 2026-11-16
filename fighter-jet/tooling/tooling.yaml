@@ -1,0 +1,110 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 106
+provisional: true
+scale_study_mm: true
+full_scale_factor: 36.9
+source_docs:
+  - fighter-jet/tooling/README.md
+  - fighter-jet/materials/manufacturing-sourcing.md
+  - fighter-jet/interfaces/manufacturing.yaml
+source_drawings:
+  - ISM-FJ-DWG-010
+  - ISM-FJ-DWG-020
+  - ISM-FJ-DWG-030
+  - ISM-FJ-DWG-050
+  - ISM-FJ-DWG-060
+
+required_equipment_eric_lane:
+  items:
+    - cnc_mill
+    - large_format_printer_study_models
+    - heat_treat_or_cure_oven
+    - hand_drill_rivet_tools
+  note: "Reference only — do not design in fighter-jet/tooling"
+
+tools:
+  - id: ISM-FJ-TOOL-010
+    rev: A
+    name: fuselage_splice_assembly_jig
+    category: assembly_jig
+    path: jigs/fuselage_splice_jig.scad
+    format: openscad
+    assemblies: [A01, A02, A03]
+    stations: [FS-42, FS-72]
+    drawing_refs: [ISM-FJ-DWG-050]
+    process: sheet_rivet
+    mates: fuselage_circumferential_splice
+
+  - id: ISM-FJ-TOOL-020
+    rev: A
+    name: wing_box_assembly_jig
+    category: assembly_jig
+    path: jigs/wing_box_jig.scad
+    format: openscad
+    assemblies: [A04, A05]
+    stations: [WS-0, WS-2, WS-4, WS-6, WS-8, WS-10]
+    drawing_refs: [ISM-FJ-DWG-030, ISM-FJ-DWG-060]
+    process: composite_auto
+    spars_pct_chord: [0.15, 0.65]
+
+  - id: ISM-FJ-TOOL-030
+    rev: A
+    name: empennage_assembly_jig
+    category: assembly_jig
+    path: jigs/empennage_jig.scad
+    format: openscad
+    assemblies: [A06, A07]
+    stations: [FS-88, FS-92]
+    drawing_refs: [ISM-FJ-DWG-010, ISM-FJ-DWG-050]
+    process: composite_auto
+
+  - id: ISM-FJ-TOOL-040
+    rev: A
+    name: drill_rivet_edge_fixture
+    category: drill_rivet_fixture
+    path: fixtures/drill_rivet_fixture.scad
+    format: openscad
+    assemblies: [A01, A02]
+    stations: [FS-22, FS-42, FS-48]
+    drawing_refs: [ISM-FJ-DWG-020, ISM-FJ-DWG-050]
+    process: sheet_rivet
+    rivet_pitch_mm_study: 20
+
+  - id: ISM-FJ-TOOL-050
+    rev: A
+    name: wing_lower_skin_layup_tool
+    category: composite_layup_tool
+    path: layup/wing_skin_layup_tool.scad
+    format: openscad
+    assemblies: [A04, A05]
+    stations: [WS-0, WS-10]
+    drawing_refs: [ISM-FJ-DWG-060]
+    process: composite_auto
+    cure_equipment: eric_oven_reference_only
+
+  - id: ISM-FJ-TOOL-060
+    rev: A
+    name: forward_skin_form_die_pair
+    category: forming_die
+    path: dies/skin_form_die.scad
+    format: openscad
+    assemblies: [A01]
+    stations: [FS-12, FS-28]
+    drawing_refs: [ISM-FJ-DWG-010, ISM-FJ-DWG-050]
+    process: sheet_rivet
+    material_formed: ISM-Al-2xxx
+
+index_by_drawing:
+  ISM-FJ-DWG-010: [ISM-FJ-TOOL-030, ISM-FJ-TOOL-060]
+  ISM-FJ-DWG-020: [ISM-FJ-TOOL-040]
+  ISM-FJ-DWG-030: [ISM-FJ-TOOL-020]
+  ISM-FJ-DWG-050: [ISM-FJ-TOOL-010, ISM-FJ-TOOL-030, ISM-FJ-TOOL-040, ISM-FJ-TOOL-060]
+  ISM-FJ-DWG-060: [ISM-FJ-TOOL-020, ISM-FJ-TOOL-050]
+
+expected_behaviour:
+  step_exports: future_optional
+  steve_may_reference_for_hil_fixture_envelopes: true
+  manufacturing_yaml_process_codes_align: true

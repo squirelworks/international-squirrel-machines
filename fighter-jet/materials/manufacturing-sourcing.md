@@ -5,7 +5,7 @@
 **Zones:** `../interfaces/materials-zones.yaml` · Drawings: `ISM-FJ-DWG-010`…`070`
 
 ## Hard stop (this track)
-**Research only.** No assembly jig, layup tool, or forming-die designs here — those are the **tooling** track. Eric owns general shop machines (CNC mill, large-format printer, heat-treat oven); listed below only as **required equipment**, not designed in-repo.
+**Research only** for processes/specs/supply. Assembly jig / layup / die **designs** live under `../tooling/` ([#106](https://github.com/squirelworks/international-squirrel-machines/issues/106)). Eric owns general shop machines (CNC mill, large-format printer, heat-treat oven); listed below only as **required equipment**, not designed in-repo.
 
 ## Process vocabulary
 | Code | Meaning |
