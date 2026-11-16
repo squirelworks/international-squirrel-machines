@@ -9,6 +9,7 @@ Current official list:
 - case
 - motherboard
 - cpu
+- memory
 - graphics-card
 - typewriter
 - printer

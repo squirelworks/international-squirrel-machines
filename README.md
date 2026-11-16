@@ -14,6 +14,7 @@ Pure Squirrel-OS/2 Warp-style hardware development.
 | Computer Case | Planned | `case/` |
 | Motherboard | Planned | `motherboard/` |
 | CPU | Planned | `cpu/` |
+| Memory (RAM modules) | Scaffolded | `memory/` |
 | Graphics Card | Planned | `graphics-card/` |
 | Typewriter | Planned | `typewriter/` |
 | Printer | Planned | `printer/` |
