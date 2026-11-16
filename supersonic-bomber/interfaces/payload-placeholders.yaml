@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-XB-1"
+revision: "B"
+status: stub
+issue: 39
+provisional: true
+scope: inert_bay_integration_only
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - live_release
+  - employment
+source_docs:
+  - supersonic-bomber/docs/design-note.md
+related_interfaces:
+  - airframe.yaml
+
+note: >
+  Bay payload is mass/CG/volume and SAFE/INHIBIT only.
+  Same spirit as subsonic-bomber #38 and fighter-jet inert stores.
+
+bay:
+  id: BAY-MAIN
+  volume_m3_class: 18.0
+  door_kind: structural_thermal_packaging_only
+
+inert_payloads:
+  - id: PLD-INERT-A
+    kind: mass_cg_box
+    mass_kg: 4000.0
+    cg_fs_pct: 0.52
+  - id: PLD-INERT-B
+    kind: mass_cg_box
+    mass_kg: 4000.0
+    cg_fs_pct: 0.56
+
+safe_inhibit:
+  ground_maintenance: {SAFE: true, INHIBIT: true}
+  weight_on_wheels: {SAFE: true, INHIBIT: true}
+  inert_present_no_auth: {SAFE: true, INHIBIT: true}
+  sim_inert_release_auth: {SAFE: false, INHIBIT: false, note: "inert/sim only"}
+
+expected_behaviour:
+  no_seekers: true
+  no_guidance: true
+  no_warheads: true
+  no_fuzing: true
+  no_live_release: true

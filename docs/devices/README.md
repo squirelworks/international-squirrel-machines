@@ -24,7 +24,7 @@ Current official list:
 - fighter-jet
 - hypersonic-bomber (B1: aerothermal / TPS education only)
 - subsonic-bomber (#38 deepen: inert bay / SAFE-INHIBIT stubs)
-- supersonic-bomber
+- supersonic-bomber (#39 deepen: cruise thermal + inert bay stubs)
 - warship (B2: hydrostatics; weapons/sensors = mass/footprint only)
 - aircraft-carrier (#45 deepen: flight deck / aviation; combat = mass/footprint only)
 - submarine (B3: hull/trim; sonar = mass/footprint only)

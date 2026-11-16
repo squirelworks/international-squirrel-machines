@@ -1,6 +1,6 @@
-// ISM-XB-1 supersonic bomber study OML — B1 #39
-// Units: mm. Proportion sketch only.
-// No stores / munitions geometry.
+// ISM-XB-1 supersonic bomber study OML — #39 deepen
+// Units: mm. Slender OML + inert bay volume box.
+// No munitions / seeker / guidance geometry. No hypersonic TPS solids.
 
 fuselage_length = 480;
 fuselage_d = 42;
@@ -40,8 +40,15 @@ module empennage() {
         cube([40, 70, 3], center = true);
 }
 
-echo("B1 #39: supersonic bomber study OML — inert airframe only");
+module inert_bay_volume() {
+    // BAY-MAIN keep-out — packaging only
+    translate([200, -15, 6])
+        cube([140, 30, 24]);
+}
+
+echo("#39: supersonic bomber study — inert bay only; no munitions/hypersonic TPS");
 fuselage();
 wing(+1);
 wing(-1);
 empennage();
+inert_bay_volume();
