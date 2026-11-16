@@ -12,4 +12,4 @@ Airframe structure, landing gear, control surfaces, actuators/hinges, load paths
 | `propulsion.md` | Twin turbofan packaging, inlet/mounts/offtakes (A2 #120) |
 
 **Flight Lab contracts:** `../interfaces/mechanical-airframe.yaml` (#72), `carrier-loads.yaml`, `propulsion.yaml` (#120)  
-Materials: `../materials/`. Stations: `../diagrams/stations.md`. Shell: `../shell/airframe.scad` + `propulsion_keepouts.scad`.
+Materials: `../materials/`. Stations: `../diagrams/stations.md`. Shell: `../shell/airframe.scad` + `shell/lib/propulsion_keepouts.scad`.

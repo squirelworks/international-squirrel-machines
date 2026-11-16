@@ -3,7 +3,7 @@
 **Scope:** packaging / interfaces only. The engine is a **public-class black box** (envelope + offtakes). No turbomachinery, combustor, or FADEC laws. **No weapon/missile propulsion.**
 
 **Contracts:** `../interfaces/propulsion.yaml` · bounds `../docs/research/engine-class-bounds.md` · twin/single `../docs/research/twin-vs-single.md`  
-**Study keep-outs:** `../shell/propulsion_keepouts.scad` (mm, scale 36.9)
+**Study keep-outs:** `../shell/lib/propulsion_keepouts.scad` (mm, scale 36.9)
 
 ## Baseline
 Twin low-bypass turbofan modules, side-by-side, **FS-82–95**. Twin chosen for asymmetric-thrust backup and multirole payload. **Single-engine alternate** remains an open product decision (see twin-vs-single trade).
