@@ -1,7 +1,7 @@
 # ISM Subsonic Bomber — (#38)
 
 **Program ID:** ISM-SB-1 (study name TBD)  
-**This PR:** structural study slice (spars / ribs / frames / gear attach).
+**This PR:** Gerbers + mechanical STL export slice.
 
 ## Weapons boundary (hard)
 
@@ -15,21 +15,21 @@
 
 | Path | Role |
 |------|------|
-| `docs/design-note.md` | Airframe / avionics / payload / propulsion (deepened) |
+| `docs/design-note.md` | Airframe / avionics / payload / propulsion |
 | `docs/structural.md` | Primary-structure layout study |
+| `docs/fab-mechanical.md` | Gerber + STL notes |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/cruise_examples.py` | Teaching Breguet / payload-mass check |
-| `interfaces/airframe.yaml` | Study OML / stations stubs |
-| `interfaces/payload-placeholders.yaml` | Inert bay mass/volume + SAFE/INHIBIT |
-| `interfaces/bay-board.yaml` | KiCad channel map |
-| `interfaces/structural.yaml` | Spar / rib / frame / gear map |
+| `interfaces/*.yaml` | Airframe / payload / bay / structure |
 | `kicad/ism-sb-bay.*` | Study KiCad bay board |
+| `fab/` | Study Gerbers + CPL + BOM stub |
 | `shell/airframe_study.scad` | OML + ghost structure + bay keep-out |
+| `mechanical/airframe_study.stl` | Exported study STL |
 
 ## Roadmap (#38) status
 - [x] Design note (airframe, avionics, payload, propulsion interface)
 - [x] KiCad boards (inert bay SAFE/INHIBIT)
-- [x] Structural design (this PR)
-- [ ] Gerbers + mechanical files
+- [x] Structural design
+- [x] Gerbers + mechanical files (this PR)
 - [ ] BOM / assembly
 - [ ] Polish and inquire for release
