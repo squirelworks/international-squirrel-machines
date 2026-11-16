@@ -22,3 +22,6 @@ Current official list:
 - macro-pad
 - drawing-pads
 - fighter-jet
+- hypersonic-bomber (B1: aerothermal / TPS education only)
+- subsonic-bomber
+- supersonic-bomber
