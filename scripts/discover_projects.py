@@ -39,6 +39,7 @@ SHARED_TRIGGERS = (
 # Device generators under scripts/ map to a device prefix — do NOT expand to all projects.
 # Only shared CI/helpers under scripts/ should force a full matrix.
 SCRIPT_DEVICE_PREFIXES = (
+    ("scripts/build_keyboard_40.py", "keyboard/40-percent/"),
     ("scripts/build_keyboard_full.py", "keyboard/full-size/"),
     ("scripts/build_keyboard_tkl.py", "keyboard/tkl/"),
     ("scripts/build_keyboard_75.py", "keyboard/75-percent/"),
