@@ -1,0 +1,68 @@
+ERC report (2026-11-16T19:09:57+0000, Encoding UTF8)
+
+***** Sheet /
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 190.5000 mm): Symbol U1 [RP2040_MOD]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 281.9400 mm): Symbol C4 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 190.5000 mm): Symbol U3 [ISM_Touch4]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 266.7000 mm): Symbol C1 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 276.8600 mm): Symbol C3 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 271.7800 mm): Symbol C2 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 25.4000 mm): Symbol #FLG01 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(76.2000 mm, 25.4000 mm): Symbol #PWR02 [+3V3]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(38.1000 mm, 25.4000 mm): Symbol #PWR01 [+5V]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 88.9000 mm): Symbol J1 [USB_C_Receptacle_USB2.0_16P]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 76.2000 mm): Symbol R1 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(114.3000 mm, 25.4000 mm): Symbol #PWR03 [GND]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(127.0000 mm, 25.4000 mm): Symbol #FLG02 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(152.4000 mm, 101.6000 mm): Symbol R2 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(203.2000 mm, 88.9000 mm): Symbol U2 [USBLC6-2SC6]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 215.9000 mm): Symbol D_PWR [LED]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 190.5000 mm): Symbol SW_RST [SW_Push]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(317.5000 mm, 215.9000 mm): Symbol R5 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 266.7000 mm): Symbol SW1 [SW_Push]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 292.1000 mm): Symbol SW2 [SW_Push]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(368.3000 mm, 190.5000 mm): Symbol R4 [R]
+
+ ** ERC messages: 21  Errors 0  Warnings 21

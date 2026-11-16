@@ -1,0 +1,84 @@
+{
+  "board": {
+    "design_settings": {
+      "defaults": {
+        "copper_line_width": 0.2,
+        "board_outline_line_width": 0.1,
+        "solder_mask_expansion": 0.0,
+        "solder_mask_min_width": 0.0
+      },
+      "rules": {
+        "min_clearance": 0.2,
+        "min_track_width": 0.2,
+        "min_via_diameter": 0.6,
+        "min_through_hole_diameter": 0.3
+      },
+      "rule_severities": {
+        "missing_courtyard": "ignore",
+        "solder_mask_bridge": "warning",
+        "silk_over_copper": "warning",
+        "silk_overlap": "warning",
+        "unconnected_items": "warning",
+        "track_dangling": "warning",
+        "via_dangling": "warning",
+        "shorting_items": "warning",
+        "tracks_crossing": "warning",
+        "clearance": "warning",
+        "copper_edge_clearance": "error",
+        "courtyards_overlap": "warning",
+        "silk_edge_clearance": "warning",
+        "hole_clearance": "warning",
+        "invalid_outline": "error",
+        "footprint": "error"
+      },
+      "track_widths": [
+        0.0,
+        0.25,
+        0.5
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
+      "drc_exclusions": []
+    }
+  },
+  "meta": {
+    "filename": "ism-drawing-pad-medium.kicad_pro",
+    "version": 1
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "clearance": 0.2,
+        "track_width": 0.25,
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "name": "Default",
+        "priority": 2147483647,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "bus_width": 12,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "wire_width": 6
+      }
+    ],
+    "meta": {
+      "version": 3
+    }
+  },
+  "sheets": [
+    [
+      "ism-drawing-pad-medium.kicad_sch",
+      ""
+    ]
+  ],
+  "text_variables": {}
+}

@@ -50,6 +50,7 @@ SCRIPT_DEVICE_PREFIXES = (
     ("scripts/build_keyboard_60_mod.py", "keyboard/60-percent/"),
     ("scripts/build_macro_pad.py", "macro-pad/"),
     ("scripts/build_typewriter.py", "typewriter/"),
+    ("scripts/build_drawing_pads.py", "drawing-pads/"),
     ("scripts/build_memory.py", "memory/"),
     ("scripts/build_trackball.py", "trackball/"),
     ("scripts/build_mouse.py", "mouse/"),
