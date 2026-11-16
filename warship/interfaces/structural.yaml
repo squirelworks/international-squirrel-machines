@@ -1,0 +1,53 @@
+schema_version: "1.0.0"
+warship_id: "ISM-WS-1"
+revision: "A"
+status: stub
+issue: 43
+provisional: true
+scope: educational_primary_structure
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - arming
+  - itar_ear
+source_docs:
+  - warship/docs/structural.md
+  - warship/docs/design-note.md
+related_interfaces:
+  - hydrostatics.yaml
+  - mass-placeholders.yaml
+  - control-board.yaml
+shell: warship/shell/hull_study.scad
+
+members:
+  - id: KEEL
+    role: centerline_girder_stub
+  - id: TRANSVERSE_FRAMES
+    role: hull_frame_stubs
+    count_study: 8
+  - id: DECK_BEAMS
+    role: weather_deck_support_stubs
+  - id: LONGITUDINAL_BULKHEADS
+    role: subdivision_stubs
+  - id: TRANSVERSE_BULKHEADS
+    role: compartment_stubs
+  - id: SUPERSTRUCTURE_FOUNDATION
+    role: bridge_house_attach_stub
+  - id: THRUSTER_FOUNDATION
+    role: scale_model_actuator_mount
+  - id: RUDDER_FOUNDATION
+    role: scale_model_actuator_mount
+
+combat_placeholders:
+  role: mass_footprint_yaml_only
+  source: mass-placeholders.yaml
+
+expected_behaviour:
+  educational_structure_only: true
+  weapons_are_mass_footprint_only: true
+  no_fire_control: true
+  no_stress_certification: true
