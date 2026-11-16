@@ -3,19 +3,25 @@ aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
 issue: 84
+related_issues: [119, 88]
 provisional: true
 source_docs:
   - fighter-jet/firmware/README.md
   - fighter-jet/kicad/README.md
   - fighter-jet/avionics/architecture.md
+  - fighter-jet/avionics/bringup-log.md
 related_interfaces:
   - avionics-bus.yaml
   - actuators.yaml
   - flight-controls.yaml
+  - bit-frame.yaml
+  - safe-state.yaml
+  - bay-io.ismfj-iface
 
 board:
   id: ISM-FJ-BAY-IO
-  firmware_version: "0.1.0"
+  firmware_version: "0.2.0"
+  mcu: RP2040
   kicad: fighter-jet/kicad/
   role: bay_io_concentrator_not_fcc
 
@@ -23,7 +29,8 @@ toolchain:
   host:
     compiler: gcc
     standard: c11
-    build: "cd fighter-jet/firmware && make && make test"
+    warning_flags: [-Wall, -Wextra, -Werror]
+    build: "cd fighter-jet/firmware && make clean && make && make test"
   target_optional:
     mcu_class: RP2040
     sdk: pico_sdk
@@ -31,20 +38,8 @@ toolchain:
 
 uart_stdio_profile:
   purpose: hil_and_analyzer_hook
-  commands: [help, bit, act, inc, uplink, brownout, tick, quit]
-  bit_line_fields:
-    - board
-    - ver
-    - rail28
-    - rail5
-    - rail3v3
-    - imu
-    - radio
-    - uplink
-    - brownout
-    - safe
-    - act_vector
-    - inc_vector
+  commands: [help, bit, act, inc, uplink, brownout, watchdog, inceptor_ok, tick, quit]
+  bit_frame: bit-frame.yaml
 
 channels:
   actuators:
@@ -55,20 +50,29 @@ channels:
     map: [stick_pitch, stick_roll, throttle, pedal_yaw]
     range: [-1.0, 1.0]
     note: aligns_flight-controls_inceptors_icd_subset
+  discretes_out: [DISC_RADIO_ENABLE, DISC_IMU_SAMPLE_GATE]
 
 safe_state:
-  triggers: [brownout, uplink_loss]
-  action: neutral_all_actuator_cmds
+  table: safe-state.yaml
+  triggers: [brownout, watchdog_reset, uplink_loss, inceptor_loss]
+  action: neutral_all_actuator_cmds_and_inactive_discretes
   commands_rejected_while_safe: true
   test: make_test_target_test_safe_state
+  scripts:
+    - scripts/test_brownout.sh
+    - scripts/test_uplink_loss.sh
+    - scripts/test_watchdog.sh
+    - scripts/test_inceptor_loss.sh
 
 bus_hooks:
   bit_topic: bay_io.bit
   bus: ISM-Bus-A
   rate_hz_target: 10
   host_substitute: uart_stdio_bit_line
+  params: ../parameters/ism-fj-1.ismfj-params
 
 expected_behaviour:
   soft_hil_may_spawn_ism_bay_host: true
   analyzer_parses_bit_line: true
   fcc_laws_not_in_this_tree: true
+  no_weapon_release_logic: true

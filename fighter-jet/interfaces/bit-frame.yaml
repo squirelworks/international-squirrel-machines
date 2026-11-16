@@ -1,0 +1,127 @@
+# BIT frame contract — Flight Lab interface loader (SS#170) / bus analyzer (#83)
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 119
+related_issues: [84, 80, 81, 82, 83]
+provisional: true
+source_docs:
+  - fighter-jet/firmware/README.md
+  - fighter-jet/interfaces/firmware-bringup.yaml
+  - fighter-jet/avionics/buses-power.md
+reference_patterns:
+  # Public reference patterns only — not compliance claims
+  - document: MIL-STD-1553B Notice 2
+    section: "command/response framing (pattern for scheduled BIT)"
+    use: framing_idea_only
+  - document: MIL-STD-704F
+    section: "power quality / transient categories"
+    use: brownout_test_categories_idea_only
+
+frame:
+  id: bay_io.bit
+  board_id: ISM-FJ-BAY-IO
+  bus: ISM-Bus-A
+  topic: bay_io.bit
+  rate_hz: 10
+  encoding:
+    primary: ism_bus_a_bit_v1
+    host_substitute: uart_stdio_line
+    uart_line_prefix: "BIT "
+    endianness: little
+    note: "Host profile emits key=value tokens; bus encoding packs same fields."
+
+fields:
+  - name: board_id
+    type: string
+    max_len: 32
+    unit: null
+    uart_key: board
+    required: true
+    description: Board identity string
+  - name: firmware_version
+    type: string
+    max_len: 16
+    uart_key: ver
+    required: true
+  - name: firmware_hash
+    type: string
+    max_len: 16
+    uart_key: fw_hash
+    required: true
+    description: Short hash of linked image (host stub uses compile-time constant)
+  - name: rail_28v_ok
+    type: bool
+    uart_key: rail28
+    unit: null
+    required: true
+  - name: rail_5v_ok
+    type: bool
+    uart_key: rail5
+    required: true
+  - name: rail_3v3_ok
+    type: bool
+    uart_key: rail3v3
+    required: true
+  - name: rail_3v3_v
+    type: float32
+    uart_key: v3v3
+    unit: V
+    required: false
+    provisional: true
+  - name: imu_self_test_ok
+    type: bool
+    uart_key: imu
+    required: true
+  - name: radio_ok
+    type: bool
+    uart_key: radio
+    required: true
+  - name: uplink_ok
+    type: bool
+    uart_key: uplink
+    required: true
+  - name: brownout
+    type: bool
+    uart_key: brownout
+    required: true
+  - name: safe_state
+    type: bool
+    uart_key: safe
+    required: true
+  - name: uptime_s
+    type: uint32
+    uart_key: uptime
+    unit: s
+    required: true
+  - name: fault_bits
+    type: uint16
+    uart_key: fault
+    required: true
+    bits:
+      - {bit: 0, name: brownout}
+      - {bit: 1, name: uplink_loss}
+      - {bit: 2, name: watchdog}
+      - {bit: 3, name: inceptor_loss}
+      - {bit: 4, name: imu_fault}
+      - {bit: 5, name: rail_fault}
+  - name: act_vector
+    type: float32[4]
+    uart_key: act
+    unit: normalized
+    range: [-1.0, 1.0]
+    map: [J1, J2, J3, J4]
+    required: true
+  - name: inc_vector
+    type: float32[4]
+    uart_key: inc
+    unit: normalized
+    range: [-1.0, 1.0]
+    map: [stick_pitch, stick_roll, throttle, pedal_yaw]
+    required: true
+
+expected_behaviour:
+  flight_lab_loader_unknown_keys: reject
+  analyzer_parses_uart_or_bus: true
+  not_mil_std_compliant_claim: true

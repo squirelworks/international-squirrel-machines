@@ -1,0 +1,47 @@
+# ISM-FJ-1 parameter store — Flight Lab / bay firmware calibration (#88 / A1 #119)
+schema_version: "1.0.0"
+params_id: ism-fj-1
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 119
+related_issues: [84, 88]
+provisional: true
+units: SI
+
+imu:
+  accel_bias_mps2: [0.0, 0.0, 0.0]
+  gyro_bias_rps: [0.0, 0.0, 0.0]
+  temp_comp:
+    enabled: false
+    ref_c: 25.0
+  self_test:
+    accel_tol_mps2: 0.5
+    gyro_tol_rps: 0.05
+
+inceptor:
+  stick_pitch: {scale: 1.0, offset: 0.0, deadband: 0.02}
+  stick_roll: {scale: 1.0, offset: 0.0, deadband: 0.02}
+  throttle: {scale: 1.0, offset: 0.0, deadband: 0.01}
+  pedal_yaw: {scale: 1.0, offset: 0.0, deadband: 0.02}
+  loss_timeout_ms: 100
+
+actuators:
+  J1_PWM_AIL: {scale: 1.0, offset: 0.0, slew_per_s: 2.0}
+  J2_PWM_ELE: {scale: 1.0, offset: 0.0, slew_per_s: 2.0}
+  J3_PWM_RUD: {scale: 1.0, offset: 0.0, slew_per_s: 2.0}
+  J4_PWM_THR: {scale: 1.0, offset: 0.0, slew_per_s: 1.0}
+
+rails:
+  brownout_3v3_v: 2.9
+  brownout_5v_v: 4.5
+
+timing:
+  bit_rate_hz: 10
+  housekeeping_hz: 10
+  control_proxy_hz: 100
+  watchdog_timeout_ms: 50
+
+expected_behaviour:
+  loaded_by_flight_lab_and_bay_fw: true
+  values_provisional_until_bench_cal: true

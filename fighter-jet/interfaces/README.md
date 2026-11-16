@@ -15,6 +15,9 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `avionics-bus.yaml` | Bus topology, topics, power | Stub (#75) |
 | `avionics-architecture.yaml` | LRU split, connectors, schematic coverage | Stub (#75) |
 | `firmware-bringup.yaml` | Bay I/O FW hooks, BIT UART profile, safe-state | Stub (#84) |
+| `bit-frame.yaml` | BIT fields, rates, UART/bus encoding | Stub (A1 #119) |
+| `safe-state.yaml` | Trigger → channel → output → test ID | Stub (A1 #119) |
+| `bay-io.ismfj-iface` | Bay concentrator I/O contract (#88) | Stub (A1 #119) |
 | `icd-freeze.yaml` | Rev A pinned ICD list for co-check | Stub (#78) |
 | `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
 | `carrier-loads.yaml` | Arrestment / catapult / sink-rate / wing-fold cases | Stub (#93) |
