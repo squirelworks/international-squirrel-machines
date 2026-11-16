@@ -153,6 +153,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Warship structural study — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) keel/frames/decks; weapons = mass/footprint only.
 - [x] Aircraft carrier structural study — [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45) keel/frames/hangar; combat = mass/footprint only.
 - [x] Rocket structural / mechanical study — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) rings/motor-mount/fin roots; no guidance.
+- [x] Satellite mechanical structure / panels — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) 3U rails/trays; payload mass/power/data only.
 - [ ] Remaining siblings structural / Gerbers / FJ gaps
 
 ### Issues
