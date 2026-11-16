@@ -16,8 +16,9 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] 75% fab-ready — PR #136 · [#63](https://github.com/squirelworks/international-squirrel-machines/issues/63)  
 - [x] TKL fab-ready — PR #138 · [#64](https://github.com/squirelworks/international-squirrel-machines/issues/64)
 - [x] Full-size fab-ready — PR #141 · [#65](https://github.com/squirelworks/international-squirrel-machines/issues/65)
-- [x] 40% fab-ready — [#60](https://github.com/squirelworks/international-squirrel-machines/issues/60) (this PR)
-- [ ] Other sizes (large / XL) — [#66](https://github.com/squirelworks/international-squirrel-machines/issues/66) / [#67](https://github.com/squirelworks/international-squirrel-machines/issues/67)
+- [x] 40% fab-ready — PR #144 · [#60](https://github.com/squirelworks/international-squirrel-machines/issues/60)
+- [x] Large fab-ready — [#66](https://github.com/squirelworks/international-squirrel-machines/issues/66) (this PR)
+- [ ] Extra-large — [#67](https://github.com/squirelworks/international-squirrel-machines/issues/67)
 - [ ] Polish and inquire for release
 
 ## Phase 2 — Input Devices

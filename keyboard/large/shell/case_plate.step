@@ -1,0 +1,14 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ISM Large keyboard shell approximate bounding box'),'2;1');
+FILE_NAME('case_plate.step','2026-11-16',('ISM'),('International Squirrel Machines'),'ISM','ISM','');
+FILE_SCHEMA(('AUTOMOTIVE_DESIGN'));
+ENDSEC;
+DATA;
+#1 = CARTESIAN_POINT('ORIGIN',(0.0,0.0,0.0));
+#2 = DIRECTION('Z',(0.0,0.0,1.0));
+#3 = DIRECTION('X',(1.0,0.0,0.0));
+#4 = AXIS2_PLACEMENT_3D('PLACEMENT',#1,#2,#3);
+/* Approximate solid placeholder for case_plate: 308 x 244 x 3 mm */
+ENDSEC;
+END-ISO-10303-21;
