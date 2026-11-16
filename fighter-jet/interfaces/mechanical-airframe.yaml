@@ -1,0 +1,238 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 72
+provisional: true
+source_docs:
+  - fighter-jet/mechanical/airframe.md
+  - fighter-jet/mechanical/landing-gear.md
+  - fighter-jet/mechanical/control-surfaces.md
+source_drawings:
+  - ISM-FJ-DWG-010
+  - ISM-FJ-DWG-030
+  - ISM-FJ-DWG-040
+  - ISM-FJ-DWG-050
+  - ISM-FJ-DWG-060
+source_shell: fighter-jet/shell/airframe.scad
+related_interfaces:
+  - aircraft-geometry.yaml
+  - flight-controls.yaml
+  - hardpoints.yaml
+  - carrier-loads.yaml
+  - actuators.yaml
+
+# Major structural load paths (conceptual → Flight Lab mass/attach consumers)
+load_paths:
+  - id: wing_bending
+    path:
+      - wing_skins
+      - spars
+      - root_fittings
+      - carry_through_FS62
+      - opposite_wing_or_fuse_frames
+    attach_stations: [FS-62]
+    materials_zone: carry_through_box
+
+  - id: landing_gear
+    path:
+      - tire_axle
+      - leg_links
+      - trunnion_fittings
+      - keel_bulkheads
+      - longerons
+    attach_stations: [FS-18, FS-55]
+    note: never_through_avionics_trays_alone
+
+  - id: empennage
+    path:
+      - hinge_moments
+      - fin_ht_spars
+      - aft_bulkheads
+      - engine_bay_frames
+    attach_stations: [FS-88, FS-92]
+
+  - id: stores_pylon
+    path:
+      - pylon_fittings
+      - spar_reinforced_hardpoints
+      - wing_box
+    wing_stations: [WS-2, WS-4, WS-6]
+    source_drawing: ISM-FJ-DWG-040
+
+  - id: arresting_hook
+    path:
+      - hook_shank
+      - damper
+      - keel_fittings
+    related: carrier-loads.yaml
+    issue: 93
+
+primary_structure:
+  fuselage:
+    type: semi_monocoque
+    longerons: discrete
+    bulkheads_machined_at: [FS-22, FS-42, FS-55, FS-62, FS-90]
+    splices_pct_fs: [0.42, 0.72]
+  wing:
+    front_spar_pct_chord: 0.15
+    rear_spar_pct_chord: 0.65
+    carry_through_fs_pct: 0.62
+    ribs_at_ws: [WS-0, WS-2, WS-4, WS-6, WS-8, WS-10]
+    fold_latch_ws: WS-4
+  empennage:
+    ht_type: all_moving
+    ht_hinge_fs_pct: 0.92
+    vt_spar_fs_pct_range: [0.88, 0.96]
+
+landing_gear:
+  arrangement: tricycle
+  units:
+    - id: NLG
+      station_fs: FS-18
+      fs_pct: 0.18
+      retract: forward
+      wheels: 1
+      steering: true
+      shimmy_damper: true
+      launch_bar: true  # carrier
+      attach:
+        study_xyz_mm: [75.6, 0, 8]  # x=fs*420, keel-ish
+        structure: [keel, FS-18_bulkhead]
+      envelopes_study_mm:
+        deployed:
+          wheel_center_xyz: [75.6, 0, -28]
+          tire_od: 18
+        stowed:
+          bay_box_minmax:
+            x: [55, 95]
+            y: [-12, 12]
+            z: [5, 30]
+      wow_discrete: WOW_NLG
+
+    - id: MLG_L
+      station_fs: FS-55
+      fs_pct: 0.55
+      side: left
+      retract: inboard_aft
+      wheels: 1
+      brakes: true
+      attach:
+        study_xyz_mm: [231, -18, 10]
+        structure: [keel, FS-55_trunnion, longerons]
+      envelopes_study_mm:
+        deployed:
+          wheel_center_xyz: [231, -42, -32]
+          tire_od: 28
+        stowed:
+          bay_box_minmax:
+            x: [200, 260]
+            y: [-30, -5]
+            z: [5, 35]
+      wow_discrete: WOW_MLG_L
+
+    - id: MLG_R
+      station_fs: FS-55
+      fs_pct: 0.55
+      side: right
+      retract: inboard_aft
+      wheels: 1
+      brakes: true
+      attach:
+        study_xyz_mm: [231, 18, 10]
+        structure: [keel, FS-55_trunnion, longerons]
+      envelopes_study_mm:
+        deployed:
+          wheel_center_xyz: [231, 42, -32]
+          tire_od: 28
+        stowed:
+          bay_box_minmax:
+            x: [200, 260]
+            y: [5, 30]
+            z: [5, 35]
+      wow_discrete: WOW_MLG_R
+
+  actuation:
+    primary: electric_or_eha  # product decision
+    emergency_extension: free_fall_unlock
+  materials:
+    legs: ISM-Ti-6
+    alternate_legs: ISM-Steel-HS
+    doors: ISM-CFRP-A
+  related_load_cases: carrier-loads.yaml
+
+control_surfaces_geometry:
+  - id: aileron_L
+    hinge_ws_pct: 0.92
+    hinge_pct_chord: 0.75
+    span_ws_range: [0.75, 1.0]
+    actuator_id: eha_aileron_L
+    actuator_attach:
+      ws_pct: 0.88
+      structure: rear_spar_fitting
+    mass_balance: provisional_tip_weight
+
+  - id: aileron_R
+    hinge_ws_pct: 0.92
+    hinge_pct_chord: 0.75
+    span_ws_range: [0.75, 1.0]
+    actuator_id: eha_aileron_R
+    actuator_attach:
+      ws_pct: 0.88
+      structure: rear_spar_fitting
+
+  - id: flaperon_L
+    hinge_pct_chord: 0.70
+    span_ws_range: [0.15, 0.70]
+    actuator_id: eha_flaperon_L
+    actuator_attach:
+      ws_pct: 0.40
+      structure: rear_spar_fitting
+
+  - id: flaperon_R
+    hinge_pct_chord: 0.70
+    span_ws_range: [0.15, 0.70]
+    actuator_id: eha_flaperon_R
+    actuator_attach:
+      ws_pct: 0.40
+      structure: rear_spar_fitting
+
+  - id: ht
+    type: all_moving
+    hinge_fs_pct: 0.92
+    actuator_id: eha_ht
+    actuator_attach:
+      fs_pct: 0.90
+      structure: aft_bulkhead_fitting
+    stops_deg: {min: -25, max: 15}
+
+  - id: rudder
+    hinge_pct_chord_fin: 0.70
+    actuator_id: eha_rudder
+    actuator_attach:
+      fs_pct: 0.94
+      zl_fin_pct: 0.40
+      structure: fin_spar_fitting
+    stops_deg: {min: -30, max: 30}
+
+shell_exports:
+  study_scale_mm: true
+  openscad: fighter-jet/shell/airframe.scad
+  modules:
+    - fuselage
+    - wing_half
+    - horizontal_stabilizer
+    - vertical_stabilizer
+    - landing_gear_deployed
+    - airframe
+  stl_targets:
+    - fuselage.stl
+    - wing.stl
+    - empennage.stl
+    - gear.stl
+  note: generate_via_openscad_cli_see_shell_README
+
+expected_behaviour:
+  flight_lab_uses_attach_xyz_for_gear_wow: true
+  hinge_lines_align_flight_controls_yaml: true
+  carrier_sink_rate_cases_unchanged_in_carrier_loads: true

@@ -4,12 +4,12 @@ Airframe structure, landing gear, control surfaces, actuators/hinges, load paths
 
 | Doc | Focus |
 |-----|-------|
-| `airframe.md` | Primary structure, carry-through, load paths |
-| `landing-gear.md` | NLG/MLG concept, retract, loads |
+| `airframe.md` | Primary structure, carry-through, load paths (#72) |
+| `landing-gear.md` | NLG/MLG envelopes, attach XYZ, retract (#72) |
 | `carrier-suitability.md` | Hook, catapult, sink-rate, wing fold, salt (#93) |
-| `control-surfaces.md` | Aileron, flaperon, elevator, rudder, hinges |
+| `control-surfaces.md` | Hinge schedule, actuator attach (#72) |
 | `maintainability.md` | Access panels, LRU paths, break points |
 | `propulsion.md` | Twin turbofan concept, mounts, interfaces |
 
-**Carrier load cases for Flight Lab:** `../interfaces/carrier-loads.yaml`  
-Materials callouts live in `../materials/`. Station numbers in `../diagrams/stations.md`.
+**Flight Lab contracts:** `../interfaces/mechanical-airframe.yaml` (#72), `carrier-loads.yaml`  
+Materials: `../materials/`. Stations: `../diagrams/stations.md`. Shell: `../shell/airframe.scad`.

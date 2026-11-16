@@ -1,12 +1,10 @@
-// ISM Fighter Jet — parametric airframe shell (study model)
-// International Squirrel Machines · Pure Squirrel-OS/2 Warp hardware
-// Units: millimeters. Full air-vehicle program lives in sibling dirs
-// (diagrams/, materials/, mechanical/, hydraulics/, flight-controls/,
-// avionics/, sensors-weapons/). This file is the proportion / print slice.
-// Station % FS maps: see diagrams/stations.md (FS-0 nose → FS-100 nozzle).
+// ISM Fighter Jet — parametric airframe shell (study model) · #72
+// International Squirrel Machines
+// Units: millimeters. Aligns to aircraft-geometry.yaml FS/WS tables.
+// Structural authority: mechanical/ + interfaces/mechanical-airframe.yaml
 
 /* [Overall] */
-fuselage_length = 420; // study length; %FS * this = station mm
+fuselage_length = 420;
 fuselage_width  = 48;
 fuselage_height = 56;
 nose_length     = 90;
@@ -14,7 +12,7 @@ wing_span       = 280;
 wing_root_chord = 110;
 wing_tip_chord  = 45;
 wing_thickness  = 12;
-wing_sweep      = 35; // degrees
+wing_sweep      = 35;
 htail_span      = 100;
 htail_chord     = 50;
 htail_thickness = 6;
@@ -27,10 +25,18 @@ avionics_bay_w   = 80;
 avionics_bay_h   = 18;
 badge_depth      = 1.2;
 
+// Station helpers (pct FS → X)
+function fs_x(pct) = fuselage_length * pct;
+wing_le_x = nose_length + 80; // LE root ≈ FS region matching study
+wing_z    = fuselage_height * 0.35;
+
+show_stations = true;
+show_structure_planes = true;
+show_gear_deployed = true;
+
 module fuselage() {
     difference() {
         union() {
-            // main body
             hull() {
                 translate([nose_length, 0, fuselage_height/2])
                     scale([1, fuselage_width/fuselage_height, 1])
@@ -39,12 +45,10 @@ module fuselage() {
                     scale([1.2, fuselage_width/fuselage_height * 0.7, 0.7])
                         sphere(d=fuselage_height * 0.85);
             }
-            // canopy blister
             translate([nose_length + 40, 0, fuselage_height * 0.85])
                 scale([1.6, 0.7, 0.55])
                     sphere(d=fuselage_width);
         }
-        // hollow
         translate([nose_length + 10, 0, fuselage_height/2])
             scale([0.92, (fuselage_width - 2*wall)/fuselage_width,
                    (fuselage_height - 2*wall)/fuselage_height])
@@ -54,35 +58,51 @@ module fuselage() {
                         scale([1.2, 0.7, 0.7])
                             sphere(d=fuselage_height * 0.85);
                 }
-        // avionics bay cutout (dorsal hatch)
+        // Avionics bay dorsal hatch (FS-48 region)
         translate([nose_length + 30, -avionics_bay_w/2, fuselage_height - avionics_bay_h])
             cube([avionics_bay_l, avionics_bay_w, avionics_bay_h + 2]);
-        // intake / nozzle placeholders
+        // Intake / nozzle placeholders
         translate([-2, 0, fuselage_height * 0.35])
             rotate([0, 90, 0])
                 cylinder(h=nose_length * 0.4, d=fuselage_width * 0.35, $fn=32);
         translate([fuselage_length - 30, 0, fuselage_height * 0.4])
             rotate([0, 90, 0])
                 cylinder(h=40, d=fuselage_width * 0.45, $fn=32);
+        // NLG well (FS-18) — stowed bay
+        translate([55, -12, 5]) cube([40, 24, 28]);
+        // MLG wells (FS-55)
+        translate([200, -30, 5]) cube([60, 25, 32]);
+        translate([200, 5, 5]) cube([60, 25, 32]);
     }
 }
 
+module wing_planform(side=1) {
+    polygon([
+        [0, 0],
+        [wing_root_chord, 0],
+        [wing_tip_chord * 0.4, side * wing_span/2],
+        [0, side * wing_span/2 * 0.85]
+    ]);
+}
+
 module wing_half(side=1) {
-    // side: +1 right, -1 left (looking forward)
-    translate([nose_length + 80, 0, fuselage_height * 0.35])
+    translate([wing_le_x, 0, wing_z])
         rotate([0, 0, -side * wing_sweep])
             translate([0, side * fuselage_width/2, 0])
-                linear_extrude(height=wing_thickness, center=true)
-                    polygon([
-                        [0, 0],
-                        [wing_root_chord, 0],
-                        [wing_tip_chord * 0.4, side * wing_span/2],
-                        [0, side * wing_span/2 * 0.85]
-                    ]);
+                difference() {
+                    linear_extrude(height=wing_thickness, center=true)
+                        wing_planform(side);
+                    // Aileron hinge groove (~75% chord, outboard)
+                    translate([wing_root_chord * 0.75, side * wing_span * 0.38, 0])
+                        cube([2.5, wing_span * 0.28, wing_thickness + 2], center=true);
+                    // Flaperon hinge groove (~70% chord, inboard)
+                    translate([wing_root_chord * 0.70, side * wing_span * 0.18, 0])
+                        cube([2.5, wing_span * 0.32, wing_thickness + 2], center=true);
+                }
 }
 
 module horizontal_stabilizer() {
-    translate([fuselage_length - 70, 0, fuselage_height * 0.45])
+    translate([fs_x(0.92) - htail_chord * 0.3, 0, fuselage_height * 0.45])
         linear_extrude(height=htail_thickness, center=true)
             polygon([
                 [0, -htail_span/2],
@@ -103,7 +123,11 @@ module vertical_stabilizer() {
                         [vtail_chord * 0.55, vtail_height],
                         [vtail_chord * 0.15, vtail_height]
                     ]);
-        // ISM badge recess on fin
+        // Rudder hinge groove (~70% chord)
+        translate([fuselage_length - 90 + vtail_chord * 0.70, 0,
+                   fuselage_height * 0.7 + vtail_height * 0.35])
+            cube([2.5, vtail_thickness + 4, vtail_height * 0.7], center=true);
+        // ISM badge recess
         translate([fuselage_length - 70, vtail_thickness/2 - 0.1,
                    fuselage_height * 0.7 + vtail_height * 0.45])
             rotate([90, 0, 0])
@@ -112,48 +136,90 @@ module vertical_stabilizer() {
 }
 
 module ism_badge_boss() {
-    // printable badge insert for vertical stabilizer
     translate([fuselage_length - 70, vtail_thickness/2 + 0.5,
                fuselage_height * 0.7 + vtail_height * 0.45])
         rotate([90, 0, 0])
             cylinder(h=badge_depth, d=12, $fn=32);
 }
 
-// Station reference discs (debug / alignment with diagrams/stations.md)
-show_stations = true;
 module station_marker(fs_pct, d=3) {
-    translate([fuselage_length * fs_pct, 0, fuselage_height + 4])
+    translate([fs_x(fs_pct), 0, fuselage_height + 4])
         color("SaddleBrown") sphere(d=d, $fn=12);
 }
 
 module station_set() {
     if (show_stations) {
-        station_marker(0.00); // FS-0 nose
-        station_marker(0.12); // radar/EO bulkhead
-        station_marker(0.22); // pressure bulkhead
-        station_marker(0.48); // avionics bay
+        station_marker(0.00);
+        station_marker(0.12);
+        station_marker(0.18); // NLG
+        station_marker(0.22);
+        station_marker(0.48);
         station_marker(0.55); // MLG
-        station_marker(0.62); // wing carry-through
-        station_marker(0.90); // engine mounts
-        station_marker(1.00); // nozzle
+        station_marker(0.62); // carry-through
+        station_marker(0.90);
+        station_marker(0.92); // HT hinge
+        station_marker(1.00);
     }
+}
+
+// Spar / rib study planes (debug — not printable mass)
+module structure_planes() {
+    if (show_structure_planes) {
+        // Carry-through FS-62 slab
+        translate([fs_x(0.62), 0, wing_z])
+            color("SteelBlue", 0.35)
+                cube([6, fuselage_width + 20, wing_thickness + 8], center=true);
+        // Wing rib posts at WS fractions (right wing LE frame)
+        for (ws = [0, 0.25, 0.50, 0.75, 0.92, 1.0]) {
+            translate([wing_le_x + wing_root_chord * 0.4,
+                       fuselage_width/2 + ws * wing_span/2, wing_z])
+                color("DarkOliveGreen", 0.4)
+                    cube([wing_root_chord * 0.5, 2, wing_thickness + 4], center=true);
+        }
+    }
+}
+
+module gear_leg(xyz, tire_od) {
+    translate(xyz) {
+        cylinder(h=abs(xyz[2]) + 6, d=4, $fn=16);
+        translate([0, 0, -tire_od/2])
+            rotate([0, 90, 0])
+                cylinder(h=6, d=tire_od, center=true, $fn=24);
+    }
+}
+
+module landing_gear_deployed() {
+    // Matches mechanical-airframe.yaml envelopes (study mm)
+    gear_leg([75.6, 0, 8], 18);       // NLG
+    gear_leg([231, -42, 10], 28);     // MLG L (wheel at y=-42)
+    gear_leg([231, 42, 10], 28);      // MLG R
+}
+
+module empennage() {
+    horizontal_stabilizer();
+    vertical_stabilizer();
+    ism_badge_boss();
+}
+
+module wing() {
+    wing_half(+1);
+    wing_half(-1);
 }
 
 module airframe() {
     fuselage();
-    wing_half(+1);
-    wing_half(-1);
-    horizontal_stabilizer();
-    vertical_stabilizer();
-    ism_badge_boss();
+    wing();
+    empennage();
     station_set();
+    structure_planes();
+    if (show_gear_deployed) landing_gear_deployed();
 }
 
-// Preview assembly. Comment out and call parts for separate STLs.
+// Preview assembly. For STL export, comment airframe() and call one module.
 airframe();
 
-// Part selectors for export:
+// Export selectors (OpenSCAD CLI -D '...' or uncomment one):
 // fuselage();
-// wing_half(+1); wing_half(-1);
-// horizontal_stabilizer();
-// vertical_stabilizer();
+// wing();
+// empennage();
+// landing_gear_deployed();
