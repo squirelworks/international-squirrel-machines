@@ -14,8 +14,8 @@ Rev **A** pins interface **keys and drawing cross-refs** after firmware bring-up
 | Materials | `materials-zones.yaml`, `materials-allowables.yaml` |
 | FBW / actuators | `flight-controls.yaml`, `actuators.yaml`, `hydraulics.yaml` |
 | Avionics / FW | `avionics-bus.yaml`, `avionics-architecture.yaml`, `firmware-bringup.yaml` |
-| Sensors | `sensors.yaml` |
-| Stores (integration only) | `hardpoints.yaml`, `sms-interface.yaml`, `inert-stores.yaml` |
+| Sensors | `sensors.yaml` (incl. `apertures[]`) |
+| Stores (integration only) | `hardpoints.yaml`, `sms-interface.yaml`, `inert-stores.yaml`, `carriage-drag.yaml`, `safe-inhibit-table.yaml` |
 
 ## Soft MVP
 Flight Lab (#79) and HIL UI (#80) are Steve’s lane — co-checks listed in `validation-matrix.yaml` remain **pending Soft** where noted.

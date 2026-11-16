@@ -1,0 +1,128 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 122
+related_issues: [77]
+provisional: true
+scope: safe_inhibit_logic_lab_only
+excluded:
+  - guidance
+  - seekers
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - executable_arm_release_sequences
+  - live_release_timing
+source_docs:
+  - fighter-jet/sensors-weapons/stores-safeing.md
+  - fighter-jet/sensors-weapons/lab-policy.md
+related_interfaces:
+  - sms-interface.yaml
+  - hardpoints.yaml
+  - flight-controls.yaml
+
+note: >
+  Truth table for bench / Flight Lab simulation. Outputs are SAFE or INHIBIT
+  only. No row commands ARM or RELEASE. armed_consent elsewhere means
+  dual-consent path ready — not munition arming.
+
+# Inputs (boolean unless noted)
+inputs:
+  - id: wow_any
+    description: Any weight-on-wheels true
+  - id: maintenance_override_pin
+    description: Maintenance override installed (defeats WOW force-SAFE only)
+  - id: ground_pin_installed
+    description: Mechanical ground safe pin installed
+  - id: fcc_inhibit
+    description: fcc.stores_inhibit.inhibit true (envelope / gear / sensors)
+  - id: safe_arm_eq_SAFE
+    description: sms.safe_arm_discrete == SAFE
+  - id: mode_safe_or_training
+    description: mc.stores_mode in {safe, training_sim}
+  - id: outside_sep_envelope
+    description: Outside separation envelope for selected store
+  - id: sensor_disagree
+    description: FCS air-data / IMU disagree degraded
+  - id: hung_store
+    description: Hung store detected on any station
+  - id: essential_bus_abnormal
+    description: Essential 28 V bus out of limits
+  - id: lab_sim_only
+    description: Lab policy forces sim-only (no physical release path)
+  - id: gear_unsafe
+    description: Gear position unsafe for selected mode
+  - id: aoa_envelope_unsafe
+    description: AOA / Nz outside FCC envelope
+  - id: mc_fcc_disagree
+    description: MC stores logic vs FCC veto disagreement
+
+# Outputs allowed in this table
+allowed_outputs: [SAFE, INHIBIT]
+forbidden_outputs: [ARM, RELEASE, ARM_RELEASE]
+
+# Condition → SAFE/INHIBIT (every listed input condition has a defined output)
+rows:
+  - id: FS-01
+    when: {wow_any: true, maintenance_override_pin: false}
+    output: SAFE
+    test_id: SAFE-T-01
+  - id: FS-02
+    when: {ground_pin_installed: true}
+    output: SAFE
+    test_id: SAFE-T-02
+  - id: FS-03
+    when: {fcc_inhibit: true}
+    output: INHIBIT
+    test_id: SAFE-T-03
+  - id: FS-04
+    when: {safe_arm_eq_SAFE: true}
+    output: SAFE
+    test_id: SAFE-T-04
+  - id: FS-05
+    when: {mode_safe_or_training: true}
+    output: SAFE
+    test_id: SAFE-T-05
+  - id: FS-06
+    when: {outside_sep_envelope: true}
+    output: INHIBIT
+    test_id: SAFE-T-06
+  - id: FS-07
+    when: {sensor_disagree: true}
+    output: INHIBIT
+    test_id: SAFE-T-07
+  - id: FS-08
+    when: {hung_store: true}
+    output: INHIBIT
+    test_id: SAFE-T-08
+    notes: inhibit_that_station_and_report
+  - id: FS-09
+    when: {essential_bus_abnormal: true}
+    output: SAFE
+    test_id: SAFE-T-09
+  - id: FS-10
+    when: {lab_sim_only: true}
+    output: SAFE
+    test_id: SAFE-T-10
+  - id: FS-11
+    when: {gear_unsafe: true}
+    output: INHIBIT
+    test_id: SAFE-T-11
+  - id: FS-12
+    when: {aoa_envelope_unsafe: true}
+    output: INHIBIT
+    test_id: SAFE-T-12
+  - id: FS-13
+    when: {mc_fcc_disagree: true}
+    output: SAFE
+    test_id: SAFE-T-13
+    notes: disagreement forces SAFE until resolved
+
+precedence: any_matching_row_forces_SAFE_or_INHIBIT_never_ARM
+
+expected_behaviour:
+  no_arm_or_release_in_table: true
+  flight_lab_consumes: true
+  maps_to_sms_force_safe: true

@@ -3,6 +3,7 @@ aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
 issue: 101
+related_issues: [122, 77]
 provisional: true
 scope: integration_multi_origin_only
 excluded:
@@ -19,10 +20,20 @@ source_docs:
   - fighter-jet/interfaces/hardpoints.yaml
   - fighter-jet/interfaces/inert-stores.yaml
   - fighter-jet/interfaces/sms-interface.yaml
+  - fighter-jet/sensors-weapons/lab-policy.md
 source_drawings:
   - ISM-FJ-DWG-040
+  - ISM-FJ-DWG-081
 
 citations:
+  - id: mil-std-8591
+    title: "MIL-STD-8591 Change 1"
+    url: "https://everyspec.com/MIL-STD/MIL-STD-3000-9999/MIL-STD-8591_CHG-1_49641/"
+    used_for: "Carriage / clearance criteria; lug classes"
+  - id: mil-hdbk-1763
+    title: "MIL-HDBK-1763 Aircraft/Stores Compatibility"
+    url: "https://everyspec.com/MIL-HDBK/MIL-HDBK-1500-1799/MIL_HDBK_1763_1775/"
+    used_for: "Fit / carriage / clearance checklist"
   - id: mil-a-8591-table
     title: "MIL-A-8591 / store suspension lug spacing table (public PDF mirror)"
     url: "https://www.dror-aero.com/link/mil/mil-std-8591.pdf"
@@ -215,8 +226,57 @@ station_mechanical_options:
   STA-8: [ism_native_80mm, nato_14in, nato_30in, cn_pylon_adapter, jp_pylon_adapter]
   STA-9: [ism_native_80mm, nato_14in, nato_30in]
 
+# A4 #122 — per-station max class / lug / clearance (mirrors hardpoints.yaml; SS#173)
+station_limits:
+  STA-1:
+    max_store_class: {mass_kg_max: 150, length_m_max: 3.2, diameter_m_max: 0.15}
+    lug_class: tip_rail_native
+    clearance_envelope: {ground_clearance_mm_min: 120, adjacent_store_gap_mm_min: 40, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-2:
+    max_store_class: {mass_kg_max: 150, length_m_max: 3.2, diameter_m_max: 0.15}
+    lug_class: tip_rail_native
+    clearance_envelope: {ground_clearance_mm_min: 120, adjacent_store_gap_mm_min: 40, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-3:
+    max_store_class: {mass_kg_max: 300, length_m_max: 4.0, diameter_m_max: 0.22}
+    lug_class: nato_14in
+    clearance_envelope: {ground_clearance_mm_min: 100, adjacent_store_gap_mm_min: 50, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-4:
+    max_store_class: {mass_kg_max: 300, length_m_max: 4.0, diameter_m_max: 0.22}
+    lug_class: nato_14in
+    clearance_envelope: {ground_clearance_mm_min: 100, adjacent_store_gap_mm_min: 50, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-5:
+    max_store_class: {mass_kg_max: 700, length_m_max: 4.2, diameter_m_max: 0.45}
+    lug_class: nato_14in_or_30in
+    clearance_envelope: {ground_clearance_mm_min: 90, adjacent_store_gap_mm_min: 55, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-6:
+    max_store_class: {mass_kg_max: 700, length_m_max: 4.2, diameter_m_max: 0.45}
+    lug_class: nato_14in_or_30in
+    clearance_envelope: {ground_clearance_mm_min: 90, adjacent_store_gap_mm_min: 55, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-7:
+    max_store_class: {mass_kg_max: 1200, length_m_max: 4.5, diameter_m_max: 0.50}
+    lug_class: nato_30in
+    clearance_envelope: {ground_clearance_mm_min: 80, adjacent_store_gap_mm_min: 60, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-8:
+    max_store_class: {mass_kg_max: 1200, length_m_max: 4.5, diameter_m_max: 0.50}
+    lug_class: nato_30in
+    clearance_envelope: {ground_clearance_mm_min: 80, adjacent_store_gap_mm_min: 60, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+  STA-9:
+    max_store_class: {mass_kg_max: 1500, length_m_max: 5.0, diameter_m_max: 0.55}
+    lug_class: nato_30in
+    clearance_envelope: {ground_clearance_mm_min: 70, adjacent_store_gap_mm_min: 80, provisional: true}
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+
 expected_behaviour:
   flight_lab_loads: multi-origin-stores.yaml
   sms_still_owns_consent: true
   fcc_envelope_veto_unchanged: true
   no_weapon_internals_in_repo: true
+  station_limits_for_ss173: true

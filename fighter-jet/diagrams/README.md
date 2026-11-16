@@ -17,6 +17,8 @@ Downstream mechanical / systems / Flight Lab work cites **drawing IDs** below (n
 | ISM-FJ-DWG-050 | A | `fuselage-stations.svg` + `stations.md` | % FS / study mm | Fuselage & wing station tables |
 | ISM-FJ-DWG-060 | A | `wing-plan.svg` | Study proportions; spars % chord | Wing box spars / ribs |
 | ISM-FJ-DWG-070 | A | `systems-overview.svg` | Schematic (N/A) | Sensors → MC/FCC → EHA overview |
+| ISM-FJ-DWG-080 | A | `sensor-aperture-keepouts.md` | Study mm + % FS | Sensor aperture envelopes vs OML / gear keep-outs (A4 #122) |
+| ISM-FJ-DWG-081 | A | `pylon-rail-icd.md` | Study mm + lug class | Pylon / rail interface ICD + clearance (A4 #122) |
 
 ## Supporting notes (not drawings)
 

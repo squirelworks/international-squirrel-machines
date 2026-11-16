@@ -44,7 +44,9 @@ Rows authoritative in `sensors.yaml`.
 ## Flight Lab stubs
 Topics listed under `flight_lab_stubs` in YAML (tracks, BIT, IMU/air-data). No third-party sim as source of truth (#79 co-check).
 
-## Still open
-- Exact aperture diameter vs nose trade
-- Cooling power refinement
+## A4 packaging
+Aperture envelopes, FOR keep-outs, and nose OML containment: `sensor-integration.md` + `sensors.yaml` `apertures[]` + `shell/check_sensor_apertures.sh`.
+
+## Still open (out of A4 scope)
+- Cooling power refinement beyond class budgets
 - Antenna RF survey; LPI/ECCM claims stay non-specific

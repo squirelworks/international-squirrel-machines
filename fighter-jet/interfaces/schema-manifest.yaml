@@ -24,8 +24,11 @@ files:
   - path: sensors.yaml
     purpose: sensor_suite_mounts_power_data_stubs
     issue: 76
+    related_issues: [122]
   - path: hardpoints.yaml
     purpose: stores_stations
+    issue: 77
+    related_issues: [122]
   - path: actuators.yaml
     purpose: eha_channels
   - path: avionics-bus.yaml
@@ -84,6 +87,14 @@ files:
   - path: propulsion.yaml
     purpose: propulsion_envelope_inlet_mounts_offtakes
     issue: 120
+  - path: carriage-drag.yaml
+    purpose: carriage_drag_delta_cd0_loadouts
+    issue: 122
+    related_issues: [77, 94]
+  - path: safe-inhibit-table.yaml
+    purpose: stores_safe_inhibit_truth_table
+    issue: 122
+    related_issues: [77]
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

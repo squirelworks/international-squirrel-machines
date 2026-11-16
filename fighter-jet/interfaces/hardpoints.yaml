@@ -3,17 +3,21 @@ aircraft_id: "ISM-FJ-1"
 revision: "A"
 status: stub
 issue: 77
-related_issues: [94, 101]
-source_drawings: ["ISM-FJ-DWG-040", "ISM-FJ-DWG-030", "ISM-FJ-DWG-060"]
+related_issues: [94, 101, 122]
+source_drawings: ["ISM-FJ-DWG-040", "ISM-FJ-DWG-030", "ISM-FJ-DWG-060", "ISM-FJ-DWG-081"]
 source_docs:
   - fighter-jet/diagrams/hardpoints.md
   - fighter-jet/sensors-weapons/stores.md
   - fighter-jet/sensors-weapons/stores-safeing.md
   - fighter-jet/sensors-weapons/stores-integration.md
+  - fighter-jet/sensors-weapons/lab-policy.md
 related_interfaces:
   - inert-stores.yaml
   - sms-interface.yaml
   - multi-origin-stores.yaml
+  - carriage-drag.yaml
+  - safe-inhibit-table.yaml
+  - mechanical-airframe.yaml
 
 wet_hardpoints: false  # product decision baseline dry
 gun_bay: optional_product_decision
@@ -22,6 +26,21 @@ drawing_ids:
   station_map: ISM-FJ-DWG-040
   spar_pads: ISM-FJ-DWG-030
   wing_plan: ISM-FJ-DWG-060
+  pylon_rail_icd: ISM-FJ-DWG-081
+
+citations:
+  - id: mil-std-8591
+    title: "MIL-STD-8591 Change 1 — Airborne Stores, Suspension Equipment and Aircraft-Store Interface (Carriage Phase)"
+    url: "https://everyspec.com/MIL-STD/MIL-STD-3000-9999/MIL-STD-8591_CHG-1_49641/"
+    used_for: "Carriage loads, suspension, clearance design criteria"
+  - id: mil-hdbk-1763
+    title: "MIL-HDBK-1763 Aircraft/Stores Compatibility"
+    url: "https://everyspec.com/MIL-HDBK/MIL-HDBK-1500-1799/MIL_HDBK_1763_1775/"
+    used_for: "Fit / carriage / clearance data-package checklist"
+  - id: mil-std-1760e
+    title: "MIL-STD-1760E Aircraft/Store Electrical Interconnection System"
+    url: "https://everyspec.com/MIL-STD/MIL-STD-1700-1799/MIL-STD-1760E_10197/"
+    used_for: "Connector / interface class only — no release or arming signal semantics"
 
 stations:
   - id: STA-1
@@ -33,6 +52,22 @@ stations:
     role: wingtip_rail
     hardware: rail_tip
     mass_class_kg_max: 150
+    max_store_class:
+      mass_kg_max: 150
+      length_m_max: 3.2
+      diameter_m_max: 0.15
+      public_class_range: "short-range AAM-class inert"
+    lug_class: tip_rail_native
+    lug_spacing_mm: null
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 120
+      adjacent_store_gap_mm_min: 40
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: ism_native
   - id: STA-2
     side: right
     fs_pct: 0.58
@@ -42,6 +77,22 @@ stations:
     role: wingtip_rail
     hardware: rail_tip
     mass_class_kg_max: 150
+    max_store_class:
+      mass_kg_max: 150
+      length_m_max: 3.2
+      diameter_m_max: 0.15
+      public_class_range: "short-range AAM-class inert"
+    lug_class: tip_rail_native
+    lug_spacing_mm: null
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 120
+      adjacent_store_gap_mm_min: 40
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: ism_native
   - id: STA-3
     side: left
     fs_pct: 0.60
@@ -51,6 +102,22 @@ stations:
     role: outboard_pylon
     hardware: pylon_rail_light
     mass_class_kg_max: 300
+    max_store_class:
+      mass_kg_max: 300
+      length_m_max: 4.0
+      diameter_m_max: 0.22
+      public_class_range: "light AAM / pod class"
+    lug_class: nato_14in
+    lug_spacing_mm: 355.6
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 100
+      adjacent_store_gap_mm_min: 50
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
   - id: STA-4
     side: right
     fs_pct: 0.60
@@ -60,6 +127,22 @@ stations:
     role: outboard_pylon
     hardware: pylon_rail_light
     mass_class_kg_max: 300
+    max_store_class:
+      mass_kg_max: 300
+      length_m_max: 4.0
+      diameter_m_max: 0.22
+      public_class_range: "light AAM / pod class"
+    lug_class: nato_14in
+    lug_spacing_mm: 355.6
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 100
+      adjacent_store_gap_mm_min: 50
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
   - id: STA-5
     side: left
     fs_pct: 0.61
@@ -69,6 +152,23 @@ stations:
     role: mid_pylon
     hardware: pylon_ejector_medium
     mass_class_kg_max: 700
+    max_store_class:
+      mass_kg_max: 700
+      length_m_max: 4.2
+      diameter_m_max: 0.45
+      public_class_range: "medium AAM / fuel / strike-class inert"
+    lug_class: nato_14in_or_30in
+    lug_spacing_mm: 355.6
+    lug_spacing_alt_mm: 762.0
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 90
+      adjacent_store_gap_mm_min: 55
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
   - id: STA-6
     side: right
     fs_pct: 0.61
@@ -78,6 +178,23 @@ stations:
     role: mid_pylon
     hardware: pylon_ejector_medium
     mass_class_kg_max: 700
+    max_store_class:
+      mass_kg_max: 700
+      length_m_max: 4.2
+      diameter_m_max: 0.45
+      public_class_range: "medium AAM / fuel / strike-class inert"
+    lug_class: nato_14in_or_30in
+    lug_spacing_mm: 355.6
+    lug_spacing_alt_mm: 762.0
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 90
+      adjacent_store_gap_mm_min: 55
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
   - id: STA-7
     side: left
     fs_pct: 0.62
@@ -87,6 +204,22 @@ stations:
     role: inboard_pylon
     hardware: pylon_ejector_heavy
     mass_class_kg_max: 1200
+    max_store_class:
+      mass_kg_max: 1200
+      length_m_max: 4.5
+      diameter_m_max: 0.50
+      public_class_range: "heavy / fuel class"
+    lug_class: nato_30in
+    lug_spacing_mm: 762.0
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 80
+      adjacent_store_gap_mm_min: 60
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
   - id: STA-8
     side: right
     fs_pct: 0.62
@@ -96,6 +229,22 @@ stations:
     role: inboard_pylon
     hardware: pylon_ejector_heavy
     mass_class_kg_max: 1200
+    max_store_class:
+      mass_kg_max: 1200
+      length_m_max: 4.5
+      diameter_m_max: 0.50
+      public_class_range: "heavy / fuel class"
+    lug_class: nato_30in
+    lug_spacing_mm: 762.0
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 80
+      adjacent_store_gap_mm_min: 60
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
   - id: STA-9
     side: centerline
     fs_pct: 0.55
@@ -105,10 +254,27 @@ stations:
     role: centerline
     hardware: pylon_ejector_heavy
     mass_class_kg_max: 1500
+    max_store_class:
+      mass_kg_max: 1500
+      length_m_max: 5.0
+      diameter_m_max: 0.55
+      public_class_range: "fuel / EW / large class"
+    lug_class: nato_30in
+    lug_spacing_mm: 762.0
+    citation_ids: [mil-std-8591, mil-hdbk-1763]
+    clearance_envelope:
+      provisional: true
+      ground_clearance_mm_min: 70
+      adjacent_store_gap_mm_min: 80
+      gear_down: true
+      flaps_deflected: true
+      citation_ids: [mil-std-8591]
+    electrical_connector_class: mil_std_1760_class
 
 pylon_geometry_study:
   lug_spacing_fore_aft_mm: 80
   eject_clearance_cone_deg: {outboard: 15, inboard: 10}
+  drawing: ISM-FJ-DWG-081
 
 safeing:
   mechanical_ground_pins: true
@@ -117,7 +283,9 @@ safeing:
   fcc_envelope_veto: true
   jettison_guarded_path: true
   live_fuzing_in_repo: false
+  truth_table: safe-inhibit-table.yaml
 
 expected_behaviour:
   release_blocked_if: [wow_and_not_override, envelope_unsafe, safe_arm_disagree]
   asymmetry_reported_to_fcc: true
+  every_station_has_max_lug_clearance: true

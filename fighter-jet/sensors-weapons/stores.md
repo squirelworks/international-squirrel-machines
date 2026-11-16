@@ -33,6 +33,9 @@ Hardpoints → spars: `ISM-FJ-DWG-040` / `030` / `060`. Geometry & BL/WL: `hardp
 ## Harness
 Stores serial + discretes on trunk W1 (`diagrams/wiring-harness.md`).
 
+## A4 integration (#122)
+Per-station `max_store_class` / `lug_class` / `clearance_envelope` in `hardpoints.yaml` (MIL-STD-8591 / MIL-HDBK-1763 cites). Carriage ΔCD0: `carriage-drag.yaml`. SAFE/INHIBIT truth table: `safe-inhibit-table.yaml`. Lab policy: `lab-policy.md`. Adjacent-store OpenSCAD: `shell/check_stores_clearance.sh`.
+
 ## Product decisions (open)
 - Internal gun vs clean bay
 - Wet vs dry wing hardpoints (baseline **dry**)

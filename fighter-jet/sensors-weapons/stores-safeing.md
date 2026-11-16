@@ -47,10 +47,12 @@ Block 1: SMS is an **MC logical partition** (alias SMC). Topics:
 | FS-10 | Lab sim-only policy | Bench |
 
 ## Lab / demo policy
+Authoritative narrative: `lab-policy.md`. Truth table: `../interfaces/safe-inhibit-table.yaml` (SAFE/INHIBIT only — no ARM/RELEASE rows).
+
 | Venue | Simulated | Physically actuated |
 |-------|-----------|---------------------|
 | Flight Lab (#79) | Release cmd, inhibit, safe/arm state, gates, inventory | None |
-| HIL (#80) | Munition internals, fuzing, seekers | Pylon discrete loopback, safe/arm switch, **resistive** ejector-squib simulator |
+| HIL (#80) | Munition internals, fuzing, seekers | Pylon discrete loopback, safe/arm switch, **resistive** ejector-squib simulator; inert fit only |
 | Never in-repo demos | — | Live ordnance, real squibs, arming devices |
 
 Documentation and bench interfaces only — no unlawful weaponization guidance.
