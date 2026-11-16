@@ -37,7 +37,7 @@ Stations / dimensions: `../interfaces/airframe.yaml`. Study OML: `../shell/airfr
 | Sensors | Nav / weather / EO stub — no targeting employment |
 | Crew | Dual optional vs single + autonomy aids |
 
-KiCad bay boards are the next roadmap step.
+KiCad bay board landed; structural layout: `structural.md` / `structural.yaml`.
 
 ---
 
@@ -79,4 +79,4 @@ KiCad bay boards are the next roadmap step.
 Classroom Breguet range stub and payload mass fraction: `cruise_examples.py` (not a survey product).
 
 ## 6. Next steps
-KiCad, structural spars/ribs, Gerbers/STLs, BOM, polish.
+Gerbers/STLs, BOM, polish remain open after structural study.
