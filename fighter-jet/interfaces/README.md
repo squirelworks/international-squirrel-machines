@@ -17,6 +17,7 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `inert-stores.yaml` | Inert store mass/dims/drag/CG (public class figures) | Stub (#94) |
 | `sms-interface.yaml` | SMS topics, safeing, separation envelopes | Stub (#94) |
 | `manufacturing.yaml` | Zone process/spec/NDT/supply (research) | Stub (#100) |
+| `multi-origin-stores.yaml` | Family×station×adapter + inert catalogue | Stub (#101) |
 
 ## Rules
 1. Units are SI unless a field ends in `_mm` / `_deg` / `_pct` (study-model companions).
