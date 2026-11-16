@@ -9,7 +9,8 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Area | Path |
 |------|------|
 | Diagrams / blueprints | `fighter-jet/diagrams/` (cite `ISM-FJ-DWG-*`) |
-| Flight Lab interfaces | `fighter-jet/interfaces/` (YAML/JSON) |
+| Flight Lab parameters | `fighter-jet/parameters/ism-fj-1.ismfj-params` (#88) |
+| Flight Lab interfaces | `fighter-jet/interfaces/` (YAML + `bay-io.ismfj-iface`) |
 | Materials | `fighter-jet/materials/` |
 | Mechanical | `fighter-jet/mechanical/` |
 | Hydraulics / EHA | `fighter-jet/hydraulics/` |

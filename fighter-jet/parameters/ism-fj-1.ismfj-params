@@ -1,47 +1,109 @@
-# ISM-FJ-1 parameter store — Flight Lab / bay firmware calibration (#88 / A1 #119)
-schema_version: "1.0.0"
-params_id: ism-fj-1
-aircraft_id: "ISM-FJ-1"
-revision: "A"
+ISM-FJ parameters 1
+# Soft Flight Lab / HIL loadable study parameters (#88)
+# Source numbers: shell/airframe.scad, diagrams/stations.md,
+# interfaces/aircraft-geometry.yaml, interfaces/mass-properties.yaml
+# Stores: inert hardpoint geometry only — no seekers/guidance/warheads/fuzing
+# provisional: true until product weight-class freeze
+
+vehicle_id: ISM-FJ-1
+revision: A
 status: stub
-issue: 119
-related_issues: [84, 88]
+issue: 88
+related_issues: 84,119
+units_study: mm
 provisional: true
-units: SI
 
-imu:
-  accel_bias_mps2: [0.0, 0.0, 0.0]
-  gyro_bias_rps: [0.0, 0.0, 0.0]
-  temp_comp:
-    enabled: false
-    ref_c: 25.0
-  self_test:
-    accel_tol_mps2: 0.5
-    gyro_tol_rps: 0.05
+# --- Geometry (study model) ---
+fuselage_length_mm: 420
+fuselage_width_mm: 48
+fuselage_height_mm: 56
+nose_length_mm: 90
+wing_span_mm: 280
+wing_root_chord_mm: 110
+wing_tip_chord_mm: 45
+wing_thickness_mm: 12
+wing_sweep_le_deg: 35
+htail_span_mm: 100
+htail_chord_mm: 50
+vtail_height_mm: 70
+vtail_chord_mm: 60
+avionics_bay_l_mm: 120
+avionics_bay_w_mm: 80
+avionics_bay_h_mm: 18
+avionics_bay_fs_pct: 0.48
 
-inceptor:
-  stick_pitch: {scale: 1.0, offset: 0.0, deadband: 0.02}
-  stick_roll: {scale: 1.0, offset: 0.0, deadband: 0.02}
-  throttle: {scale: 1.0, offset: 0.0, deadband: 0.01}
-  pedal_yaw: {scale: 1.0, offset: 0.0, deadband: 0.02}
-  loss_timeout_ms: 100
+# --- Full-scale class stubs (provisional; viability #103) ---
+full_scale_length_m: 15.5
+full_scale_span_m: 10.3
+full_scale_wing_area_m2: 29.5
+scale_from_study: 36.9
+empty_mass_kg: 9800
+max_takeoff_mass_kg: 18500
+fuel_internal_kg: 4200
+cg_empty_fs_pct: 0.58
+cg_gross_fs_pct: 0.56
 
-actuators:
-  J1_PWM_AIL: {scale: 1.0, offset: 0.0, slew_per_s: 2.0}
-  J2_PWM_ELE: {scale: 1.0, offset: 0.0, slew_per_s: 2.0}
-  J3_PWM_RUD: {scale: 1.0, offset: 0.0, slew_per_s: 2.0}
-  J4_PWM_THR: {scale: 1.0, offset: 0.0, slew_per_s: 1.0}
+# --- Control surfaces (study) ---
+surface_aileron: present
+surface_elevator: present
+surface_rudder: present
+surface_throttle: present
 
-rails:
-  brownout_3v3_v: 2.9
-  brownout_5v_v: 4.5
+# --- Inert hardpoint stations (stores integration placeholders only) ---
+hardpoint_STA-1_ws_pct: 1.0
+hardpoint_STA-2_ws_pct: 1.0
+hardpoint_STA-3_ws_pct: 0.75
+hardpoint_STA-4_ws_pct: 0.75
+hardpoint_STA-5_ws_pct: 0.50
+hardpoint_STA-6_ws_pct: 0.50
+hardpoint_STA-7_ws_pct: 0.25
+hardpoint_STA-8_ws_pct: 0.25
+hardpoint_STA-9_ws_pct: 0.0
+stores_scope: inert_mass_geometry_drag_only
+weapons_boundary: no_seekers_guidance_warheads_fuzing_live_launch
 
-timing:
-  bit_rate_hz: 10
-  housekeeping_hz: 10
-  control_proxy_hz: 100
-  watchdog_timeout_ms: 50
+# --- Bay calibration stubs (host BIT / HIL) ---
+imu_accel_bias_mps2_x: 0.0
+imu_accel_bias_mps2_y: 0.0
+imu_accel_bias_mps2_z: 0.0
+imu_gyro_bias_rps_x: 0.0
+imu_gyro_bias_rps_y: 0.0
+imu_gyro_bias_rps_z: 0.0
+imu_temp_comp_enabled: false
+imu_temp_comp_ref_c: 25.0
+imu_self_test_accel_tol_mps2: 0.5
+imu_self_test_gyro_tol_rps: 0.05
+inceptor_stick_pitch_scale: 1.0
+inceptor_stick_pitch_offset: 0.0
+inceptor_stick_pitch_deadband: 0.02
+inceptor_stick_roll_scale: 1.0
+inceptor_stick_roll_offset: 0.0
+inceptor_stick_roll_deadband: 0.02
+inceptor_throttle_scale: 1.0
+inceptor_throttle_offset: 0.0
+inceptor_throttle_deadband: 0.01
+inceptor_pedal_yaw_scale: 1.0
+inceptor_pedal_yaw_offset: 0.0
+inceptor_pedal_yaw_deadband: 0.02
+inceptor_loss_timeout_ms: 100
+actuator_J1_PWM_AIL_scale: 1.0
+actuator_J1_PWM_AIL_offset: 0.0
+actuator_J1_PWM_AIL_slew_per_s: 2.0
+actuator_J2_PWM_ELE_scale: 1.0
+actuator_J2_PWM_ELE_offset: 0.0
+actuator_J2_PWM_ELE_slew_per_s: 2.0
+actuator_J3_PWM_RUD_scale: 1.0
+actuator_J3_PWM_RUD_offset: 0.0
+actuator_J3_PWM_RUD_slew_per_s: 2.0
+actuator_J4_PWM_THR_scale: 1.0
+actuator_J4_PWM_THR_offset: 0.0
+actuator_J4_PWM_THR_slew_per_s: 1.0
+rail_brownout_3v3_v: 2.9
+rail_brownout_5v_v: 4.5
+timing_bit_rate_hz: 10
+timing_housekeeping_hz: 10
+timing_control_proxy_hz: 100
+timing_watchdog_timeout_ms: 50
 
-expected_behaviour:
-  loaded_by_flight_lab_and_bay_fw: true
-  values_provisional_until_bench_cal: true
+# Soft: prefer this file over fixture snapshots when present.
+# YAML companions: interfaces/aircraft-geometry.yaml, mass-properties.yaml, hardpoints.yaml
