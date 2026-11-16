@@ -174,12 +174,30 @@ if (( ${#pro_files[@]} > 0 )); then
   fi
 fi
 
+# Match tools/cad_verify.py: skip library SCAD with no top-level geometry
+# (module/function-only files exit OpenSCAD with empty top-level / rc=1).
+scad_has_top_level_geometry() {
+  local f="$1"
+  REPO_ROOT="$REPO_ROOT" python3 - "$f" <<'PY'
+import os, sys
+from pathlib import Path
+sys.path.insert(0, os.environ["REPO_ROOT"])
+from tools.cad_verify import draws_something
+src = Path(sys.argv[1]).read_text(errors="replace")
+sys.exit(0 if draws_something(src) else 1)
+PY
+}
+
 if (( ${#scad_files[@]} > 0 )); then
   if ! command -v openscad >/dev/null 2>&1; then
     echo "error: openscad required for $PROJECT_REL" >&2
     exit 1
   fi
   for scad in "${scad_files[@]}"; do
+    if ! scad_has_top_level_geometry "$scad"; then
+      echo "OpenSCAD skip LIB (no top-level geometry): $scad"
+      continue
+    fi
     echo "OpenSCAD render: $scad"
     if openscad --help 2>&1 | grep -q -- '--render'; then
       openscad --render -o /tmp/ism-ci-out.stl "$scad"
