@@ -17,6 +17,8 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Avionics | `fighter-jet/avionics/` |
 | Sensors & weapons (fictional) | `fighter-jet/sensors-weapons/` |
 | Research notes | `fighter-jet/docs/research/` (comparative survey #95) |
+| Viability / geometry | `fighter-jet/docs/viability.md`, `fighter-jet/geometry/` |
+| Tooling | `fighter-jet/tooling/` (#106) |
 | Bay PCB | `fighter-jet/kicad/` |
 | Study shell | `fighter-jet/shell/` |
 

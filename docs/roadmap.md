@@ -76,7 +76,7 @@ Ship YAML/JSON under `fighter-jet/` for Flight Lab; one PR per coherent chunk.
 - [x] [#100](https://github.com/squirelworks/international-squirrel-machines/issues/100) Manufacturing & supply-chain research (no tooling designs)
 - [x] [#101](https://github.com/squirelworks/international-squirrel-machines/issues/101) Multi-origin stores compatibility (NATO/RU/CN/JP adapters — integration only)
 - [x] [#103](https://github.com/squirelworks/international-squirrel-machines/issues/103) Viability criteria & independent analysis (after #101; before tooling)
-- [ ] Tooling (jigs/fixtures/dies under `fighter-jet/tooling/` — after #103)
+- [x] [#106](https://github.com/squirelworks/international-squirrel-machines/issues/106) Tooling (jigs/fixtures/dies under `fighter-jet/tooling/`)
 
 ### 6.2 — Systems (hydraulics / actuation / flight controls)
 Baselines under `fighter-jet/hydraulics/`, `flight-controls/`.

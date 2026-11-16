@@ -32,6 +32,7 @@ fighter-jet/
 ├── docs/research/            comparative survey + citations (#95)
 ├── docs/viability.md         viability ladder (#103)
 ├── geometry/                 OpenVSP/AVL/CalculiX + Eric scale-model targets
+├── tooling/                  assembly jigs, fixtures, layup tools, dies (#106)
 ├── kicad/                    bay controller PCB (electrical slice)
 └── shell/                    parametric OpenSCAD study airframe
 ```
@@ -40,6 +41,7 @@ fighter-jet/
 |------|-----------|--------|
 | Diagrams & blueprints | `diagrams/` | Drawing index Rev A (#70) — cite ISM-FJ-DWG-* |
 | Interfaces (Flight Lab) | `interfaces/` | Stub YAML contracts Rev A |
+| Tooling | `tooling/` | Study OpenSCAD jigs + tooling.yaml (#106) |
 | Materials | `materials/` | Design program |
 | Mechanical | `mechanical/` | Design program |
 | Hydraulics / actuation | `hydraulics/` | Design program |
