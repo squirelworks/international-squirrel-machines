@@ -1,0 +1,71 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 78
+provisional: true
+note: "Master BOM stub — quantities/PNs freeze at inquire-for-release; Eric owns general shop machines."
+
+categories:
+  - id: structure
+    items:
+      - {id: STR-FUSE-A01, name: forward_fuselage_assy, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-FUSE-A02, name: center_fuselage_assy, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-FUSE-A03, name: aft_fuselage_assy, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-WING-L, name: wing_box_left, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-WING-R, name: wing_box_right, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-HT, name: horizontal_tail, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-VT, name: vertical_tail, qty: 1, ref: mechanical/airframe.md}
+      - {id: STR-GEAR-NLG, name: nose_landing_gear, qty: 1, ref: mechanical/landing-gear.md}
+      - {id: STR-GEAR-MLG, name: main_landing_gear, qty: 2, ref: mechanical/landing-gear.md}
+      - {id: STR-HOOK, name: arresting_hook_assy, qty: 1, ref: mechanical/carrier-suitability.md}
+
+  - id: materials_fasteners
+    items:
+      - {id: MAT-TI6-FIT, name: Ti-6Al-4V_fittings_lot, qty: lot, ref: materials/metallurgy-composites.md}
+      - {id: MAT-AL7-SHT, name: 7075-T6_sheet_plate, qty: lot, ref: interfaces/materials-allowables.yaml}
+      - {id: MAT-CFRP, name: carbon_epoxy_prepreg, qty: lot, ref: materials/}
+      - {id: MAT-FAST-TI, name: Ti_CRES_fastener_kit, qty: lot, ref: materials/metallurgy-composites.md}
+
+  - id: systems_actuation
+    items:
+      - {id: SYS-EHA-AIL, name: eha_aileron, qty: 2, ref: interfaces/actuators.yaml}
+      - {id: SYS-EHA-FLP, name: eha_flaperon, qty: 2, ref: interfaces/actuators.yaml}
+      - {id: SYS-EHA-HT, name: eha_ht, qty: 1, ref: interfaces/actuators.yaml}
+      - {id: SYS-EHA-RUD, name: eha_rudder, qty: 1, ref: interfaces/actuators.yaml}
+      - {id: SYS-GEAR-ACT, name: gear_retract_actuators, qty: 3, ref: interfaces/actuators.yaml}
+
+  - id: avionics
+    items:
+      - {id: AV-FCC, name: fcc_lane_lru, qty: 4, ref: avionics/}
+      - {id: AV-MC, name: mission_computer_lru, qty: 2, ref: avionics/mission-computer.md}
+      - {id: AV-PDU, name: power_distribution_unit, qty: 1, ref: avionics/buses-power.md}
+      - {id: AV-IMU, name: imu_tray, qty: 1, ref: interfaces/sensors.yaml}
+      - {id: AV-BAY-PCB, name: bay_io_pcb, qty: 1, ref: kicad/}
+      - {id: AV-HUD, name: hud_combiner_assy, qty: 1, ref: avionics/hmi-hud.md}
+
+  - id: sensors_stores
+    items:
+      - {id: SEN-R1, name: ISM-R1_radar_stub, qty: 1, ref: interfaces/sensors.yaml}
+      - {id: SEN-EO1, name: ISM-EO1_eo_stub, qty: 1, ref: interfaces/sensors.yaml}
+      - {id: STO-PYLON, name: pylon_rail_ejector_set, qty: 1, ref: interfaces/hardpoints.yaml}
+      - {id: STO-INERT, name: inert_store_kit_lab, qty: 1, ref: interfaces/inert-stores.yaml}
+
+  - id: harnesses
+    items:
+      - {id: HAR-P1, name: primary_dc_trunk, qty: 1, ref: diagrams/wiring-harness.md}
+      - {id: HAR-P2, name: essential_bus_trunk, qty: 1, ref: diagrams/wiring-harness.md}
+      - {id: HAR-A, name: actuation_trunks_A1-A4, qty: 1, ref: diagrams/wiring-harness.md}
+      - {id: HAR-D, name: ism_bus_A_B, qty: 1, ref: diagrams/wiring-harness.md}
+      - {id: HAR-S, name: sensor_fabric_S1, qty: 1, ref: diagrams/wiring-harness.md}
+      - {id: HAR-W1, name: stores_trunk, qty: 1, ref: diagrams/wiring-harness.md}
+
+  - id: tooling_ref_eric
+    items:
+      - {id: TOOL-JIGS, name: assembly_jigs_index, qty: 1, ref: tooling/tooling.yaml}
+      - {id: ERIC-CNC, name: cnc_mill_required_equipment, qty: ref_only, owner: Eric}
+      - {id: ERIC-OVEN, name: cure_heat_treat_oven, qty: ref_only, owner: Eric}
+
+expected_behaviour:
+  not_a_procurement_order: true
+  update_with_inquire_for_release: true

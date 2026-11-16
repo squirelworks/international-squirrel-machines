@@ -19,8 +19,13 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Research notes | `fighter-jet/docs/research/` (comparative survey #95) |
 | Viability / geometry | `fighter-jet/docs/viability.md`, `fighter-jet/geometry/` |
 | Tooling | `fighter-jet/tooling/` (#106) |
+| Firmware (bay I/O) | `fighter-jet/firmware/` (#84) |
+| BOM / assembly / validation | `fighter-jet/docs/bom/`, `assembly-notes.md`, `validation.md` (#78) |
 | Bay PCB | `fighter-jet/kicad/` |
 | Study shell | `fighter-jet/shell/` |
+
+## ICD freeze (Rev A)
+Pinned interface list: [`fighter-jet/interfaces/icd-freeze.yaml`](../../fighter-jet/interfaces/icd-freeze.md) · manifest [`schema-manifest.yaml`](../../fighter-jet/interfaces/schema-manifest.yaml). Key renames require Rev B.
 
 ## Branding
 Warm grays / soft browns; single accent TBD. See `docs/branding.md`.

@@ -37,6 +37,9 @@ files:
   - path: firmware-bringup.yaml
     purpose: bay_io_firmware_hooks_safe_state
     issue: 84
+  - path: icd-freeze.yaml
+    purpose: rev_a_icd_pin_list
+    issue: 78
   - path: materials-zones.yaml
     purpose: zone_material_map
     issue: 92

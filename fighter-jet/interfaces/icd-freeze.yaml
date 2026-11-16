@@ -1,0 +1,63 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+revision: "A"
+status: stub
+issue: 78
+provisional: true
+freeze_label: "Rev A — design ICD pin (#78)"
+pinned_at: "post-#84-firmware"
+source_docs:
+  - fighter-jet/docs/icd-freeze.md
+  - docs/devices/fighter-jet.md
+manifest: fighter-jet/interfaces/schema-manifest.yaml
+
+# Critical ICDs pinned for co-check. Numbers remain provisional:true inside files.
+pinned_interfaces:
+  - path: aircraft-geometry.yaml
+    boundary: mechanical_study_datum
+  - path: mass-properties.yaml
+    boundary: mechanical_flight_lab
+  - path: mechanical-airframe.yaml
+    boundary: mechanical
+  - path: materials-zones.yaml
+    boundary: materials
+  - path: materials-allowables.yaml
+    boundary: materials
+  - path: carrier-loads.yaml
+    boundary: mechanical_carrier
+  - path: flight-controls.yaml
+    boundary: fbw_software
+  - path: actuators.yaml
+    boundary: electrical_actuation
+  - path: hydraulics.yaml
+    boundary: actuation_routing
+  - path: avionics-bus.yaml
+    boundary: electrical_data
+  - path: avionics-architecture.yaml
+    boundary: electrical_packaging
+  - path: firmware-bringup.yaml
+    boundary: software_bay_io
+  - path: sensors.yaml
+    boundary: sensors_io
+  - path: hardpoints.yaml
+    boundary: stores_mechanical
+  - path: sms-interface.yaml
+    boundary: stores_safeing
+  - path: inert-stores.yaml
+    boundary: stores_inert
+  - path: multi-origin-stores.yaml
+    boundary: stores_adapters
+  - path: viability-criteria.yaml
+    boundary: analysis
+
+soft_mvp_pending:
+  - issue: 79
+    name: Flight Lab
+    owner: Steve
+  - issue: 80
+    name: HIL UI
+    owner: Steve
+
+expected_behaviour:
+  consumers_import_from_manifest: true
+  rev_b_requires_explicit_bump: true

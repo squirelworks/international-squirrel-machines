@@ -115,7 +115,7 @@ Build our own software. Third-party sims are **not** source of truth.
 
 ### 6.6 — Integration, BOM, validation
 - [ ] Freeze product decisions; Gerbers/STLs; ICD pinouts
-- [ ] [#78](https://github.com/squirelworks/international-squirrel-machines/issues/78) Full airframe BOM, assembly notes, ICD freeze, validation campaign, polish
+- [x] [#78](https://github.com/squirelworks/international-squirrel-machines/issues/78) Full airframe BOM, assembly notes, ICD freeze, validation campaign, polish
 
 ### Sibling aerospace stubs (still Planned)
 - [ ] Bombers / rocket / satellite / carrier siblings (directory stubs only)
