@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ISM")(type "KiCad")(uri "${KIPRJMOD}/ISM.kicad_sym")(options "")(descr "ISM supersonic-bomber bay passive-logger symbols"))
+)

@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+bomber_id: "ISM-XB-1"
+board_id: "ism-xb-bay"
+revision: "A"
+status: stub
+issue: 39
+provisional: true
+scope: inert_bay_safe_inhibit_only
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming
+  - employment
+  - targeting
+  - itar_ear
+source_docs:
+  - supersonic-bomber/docs/design-note.md
+  - supersonic-bomber/kicad/README.md
+related_interfaces:
+  - airframe.yaml
+  - payload-placeholders.yaml
+kicad_project: supersonic-bomber/kicad/ism-xb-bay
+
+channels:
+  - id: I2C_SENSORS
+    role: airframe_sensing_stub
+  - id: SPI_FLASH
+    role: telemetry_or_flash_stub
+  - id: PWM_DOOR
+    header: J1
+    role: bay_door_actuator_stub
+  - id: GPIO_SAFE
+    header: J2
+    role: bay_safe_discrete_stub
+  - id: GPIO_INHIBIT
+    header: J3
+    role: bay_inhibit_discrete_stub
+  - id: GPIO_WOW
+    header: J4
+    role: weight_on_wheels_sense_stub
+
+expected_behaviour:
+  no_seekers: true
+  no_guidance: true
+  no_warheads: true
+  inert_bay_only: true
+  safe_inhibit_integration_only: true

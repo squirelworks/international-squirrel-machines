@@ -1,10 +1,7 @@
 # ISM Supersonic Bomber — (#39)
 
 **Program ID:** ISM-XB-1 (study name TBD)  
-**This PR:** design-note deepen — airframe interfaces, cruise thermal stubs, inert bay/payload.
-
-## Prior slice
-B1 (#137) delivered `docs/design-note.md` + `shell/airframe_study.scad`. This PR adds machine-readable interfaces, citations, and a teaching cruise-thermal check.
+**This PR:** KiCad inert bay SAFE/INHIBIT board slice.
 
 ## Hypersonic vs this tree
 Sustained **hypersonic** aerothermal / TPS education lives under `hypersonic-bomber/` (#37). This tree is **supersonic cruise** (textbook M≈1.5–3) with milder thermal notes.
@@ -15,6 +12,7 @@ Sustained **hypersonic** aerothermal / TPS education lives under `hypersonic-bom
 - **No** guidance, seekers, munition propulsion, warheads, fuzing, or arming
 - **No** employment or targeting content
 - **No** export-controlled (ITAR/EAR) munition or fire-control designs
+- KiCad outputs are **bay door + SAFE/INHIBIT / WOW stubs** only
 
 ## Deliverables
 
@@ -25,11 +23,13 @@ Sustained **hypersonic** aerothermal / TPS education lives under `hypersonic-bom
 | `docs/thermal_examples.py` | Teaching recovery-temperature stub |
 | `interfaces/airframe.yaml` | Study OML / stations stubs |
 | `interfaces/payload-placeholders.yaml` | Inert bay mass/volume + SAFE/INHIBIT |
+| `interfaces/bay-board.yaml` | KiCad channel map |
+| `kicad/ism-xb-bay.*` | Study KiCad bay board |
 | `shell/airframe_study.scad` | Slender OML + bay volume box |
 
 ## Roadmap (#39) status
 - [x] Design note (airframe, avionics, thermal, propulsion)
-- [ ] KiCad boards
+- [x] KiCad boards (inert bay SAFE/INHIBIT — this PR)
 - [ ] Structural design
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly
