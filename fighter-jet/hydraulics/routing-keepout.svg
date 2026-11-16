@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" font-family="ui-sans-serif,system-ui,sans-serif" font-size="10">
+  <title>ISM-FJ-DWG-070 companion — actuation harness keep-outs (study)</title>
+  <rect width="520" height="220" fill="#f7f4ef"/>
+  <text x="12" y="18" font-size="12" font-weight="600">ISM-FJ-1 actuation routing keep-outs (study mm schematic) · #73</text>
+  <!-- fuselage outline -->
+  <ellipse cx="210" cy="110" rx="190" ry="28" fill="none" stroke="#333" stroke-width="1.5"/>
+  <!-- wings -->
+  <polygon points="160,82 280,40 300,55 200,90" fill="#dce8f5" stroke="#336"/>
+  <polygon points="160,138 280,180 300,165 200,130" fill="#dce8f5" stroke="#336"/>
+  <!-- avionics bay keepout -->
+  <rect x="175" y="95" width="50" height="30" fill="#f5d6d6" stroke="#a33" stroke-dasharray="3 2"/>
+  <text x="178" y="113" fill="#a33">FS-48 bay</text>
+  <!-- corridors -->
+  <rect x="160" y="45" width="120" height="28" fill="#9ccc65" fill-opacity="0.45" stroke="#558b2f"/>
+  <text x="165" y="62">wing R EHA harness</text>
+  <rect x="160" y="147" width="120" height="28" fill="#9ccc65" fill-opacity="0.45" stroke="#558b2f"/>
+  <text x="165" y="164">wing L EHA harness</text>
+  <rect x="55" y="100" width="205" height="20" fill="#fff59d" fill-opacity="0.6" stroke="#f9a825"/>
+  <text x="60" y="114">gear harness (keel)</text>
+  <rect x="340" y="85" width="70" height="50" fill="#80cbc4" fill-opacity="0.5" stroke="#00695c"/>
+  <text x="345" y="112">emp. EHA</text>
+  <!-- stations -->
+  <g fill="#666" font-size="9">
+    <text x="20" y="200">FS-0</text>
+    <text x="95" y="200">FS-18 NLG</text>
+    <text x="200" y="200">FS-48</text>
+    <text x="255" y="200">FS-62</text>
+    <text x="350" y="200">FS-92</text>
+    <text x="470" y="200">FS-100</text>
+  </g>
+</svg>

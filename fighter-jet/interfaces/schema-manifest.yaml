@@ -55,6 +55,9 @@ files:
   - path: mechanical-airframe.yaml
     purpose: load_paths_gear_envelopes_hinges
     issue: 72
+  - path: hydraulics.yaml
+    purpose: actuation_routing_keepouts
+    issue: 73
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

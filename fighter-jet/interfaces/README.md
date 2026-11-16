@@ -10,7 +10,8 @@ Source of truth for **SquirrelSoft Flight Lab** (Steve) and other consumers. Hum
 | `flight-controls.yaml` | Surfaces, rates, law modes, envelope limits | Stub with design defaults |
 | `sensors.yaml` | Nav/air-data/radar-EO I/O limits & rates | Stub |
 | `hardpoints.yaml` | Stores stations, mass classes, safeing flags | Stub aligned to DWG-040 |
-| `actuators.yaml` | EHA channels, authority, failure behaviour | Stub |
+| `actuators.yaml` | EHA/gear channels, I/F table, safe failure | Stub (#73) |
+| `hydraulics.yaml` | Routing keep-outs / EHA pack envelopes | Stub (#73) |
 | `avionics-bus.yaml` | Bus names, frame rates, topic list | Stub |
 | `materials-zones.yaml` | Airframe zone → material map + joints | Stub (#92) |
 | `carrier-loads.yaml` | Arrestment / catapult / sink-rate / wing-fold cases | Stub (#93) |

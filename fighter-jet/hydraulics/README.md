@@ -1,8 +1,12 @@
 # Hydraulics & Actuation — ISM-FJ-1
 
-Primary approach: **electro-hydrostatic actuators (EHA)** at each surface, with electric power from the aircraft generators/PDU. A central hydraulic system is retained only as an optional stub for legacy tooling or gun/drive needs.
+**Baseline:** distributed **EHA** at primary surfaces; electric prefer for gear/NWS/fold. Central hydro = optional stub only (#73).
 
 | Doc | Content |
 |-----|---------|
-| `architecture.md` | System architecture, reservoirs/pumps/lines (conceptual) |
-| `failure-modes.md` | Failures, reconfiguration, flight-controls interface |
+| `architecture.md` | Architecture decision, channel map, sizing |
+| `failure-modes.md` | Failures, reconfiguration, FBW interface rules |
+| `routing.md` | Harness corridors / keep-outs |
+| `routing-keepout.svg` | Schematic keep-out sketch |
+
+**Flight Lab:** `../interfaces/actuators.yaml` · `../interfaces/hydraulics.yaml`

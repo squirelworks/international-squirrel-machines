@@ -1,21 +1,31 @@
-# Actuation Failure Modes — ISM-FJ-1
+# Actuation Failure Modes — ISM-FJ-1 (#73)
 
-## EHA baseline
+Per-channel safe-failure modes are authoritative in `../interfaces/actuators.yaml` (`safe_failure`).
+
+## EHA baseline (flight controls)
 
 | Failure | Detection | Response |
 |---------|-----------|----------|
-| Motor / pump seize | Current / speed / position lag | Declare surface failed; FCC reconfigures (e.g., flaperon assists roll) |
-| Internal leak | Pressure / duty-cycle rise | Limit rate; land ASAP caution |
-| Command path loss (one lane) | Cross-lane vote | Remaining FCC lanes command actuator |
-| Hardover command | Dual-lane disagree + model | Bypass / damp; surface to trail or locked per surface ICD |
-| Power bus loss to one EHA | PDU monitor | As seize; possibly use asymmetric thrust assist |
+| Motor / pump seize | Current / speed / position lag | Declare surface failed; FCC reconfigures (e.g. flaperon assists roll) |
+| Internal leak | Pressure / duty-cycle rise | Limit rate; land-ASAP caution |
+| Command path loss (one lane) | Cross-lane vote | Surviving FCC lanes command actuator |
+| Hardover command | Dual-lane disagree + model | Bypass / damp; trail or **hold** (HT) per ICD |
+| Power bus loss to one EHA | PDU monitor | As seize; asymmetric thrust assist if needed |
+
+## Gear / utilities
+
+| Failure | Response |
+|---------|----------|
+| Gear actuator power loss | Free-fall unlock + gravity/spring; down-lock discrete required |
+| NWS loss | Damp to center or caster; WOW-gated |
+| Wing-fold power loss | Hold locks engaged; do not unlock under load |
 
 ## Central-hydro stub (if equipped)
 
 | Failure | Response |
 |---------|----------|
-| Single circuit loss | Survive on alternate circuit; reduced rate |
-| Dual circuit loss | Electric backup pump or EHA-only surfaces if hybrid |
+| Single circuit loss | Alternate circuit; reduced rate |
+| Dual circuit loss | EMDP or EHA-only surfaces if hybrid |
 | Reservoir low | Isolate leaking side; caution |
 
 ## Flight-controls interface rules
