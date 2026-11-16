@@ -1,0 +1,50 @@
+schema_version: "1.0.0"
+program_id: "ISM-HB-1"
+revision: "B"
+status: stub
+issue: 37
+provisional: true
+scope: tps_material_classes_only
+excluded:
+  - proprietary_coatings
+  - classified_allowables
+  - itar_ear_formulations
+  - weapons
+  - warhead_thermal_design
+  - combustor_liners
+source_docs:
+  - hypersonic-bomber/docs/heat-shield-tps.md
+  - hypersonic-bomber/docs/design-note.md
+related_interfaces:
+  - aerothermal.yaml
+
+note: >
+  TPS entries are educational material classes and packaging mass/thickness
+  stubs only — not a flight-cleared stack-up.
+
+classes:
+  - id: TPS-HEAT-SINK
+    strategy: heat_sink
+    mass_areal_kg_m2_class: 40.0
+    note: "Short-pulse metallic class"
+  - id: TPS-ABLATIVE
+    strategy: ablative
+    mass_areal_kg_m2_class: 25.0
+    note: "Public phenolic/PICA-class name only — no recipe"
+  - id: TPS-REUSABLE-RADIATIVE
+    strategy: reusable_radiative
+    mass_areal_kg_m2_class: 15.0
+    note: "Tile/CMC/hot-structure class"
+
+nose_cap:
+  preferred_class_options: [TPS-ABLATIVE, TPS-REUSABLE-RADIATIVE]
+  thickness_mm_class: 12.0
+
+acreage:
+  preferred_class_options: [TPS-REUSABLE-RADIATIVE, TPS-HEAT-SINK]
+  thickness_mm_class: 8.0
+
+expected_behaviour:
+  class_names_only: true
+  no_proprietary_recipes: true
+  no_weapons: true

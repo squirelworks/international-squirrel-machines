@@ -1,0 +1,51 @@
+schema_version: "1.0.0"
+program_id: "ISM-HB-1"
+revision: "B"
+status: stub
+issue: 37
+provisional: true
+scope: educational_aerothermal_only
+excluded:
+  - weapons
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - employment
+  - scramjet_recipes
+  - vehicle_performance_prediction
+  - itar_ear_tps_formulations
+source_docs:
+  - hypersonic-bomber/docs/design-note.md
+  - hypersonic-bomber/docs/aerothermal-concepts.md
+related_interfaces:
+  - tps-placeholders.yaml
+
+teaching_atmosphere:
+  t_inf_k: 220.0
+  gamma: 1.4
+
+teaching_cases:
+  - mach: 5.0
+    note: "Classroom stagnation case"
+  - mach: 8.0
+  - mach: 10.0
+
+bluntness:
+  nose_radius_m_class: 0.5
+  cone_half_angle_deg_class: 10.0
+  note: "Study OML proportions; not a flight article"
+
+heat_flux_stub:
+  form: "q ≈ k * sqrt(rho/Rn) * V^3"
+  k_teach: 1.83e-4
+  rho_kg_m3: 0.001
+  v_m_s: 6000.0
+  claim: "classroom order-of-magnitude only"
+
+shell: hypersonic-bomber/shell/blunt_cone_study.scad
+
+expected_behaviour:
+  educational_only: true
+  no_weapons: true
+  no_propulsion_recipes: true

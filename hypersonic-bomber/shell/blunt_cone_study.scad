@@ -1,29 +1,35 @@
-// ISM-HB-1 blunt sphere-cone study OML — B1 #37
-// Educational heat-shield geometry only. Units: mm.
-// Not a weapons airframe; no stores / bays / munitions geometry.
+// ISM-HB-1 blunt sphere-cone study OML — #37 deepen
+// Educational heat-shield geometry + outer TPS shell offset.
+// Units: mm. No weapons / stores / munitions / propulsion solids.
 
-/* [Nose / cone] */
-nose_radius = 18;       // blunt sphere radius
-cone_half_angle = 10;   // degrees
-aft_length = 220;       // cone frustum length along axis
+nose_radius = 18;
+aft_length = 220;
 base_radius = 42;
+tps_shell_offset = 3;  // packaging thickness class — not a recipe
 
-module blunt_sphere_cone() {
-    // Forward hemisphere (blunt nose)
-    translate([0, 0, 0])
-        sphere(r = nose_radius, $fn = 48);
-
-    // Cone from sphere tangent plane aft
-    // Simple teaching solid: cylinder taper (frustum) behind nose
+module blunt_sphere_cone(r_nose, r_base, len) {
     hull() {
         translate([0, 0, 0])
-            sphere(r = nose_radius * 0.98, $fn = 48);
-        translate([aft_length, 0, 0])
+            sphere(r = r_nose, $fn = 48);
+        translate([len, 0, 0])
             rotate([0, 90, 0])
-                cylinder(h = 1, r = base_radius, $fn = 48);
+                cylinder(h = 1, r = r_base, $fn = 48);
     }
 }
 
-echo("B1 #37: blunt sphere-cone study — TPS packaging sketch only");
-rotate([0, 90, 0])
-    blunt_sphere_cone();
+module tps_shell() {
+    // Outer offset shell — TPS packaging sketch only
+    difference() {
+        blunt_sphere_cone(nose_radius + tps_shell_offset,
+                          base_radius + tps_shell_offset,
+                          aft_length);
+        translate([-1, 0, 0])
+            blunt_sphere_cone(nose_radius, base_radius, aft_length + 2);
+    }
+}
+
+echo("#37: blunt sphere-cone + TPS shell sketch — aerothermal teaching only");
+rotate([0, 90, 0]) {
+    blunt_sphere_cone(nose_radius, base_radius, aft_length);
+    tps_shell();
+}
