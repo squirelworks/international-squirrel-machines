@@ -1,0 +1,30 @@
+schema_version: "1.0.0"
+program: "ISM-SB-1"
+revision: "B"
+status: stub
+issue: 38
+note: >
+  Open educational / public subsonic airframe language only.
+  Payload = inert bay placeholders. No ITAR/EAR munitions content.
+
+citations:
+  - id: wiki-bomber
+    title: "Bomber (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Bomber"
+    access_date: "2026-11-16"
+    used_for: "Subsonic bomber airframe / bay teaching language (#38)"
+
+  - id: wiki-breguet
+    title: "Breguet range equation (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Range_(aeronautics)"
+    access_date: "2026-11-16"
+    used_for: "Teaching cruise range stub (#38)"
+
+  - id: ism-fj-inert
+    title: "ISM fighter-jet inert stores interface (in-repo pattern)"
+    org: ISM
+    path: fighter-jet/interfaces/inert-stores.yaml
+    access_date: "2026-11-16"
+    used_for: "Inert payload / SAFE-INHIBIT boundary pattern (#38)"

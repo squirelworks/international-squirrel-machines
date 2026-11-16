@@ -1,46 +1,65 @@
-# Subsonic bomber — design note (B1 #38)
+# Subsonic bomber — design note (#38 deepen)
 
 **Product:** ISM-SB-1 study  
-**Regime:** high-subsonic cruise (textbook transport/bomber class — not a fighter)
+**Regime:** high-subsonic cruise (textbook transport/bomber class — not a fighter).  
+**Prior:** B1 design-note slice; this revision completes machine-readable stubs.
 
-## Out of scope
-Weapons boundary: inert payload / bay integration only. No guidance, seekers, munition propulsion, warheads, fuzing, or employment.
+## Out of scope (hard limits)
+
+- Guidance, seekers, munition propulsion, warheads, fuzing, arming codes
+- Employment, targeting, or weapons-effectiveness content
+- Export-controlled (ITAR/EAR) munition or fire-control designs
+- Classified signatures or quieting
+
+Payload appears **only** as inert bay mass/volume/SAFE-INHIBIT stubs — see `../interfaces/payload-placeholders.yaml`.
 
 ---
 
 ## 1. Airframe layout (study)
 
-| Feature | Baseline study choice | Rationale |
-|---------|----------------------|-----------|
-| Planform | High-aspect swept wing | Efficient subsonic cruise; long range packaging |
-| Fuselage | Slender tube + dorsal/ventral bay volume | Separates crew/avionics from inert bay |
-| Empennage | Conventional fin + stabilizer (or T-tail option) | Clear aft for propulsion; product decision later |
-| Gear | Tricycle, long-stroke | Runway ops; no carrier claim in B1 |
+| Feature | Baseline study | Notes |
+|---------|----------------|-------|
+| Planform | High-aspect swept wing | Efficient subsonic cruise |
+| Fuselage | Slender tube + internal bay | Crew/avionics forward of bay |
+| Empennage | Conventional fin + stabilizer | T-tail optional product decision |
+| Gear | Tricycle, long-stroke | Runway ops; no carrier claim |
 
-Study OML: `../shell/airframe_study.scad` (proportions only).
+Stations / dimensions: `../interfaces/airframe.yaml`. Study OML: `../shell/airframe_study.scad`.
 
 ---
 
 ## 2. Avionics (conceptual)
 
-| Partition | Owner (study) | Notes |
-|-----------|---------------|-------|
-| Flight controls / FCC | Safety-critical | Envelope for transport-class Nz/AOA — later ICD |
-| Mission computer | MC | Navigation, bay door/safeing discretes — **no** weapons protocols |
-| Sensors | Nav / weather / EO stub | Navigation and situational awareness; no targeting employment |
-| Crew stations | Optional dual | Product decision vs single pilot + autonomy aids |
+| Partition | Role |
+|-----------|------|
+| FCC | Transport-class envelope stubs |
+| Mission computer | Nav + bay door / SAFE-INHIBIT discretes — **no** weapons protocols |
+| Sensors | Nav / weather / EO stub — no targeting employment |
+| Crew | Dual optional vs single + autonomy aids |
 
-Bay I/O patterns may later borrow fighter `fighter-jet/firmware/` host-stub ideas — separate tree.
+KiCad bay boards are the next roadmap step.
 
 ---
 
-## 3. Payload / bay (inert)
+## 3. Payload / bay (inert only)
 
-| Item | B1 stance |
-|------|-----------|
-| Bay | Internal volume reserved; doors are structural/thermal packaging only |
-| Stores | Future inert class models only (mass/CG/clearance) |
-| Safeing | Lab/ICD philosophy later — SAFE/INHIBIT only, same as fighter SMS boundary |
+| ID | Kind | Purpose |
+|----|------|---------|
+| BAY-MAIN | volume stub | Internal bay keep-out |
+| PLD-INERT-A | mass/CG box | Training / inert shape class |
+| PLD-INERT-B | mass/CG box | Alternate inert class |
+| DOOR-SAFE | discrete stub | SAFE/INHIBIT only |
+
+**SAFE / INHIBIT** (integration only — no arming or release of live stores):
+
+| Condition | SAFE | INHIBIT bay release |
+|-----------|------|---------------------|
+| Ground maintenance | asserted | asserted |
+| Weight-on-wheels | asserted | asserted |
+| Inert present, no sim auth | asserted | asserted |
+| Sim inert release auth | deasserted* | deasserted* |
+
+\*Simulated inert only — **no** live munitions.
 
 ---
 
@@ -48,12 +67,16 @@ Bay I/O patterns may later borrow fighter `fighter-jet/firmware/` host-stub idea
 
 | Item | Baseline |
 |------|----------|
-| Class | High-bypass turbofan **class** (public encyclopedia thrust/SFC order-of-magnitude later) |
+| Class | High-bypass turbofan **class** |
 | Count | Twin under-wing or rear-fuselage — product decision |
-| Interfaces | Mount hardpoints, inlet capture area stub, electrical/bleed offtakes TBD |
-| Not in B1 | Cycle design, combustor detail, or IR signature prediction |
+| Interfaces | Mounts, inlet capture stub, electrical/bleed offtakes |
+| Not here | Cycle design, combustor detail, IR signature prediction |
 
 ---
 
-## 5. Next steps (not this PR)
-KiCad avionics bay, structural spars/ribs, Gerbers/STLs, BOM, validation.
+## 5. Teaching cruise check
+
+Classroom Breguet range stub and payload mass fraction: `cruise_examples.py` (not a survey product).
+
+## 6. Next steps
+KiCad, structural spars/ribs, Gerbers/STLs, BOM, polish.
