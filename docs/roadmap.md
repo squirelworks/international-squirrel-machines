@@ -29,8 +29,8 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Drawing pads range — small / medium / large (`drawing-pads/`) — [#2](https://github.com/squirelworks/international-squirrel-machines/issues/2) (PR #162)
 
 ## Phase 3 — Output Devices
-- [x] Monitor (`monitor/`) — [#10](https://github.com/squirelworks/international-squirrel-machines/issues/10) (this PR)
-- [ ] Printer (`printer/`)
+- [x] Monitor (`monitor/`) — [#10](https://github.com/squirelworks/international-squirrel-machines/issues/10) (PR #164)
+- [x] Printer (`printer/`) — [#5](https://github.com/squirelworks/international-squirrel-machines/issues/5) (this PR)
 - [ ] Plotter (`plotter/`)
 - [ ] Camera (`camera/`)
 
