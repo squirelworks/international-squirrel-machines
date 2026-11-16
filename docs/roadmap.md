@@ -161,6 +161,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Subsonic bomber Gerbers + mechanical STL — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) study fab package; inert bay only.
 - [x] Supersonic bomber Gerbers + mechanical STL — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) study fab package; inert bay only.
 - [x] Hypersonic bomber Gerbers + mechanical STL — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) study fab package; no weapons/recipes.
+- [x] Warship Gerbers + mechanical STL — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) study fab package; weapons = mass/footprint only.
 - [ ] Remaining siblings Gerbers / FJ gaps
 
 ### Issues

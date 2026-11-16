@@ -25,7 +25,7 @@ Current official list:
 - hypersonic-bomber (#37: deepen + KiCad + structural + study Gerbers/STL; no weapons/recipes)
 - subsonic-bomber (#38: deepen + KiCad + structural + study Gerbers/STL; inert bay only)
 - supersonic-bomber (#39: deepen + KiCad + structural + study Gerbers/STL; inert bay only)
-- warship (#43: hydrostatics + KiCad + structural keel/frames; weapons = mass/footprint only)
+- warship (#43: hydrostatics + KiCad + structural + study Gerbers/STL; weapons = mass/footprint only)
 - aircraft-carrier (#45: flight deck + KiCad + structural hangar/frames; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad + structural + study Gerbers/STL; sonar = mass/footprint only)
 - rocket (#41: hobby + KiCad + structural rings/motor-mount; no guidance)
