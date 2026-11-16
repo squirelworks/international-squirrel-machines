@@ -1,7 +1,7 @@
-# ISM Rocket — B4 (#41)
+# ISM Rocket — (#41)
 
 **Program ID:** ISM-RK-1 (study name TBD)  
-**Plan:** Fred research plan B4 — hobby / educational-class rocket.
+**This PR:** KiCad passive logger / recovery board slice.
 
 ## Scope limits (hard)
 
@@ -11,8 +11,9 @@
 - **No** export-controlled (ITAR/EAR) data
 - Openly published sources only
 - Avionics = **passive** logger / altimeter + recovery deployment sensing — not a guidance computer
+- KiCad outputs are **logger / recovery-channel stubs** only (no guidance computer)
 
-## B4 deliverables
+## Deliverables
 
 | Path | Role |
 |------|------|
@@ -21,11 +22,13 @@
 | `docs/stability_examples.py` | Static-margin teaching check |
 | `interfaces/airframe.yaml` | Study dimensions / CP–CG stubs |
 | `interfaces/avionics-passive.yaml` | Logger / recovery channels — no guidance |
+| `interfaces/logger-board.yaml` | KiCad channel map |
+| `kicad/ism-rocket-logger.*` | Study KiCad logger / recovery board |
 | `shell/airframe_study.scad` | Body + fin study OML |
 
-## Roadmap (#41) status after B4
+## Roadmap (#41) status
 - [x] Design note (airframe, fins and stability margin, recovery, passive avionics, motor mount for certified motors)
-- [ ] KiCad boards (passive logger / altimeter, recovery deployment, power)
+- [x] KiCad boards (passive logger / altimeter, recovery deployment, power — this PR)
 - [ ] Structural / mechanical design
 - [ ] Gerbers + mechanical files
 - [ ] BOM / assembly
