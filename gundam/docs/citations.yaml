@@ -1,0 +1,30 @@
+schema_version: "1.0.0"
+program: "ISM-MS-1"
+revision: "A"
+status: stub
+issue: 46
+note: >
+  Open educational mecha packaging only.
+  Weapons = stores/integration placeholders. No ITAR/EAR weapons content.
+
+citations:
+  - id: wiki-mecha
+    title: "Mecha (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Mecha"
+    access_date: "2026-11-16"
+    used_for: "Humanoid mobile-suit packaging teaching language (#46)"
+
+  - id: wiki-actuator
+    title: "Actuator (encyclopedia summary)"
+    org: Wikipedia
+    url: "https://en.wikipedia.org/wiki/Actuator"
+    access_date: "2026-11-16"
+    used_for: "Joint actuation class stubs (#46)"
+
+  - id: ism-fj-inert-stores
+    title: "ISM fighter-jet inert stores interface (in-repo pattern)"
+    org: ISM
+    path: fighter-jet/interfaces/inert-stores.yaml
+    access_date: "2026-11-16"
+    used_for: "Stores/integration placeholder pattern; weapons boundary (#46)"

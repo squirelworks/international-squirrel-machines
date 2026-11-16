@@ -1,0 +1,59 @@
+schema_version: "1.0.0"
+suit_id: "ISM-MS-1"
+revision: "A"
+status: stub
+issue: 46
+provisional: true
+scope: educational_mecha_packaging
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - live_launch
+  - engagement_doctrine
+  - itar_ear_weapons
+source_docs:
+  - gundam/docs/design-note.md
+related_interfaces:
+  - stores-placeholders.yaml
+
+actuators:
+  groups: [hip_knee_ankle, shoulder_elbow_wrist, neck_waist]
+  class: servo_or_eha_stub
+
+sensors:
+  - id: SEN-HEAD-OPT
+    kind: optics_mass_box
+    mass_kg: 8.0
+  - id: SEN-RADAR-CHEST
+    kind: aperture_mass_box
+    mass_kg: 25.0
+  - id: SEN-IMU
+    kind: imu_stub
+    mass_kg: 2.0
+
+power:
+  continuous_kw_class: 40.0
+  peak_actuator_kw_class: 120.0
+  rails: ["48V", "HV_stub"]
+
+cockpit:
+  elements: [canopy, seat, hmi_safe_inhibit_panel, escape_class_stub]
+
+mass_budget_kg:
+  torso: 800
+  head: 40
+  legs: 240
+  arms: 100
+  stores_inert: 80
+  total: 1260
+
+shell: gundam/shell/frame_study.scad
+
+expected_behaviour:
+  weapons_are_stores_placeholders_only: true
+  no_live_munitions: true
+  kicad_next: true

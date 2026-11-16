@@ -1,0 +1,66 @@
+schema_version: "1.0.0"
+suit_id: "ISM-MS-1"
+revision: "A"
+status: stub
+issue: 46
+provisional: true
+scope: inert_integration_only
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - live_launch
+  - engagement_doctrine
+source_docs:
+  - gundam/docs/design-note.md
+related_interfaces:
+  - suit.yaml
+
+note: >
+  Hardpoints are mass/footprint boxes plus SAFE/INHIBIT integration stubs.
+  Same spirit as fighter-jet inert stores. Not live munitions; not classified.
+
+hardpoints:
+  - id: HP-R-WRIST
+    location: right_wrist
+    mass_limit_kg: 40.0
+    footprint_mm: {l: 400, b: 150, h: 150}
+  - id: HP-L-WRIST
+    location: left_wrist
+    mass_limit_kg: 40.0
+    footprint_mm: {l: 400, b: 150, h: 150}
+  - id: HP-BACK
+    location: dorsal
+    mass_limit_kg: 80.0
+    footprint_mm: {l: 600, b: 400, h: 200}
+  - id: HP-SKIRT
+    location: hip_skirt
+    mass_limit_kg: 30.0
+    footprint_mm: {l: 300, b: 200, h: 100}
+
+inert_stores:
+  - id: ISM-MS-INERT-BOX
+    kind: mass_geometry_only
+    mass_kg: 20.0
+    compatible: [HP-R-WRIST, HP-L-WRIST, HP-SKIRT]
+  - id: ISM-MS-INERT-RACK
+    kind: mass_geometry_only
+    mass_kg: 80.0
+    compatible: [HP-BACK]
+
+safe_inhibit:
+  # Integration truth table only — no arming or fire sequences
+  ground_maintenance: {SAFE: true, INHIBIT: true}
+  walk_mode: {SAFE: true, INHIBIT: true}
+  stores_present_no_auth: {SAFE: true, INHIBIT: true}
+  sim_inert_release_auth: {SAFE: false, INHIBIT: false, note: "inert/sim only"}
+
+expected_behaviour:
+  no_seekers: true
+  no_guidance: true
+  no_warheads: true
+  no_fuzing: true
+  no_live_launch: true
