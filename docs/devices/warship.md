@@ -2,6 +2,6 @@
 
 **Directory:** `warship/` · **Issue:** [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43)
 
-**Scope:** hull form, hydrostatics, stability, powering; weapons and combat sensors as **mass/footprint placeholders only**. KiCad scale-model control board (`warship/kicad/`) — thruster/rudder/ballast stubs + IMU/telemetry; **no** fire control or weapons interfaces. Public-domain hydrodynamics only.
+**Scope:** scale-model hull / hydrostatics study. KiCad board is thruster/rudder/ballast stubs. Structural slice adds educational keel/frames/decks/bulkheads. Weapons / combat sensors = mass/footprint only. **No** fire control, seekers, guidance, warheads, or fuzing.
 
 See `warship/README.md`.

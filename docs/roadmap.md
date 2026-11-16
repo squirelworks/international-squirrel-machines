@@ -150,6 +150,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Subsonic bomber structural study — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) spars/ribs/frames; inert bay keep-out only.
 - [x] Supersonic bomber structural study — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) spars/ribs/frames; inert bay keep-out only.
 - [x] Hypersonic bomber structural study — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) frames/rails under TPS shell; no weapons/recipes.
+- [x] Warship structural study — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) keel/frames/decks; weapons = mass/footprint only.
 - [ ] Remaining siblings structural / Gerbers / FJ gaps
 
 ### Issues
