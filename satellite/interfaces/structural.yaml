@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+satellite_id: "ISM-SAT-1"
+revision: "A"
+status: stub
+issue: 31
+provisional: true
+scope: educational_3u_mechanical_structure
+excluded:
+  - weapons
+  - seekers
+  - guidance_to_target
+  - warheads
+  - fuzing
+  - arming
+  - itar_ear
+source_docs:
+  - satellite/docs/structural.md
+  - satellite/docs/design-note.md
+related_interfaces:
+  - bus.yaml
+  - payload-placeholders.yaml
+  - bus-board.yaml
+shell: satellite/shell/bus_study.scad
+
+members:
+  - id: CORNER_RAILS
+    role: primary_longerons
+    count_study: 4
+  - id: SIDE_PANELS
+    role: shear_closeout_stubs
+  - id: AVIONICS_TRAYS
+    role: board_stack_support
+  - id: PAYLOAD_DECK
+    role: non_weapon_payload_attach
+  - id: SOLAR_PANEL_HINGES
+    role: deployable_panel_stubs
+  - id: ANTENNA_MOUNTS
+    role: comms_attach_stubs
+
+form_factor:
+  class: "3U"
+  envelope_mm: [100, 100, 340]
+
+expected_behaviour:
+  educational_structure_only: true
+  payload_mass_power_data_only: true
+  no_weapons: true
+  no_stress_certification: true

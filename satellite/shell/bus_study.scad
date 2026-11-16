@@ -1,5 +1,6 @@
-// ISM-SAT-1 3U bus study — B5 #31
-// Units: mm. Structure sketch only — no weapons geometry.
+// ISM-SAT-1 3U bus + structural study — #31
+// Units: mm. Structure sketch + ghost trays/hinges/payload deck.
+// No weapons geometry — payload is mass/power/data only.
 
 u = 100;
 h_3u = 340;
@@ -22,7 +23,34 @@ module tray() {
         cube([u - 20, u - 20, 8]);
 }
 
-echo("B5 #31: 3U bus study — educational structure; no weapons solids");
+module avionics_trays() {
+    for (z = [h_3u * 0.25, h_3u * 0.55])
+        translate([-u / 2 + 12, -u / 2 + 12, z])
+            cube([u - 24, u - 24, 4]);
+}
+
+module payload_deck() {
+    // Non-weapon payload attach — mass/power only
+    translate([-u / 2 + 15, -u / 2 + 15, h_3u - 40])
+        cube([u - 30, u - 30, 6]);
+}
+
+module solar_panel_hinges() {
+    for (side = [-1, 1])
+        translate([side * (u / 2 - 2), -4, h_3u * 0.5])
+            cube([4, 8, 20]);
+}
+
+module antenna_mounts() {
+    translate([-6, -6, h_3u - 8])
+        cube([12, 12, 6]);
+}
+
+echo("#31: satellite structural study — rails/trays/panels; no weapons solids");
 rails();
 panels();
 tray();
+%avionics_trays();
+%payload_deck();
+%solar_panel_hinges();
+%antenna_mounts();
