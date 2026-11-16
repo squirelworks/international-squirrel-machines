@@ -13,13 +13,15 @@ Avionics-bay **electrical slice** (#75 / Fred verify fixes). Open with **KiCad 8
 Stock KiCad 8 may not ship the QFN-56 / LGA-14 names we use — **always** open this folder so `${KIPRJMOD}` resolves.
 
 ## Schematic / PCB
-- Nets wired: I2C, SPI, PWM J1–J4, 3V3 / 5V / GND
+- Nets wired: I2C, SPI, PWM J1–J4, 3V3 / 5V / GND (PWR_FLAGs on rails)
 - Footprints assigned on symbols; mounting holes **H1–H4**
-- U2 (IMU) pads 1–2 spaced with mask margin to avoid SDA/SCL short
-- Tracks on F.Cu for bring-up connectivity
+- Study QFN pitch **1.27 mm** in `ISM.pretty` (not production 0.4 mm RP2040)
+- 2-layer HVH routing: signal vias + B.Cu verticals; 3V3 under header band on B.Cu
 
 ## Firmware
 Host BIT/UART: `../firmware/` (`make test`).
 
-## ERC / DRC
-Target **0 errors** in KiCad 8.0.9 (open project from this directory). Warnings may remain for study pin-count vs full RP2040.
+## ERC / DRC (KiCad 8.0.9 `kicad-cli`)
+Verified from this directory:
+- `kicad-cli sch erc …` → **0 violations** (lib_symbols cache uses `ISM:` names)
+- `kicad-cli pcb drc …` → **0 errors**, 0 unconnected; `lib_footprint_mismatch` warnings OK for study pads
