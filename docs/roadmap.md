@@ -156,7 +156,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Satellite mechanical structure / panels — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) 3U rails/trays; payload mass/power/data only.
 - [x] Space station structural / mechanical study — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) shells/rings/truss; civil habitat only.
 - [x] Sonar mechanical enclosure / array mount — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) ribs/tray/bezel; no quieting/weapons.
-- [ ] Remaining siblings structural / Gerbers / FJ gaps
+- [x] Gundam mechanical / structural study — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) spars/joints/armor; stores = mass/SAFE-INHIBIT only.
+- [ ] Remaining siblings Gerbers / FJ gaps
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
