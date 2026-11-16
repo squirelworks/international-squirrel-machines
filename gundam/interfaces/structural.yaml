@@ -1,0 +1,46 @@
+schema_version: "1.0.0"
+product_id: "ISM-MS-1"
+revision: "A"
+status: stub
+issue: 46
+provisional: true
+scope: educational_mecha_structure
+excluded:
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - live_launch
+  - fire_sequences
+  - engagement_doctrine
+  - itar_ear
+source_docs:
+  - gundam/docs/structural.md
+  - gundam/docs/design-note.md
+related_interfaces:
+  - suit.yaml
+  - stores-placeholders.yaml
+  - control-board.yaml
+shell: gundam/shell/frame_study.scad
+
+members:
+  - id: TORSO_FRAME_SPARS
+    role: primary_torso_stiffening
+  - id: LIMB_SPARS
+    role: arm_leg_tube_stiffening
+  - id: JOINT_STUBS
+    role: hip_shoulder_knee_placeholders
+  - id: ARMOR_KEEPOUTS
+    role: outer_shell_volume_stubs
+  - id: CONTROL_BOARD_TRAY
+    role: kicad_board_mount
+  - id: STORES_HARDPOINT_PADS
+    role: inert_mass_footprint_only
+
+expected_behaviour:
+  educational_structure_only: true
+  stores_mass_footprint_safe_inhibit_only: true
+  no_weapons_recipes: true
+  no_stress_certification: true
