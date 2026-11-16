@@ -43,6 +43,9 @@ files:
   - path: manufacturing.yaml
     purpose: manufacturing_supply_research
     issue: 100
+  - path: multi-origin-stores.yaml
+    purpose: multi_origin_stores_compatibility
+    issue: 101
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will
