@@ -30,8 +30,9 @@ function fs_x(pct) = fuselage_length * pct;
 wing_le_x = nose_length + 80; // LE root ≈ FS region matching study
 wing_z    = fuselage_height * 0.35;
 
-show_stations = true;
-show_structure_planes = true;
+// Debug overlays off by default so STL export is a single manifold solid.
+show_stations = false;
+show_structure_planes = false;
 show_gear_deployed = true;
 
 module fuselage() {
@@ -179,20 +180,23 @@ module structure_planes() {
     }
 }
 
-module gear_leg(xyz, tire_od) {
-    translate(xyz) {
-        cylinder(h=abs(xyz[2]) + 6, d=4, $fn=16);
-        translate([0, 0, -tire_od/2])
-            rotate([0, 90, 0])
-                cylinder(h=6, d=tire_od, center=true, $fn=24);
-    }
+module gear_leg(attach, wheel, tire_od) {
+    // Leg from airframe attach down into wheel hub (real volumetric overlap).
+    leg_top = attach[2];
+    leg_bot = wheel[2];
+    hub_overlap = 4;
+    translate([attach[0], attach[1], leg_bot - hub_overlap])
+        cylinder(h = (leg_top - leg_bot) + hub_overlap + 2, d = 4, $fn = 16);
+    translate(wheel)
+        rotate([0, 90, 0])
+            cylinder(h = 8, d = tire_od, center = true, $fn = 24);
 }
 
 module landing_gear_deployed() {
-    // Matches mechanical-airframe.yaml envelopes (study mm)
-    gear_leg([75.6, 0, 8], 18);       // NLG
-    gear_leg([231, -42, 10], 28);     // MLG L (wheel at y=-42)
-    gear_leg([231, 42, 10], 28);      // MLG R
+    // Attach / wheel centers aligned to mechanical-airframe.yaml (study mm)
+    gear_leg([75.6, 0, 8], [75.6, 0, -28], 18);     // NLG
+    gear_leg([231, -18, 10], [231, -42, -32], 28);   // MLG L
+    gear_leg([231, 18, 10], [231, 42, -32], 28);     // MLG R
 }
 
 module empennage() {
@@ -207,12 +211,15 @@ module wing() {
 }
 
 module airframe() {
-    fuselage();
-    wing();
-    empennage();
+    union() {
+        fuselage();
+        wing();
+        empennage();
+        if (show_gear_deployed) landing_gear_deployed();
+    }
+    // Debug overlays (not part of export solid)
     station_set();
     structure_planes();
-    if (show_gear_deployed) landing_gear_deployed();
 }
 
 // Preview assembly. For STL export, comment airframe() and call one module.
