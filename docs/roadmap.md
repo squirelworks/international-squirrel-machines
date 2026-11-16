@@ -26,10 +26,10 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Trackball (`trackball/`) — [#8](https://github.com/squirelworks/international-squirrel-machines/issues/8) (PR #152)
 - [x] Macro pad (`macro-pad/`) — [#9](https://github.com/squirelworks/international-squirrel-machines/issues/9) (PR #154)
 - [x] Typewriter (`typewriter/`) — [#4](https://github.com/squirelworks/international-squirrel-machines/issues/4) (PR #159)
-- [x] Drawing pads range — small / medium / large (`drawing-pads/`) — [#2](https://github.com/squirelworks/international-squirrel-machines/issues/2) (this PR)
+- [x] Drawing pads range — small / medium / large (`drawing-pads/`) — [#2](https://github.com/squirelworks/international-squirrel-machines/issues/2) (PR #162)
 
 ## Phase 3 — Output Devices
-- [ ] Monitor (`monitor/`)
+- [x] Monitor (`monitor/`) — [#10](https://github.com/squirelworks/international-squirrel-machines/issues/10) (this PR)
 - [ ] Printer (`printer/`)
 - [ ] Plotter (`plotter/`)
 - [ ] Camera (`camera/`)
