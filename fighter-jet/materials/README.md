@@ -6,10 +6,12 @@ Metallurgy and composite usage for primary structure, skins, spars/ribs, fastene
 |-----|---------|
 | `trade-study.md` | Criteria matrix + zone recommendations (#92) |
 | `candidates.yaml` | Scored candidate families (machine-readable) |
+| `manufacturing-sourcing.md` | Process/spec/NDT/supply research (#100) — no tooling designs |
 | `structure.md` | Where each material is used and why |
 | `metallurgy-composites.md` | Alloy/composite families, thermal & corrosion notes, fasteners |
 
-**Zone map for Steve / Flight Lab:** `../interfaces/materials-zones.yaml`
+**Zone map for Steve / Flight Lab:** `../interfaces/materials-zones.yaml`  
+**Manufacturing map:** `../interfaces/manufacturing.yaml`
 
 ## Default materials philosophy
 - **Weight-critical skins & covers:** carbon-fiber epoxy (ISM-CFRP-A)
