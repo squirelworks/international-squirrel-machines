@@ -95,6 +95,10 @@ files:
     purpose: stores_safe_inhibit_truth_table
     issue: 122
     related_issues: [77]
+  - path: ew-placeholders.yaml
+    purpose: ew_mass_footprint_safe_inhibit_stubs
+    issue: 85
+    related_issues: [77, 122]
 notes: >
   Provisional stubs so SquirrelSoft Flight Lab can import contracts without
   blocking on product-decision freeze. Fields marked provisional: true will

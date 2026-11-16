@@ -1,0 +1,83 @@
+schema_version: "1.0.0"
+aircraft_id: "ISM-FJ-1"
+suite_id: "ISM-EW-1"
+revision: "A"
+status: stub
+issue: 85
+related_issues: [77, 122]
+provisional: true
+scope: mass_footprint_safe_inhibit_only
+excluded:
+  - classified_waveforms
+  - national_system_names
+  - seekers
+  - guidance
+  - munition_propulsion
+  - warheads
+  - fuzing
+  - arming_codes
+  - live_dispense
+  - live_radiate
+  - tactics_doctrine
+source_docs:
+  - fighter-jet/sensors-weapons/ew.md
+related_interfaces:
+  - hardpoints.yaml
+  - inert-stores.yaml
+  - carriage-drag.yaml
+  - safe-inhibit-table.yaml
+  - sensors.yaml
+
+note: >
+  EW elements are mass/footprint boxes plus SAFE/INHIBIT integration stubs.
+  Jammer pod follows inert-stores carriage. No classified RF content.
+
+placeholders:
+  - id: EW-RWR-TIP-L
+    kind: sensor_mass_box
+    mass_kg: 1.2
+    footprint_mm: {l: 20, b: 20, h: 30}
+    purpose: rwr_es_m_mass_only
+  - id: EW-RWR-TIP-R
+    kind: sensor_mass_box
+    mass_kg: 1.2
+    footprint_mm: {l: 20, b: 20, h: 30}
+    purpose: rwr_es_m_mass_only
+  - id: EW-CMDS-L
+    kind: cmds_mass_box
+    mass_kg: 8.0
+    footprint_mm: {l: 200, b: 80, h: 60}
+    purpose: dispenser_bay_mass_only
+    note: "Flare/chaff class packaging — no live expendable design"
+  - id: EW-CMDS-R
+    kind: cmds_mass_box
+    mass_kg: 8.0
+    footprint_mm: {l: 200, b: 80, h: 60}
+    purpose: dispenser_bay_mass_only
+  - id: EW-JAMMER-POD
+    kind: inert_store_mass_box
+    mass_kg: 180.0
+    compatible_stations: [STA-9]
+    purpose: jammer_pod_carriage_mass_drag_only
+    note: "Inert carriage — no waveforms"
+  - id: EW-TOWED-DECOY
+    kind: mass_box
+    mass_kg: 25.0
+    footprint_mm: {l: 400, b: 80, h: 80}
+    purpose: block2_optional_mass_only
+
+safe_inhibit:
+  ground_maintenance: {SAFE: true, INHIBIT: true}
+  weight_on_wheels: {SAFE: true, INHIBIT: true}
+  range_unsafe_sim: {SAFE: true, INHIBIT: true}
+  airborne_sim_consent: {SAFE: false, INHIBIT: false, note: "sim/Flight Lab only"}
+
+totals:
+  ew_mass_kg: 223.4
+  note: "Placeholder sum — not a combat fit"
+
+expected_behaviour:
+  no_classified_waveforms: true
+  no_live_dispense: true
+  no_live_radiate: true
+  jammer_is_inert_carriage: true
