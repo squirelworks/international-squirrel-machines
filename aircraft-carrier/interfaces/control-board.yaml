@@ -1,0 +1,49 @@
+schema_version: "1.0.0"
+carrier_id: "ISM-CV-1"
+board_id: "ism-carrier-deck"
+revision: "A"
+status: stub
+issue: 45
+provisional: true
+scope: scale_model_deck_control_only
+excluded:
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - classified_catapult_plant
+  - itar_ear
+source_docs:
+  - aircraft-carrier/docs/design-note.md
+  - aircraft-carrier/kicad/README.md
+related_interfaces:
+  - aviation.yaml
+  - mass-placeholders.yaml
+kicad_project: aircraft-carrier/kicad/ism-carrier-deck
+
+channels:
+  - id: I2C_IMU
+    role: attitude_stub
+  - id: SPI_RADIO
+    role: telemetry_stub
+  - id: PWM_ELEV
+    header: J1
+    role: aircraft_elevator_stub
+  - id: PWM_CAT
+    header: J2
+    role: catapult_load_keepout_stub
+  - id: PWM_ARREST
+    header: J3
+    role: arresting_gear_load_stub
+  - id: PWM_RUDDER
+    header: J4
+    role: ship_rudder_steering_stub
+
+expected_behaviour:
+  no_weapons_interfaces: true
+  no_fire_control: true
+  no_seekers: true
+  no_warheads: true
+  scale_model_only: true
