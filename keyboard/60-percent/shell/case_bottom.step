@@ -1,0 +1,14 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ISM 60% keyboard shell approximate bounding box'),'2;1');
+FILE_NAME('case_bottom.step','2026-11-16',('ISM'),('International Squirrel Machines'),'ISM','ISM','');
+FILE_SCHEMA(('AUTOMOTIVE_DESIGN'));
+ENDSEC;
+DATA;
+#1 = CARTESIAN_POINT('ORIGIN',(0.0,0.0,0.0));
+#2 = DIRECTION('Z',(0.0,0.0,1.0));
+#3 = DIRECTION('X',(1.0,0.0,0.0));
+#4 = AXIS2_PLACEMENT_3D('PLACEMENT',#1,#2,#3);
+/* Approximate solid placeholder for case_bottom: 368 x 266 x 18 mm */
+ENDSEC;
+END-ISO-10303-21;

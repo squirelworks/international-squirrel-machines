@@ -1,0 +1,22 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('ISM mouse shell approximate bounding box'),'2;1');
+FILE_NAME('mouse_case_bottom.step','2026-11-16',('ISM'),('International Squirrel Machines'),'ISM','ISM','');
+FILE_SCHEMA(('AUTOMOTIVE_DESIGN'));
+ENDSEC;
+DATA;
+#1 = CARTESIAN_POINT('ORIGIN',(0.0,0.0,0.0));
+#2 = DIRECTION('Z',(0.0,0.0,1.0));
+#3 = DIRECTION('X',(1.0,0.0,0.0));
+#4 = AXIS2_PLACEMENT_3D('PLACEMENT',#1,#2,#3);
+#5 = CARTESIAN_POINT('P1',(0.0,0.0,0.0));
+#6 = CARTESIAN_POINT('P2',(110,0.0,0.0));
+#7 = CARTESIAN_POINT('P3',(110,62,0.0));
+#8 = CARTESIAN_POINT('P4',(0.0,62,0.0));
+#9 = CARTESIAN_POINT('P5',(0.0,0.0,21));
+#10 = CARTESIAN_POINT('P6',(110,0.0,21));
+#11 = CARTESIAN_POINT('P7',(110,62,21));
+#12 = CARTESIAN_POINT('P8',(0.0,62,21));
+/* Approximate solid placeholder for mouse_case_bottom: 110 x 62 x 21 mm */
+ENDSEC;
+END-ISO-10303-21;

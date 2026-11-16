@@ -1,0 +1,115 @@
+name: device-projects
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: device-projects-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Discover projects
+        id: set
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == "refs/heads/main" ]]; then
+            MATRIX=$(python3 scripts/discover_projects.py --all)
+          else
+            BASE="${{ github.event.pull_request.base.sha || github.event.before }}"
+            HEAD="${{ github.event.pull_request.head.sha || github.sha }}"
+            if [[ -z "$BASE" || "$BASE" == "0000000000000000000000000000000000000000" ]]; then
+              MATRIX=$(python3 scripts/discover_projects.py --all)
+            else
+              MATRIX=$(python3 scripts/discover_projects.py --base "$BASE" --head "$HEAD")
+            fi
+          fi
+          {
+            echo "matrix<<EOF"
+            echo "$MATRIX"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+          echo "Discovered matrix: $MATRIX"
+
+  check:
+    needs: discover
+    if: needs.discover.outputs.matrix != ''
+    # pinned: kicad-8.0-releases PPA has no 26.04 (resolute) build — same as cad-verify.yml
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.discover.outputs.matrix) }}
+    steps:
+      - name: Skip placeholder
+        if: matrix.project == '__none__'
+        run: echo "No projects to check"
+
+      - uses: actions/checkout@v4
+        if: matrix.project != '__none__'
+        with:
+          # Need PR base commit reachable for pre-existing ERC/DRC baseline
+          fetch-depth: 0
+
+      - name: Install tools for project
+        if: matrix.project != '__none__'
+        run: |
+          set -euo pipefail
+          PROJECT="${{ matrix.project }}"
+          need_kicad=0
+          need_scad=0
+          if compgen -G "${PROJECT}/*.kicad_pro" > /dev/null; then need_kicad=1; fi
+          if compgen -G "${PROJECT}/*.scad" > /dev/null; then need_scad=1; fi
+          echo "need_kicad=${need_kicad} need_scad=${need_scad}"
+
+          # Match .github/workflows/cad-verify.yml on main for KiCad 8.
+          # Retries cover transient Launchpad IncompleteRead failures.
+          if [[ "$need_kicad" == "1" ]] && ! command -v kicad-cli >/dev/null 2>&1; then
+            for attempt in 1 2 3 4 5; do
+              if sudo add-apt-repository -y ppa:kicad/kicad-8.0-releases \
+                && sudo apt-get update \
+                && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+                     kicad kicad-symbols kicad-footprints; then
+                break
+              fi
+              echo "KiCad PPA/install failed (attempt ${attempt}); retrying..."
+              sleep $((attempt * 8))
+              if [[ "$attempt" == "5" ]]; then
+                echo "error: could not install KiCad 8 via ppa:kicad/kicad-8.0-releases" >&2
+                exit 1
+              fi
+            done
+            # Same lib-table bootstrap as cad-verify.yml
+            mkdir -p ~/.config/kicad/8.0
+            cp /usr/share/kicad/template/sym-lib-table ~/.config/kicad/8.0/
+            cp /usr/share/kicad/template/fp-lib-table ~/.config/kicad/8.0/
+            kicad-cli version
+            kicad-cli version | grep -q '^8\.' || { echo "::error::KiCad 8 expected"; exit 1; }
+          fi
+
+          if [[ "$need_scad" == "1" ]] && ! command -v openscad >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openscad
+            openscad --version | head -1
+          fi
+
+      - name: Check project
+        if: matrix.project != '__none__'
+        env:
+          # On PRs, only fail ERC/DRC when head introduces more errors than base
+          # (shared common/kicad changes otherwise re-fail pre-existing full-size).
+          BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || '' }}
+        run: |
+          chmod +x scripts/ci_check_project.sh
+          scripts/ci_check_project.sh "${{ matrix.project }}"
