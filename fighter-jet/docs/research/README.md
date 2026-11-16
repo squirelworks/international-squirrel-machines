@@ -8,6 +8,9 @@ Public/open-source research supporting the ISM fighter design program. Contempor
 | `citations.yaml` | #95 / A2 | Machine-readable citation list (survey + propulsion class bounds) |
 | `engine-class-bounds.md` | [#120](https://github.com/squirelworks/international-squirrel-machines/issues/120) | Public turbofan class bands (EJ200/M88/F414) for packaging |
 | `twin-vs-single.md` | #120 | Twin vs single packaging trade (Δmass / ΔCG / Δwetted) |
+| `signatures-concepts.md` | [#121](https://github.com/squirelworks/international-squirrel-machines/issues/121) | Textbook RCS/IR concepts + canonical-shape examples only |
+| `signature-tradeoffs.md` | #121 | Product-decision list with qualitative signature column |
+| `canonical_rcs_examples.py` | #121 | Analytic recomputation of canonical RCS teaching examples |
 
 ## Rules
 - Cite open/public sources only (OEM press, official programme pages, think-tank PDFs, encyclopedia summaries).
