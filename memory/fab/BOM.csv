@@ -1,0 +1,9 @@
+Designator,Value,Footprint,Quantity,Manufacturer,MPN,LCSC,Notes
+"U1,U2",ISM_DRAM8,ISM_DRAM_SOIC,2,ISM,ISM-DRAM8,,No LCSC — custom ISM DRAM package (hand-fit / separate sourcing)
+U3,24LC02,SOIC-8,1,Microchip,24LC02B,C7500,SPD EEPROM
+J1,EDGE20,ISM_SO_DIMM_Edge20,1,ISM,ISM-EDGE20,,No LCSC — edge fingers (PCB feature)
+J2,1x04,PinHeader 2.54,1,,HDR-1x4,C124423,SPD test header
+"R1,R2",4.7k,0603,2,,4.7k,C23141,I2C pull-up
+R3,10k,0603,1,,10k,C25804,WP pull-down
+C1-C4,100nF,0603,4,,100nF,C14663,
+"H1,H2",M2,MountingHole,2,,,,No LCSC — mechanical NPTH

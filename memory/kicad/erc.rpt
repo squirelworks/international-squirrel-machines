@@ -1,0 +1,71 @@
+ERC report (2026-11-16T18:34:33+0000, Encoding UTF8)
+
+***** Sheet /
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(127.0000 mm, 50.8000 mm): Symbol C4 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(101.6000 mm, 50.8000 mm): Symbol C3 [C]
+[global_label_dangling]: Global label not connected anywhere else in the schematic
+    ; warning
+    @(73.6600 mm, 104.1400 mm): Global Label 'RAS'
+[global_label_dangling]: Global label not connected anywhere else in the schematic
+    ; warning
+    @(73.6600 mm, 106.6800 mm): Global Label 'CAS'
+[global_label_dangling]: Global label not connected anywhere else in the schematic
+    ; warning
+    @(73.6600 mm, 109.2200 mm): Global Label 'WE'
+[global_label_dangling]: Global label not connected anywhere else in the schematic
+    ; warning
+    @(73.6600 mm, 101.6000 mm): Global Label 'CKE'
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(76.2000 mm, 50.8000 mm): Symbol C2 [C]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(63.5000 mm, 101.6000 mm): Symbol J1 [ISM_Edge20]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 177.8000 mm): Symbol U1 [ISM_DRAM8]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(139.7000 mm, 177.8000 mm): Symbol U2 [ISM_DRAM8]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(228.6000 mm, 101.6000 mm): Symbol U3 [24LC02]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(190.5000 mm, 88.9000 mm): Symbol R3 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(266.7000 mm, 152.4000 mm): Symbol J2 [Conn_01x04]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(190.5000 mm, 63.5000 mm): Symbol R1 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(190.5000 mm, 76.2000 mm): Symbol R2 [R]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(38.1000 mm, 25.4000 mm): Symbol #PWR01 [+1V2]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 25.4000 mm): Symbol #FLG01 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(76.2000 mm, 25.4000 mm): Symbol #PWR02 [+3V3]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(88.9000 mm, 25.4000 mm): Symbol #FLG02 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(127.0000 mm, 25.4000 mm): Symbol #FLG03 [PWR_FLAG]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(114.3000 mm, 25.4000 mm): Symbol #PWR03 [GND]
+[lib_symbol_issues]: The current configuration does not include the library ''
+    ; warning
+    @(50.8000 mm, 50.8000 mm): Symbol C1 [C]
+
+ ** ERC messages: 22  Errors 0  Warnings 22
