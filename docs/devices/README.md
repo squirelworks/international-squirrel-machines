@@ -31,5 +31,5 @@ Current official list:
 - rocket (#41: hobby + KiCad passive logger/recovery; no guidance)
 - satellite (#31: bus + KiCad OBC/EPS/radio; payload mass/power/data only)
 - space-station (#42: modules + KiCad EPS/ECLSS/CDH; weapons boundary)
-- sonar (#40: educational echo-sounder; B3-style acoustic limits)
+- sonar (#40: educational echo-sounder + KiCad AFE/DSP; B3-style acoustic limits)
 - gundam (#46: mecha packaging; stores/integration placeholders only)

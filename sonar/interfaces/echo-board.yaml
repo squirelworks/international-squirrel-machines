@@ -1,0 +1,52 @@
+schema_version: "1.0.0"
+sonar_id: "ISM-SNR-1"
+board_id: "ism-sonar-echo"
+revision: "A"
+status: stub
+issue: 40
+provisional: true
+scope: educational_echo_afe_dsp_power_only
+excluded:
+  - quieting
+  - acoustic_signature
+  - classified_beamforming
+  - asw_tactics
+  - acoustic_warfare
+  - weapons_interfaces
+  - fire_control
+  - seekers
+  - guidance
+  - warheads
+  - fuzing
+  - itar_ear
+source_docs:
+  - sonar/docs/design-note.md
+  - sonar/kicad/README.md
+related_interfaces:
+  - transducer-placeholders.yaml
+  - signal-chain.yaml
+kicad_project: sonar/kicad/ism-sonar-echo
+
+channels:
+  - id: I2C_SENSORS
+    role: packaging_sensors_stub
+  - id: SPI_FLASH
+    role: flash_or_telemetry_stub
+  - id: GPIO_TX
+    header: J1
+    role: educational_tx_pulse_enable_stub
+  - id: I2C_AFE
+    header: J2
+    role: analog_front_end_envelope_stub
+  - id: UART_DSP
+    header: J3
+    role: dsp_range_uart_stub
+  - id: GPIO_DISP
+    header: J4
+    role: display_backlight_stub
+
+expected_behaviour:
+  no_quieting: true
+  no_classified_acoustics: true
+  no_weapons: true
+  educational_echo_only: true
