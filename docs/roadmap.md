@@ -157,6 +157,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Space station structural / mechanical study — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) shells/rings/truss; civil habitat only.
 - [x] Sonar mechanical enclosure / array mount — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) ribs/tray/bezel; no quieting/weapons.
 - [x] Gundam mechanical / structural study — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) spars/joints/armor; stores = mass/SAFE-INHIBIT only.
+- [x] Submarine Gerbers + mechanical STL — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) study fab package; no quieting/weapons.
 - [ ] Remaining siblings Gerbers / FJ gaps
 
 ### Issues

@@ -1,37 +1,34 @@
 # ISM Submarine — (#44)
 
 **Program ID:** ISM-SS-1 (study name TBD)  
-**This PR:** structural / pressure-hull study slice (rings, casing, sail, spars).
+**This PR:** Gerbers + mechanical STL export slice.
 
-## Scope limits (hard)
+## Scope limits (hard) — B3 spirit
 
-- Hull form, stability, trim, and **public-domain hydrodynamics** only
-- Sonar and other sensors = **mass / footprint placeholders** only (`interfaces/mass-placeholders.yaml`)
+- Hull form, stability, trim and public-domain hydrodynamics only
+- Sonar and other sensors = **mass / footprint** placeholders
 - **No** quieting or acoustic content
 - **No** life-support design
-- **No** weapons interfaces, fire control, seekers, guidance, warheads, or fuzing
+- **No** weapons, seekers, guidance, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) data
-- Structural outputs are **educational pressure-hull layout stubs** — not certified for depth
 
 ## Deliverables
 
 | Path | Role |
 |------|------|
-| `docs/design-note.md` | Hull, pressure hull concept, ballast/trim, propulsion packaging, scale-model controls |
-| `docs/structural.md` | Ring frames / casing / sail / spars study |
-| `docs/citations.yaml` | Open / public citations |
-| `docs/trim_examples.py` | Trim / reserve-buoyancy teaching check |
-| `interfaces/hydrostatics.yaml` | Study displacement / stability stubs |
-| `interfaces/mass-placeholders.yaml` | Sonar / sensor mass & footprints only |
-| `interfaces/control-board.yaml` | Scale-model control channel map |
-| `interfaces/structural.yaml` | Pressure-hull member map |
-| `kicad/ism-submarine-control.*` | Study KiCad control board |
-| `shell/hull_study.scad` | Hull + ghost structural layout |
+| `docs/design-note.md` | Hull / trim / packaging |
+| `docs/structural.md` | Pressure-hull rings / casing study |
+| `docs/fab-mechanical.md` | Gerber + STL notes |
+| `interfaces/*.yaml` | Hydrostatics / mass / board / structure |
+| `kicad/ism-submarine-control.*` | Scale-model control board |
+| `fab/` | Study Gerbers + CPL + BOM stub |
+| `shell/hull_study.scad` | Hull + ghost structure |
+| `mechanical/hull_study.stl` | Exported study STL |
 
 ## Roadmap (#44) status
 - [x] Design note (hull form, pressure hull concept, ballast/trim, propulsion packaging, controls for scale model)
 - [x] KiCad boards (scale-model control)
-- [x] Structural / pressure hull design (this PR)
-- [ ] Gerbers + mechanical files
+- [x] Structural / pressure hull design
+- [x] Gerbers + mechanical files (this PR)
 - [ ] BOM / assembly
 - [ ] Polish and inquire for release
