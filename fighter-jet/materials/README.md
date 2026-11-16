@@ -8,9 +8,10 @@ Metallurgy and composite usage for primary structure, skins, spars/ribs, fastene
 | `candidates.yaml` | Scored candidate families (machine-readable) |
 | `manufacturing-sourcing.md` | Process/spec/NDT/supply research (#100) — no tooling designs |
 | `structure.md` | Where each material is used and why |
-| `metallurgy-composites.md` | Alloy/composite families, thermal & corrosion notes, fasteners |
+| `metallurgy-composites.md` | Spec callouts, stack-ups, joints, galvanic, proto↔prod (#71) |
 
 **Zone map for Steve / Flight Lab:** `../interfaces/materials-zones.yaml`  
+**Allowables / joints:** `../interfaces/materials-allowables.yaml` (#71)  
 **Manufacturing map:** `../interfaces/manufacturing.yaml`
 
 ## Default materials philosophy
