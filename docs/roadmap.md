@@ -12,8 +12,9 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 ## Phase 1 — Keyboard (first production device)
 **Directory:** `keyboard/` (per-size trees under `keyboard/<size>/`)
 - [x] 60% fab-ready (KiCad ERC/DRC 0, fab/, shell STL/STEP, TinyUSB) — PR #128 · [#61](https://github.com/squirelworks/international-squirrel-machines/issues/61)
-- [ ] 65% fab-ready — [#62](https://github.com/squirelworks/international-squirrel-machines/issues/62) (this PR)
-- [ ] Other sizes (75% / TKL / full-size / etc.) — one PR each; full-size scaffold exists with pre-existing ERC/DRC debt
+- [x] 65% fab-ready — PR #133 · [#62](https://github.com/squirelworks/international-squirrel-machines/issues/62)
+- [ ] 75% fab-ready — [#63](https://github.com/squirelworks/international-squirrel-machines/issues/63) (this PR)
+- [ ] Other sizes (TKL / full-size / etc.) — one PR each; full-size scaffold exists with pre-existing ERC/DRC debt
 - [ ] Polish and inquire for release
 
 ## Phase 2 — Input Devices
