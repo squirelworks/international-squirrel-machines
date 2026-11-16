@@ -3,7 +3,7 @@ U1,RP2040,QFN-56,1,Raspberry Pi,RP2040,C2040,MCU
 U2,USBLC6-2SC6,SOT-23-6,1,ST,USBLC6-2SC6,C7519,ESD
 U3,AMS1117-3.3,TO-252,1,AMS,AMS1117-3.3,C6187,LDO
 U4,W25Q128JVS,SOIC-8,1,Winbond,W25Q128JVSIQ,C97521,Flash
-U5,ISM_OPT,ISM 8-pad,1,ISM,ISM-OPT-1,,Optical sensor
+U5,ISM_OPT,ISM 8-pad,1,ISM,ISM-OPT-1,,"No LCSC — custom ISM optical sensor (hand-fit / separate assembly)"
 Y1,12MHz,3225,1,Generic,12MHz,C13713,Crystal
 J1,USB4105,GCT USB-C 16P,1,GCT,USB4105-GF-A,C165948,USB-C
 "R1,R2",5.1k,0603,2,Generic,5.1k,C23244,CC
@@ -16,8 +16,8 @@ C5-C10,100nF,0603,6,Generic,100nF,C14663,Decoupling
 SW_ENC,EC11,EC11E-Switch,1,Alps,EC11E,C318975,Scroll encoder
 "SW_BOOT,SW_RST",PTS645,PTS645,2,C&K,PTS645,C318884,
 D_PWR,LED,0603,1,Generic,LED,C2286,
-H1-H4,M2 hole,MountingHole,4,Generic,,,
-CASE,mouse shell,STL/STEP,1,Print service,,,shell/
-FEET,PTFE dots,,2,Generic,,,Off-board
-SCREWS,M2x6,M2,4,Generic,,,Off-board
-CABLE,USB-C,,1,Generic,,,Off-board
+H1-H4,M2 hole,MountingHole,4,Generic,,,"No LCSC — mechanical NPTH (excluded from SMT fab readiness)"
+CASE,mouse shell,STL/STEP,1,Print service,,,"No LCSC — off-board printable shell (see shell/)"
+FEET,PTFE dots,,2,Generic,,,"No LCSC — off-board mechanical"
+SCREWS,M2x6,M2,4,Generic,,,"No LCSC — off-board mechanical"
+CABLE,USB-C,,1,Generic,,,"No LCSC — off-board cable"

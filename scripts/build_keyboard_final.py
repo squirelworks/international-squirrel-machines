@@ -437,7 +437,8 @@ def export_fab(pcb: Path):
                     "--format", "csv", "--units", "mm", "--side", "both", "--exclude-dnp", str(pcb)], check=False)
     rows = [
         ["Designator", "Value", "Footprint", "Quantity", "Manufacturer", "MPN", "LCSC", "Notes"],
-        ["U1", "RP2040_MOD", "ISM_RP2040_Module", "1", "ISM", "ISM-RP2040-MOD", "", "Carrier"],
+        ["U1", "RP2040_MOD", "ISM_RP2040_Module", "1", "ISM", "ISM-RP2040-MOD", "",
+         "No LCSC — custom ISM carrier (hand-fit / separate module assembly)"],
         ["U2", "USBLC6-2SC6", "SOT-666", "1", "ST", "USBLC6-2SC6", "C7519", "ESD"],
         ["J1", "USB4105", "GCT USB-C 16P", "1", "GCT", "USB4105-GF-A", "C165948", ""],
         ["R1,R2", "5.1k", "0603", "2", "", "5.1k", "C23244", "CC"],
@@ -446,12 +447,34 @@ def export_fab(pcb: Path):
         ["C1-C4", "100nF", "0603", "4", "", "100nF", "C14663", ""],
         ["D1-D61", "1N4148W", "SOD-123", "61", "", "1N4148W", "C2128", ""],
         ["D_PWR", "LED", "0603", "1", "", "LED", "C2286", ""],
-        ["SW1-SW61", "MX hotswap", "ISM SW_MX_Hotswap", "61", "", "", "", ""],
+        ["SW1-SW61", "MX hotswap", "ISM SW_MX_Hotswap", "61", "Kailh", "PG1511", "C145740",
+         "MX hotswap socket"],
         ["SW_RST", "PTS645", "PTS645", "1", "", "PTS645", "C318884", ""],
-        ["H1-H4", "M2", "MountingHole", "4", "", "", "", ""],
+        ["H1-H4", "M2", "MountingHole", "4", "", "", "",
+         "No LCSC — mechanical NPTH (excluded from SMT fab readiness)"],
     ]
     with (FAB / "BOM.csv").open("w", newline="", encoding="utf-8") as f:
         csv.writer(f).writerows(rows)
+    write_text(
+        FAB / "README.md",
+        """# Fab package — ISM Keyboard 60%
+
+| File | Use |
+|------|-----|
+| `ism-keyboard-60-gerbers.zip` | JLCPCB/PCBWay upload (4-layer + Excellon, incl. blind-via drills) |
+| `BOM.csv` | SMT BOM with LCSC where a catalog part exists |
+| `ism-keyboard-60-cpl.csv` | Centroid / pick-and-place |
+
+## LCSC / fab readiness
+
+- Every **SMT/catalog** line has an LCSC number.
+- Rows marked **No LCSC** in Notes are intentional and **do not block** fab readiness:
+  - `U1` — custom ISM RP2040 carrier (not a JLCPCB catalog SKU)
+  - `H1–H4` — mechanical NPTH mounting holes (no SMT part)
+
+Regenerate with `python3 scripts/build_keyboard_final.py`.
+""",
+    )
 
 
 def main() -> int:

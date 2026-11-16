@@ -793,7 +793,8 @@ def export_fab(pcb: Path) -> None:
         ["U2", "USBLC6-2SC6", "SOT-23-6", "1", "ST", "USBLC6-2SC6", "C7519", "ESD"],
         ["U3", "AMS1117-3.3", "TO-252", "1", "AMS", "AMS1117-3.3", "C6187", "LDO"],
         ["U4", "W25Q128JVS", "SOIC-8", "1", "Winbond", "W25Q128JVSIQ", "C97521", "Flash"],
-        ["U5", "ISM_OPT", "ISM 8-pad", "1", "ISM", "ISM-OPT-1", "", "Optical sensor"],
+        ["U5", "ISM_OPT", "ISM 8-pad", "1", "ISM", "ISM-OPT-1", "",
+         "No LCSC — custom ISM optical sensor (hand-fit / separate assembly)"],
         ["Y1", "12MHz", "3225", "1", "Generic", "12MHz", "C13713", "Crystal"],
         ["J1", "USB4105", "GCT USB-C 16P", "1", "GCT", "USB4105-GF-A", "C165948", "USB-C"],
         ["R1,R2", "5.1k", "0603", "2", "Generic", "5.1k", "C23244", "CC"],
@@ -806,15 +807,40 @@ def export_fab(pcb: Path) -> None:
         ["SW_ENC", "EC11", "EC11E-Switch", "1", "Alps", "EC11E", "C318975", "Scroll encoder"],
         ["SW_BOOT,SW_RST", "PTS645", "PTS645", "2", "C&K", "PTS645", "C318884", ""],
         ["D_PWR", "LED", "0603", "1", "Generic", "LED", "C2286", ""],
-        ["H1-H4", "M2 hole", "MountingHole", "4", "Generic", "", "", ""],
-        ["CASE", "mouse shell", "STL/STEP", "1", "Print service", "", "", "shell/"],
-        ["FEET", "PTFE dots", "", "2", "Generic", "", "", "Off-board"],
-        ["SCREWS", "M2x6", "M2", "4", "Generic", "", "", "Off-board"],
-        ["CABLE", "USB-C", "", "1", "Generic", "", "", "Off-board"],
+        ["H1-H4", "M2 hole", "MountingHole", "4", "Generic", "", "",
+         "No LCSC — mechanical NPTH (excluded from SMT fab readiness)"],
+        ["CASE", "mouse shell", "STL/STEP", "1", "Print service", "", "",
+         "No LCSC — off-board printable shell (see shell/)"],
+        ["FEET", "PTFE dots", "", "2", "Generic", "", "",
+         "No LCSC — off-board mechanical"],
+        ["SCREWS", "M2x6", "M2", "4", "Generic", "", "",
+         "No LCSC — off-board mechanical"],
+        ["CABLE", "USB-C", "", "1", "Generic", "", "",
+         "No LCSC — off-board cable"],
     ]
     with (FAB / "BOM.csv").open("w", newline="", encoding="utf-8") as f:
         csv.writer(f).writerows(rows)
-    write_text(FAB / "README.md", "Fab outputs from `scripts/build_mouse.py`.\n")
+    write_text(
+        FAB / "README.md",
+        """# Fab package — ISM Mouse
+
+| File | Use |
+|------|-----|
+| `ism-mouse-gerbers.zip` | JLCPCB/PCBWay upload (4-layer + Excellon) |
+| `BOM.csv` | SMT BOM with LCSC where a catalog part exists |
+| `ism-mouse-cpl.csv` | Centroid / pick-and-place |
+
+## LCSC / fab readiness
+
+- Every **SMT/catalog** line has an LCSC number.
+- Rows marked **No LCSC** in Notes are intentional and **do not block** fab readiness:
+  - `U5` — custom ISM optical sensor (not a JLCPCB catalog SKU)
+  - `H1–H4` — mechanical NPTH mounting holes
+  - `CASE` / `FEET` / `SCREWS` / `CABLE` — off-board mechanical / print / cable
+
+Regenerate with `python3 scripts/build_mouse.py`.
+""",
+    )
 
 
 def summarize_rpt(rpt: Path) -> tuple[int, dict]:
