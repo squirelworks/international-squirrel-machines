@@ -24,7 +24,7 @@ Current official list:
 - fighter-jet
 - hypersonic-bomber (#37: deepen + KiCad + structural frames under TPS shell)
 - subsonic-bomber (#38: deepen + KiCad + structural + study Gerbers/STL; inert bay only)
-- supersonic-bomber (#39: deepen + KiCad + structural spars/ribs; inert bay only)
+- supersonic-bomber (#39: deepen + KiCad + structural + study Gerbers/STL; inert bay only)
 - warship (#43: hydrostatics + KiCad + structural keel/frames; weapons = mass/footprint only)
 - aircraft-carrier (#45: flight deck + KiCad + structural hangar/frames; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad + structural + study Gerbers/STL; sonar = mass/footprint only)
