@@ -147,6 +147,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Supersonic bomber KiCad inert bay SAFE/INHIBIT — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39); no seekers/warheads.
 - [x] Hypersonic bomber KiCad educational thermal / TPS sense — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37); no weapons/seekers/recipes.
 - [x] Submarine structural / pressure-hull study — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) rings/casing/sail stubs; no quieting/weapons.
+- [x] Subsonic bomber structural study — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) spars/ribs/frames; inert bay keep-out only.
 - [ ] Remaining siblings structural / Gerbers / FJ gaps
 
 ### Issues

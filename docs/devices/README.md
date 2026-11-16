@@ -23,7 +23,7 @@ Current official list:
 - drawing-pads
 - fighter-jet
 - hypersonic-bomber (#37: deepen + KiCad educational thermal / TPS sense)
-- subsonic-bomber (#38: deepen + KiCad inert bay SAFE/INHIBIT)
+- subsonic-bomber (#38: deepen + KiCad + structural spars/ribs; inert bay only)
 - supersonic-bomber (#39: deepen + KiCad inert bay SAFE/INHIBIT)
 - warship (#43: hydrostatics + KiCad scale-model control; weapons = mass/footprint only)
 - aircraft-carrier (#45: flight deck + KiCad scale-model deck control; combat = mass/footprint only)
