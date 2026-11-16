@@ -149,6 +149,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Submarine structural / pressure-hull study — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) rings/casing/sail stubs; no quieting/weapons.
 - [x] Subsonic bomber structural study — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) spars/ribs/frames; inert bay keep-out only.
 - [x] Supersonic bomber structural study — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) spars/ribs/frames; inert bay keep-out only.
+- [x] Hypersonic bomber structural study — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) frames/rails under TPS shell; no weapons/recipes.
 - [ ] Remaining siblings structural / Gerbers / FJ gaps
 
 ### Issues
