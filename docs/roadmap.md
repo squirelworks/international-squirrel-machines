@@ -155,6 +155,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Rocket structural / mechanical study — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) rings/motor-mount/fin roots; no guidance.
 - [x] Satellite mechanical structure / panels — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) 3U rails/trays; payload mass/power/data only.
 - [x] Space station structural / mechanical study — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) shells/rings/truss; civil habitat only.
+- [x] Sonar mechanical enclosure / array mount — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) ribs/tray/bezel; no quieting/weapons.
 - [ ] Remaining siblings structural / Gerbers / FJ gaps
 
 ### Issues
