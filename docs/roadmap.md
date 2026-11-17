@@ -49,12 +49,15 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Thumb drives (`storage/thumbdrives/`) — fab-ready stick · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53) · gaps [#225](https://github.com/squirelworks/international-squirrel-machines/issues/225)
 - [x] NVMe (`storage/nvme/`) — fab-ready M.2 carrier · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54) · gaps [#229](https://github.com/squirelworks/international-squirrel-machines/issues/229)
 - [x] IDE (`storage/ide/`) — fab-ready PATA carrier · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55) · gaps [#233](https://github.com/squirelworks/international-squirrel-machines/issues/233)
-- [x] SCSI (`storage/scsi/`) — fab-ready carrier · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) · gaps [#235](https://github.com/squirelworks/international-squirrel-machines/issues/235) (this PR)
-- [ ] SATA (`storage/sata/`) · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57)
-- [ ] Squirrel-ROM (`storage/squirrel-rom/`) · [#58](https://github.com/squirelworks/international-squirrel-machines/issues/58)
-- [ ] Squirrel-floppy (`storage/squirrel-floppy/`) · [#59](https://github.com/squirelworks/international-squirrel-machines/issues/59)
+- [x] SCSI (`storage/scsi/`) — fab-ready carrier · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) · gaps [#235](https://github.com/squirelworks/international-squirrel-machines/issues/235)
+- [x] SATA (`storage/sata/`) — fab-ready carrier · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57) · gaps [#241](https://github.com/squirelworks/international-squirrel-machines/issues/241) (this PR)
+- [ ] Squirrel-ROM (`storage/squirrel-rom/`) · [#58](https://github.com/squirelworks/international-squirrel-machines/issues/58) — **next** after #242 green (build-vs-wrap TBD)
+- [ ] Squirrel-floppy (`storage/squirrel-floppy/`) · [#59](https://github.com/squirelworks/international-squirrel-machines/issues/59) — after #58
+
+**Handoff (Sarah lane):** see [`docs/HANDOFF.md`](HANDOFF.md). Queue after floppy: UPS [#29](https://github.com/squirelworks/international-squirrel-machines/issues/29); then deferred C1–C6 briefs. Stopped after SATA — do not start #58 until told.
 
 ## Phase 5 — Complements
+- [ ] UPS (`power-supply/` / UPS track) · [#29](https://github.com/squirelworks/international-squirrel-machines/issues/29) — after storage #58/#59
 - [ ] Terminal (`terminal/`)
 - [ ] Laptop / portable chassis
 - [ ] Docking station
