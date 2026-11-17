@@ -1,10 +1,10 @@
 # ISM Hypersonic Bomber — (#37)
 
 **Program ID:** ISM-HB-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + blunt-cone STL package.
 
 ## Prior slices
-B1 aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. KiCad thermal board + structural ghosts under TPS shell landed. This PR exports study Gerbers and STL.
+B1 aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. KiCad thermal board + structural ghosts. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
 
 ## Out of scope (hard limits)
 
@@ -12,7 +12,7 @@ B1 aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. Ki
 - Operational employment, targeting, or mission planning
 - Scramjet / propulsion **design recipes** or performance prediction
 - Export-controlled (ITAR/EAR) TPS formulations, classified materials data
-- Fab/STL outputs are **educational study packages** — not certified
+- Fab/STL/BOM outputs are **educational study packages** — not certified
 
 ## Deliverables
 
@@ -21,6 +21,8 @@ B1 aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. Ki
 | `docs/design-note.md` | Deepen summary (aerothermal + TPS classes) |
 | `docs/structural.md` | Primary-structure layout under TPS shell |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/aerothermal-concepts.md` | Textbook heat-transfer concepts (B1) |
 | `docs/heat-shield-tps.md` | TPS class trades (B1) |
 | `docs/citations.yaml` | Open / public citations |
@@ -36,8 +38,8 @@ B1 aerothermal/TPS notes + blunt-cone OML. Deepen added interfaces/heat-flux. Ki
 - [x] Design note — aerothermal / heat-shield (B1 + deepen)
 - [x] KiCad boards (educational thermal / TPS sense)
 - [x] Structural / mechanical design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
 
 ## Weapons boundary
