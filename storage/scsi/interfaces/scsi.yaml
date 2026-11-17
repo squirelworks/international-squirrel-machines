@@ -1,0 +1,29 @@
+device: storage/scsi
+vid_pid: "0x1209/0x001D"
+build_vs_wrap: wrap_commodity_scsi
+
+usb:
+  connector: J1
+  role: device_bringup
+
+scsi:
+  connector: J2
+  footprint: ISM_SCSI16
+  pins:
+    BSY: { module_pad: 2, gpio: 0, active: low }
+    RST: { module_pad: 3, gpio: 1, active: low }
+    ACK: { module_pad: 4, gpio: 2 }
+    REQ: { module_pad: 5, gpio: 3 }
+  data_bus: stubbed
+
+drive_power:
+  connector: J3
+  pins: { "1": "+5V", "2": "GND", "3": "GND", "4": "+12V_external_nc" }
+
+tests:
+  - name: enumerate_usb
+    expect: "VID 0x1209 PID 0x001D"
+  - name: bsy_led
+    expect: "BSY asserts LED when bus busy / device present"
+  - name: usb_scsi_bridge
+    status: follow_up
