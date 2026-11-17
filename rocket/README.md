@@ -1,7 +1,7 @@
 # ISM Rocket — (#41)
 
 **Program ID:** ISM-RK-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + airframe STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Hobby airframe design note (B4). KiCad passive logger / recovery board. Structural bulkheads/rings/motor-mount/fin roots. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
@@ -41,7 +41,7 @@ Hobby airframe design note (B4). KiCad passive logger / recovery board. Structur
 - [x] KiCad boards (passive logger / altimeter, recovery deployment, power)
 - [x] Structural / mechanical design
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release
 
 ## Guidance boundary

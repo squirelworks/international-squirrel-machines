@@ -33,6 +33,6 @@ Same as the design note / Gerbers slice: hobby airframe + passive logger/recover
 - Simulated: any guidance, steering, or weapons performance — **out of scope**.
 - Never fabricate propellant or guidance hardware in-repo.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices (satellite next).
+Polish checklist / inquire-for-release gate (open).

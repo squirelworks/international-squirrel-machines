@@ -1,7 +1,7 @@
 # ISM Gundam — (#46)
 
 **Program ID:** ISM-MS-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + frame STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Design-note (actuators / sensors / power / cockpit / stores stubs). KiCad control board. Structural spars / joints / armor. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
@@ -39,7 +39,7 @@ Design-note (actuators / sensors / power / cockpit / stores stubs). KiCad contro
 - [x] KiCad control and power boards
 - [x] Mechanical / structural design (limbs, armor)
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release
 
 ## Weapons boundary

@@ -32,6 +32,6 @@ Same as the design note / Gerbers slice: habitat / civil station architecture on
 - Simulated: any weapons employment or guidance-to-target — **out of scope**.
 - Never attach seekers, warheads, or fuzing hardware.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices (sonar next).
+Polish checklist / inquire-for-release gate (open).

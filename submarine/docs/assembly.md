@@ -32,6 +32,6 @@ Same B3 boundary as the design note / Gerbers slice: scale-model control + hull 
 - Simulated: any depth, collapse, or acoustic behaviour — **out of scope**.
 - Never attach weapons, quieting coatings as a design product, or live acoustic arrays.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices.
+Polish checklist / inquire-for-release gate (open).

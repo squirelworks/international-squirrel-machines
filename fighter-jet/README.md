@@ -33,6 +33,7 @@ fighter-jet/
 ├── docs/research/            comparative survey + citations (#95)
 ├── docs/viability.md         viability ladder (#103)
 ├── docs/bom/                 master BOM stub (#78)
+├── docs/decisions.md         PROPOSED product decisions (not frozen)
 ├── docs/bom.md               bay/study educational BOM (#85)
 ├── docs/assembly.md          bay/study assembly sequence (#85)
 ├── docs/assembly-notes.md    prototype build sequence (#78)
@@ -76,6 +77,9 @@ Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM sq
 5. Lock product decisions; expand KiCad beyond study bay; freeze bay connector pinout beyond Rev A stubs.
 
 ## Open product decisions
+
+**PROPOSED baselines (not frozen):** [`docs/decisions.md`](docs/decisions.md). Soft #79/#80 remain Steve’s lane.
+
 1. Twin vs single engine (baseline docs assume twin).
 2. Empty-weight / length class for full-scale FS tables.
 3. All-composite wing box vs hybrid Al-Li + CFRP skins (baseline: hybrid).

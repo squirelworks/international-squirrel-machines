@@ -32,6 +32,6 @@ Same as the design note / Gerbers slice: scale-model control + hull packaging on
 - Simulated: any combat employment, fire control, or weapons performance — **out of scope**.
 - Never attach live weapons, seekers, or fuzing hardware.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices (carrier next).
+Polish checklist / inquire-for-release gate (open).

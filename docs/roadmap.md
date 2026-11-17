@@ -127,7 +127,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] [#84](https://github.com/squirelworks/international-squirrel-machines/issues/84) Avionics firmware bring-up (ISM)
 
 ### 6.6 — Integration, BOM, validation
-- [ ] Freeze product decisions; Gerbers/STLs; ICD pinouts
+- [ ] Freeze product decisions (see `fighter-jet/docs/decisions.md` — PROPOSED only today); Gerbers/STLs/ICD Rev A stubs are in-tree
 - [x] [#78](https://github.com/squirelworks/international-squirrel-machines/issues/78) Full airframe BOM, assembly notes, ICD freeze, validation campaign, polish
 - [x] [#88](https://github.com/squirelworks/international-squirrel-machines/issues/88) Soft-parseable `ism-fj-1.ismfj-params` + `bay-io.ismfj-iface` for Flight Lab (stores inert only)
 
@@ -191,7 +191,10 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Sonar BOM / assembly — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) educational master BOM + assembly notes; echo-sounder only; no quieting/weapons.
 - [x] Gundam BOM / assembly — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) educational master BOM + assembly notes; stores = mass/SAFE-INHIBIT only.
 - [x] Fighter-jet bay/study BOM / assembly — [#85](https://github.com/squirelworks/international-squirrel-machines/issues/85) educational bay BOM + assembly notes; stores = mass/SAFE-INHIBIT only; complements #78 master BOM.
-- [ ] FJ productization gaps (#78 Soft Flight Lab/HIL blockers, open product decisions, inquire-for-release)
+- [x] FJ product decisions file — `fighter-jet/docs/decisions.md` (**PROPOSED** only; not frozen).
+- [x] Military sibling roadmap reconcile note — [`docs/military-sibling-roadmap-status.md`](military-sibling-roadmap-status.md) (GitHub #43/#44/… bodies still need owner sync).
+- [ ] FJ Soft inquire gates (#79 Flight Lab, #80 HIL) — **blocked on Soft (Steve)**; do not build Soft in ISM.
+- [ ] FJ remaining polish (coupon allowables, livery accent, inquire-for-release) + approved decisions freeze
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.

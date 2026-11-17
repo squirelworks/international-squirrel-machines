@@ -32,6 +32,6 @@ Same as the design note / Gerbers slice: mecha frame / actuator packaging only. 
 - Simulated: any live launch, fire sequence, or engagement doctrine — **out of scope**.
 - Never attach seekers, warheads, fuzing, or arming hardware.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices (fighter-jet next / #78 polish gaps).
+Polish checklist / inquire-for-release gate (open).

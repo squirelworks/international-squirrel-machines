@@ -1,5 +1,7 @@
 # Device Notes
 
+Military sibling GitHub roadmap reconcile: [`docs/military-sibling-roadmap-status.md`](../military-sibling-roadmap-status.md).
+
 One markdown file per device will live here as designs progress.
 
 Current official list:
