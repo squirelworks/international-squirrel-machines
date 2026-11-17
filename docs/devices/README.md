@@ -32,4 +32,4 @@ Current official list:
 - satellite (#31: bus + KiCad + structural + Gerbers/STL + BOM/assembly; payload mass/power/data only)
 - space-station (#42: modules + KiCad + structural + Gerbers/STL + BOM/assembly; habitat only; docking = mass/volume/power)
 - sonar (#40: educational echo-sounder + KiCad + structural + Gerbers/STL + BOM/assembly; B3-style acoustic limits)
-- gundam (#46: mecha + KiCad + structural + study Gerbers/STL; stores = mass/SAFE-INHIBIT only)
+- gundam (#46: mecha + KiCad + structural + Gerbers/STL + BOM/assembly; stores = mass/SAFE-INHIBIT only)
