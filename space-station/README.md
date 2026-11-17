@@ -1,7 +1,7 @@
 # ISM Space Station — (#42)
 
 **Program ID:** ISM-SSN-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + module STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board. Structural shells / berthing rings / truss. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
@@ -39,7 +39,7 @@ Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board.
 - [x] KiCad boards (power, environmental, computing)
 - [x] Structural / mechanical design
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release
 
 ## Weapons boundary

@@ -23,6 +23,7 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Firmware (bay I/O) | `fighter-jet/firmware/` (#84) |
 | BOM / assembly / validation | `fighter-jet/docs/bom/`, `assembly-notes.md`, `validation.md` (#78) |
 | Bay/study educational BOM | `fighter-jet/docs/bom.md`, `assembly.md` (#85 Gerbers follow-on) |
+| Product decisions (PROPOSED) | `fighter-jet/docs/decisions.md` |
 | Bay PCB | `fighter-jet/kicad/` |
 | Bay fab (study Gerbers) | `fighter-jet/fab/` |
 | Study shell + STL | `fighter-jet/shell/` |
@@ -34,6 +35,9 @@ Pinned interface list: [`fighter-jet/interfaces/icd-freeze.yaml`](../../fighter-
 Warm grays / soft browns; single accent TBD. See `docs/branding.md`.
 
 ## Open product decisions
+
+**PROPOSED baselines (not frozen):** [`fighter-jet/docs/decisions.md`](../../fighter-jet/docs/decisions.md). Soft #79/#80 = Steve’s lane (inquire gates stay unticked).
+
 1. Twin vs single engine
 2. Empty-weight / scale class (conceptual full-size vs study-only)
 3. All-composite wing box vs hybrid Al-Li + CFRP

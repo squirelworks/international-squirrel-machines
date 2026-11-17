@@ -1,7 +1,7 @@
 # ISM Warship — (#43)
 
 **Program ID:** ISM-WS-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + hull STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 B2 hydrostatics design note + deepen. KiCad scale-model control board. Structural keel/frames/decks. Gerbers + hull STL. This PR adds educational master BOM + assembly sequence.
@@ -41,7 +41,7 @@ Aircraft carrier sibling: `../aircraft-carrier/` (#45).
 - [x] KiCad boards (scale-model control)
 - [x] Structural design
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release
 
 ## Weapons boundary

@@ -1,7 +1,7 @@
 # ISM Submarine — (#44)
 
 **Program ID:** ISM-SS-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + hull STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Design-note (hull / trim / packaging). KiCad scale-model control board. Structural rings / casing. Gerbers + hull STL. This PR adds educational master BOM + assembly sequence.
@@ -35,5 +35,5 @@ Design-note (hull / trim / packaging). KiCad scale-model control board. Structur
 - [x] KiCad boards (scale-model control)
 - [x] Structural / pressure hull design
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release

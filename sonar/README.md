@@ -1,7 +1,7 @@
 # ISM Sonar — (#40)
 
 **Program ID:** ISM-SNR-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + enclosure STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanical enclosure / array-mount. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
@@ -43,5 +43,5 @@ Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanic
 - [x] KiCad boards (analog front-end, DSP, power)
 - [x] Mechanical enclosure / array mount
 - [x] Gerbers + STLs / mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release

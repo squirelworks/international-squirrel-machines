@@ -1,7 +1,7 @@
 # ISM Aircraft Carrier — (#45)
 
 **Program ID:** ISM-CV-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + deck STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/frames/hangar. Gerbers + deck STL. This PR adds educational master BOM + assembly sequence.
@@ -41,7 +41,7 @@ Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/
 - [x] KiCad boards (scale-model deck control)
 - [x] Structural design
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release
 
 ## Weapons boundary

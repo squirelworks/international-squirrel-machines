@@ -1,7 +1,7 @@
 # ISM Satellite — (#31)
 
 **Program ID:** ISM-SAT-1 (study name TBD)  
-**This PR:** BOM / assembly notes for the study Gerbers + bus STL package.
+**Status:** design note → KiCad → structural → Gerbers/STL → BOM/assembly in-tree; polish / inquire still open.
 
 ## Prior slices
 Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
@@ -39,7 +39,7 @@ Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays
 - [x] KiCad boards (OBC, power, radio)
 - [x] Mechanical structure / panels
 - [x] Gerbers + mechanical files
-- [x] BOM / assembly (this PR)
+- [x] BOM / assembly
 - [ ] Polish and inquire for release
 
 ## Weapons boundary

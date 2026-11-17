@@ -32,6 +32,6 @@ Same as the design note / Gerbers slice: civilian / educational bus + payload pa
 - Simulated: any weapons employment or guidance-to-target — **out of scope**.
 - Never attach seekers, warheads, or fuzing hardware.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices (space-station next).
+Polish checklist / inquire-for-release gate (open).

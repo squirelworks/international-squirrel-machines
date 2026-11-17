@@ -32,6 +32,6 @@ Same as the design note / Gerbers slice: educational / public echo-sounder class
 - Simulated: quieting, acoustic signature, ASW tactics, or weapons employment — **out of scope**.
 - Never attach seekers, warheads, fire control, or fuzing hardware.
 
-## Next (not this PR)
+## Next
 
-Polish checklist / inquire-for-release gate; remaining sibling BOM slices (gundam next).
+Polish checklist / inquire-for-release gate (open).
