@@ -20,6 +20,6 @@
 | `../fab/BOM.csv` | Educational BOM stub |
 | `../mechanical/hull_study.stl` | Ghost hull / keel / frames STL |
 
-## Next (not this PR)
+## Next
 
-Master BOM / assembly polish, inquire-for-release.
+BOM / assembly notes: `bom.md`, `assembly.md` (this program track). Remaining: polish / inquire-for-release.

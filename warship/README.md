@@ -1,10 +1,10 @@
 # ISM Warship — (#43)
 
 **Program ID:** ISM-WS-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + hull STL package.
 
 ## Prior slices
-B2 hydrostatics design note + deepen. KiCad scale-model control board. Structural keel/frames/decks under the hull shell. This PR exports study Gerbers and STL.
+B2 hydrostatics design note + deepen. KiCad scale-model control board. Structural keel/frames/decks. Gerbers + hull STL. This PR adds educational master BOM + assembly sequence.
 
 ## Scope limits (hard)
 
@@ -12,7 +12,7 @@ B2 hydrostatics design note + deepen. KiCad scale-model control board. Structura
 - **No** weapons interfaces, fire control, combat-system internals, seekers, guidance, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) data
 - **Public-domain hydrodynamics only** (textbook naval architecture)
-- Fab/STL outputs are **educational study packages** — not certified
+- Fab/STL/BOM outputs are **educational study packages** — not certified
 
 Aircraft carrier sibling: `../aircraft-carrier/` (#45).
 
@@ -23,6 +23,8 @@ Aircraft carrier sibling: `../aircraft-carrier/` (#45).
 | `docs/design-note.md` | Hull, hydrostatics, stability, powering, placeholders |
 | `docs/structural.md` | Keel / frames / decks / bulkheads study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/hydrostatics_examples.py` | Displacement / KB / BM teaching check |
 | `interfaces/hydrostatics.yaml` | Machine-readable study hydro numbers |
@@ -38,8 +40,8 @@ Aircraft carrier sibling: `../aircraft-carrier/` (#45).
 - [x] Design note (hull form, hydrostatics, stability, propulsion/powering, mass/footprint placeholders)
 - [x] KiCad boards (scale-model control)
 - [x] Structural design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
 
 ## Weapons boundary
