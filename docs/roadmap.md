@@ -42,7 +42,17 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Graphics card (`graphics-card/`) — fab-ready · [#14](https://github.com/squirelworks/international-squirrel-machines/issues/14) (PR #203)
 - [x] Sound card (`sound-card/`) — fab-ready · [#15](https://github.com/squirelworks/international-squirrel-machines/issues/15) (PR #208)
 - [x] Network card (`network-card/`) — fab-ready · [#16](https://github.com/squirelworks/international-squirrel-machines/issues/16) (PR #213)
-- [x] Power supply (`power-supply/`) — fab-ready DC rail board (Track A) · [#23](https://github.com/squirelworks/international-squirrel-machines/issues/23) (this PR)
+- [x] Power supply (`power-supply/`) — fab-ready DC rail board (Track A) · [#23](https://github.com/squirelworks/international-squirrel-machines/issues/23)
+
+### Storage range ([#49](https://github.com/squirelworks/international-squirrel-machines/issues/49))
+- [x] Flash cards (`storage/flash-cards/`) — fab-ready reader · [#52](https://github.com/squirelworks/international-squirrel-machines/issues/52) · gaps [#220](https://github.com/squirelworks/international-squirrel-machines/issues/220) (this PR)
+- [ ] Thumb drives (`storage/thumbdrives/`) · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53)
+- [ ] NVMe (`storage/nvme/`) · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54)
+- [ ] IDE (`storage/ide/`) · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55)
+- [ ] SCSI (`storage/scsi/`) · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56)
+- [ ] SATA (`storage/sata/`) · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57)
+- [ ] Squirrel-ROM (`storage/squirrel-rom/`) · [#58](https://github.com/squirelworks/international-squirrel-machines/issues/58)
+- [ ] Squirrel-floppy (`storage/squirrel-floppy/`) · [#59](https://github.com/squirelworks/international-squirrel-machines/issues/59)
 
 ## Phase 5 — Complements
 - [ ] Terminal (`terminal/`)
