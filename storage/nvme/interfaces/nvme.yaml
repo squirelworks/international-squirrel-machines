@@ -1,0 +1,27 @@
+device: storage/nvme
+vid_pid: "0x1209/0x001B"
+build_vs_wrap: wrap_commodity_m2_nvme
+
+usb:
+  connector: J1
+  role: device_bringup
+
+m2:
+  connector: J2
+  footprint: ISM_M2_KeyM_Socket
+  form: "2280"
+  key: M
+  pins:
+    PEDET: { module_pad: 2, gpio: 0, active: low }
+    PERST: { module_pad: 3, gpio: 1, active: low }
+    CLKREQ: { module_pad: 4, gpio: 2 }
+    DEVSLP: { module_pad: 5, gpio: 3 }
+  pcie_lanes: stubbed
+
+tests:
+  - name: enumerate_usb
+    expect: "VID 0x1209 PID 0x001B"
+  - name: presence_led
+    expect: "PEDET asserts LED when module seated"
+  - name: usb_nvme_bridge
+    status: follow_up
