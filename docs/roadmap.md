@@ -190,7 +190,8 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Space station BOM / assembly — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) educational master BOM + assembly notes; docking mass/volume/power only.
 - [x] Sonar BOM / assembly — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) educational master BOM + assembly notes; echo-sounder only; no quieting/weapons.
 - [x] Gundam BOM / assembly — [#46](https://github.com/squirelworks/international-squirrel-machines/issues/46) educational master BOM + assembly notes; stores = mass/SAFE-INHIBIT only.
-- [ ] Remaining sibling BOM / assembly slices; FJ productization gaps (#78 polish, open product decisions)
+- [x] Fighter-jet bay/study BOM / assembly — [#85](https://github.com/squirelworks/international-squirrel-machines/issues/85) educational bay BOM + assembly notes; stores = mass/SAFE-INHIBIT only; complements #78 master BOM.
+- [ ] FJ productization gaps (#78 Soft Flight Lab/HIL blockers, open product decisions, inquire-for-release)
 
 ### Issues
 Program index: **[#85](https://github.com/squirelworks/international-squirrel-machines/issues/85)**. Children #70–#84 carry acceptance criteria. #36 is the legacy thin checklist.
