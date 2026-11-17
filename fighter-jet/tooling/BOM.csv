@@ -1,0 +1,9 @@
+ToolID,Qty,Name,PathSTL,PathSTEP,Category,Notes
+ISM-FJ-TOOL-010,1,fuselage_splice_assembly_jig,jigs/fuselage_splice_jig.stl,jigs/fuselage_splice_jig.step,assembly_jig,FS-42/FS-72 splices
+ISM-FJ-TOOL-020,1,wing_box_assembly_jig,jigs/wing_box_jig.stl,jigs/wing_box_jig.step,assembly_jig,RH study wing box
+ISM-FJ-TOOL-030,1,empennage_assembly_jig,jigs/empennage_jig.stl,jigs/empennage_jig.step,assembly_jig,HT/VT cradles
+ISM-FJ-TOOL-040,1,drill_rivet_edge_fixture,fixtures/drill_rivet_fixture.stl,fixtures/drill_rivet_fixture.step,drill_rivet_fixture,pitch 20 mm study
+ISM-FJ-TOOL-050,1,wing_lower_skin_layup_tool,layup/wing_skin_layup_tool.stl,layup/wing_skin_layup_tool.step,composite_layup_tool,male skin tool
+ISM-FJ-TOOL-060,1,forward_skin_form_die_pair,dies/skin_form_die.stl,dies/skin_form_die.step,forming_die,male+female preview
+ISM-FJ-TOOL-070,1,canopy_layup_mandrel,layup/canopy_layup_mandrel.stl,layup/canopy_layup_mandrel.step,composite_layup_tool,educational canopy bubble
+ISM-FJ-TOOL-080,1,intake_layup_mandrel,layup/intake_layup_mandrel.stl,layup/intake_layup_mandrel.step,composite_layup_tool,packaging duct only
