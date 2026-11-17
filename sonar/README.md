@@ -1,10 +1,10 @@
 # ISM Sonar — (#40)
 
 **Program ID:** ISM-SNR-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + enclosure STL package.
 
 ## Prior slices
-Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanical enclosure / array-mount. This PR exports study Gerbers and STL.
+Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanical enclosure / array-mount. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
 
 ## Scope limits (hard) — same spirit as submarine B3
 
@@ -16,7 +16,7 @@ Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanic
 - **No** classified beamforming, ASW tactics, or combat employment
 - **No** weapons interfaces, fire control, seekers, guidance, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) sonar or acoustic-warfare content
-- Fab/STL outputs are **educational enclosure stubs** only
+- Fab/STL/BOM outputs are **educational enclosure stubs** only
 
 ## Deliverables
 
@@ -25,6 +25,8 @@ Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanic
 | `docs/design-note.md` | Transducers, SP blocks, display, enclosure |
 | `docs/structural.md` | Enclosure ribs / transducer face / board tray |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/range_equation_examples.py` | Teaching active-sonar equation stub |
 | `interfaces/transducer-placeholders.yaml` | Mass / footprint / frequency class |
@@ -40,6 +42,6 @@ Design-note (transducers / SP / display / enclosure). KiCad echo board. Mechanic
 - [x] Design note (transducers, signal processing, display, enclosure)
 - [x] KiCad boards (analog front-end, DSP, power)
 - [x] Mechanical enclosure / array mount
-- [x] Gerbers + STLs / mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + STLs / mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
