@@ -28,7 +28,7 @@ Current official list:
 - warship (#43: hydrostatics + KiCad + structural + Gerbers/STL + BOM/assembly; weapons = mass/footprint only)
 - aircraft-carrier (#45: flight deck + KiCad + structural + Gerbers/STL + BOM/assembly; combat = mass/footprint only)
 - submarine (#44: hull/trim + KiCad + structural + Gerbers/STL + BOM/assembly; sonar = mass/footprint only)
-- rocket (#41: hobby + KiCad + structural + study Gerbers/STL; no guidance)
+- rocket (#41: hobby + KiCad + structural + Gerbers/STL + BOM/assembly; no guidance)
 - satellite (#31: bus + KiCad + structural + study Gerbers/STL; payload mass/power/data only)
 - space-station (#42: modules + KiCad + structural + study Gerbers/STL; habitat only; docking = mass/volume/power)
 - sonar (#40: educational echo-sounder + KiCad + structural + study Gerbers/STL; B3-style acoustic limits)

@@ -2,6 +2,6 @@
 
 **Directory:** `rocket/` · **Issue:** [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41)
 
-**Scope:** educational hobby airframe / passive logger packaging. KiCad board is logger + recovery deployment stubs. Structural slice adds bulkheads/rings/motor-mount. Fab slice adds study Gerbers + airframe STL. Certified commercial hobby motors only. **No** guidance, steering, ballistic-missile, or reentry-vehicle content.
+**Scope:** educational hobby rocket packaging. KiCad board is passive logger / recovery stubs. Structural + Gerbers slices add airframe study STL and fab package. BOM/assembly notes cover study build sequence. **No** guidance, steering, active flight control, ballistic-missile, or RV content. Motors = certified commercial hobby classes only.
 
 See `rocket/README.md`.

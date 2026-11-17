@@ -21,6 +21,6 @@
 | `../fab/BOM.csv` | Educational BOM stub |
 | `../mechanical/airframe_study.stl` | Ghost body / fins / rings STL |
 
-## Next (not this PR)
+## Next
 
-Master BOM / assembly polish, inquire-for-release.
+BOM / assembly notes: `bom.md`, `assembly.md` (this program track). Remaining: polish / inquire-for-release.
