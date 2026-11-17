@@ -42,7 +42,7 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Graphics card (`graphics-card/`) — fab-ready · [#14](https://github.com/squirelworks/international-squirrel-machines/issues/14) (PR #203)
 - [x] Sound card (`sound-card/`) — fab-ready · [#15](https://github.com/squirelworks/international-squirrel-machines/issues/15) (PR #208)
 - [x] Network card (`network-card/`) — fab-ready · [#16](https://github.com/squirelworks/international-squirrel-machines/issues/16) (PR #213)
-- [x] Power supply (`power-supply/`) — fab-ready DC rail board (Track A) · [#23](https://github.com/squirelworks/international-squirrel-machines/issues/23) (this PR)
+- [x] Power supply (`power-supply/`) — fab-ready DC rail board (Track A) · [#23](https://github.com/squirelworks/international-squirrel-machines/issues/23)
 
 ### Storage range ([#49](https://github.com/squirelworks/international-squirrel-machines/issues/49))
 - [x] Flash cards (`storage/flash-cards/`) — fab-ready reader · [#52](https://github.com/squirelworks/international-squirrel-machines/issues/52) · gaps [#220](https://github.com/squirelworks/international-squirrel-machines/issues/220) (this PR)
