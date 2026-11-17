@@ -10,8 +10,8 @@ Range of storage devices for the ISM stack.
 | Thumb drives | `storage/thumbdrives/` | fab-ready stick · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53) |
 | NVMe | `storage/nvme/` | fab-ready M.2 carrier · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54) |
 | IDE | `storage/ide/` | fab-ready PATA carrier · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55) |
-| SCSI | `storage/scsi/` | fab-ready carrier (this PR) · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) |
-| SATA | `storage/sata/` | Planned · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57) |
+| SCSI | `storage/scsi/` | fab-ready carrier · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) |
+| SATA | `storage/sata/` | fab-ready carrier (this PR) · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57) |
 | Squirrel-ROM | `storage/squirrel-rom/` | Planned · [#58](https://github.com/squirelworks/international-squirrel-machines/issues/58) |
 | Squirrel-floppy | `storage/squirrel-floppy/` | Planned · [#59](https://github.com/squirelworks/international-squirrel-machines/issues/59) |
 

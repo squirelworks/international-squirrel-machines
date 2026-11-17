@@ -6,8 +6,8 @@
 | Thumb drives | **Wrap** | USB-MSC stick board + shell |
 | NVMe | **Wrap** | M.2 Key-M carrier / enclosure |
 | IDE | **Wrap** | PATA carrier + enclosure |
-| SCSI | **Wrap** | SCSI carrier + enclosure (this PR) |
-| SATA | Wrap | Form-factor enclosure + bridge board |
+| SCSI | **Wrap** | SCSI carrier + enclosure |
+| SATA | **Wrap** | SATA carrier + enclosure (this PR) |
 | Squirrel-ROM | TBD | Options in variant design note — needs Sarah/Eric |
 | Squirrel-Floppy | TBD | Emulator board vs donor drive — needs Sarah/Eric |
 

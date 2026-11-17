@@ -1,0 +1,27 @@
+device: storage/sata
+vid_pid: "0x1209/0x001E"
+build_vs_wrap: wrap_commodity_sata
+
+usb:
+  connector: J1
+  role: device_bringup
+
+sata:
+  connector: J2
+  footprint: ISM_SATA7
+  pins:
+    DET: { module_pad: 2, gpio: 0, note: "power-present via R3/R4" }
+    ACT_LED: { module_pad: 19, gpio: 17 }
+  data_pairs: stubbed
+
+drive_power:
+  connector: J3
+  pins: { "1": "+5V", "2": "GND", "3": "GND", "4": "+12V_external_nc" }
+
+tests:
+  - name: enumerate_usb
+    expect: "VID 0x1209 PID 0x001E"
+  - name: det_led
+    expect: "DET high with drive +5V asserts ACT LED"
+  - name: usb_sata_bridge
+    status: follow_up

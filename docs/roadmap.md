@@ -49,8 +49,8 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] Thumb drives (`storage/thumbdrives/`) — fab-ready stick · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53) · gaps [#225](https://github.com/squirelworks/international-squirrel-machines/issues/225)
 - [x] NVMe (`storage/nvme/`) — fab-ready M.2 carrier · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54) · gaps [#229](https://github.com/squirelworks/international-squirrel-machines/issues/229)
 - [x] IDE (`storage/ide/`) — fab-ready PATA carrier · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55) · gaps [#233](https://github.com/squirelworks/international-squirrel-machines/issues/233)
-- [x] SCSI (`storage/scsi/`) — fab-ready carrier · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) · gaps [#235](https://github.com/squirelworks/international-squirrel-machines/issues/235) (this PR)
-- [ ] SATA (`storage/sata/`) · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57)
+- [x] SCSI (`storage/scsi/`) — fab-ready carrier · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) · gaps [#235](https://github.com/squirelworks/international-squirrel-machines/issues/235)
+- [x] SATA (`storage/sata/`) — fab-ready carrier · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57) · gaps [#241](https://github.com/squirelworks/international-squirrel-machines/issues/241) (this PR)
 - [ ] Squirrel-ROM (`storage/squirrel-rom/`) · [#58](https://github.com/squirelworks/international-squirrel-machines/issues/58)
 - [ ] Squirrel-floppy (`storage/squirrel-floppy/`) · [#59](https://github.com/squirelworks/international-squirrel-machines/issues/59)
 
