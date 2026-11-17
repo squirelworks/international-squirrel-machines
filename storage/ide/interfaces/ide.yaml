@@ -1,0 +1,29 @@
+device: storage/ide
+vid_pid: "0x1209/0x001C"
+build_vs_wrap: wrap_commodity_pata
+
+usb:
+  connector: J1
+  role: device_bringup
+
+pata:
+  connector: J2
+  footprint: ISM_IDE_PATA16
+  pins:
+    DASP: { module_pad: 2, gpio: 0, active: low }
+    RESET: { module_pad: 3, gpio: 1, active: low }
+    INTRQ: { module_pad: 4, gpio: 2 }
+    IORDY: { module_pad: 5, gpio: 3 }
+  data_bus: stubbed
+
+drive_power:
+  connector: J3
+  pins: { "1": "+5V", "2": "GND", "3": "GND", "4": "+12V_external_nc" }
+
+tests:
+  - name: enumerate_usb
+    expect: "VID 0x1209 PID 0x001C"
+  - name: dasp_led
+    expect: "DASP asserts LED when drive present"
+  - name: usb_pata_bridge
+    status: follow_up

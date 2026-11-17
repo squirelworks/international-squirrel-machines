@@ -8,8 +8,8 @@ Range of storage devices for the ISM stack.
 |---------|-----------|--------|
 | Flash cards | `storage/flash-cards/` | fab-ready reader (this PR) · [#52](https://github.com/squirelworks/international-squirrel-machines/issues/52) |
 | Thumb drives | `storage/thumbdrives/` | fab-ready stick · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53) |
-| NVMe | `storage/nvme/` | fab-ready M.2 carrier (this PR) · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54) |
-| IDE | `storage/ide/` | Planned · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55) |
+| NVMe | `storage/nvme/` | fab-ready M.2 carrier · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54) |
+| IDE | `storage/ide/` | fab-ready PATA carrier (this PR) · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55) |
 | SCSI | `storage/scsi/` | Planned · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) |
 | SATA | `storage/sata/` | Planned · [#57](https://github.com/squirelworks/international-squirrel-machines/issues/57) |
 | Squirrel-ROM | `storage/squirrel-rom/` | Planned · [#58](https://github.com/squirelworks/international-squirrel-machines/issues/58) |
