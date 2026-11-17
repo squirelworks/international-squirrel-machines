@@ -1,10 +1,10 @@
 # ISM Aircraft Carrier — (#45)
 
 **Program ID:** ISM-CV-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + deck STL package.
 
 ## Prior slices
-Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/frames/hangar. This PR exports study Gerbers and STL.
+Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/frames/hangar. Gerbers + deck STL. This PR adds educational master BOM + assembly sequence.
 
 ## Scope limits (hard)
 
@@ -14,7 +14,7 @@ Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/
 - **No** seekers, guidance, warheads, fuzing, arming codes, or engagement doctrine
 - **No** export-controlled (ITAR/EAR) combat or acoustic data
 - Catapult / arresting gear = load/mass/keep-out stubs (no classified plant design)
-- Fab/STL outputs are **educational study packages** — not certified
+- Fab/STL/BOM outputs are **educational study packages** — not certified
 
 ## Deliverables
 
@@ -23,6 +23,8 @@ Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/
 | `docs/design-note.md` | Flight deck, aviation, combat stubs, propulsion |
 | `docs/structural.md` | Keel / frames / hangar / elevator study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/deck_area_examples.py` | Teaching deck-area / parking check |
 | `interfaces/aviation.yaml` | Elevators, fuel, inert ordnance stubs |
@@ -38,8 +40,8 @@ Flight-deck design note deepen. KiCad scale-model deck control. Structural keel/
 - [x] Design note (flight deck, aviation systems, combat systems, propulsion)
 - [x] KiCad boards (scale-model deck control)
 - [x] Structural design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
 
 ## Weapons boundary
