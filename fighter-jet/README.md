@@ -33,6 +33,8 @@ fighter-jet/
 ├── docs/research/            comparative survey + citations (#95)
 ├── docs/viability.md         viability ladder (#103)
 ├── docs/bom/                 master BOM stub (#78)
+├── docs/bom.md               bay/study educational BOM (#85)
+├── docs/assembly.md          bay/study assembly sequence (#85)
 ├── docs/assembly-notes.md    prototype build sequence (#78)
 ├── docs/validation*.md/yaml  co-check matrix (#78)
 ├── docs/icd-freeze.md        Rev A ICD pin (#78)
@@ -61,7 +63,7 @@ fighter-jet/
 | Study shell | `shell/` | Parametric OpenSCAD + `airframe.stl` |
 
 ## Status
-**Design program in progress.** Concept architecture, diagrams, and materials/mechanical/FBW/avionics narratives are in-tree. Bay study Gerbers + airframe STL are exported; detailed FEA/CFD and production tooling remain next-cycle work.
+**Design program in progress.** Concept architecture, diagrams, and materials/mechanical/FBW/avionics narratives are in-tree. Bay study Gerbers + airframe STL + educational bay BOM/assembly are exported; Soft Flight Lab / HIL and open product decisions remain.
 
 ## Branding
 Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM squirrel badge on the vertical stabilizer and avionics silkscreen. No external trademarks. See `docs/branding.md`.

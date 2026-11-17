@@ -22,6 +22,7 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Tooling | `fighter-jet/tooling/` (#106) |
 | Firmware (bay I/O) | `fighter-jet/firmware/` (#84) |
 | BOM / assembly / validation | `fighter-jet/docs/bom/`, `assembly-notes.md`, `validation.md` (#78) |
+| Bay/study educational BOM | `fighter-jet/docs/bom.md`, `assembly.md` (#85 Gerbers follow-on) |
 | Bay PCB | `fighter-jet/kicad/` |
 | Bay fab (study Gerbers) | `fighter-jet/fab/` |
 | Study shell + STL | `fighter-jet/shell/` |

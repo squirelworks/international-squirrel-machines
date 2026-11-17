@@ -20,6 +20,6 @@
 | `../fab/BOM.csv` | Educational BOM stub |
 | `../shell/airframe.stl` | Study airframe STL (beside `airframe.scad`; `mechanical/` stays design docs) |
 
-## Next (not this PR)
+## Next
 
-Master BOM / assembly polish (#78), remaining product decisions, inquire-for-release.
+Bay/study BOM / assembly notes: `bom.md`, `assembly.md` (this program track). Remaining: #78 Soft blockers / open product decisions / inquire-for-release.
