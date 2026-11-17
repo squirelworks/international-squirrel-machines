@@ -2,6 +2,6 @@
 
 **Directory:** `hypersonic-bomber/` · **Issue:** [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37)
 
-**Scope:** educational aerothermal / TPS / blunt-cone packaging. KiCad board is thermal / TPS-sense stubs. Structural slice adds frames/rails under the TPS shell. Fab slice adds study Gerbers + blunt-cone STL. **No** weapons, seekers, guidance, munition propulsion, warheads, fuzing, or propulsion design recipes.
+**Scope:** educational aerothermal / TPS packaging (blunt-cone study). KiCad board is thermal/TPS sense stubs. Structural + Gerbers slices add blunt-cone STL and fab package. BOM/assembly notes cover study build sequence. **No** weapons, munition recipes, seekers, guidance, warheads, fuzing, or ITAR/EAR TPS formulations.
 
 See `hypersonic-bomber/README.md`.

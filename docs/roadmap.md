@@ -172,6 +172,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Submarine BOM / assembly — [#44](https://github.com/squirelworks/international-squirrel-machines/issues/44) educational master BOM + assembly notes; B3 limits.
 - [x] Subsonic bomber BOM / assembly — [#38](https://github.com/squirelworks/international-squirrel-machines/issues/38) educational master BOM + assembly notes; inert bay only.
 - [x] Supersonic bomber BOM / assembly — [#39](https://github.com/squirelworks/international-squirrel-machines/issues/39) educational master BOM + assembly notes; inert bay only.
+- [x] Hypersonic bomber BOM / assembly — [#37](https://github.com/squirelworks/international-squirrel-machines/issues/37) educational master BOM + assembly notes; thermal/TPS sense only; no weapons/recipes.
 - [ ] Remaining sibling BOM / assembly slices; FJ productization gaps (#78 polish, open product decisions)
 
 ### Issues

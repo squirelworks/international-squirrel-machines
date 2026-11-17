@@ -19,6 +19,6 @@
 | `../fab/BOM.csv` | Educational BOM stub |
 | `../mechanical/blunt_cone_study.stl` | Blunt cone + TPS/structure ghost STL |
 
-## Next (not this PR)
+## Next
 
-Master BOM / assembly polish, inquire-for-release.
+BOM / assembly notes: `bom.md`, `assembly.md` (this program track). Remaining: polish / inquire-for-release.
