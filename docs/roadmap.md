@@ -186,6 +186,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Warship BOM / assembly — [#43](https://github.com/squirelworks/international-squirrel-machines/issues/43) educational master BOM + assembly notes; weapons = mass/footprint only.
 - [x] Aircraft carrier BOM / assembly — [#45](https://github.com/squirelworks/international-squirrel-machines/issues/45) educational master BOM + assembly notes; combat = mass/footprint only.
 - [x] Rocket BOM / assembly — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) educational master BOM + assembly notes; no guidance.
+- [x] Satellite BOM / assembly — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) educational master BOM + assembly notes; payload mass/power/data only.
 - [ ] Remaining sibling BOM / assembly slices; FJ productization gaps (#78 polish, open product decisions)
 
 ### Issues

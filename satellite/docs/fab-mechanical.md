@@ -20,6 +20,6 @@
 | `../fab/BOM.csv` | Educational BOM stub |
 | `../mechanical/bus_study.stl` | Ghost 3U rails / trays STL |
 
-## Next (not this PR)
+## Next
 
-Master BOM / assembly polish, inquire-for-release.
+BOM / assembly notes: `bom.md`, `assembly.md` (this program track). Remaining: polish / inquire-for-release.

@@ -1,10 +1,10 @@
 # ISM Satellite — (#31)
 
 **Program ID:** ISM-SAT-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + bus STL package.
 
 ## Prior slices
-Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays. This PR exports study Gerbers and STL.
+Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
 
 ## Scope / weapons boundary (hard)
 
@@ -12,7 +12,7 @@ Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays
 - Payload mass/power/data stubs — **no** weapons, seekers, guidance-to-target, warheads, or fuzing
 - **No** export-controlled (ITAR/EAR) bus or payload designs
 - Openly published cubesat / smallsat teaching sources preferred
-- Fab/STL outputs are **educational 3U study packages** only
+- Fab/STL/BOM outputs are **educational 3U study packages** only
 
 ## Deliverables
 
@@ -21,6 +21,8 @@ Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays
 | `docs/design-note.md` | Bus architecture, power, comms, structure, payload |
 | `docs/structural.md` | Rails / panels / trays / hinge study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/power_budget_examples.py` | Teaching power-budget check |
 | `interfaces/bus.yaml` | Machine-readable bus / power / comms stubs |
@@ -36,8 +38,8 @@ Bus design-note (B5). KiCad OBC/power/radio bus board. Structural 3U rails/trays
 - [x] Design note (bus architecture, power, comms, structure, payload)
 - [x] KiCad boards (OBC, power, radio)
 - [x] Mechanical structure / panels
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
 
 ## Weapons boundary
