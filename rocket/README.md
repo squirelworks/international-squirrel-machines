@@ -1,10 +1,10 @@
 # ISM Rocket — (#41)
 
 **Program ID:** ISM-RK-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + airframe STL package.
 
 ## Prior slices
-Hobby airframe design note (B4). KiCad passive logger / recovery board. Structural bulkheads/rings/motor-mount/fin roots. This PR exports study Gerbers and STL.
+Hobby airframe design note (B4). KiCad passive logger / recovery board. Structural bulkheads/rings/motor-mount/fin roots. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
 
 ## Scope limits (hard)
 
@@ -14,7 +14,7 @@ Hobby airframe design note (B4). KiCad passive logger / recovery board. Structur
 - **No** export-controlled (ITAR/EAR) data
 - Openly published sources only
 - Avionics = **passive** logger / altimeter + recovery deployment sensing — not a guidance computer
-- Fab/STL outputs are **educational study packages** only
+- Fab/STL/BOM outputs are **educational study packages** only
 
 ## Deliverables
 
@@ -23,6 +23,8 @@ Hobby airframe design note (B4). KiCad passive logger / recovery board. Structur
 | `docs/design-note.md` | Airframe, fins/stability, recovery, passive avionics, motor mount |
 | `docs/structural.md` | Bulkheads / rings / motor mount / fin roots |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/stability_examples.py` | Static-margin teaching check |
 | `interfaces/airframe.yaml` | Study dimensions / CP–CG stubs |
@@ -38,8 +40,8 @@ Hobby airframe design note (B4). KiCad passive logger / recovery board. Structur
 - [x] Design note (airframe, fins and stability margin, recovery, passive avionics, motor mount for certified motors)
 - [x] KiCad boards (passive logger / altimeter, recovery deployment, power)
 - [x] Structural / mechanical design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
 
 ## Guidance boundary
