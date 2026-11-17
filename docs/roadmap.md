@@ -188,6 +188,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] Rocket BOM / assembly — [#41](https://github.com/squirelworks/international-squirrel-machines/issues/41) educational master BOM + assembly notes; no guidance.
 - [x] Satellite BOM / assembly — [#31](https://github.com/squirelworks/international-squirrel-machines/issues/31) educational master BOM + assembly notes; payload mass/power/data only.
 - [x] Space station BOM / assembly — [#42](https://github.com/squirelworks/international-squirrel-machines/issues/42) educational master BOM + assembly notes; docking mass/volume/power only.
+- [x] Sonar BOM / assembly — [#40](https://github.com/squirelworks/international-squirrel-machines/issues/40) educational master BOM + assembly notes; echo-sounder only; no quieting/weapons.
 - [ ] Remaining sibling BOM / assembly slices; FJ productization gaps (#78 polish, open product decisions)
 
 ### Issues
