@@ -1,0 +1,26 @@
+device: storage/thumbdrives
+vid_pid: "0x1209/0x001A"
+build_vs_wrap: wrap_commodity_spi_nor
+
+usb:
+  connector: J1
+  role: device_bringup
+
+flash:
+  part: W25Q32JVSSIQ
+  lcsc: C82307
+  mode: spi
+  pins:
+    CLK: { module_pad: 2, gpio: 0 }
+    MOSI_DI: { module_pad: 3, gpio: 1 }
+    MISO_DO: { module_pad: 4, gpio: 2 }
+    CS: { module_pad: 5, gpio: 3 }
+    IO2_IO3: pullup_3v3
+
+tests:
+  - name: enumerate_usb
+    expect: "VID 0x1209 PID 0x001A"
+  - name: spi_jedec_id
+    status: follow_up
+  - name: msc_read_verify
+    status: follow_up

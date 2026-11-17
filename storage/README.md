@@ -7,7 +7,7 @@ Range of storage devices for the ISM stack.
 | Variant | Directory | Status |
 |---------|-----------|--------|
 | Flash cards | `storage/flash-cards/` | fab-ready reader (this PR) · [#52](https://github.com/squirelworks/international-squirrel-machines/issues/52) |
-| Thumb drives | `storage/thumbdrives/` | Planned · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53) |
+| Thumb drives | `storage/thumbdrives/` | fab-ready stick (this PR) · [#53](https://github.com/squirelworks/international-squirrel-machines/issues/53) |
 | NVMe | `storage/nvme/` | Planned · [#54](https://github.com/squirelworks/international-squirrel-machines/issues/54) |
 | IDE | `storage/ide/` | Planned · [#55](https://github.com/squirelworks/international-squirrel-machines/issues/55) |
 | SCSI | `storage/scsi/` | Planned · [#56](https://github.com/squirelworks/international-squirrel-machines/issues/56) |
