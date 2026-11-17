@@ -4,7 +4,7 @@ Full design program for the International Squirrel Machines single-seat fighter 
 
 Pure Squirrel-OS/2 development. Contemporary fighters and open RC/avionics projects may be studied as reference only; resulting geometry, buses, materials callouts, and control architecture are original ISM work.
 
-## Working assumptions (revise with product decisions)
+## Working assumptions (D1–D5 FROZEN 2026-11-17)
 | Topic | Current default | Notes |
 |-------|-----------------|-------|
 | Role | Multirole day/night fighter | Air superiority primary; secondary strike |
@@ -14,7 +14,7 @@ Pure Squirrel-OS/2 development. Contemporary fighters and open RC/avionics proje
 | Actuation | Electro-hydrostatic (EHA) primary | Central hydraulic optional stub |
 | Scale intent | Full conceptual air vehicle | Parametric shell is a reduced-scale study model |
 
-Open product decisions are listed at the bottom of this README and in `docs/devices/fighter-jet.md`.
+Frozen product decisions: `docs/decisions.md` (also summarized below and in `docs/devices/fighter-jet.md`). Soft #79/#80 remain Steve’s.
 
 ## Program layout
 
@@ -33,7 +33,7 @@ fighter-jet/
 ├── docs/research/            comparative survey + citations (#95)
 ├── docs/viability.md         viability ladder (#103)
 ├── docs/bom/                 master BOM stub (#78)
-├── docs/decisions.md         PROPOSED product decisions (not frozen)
+├── docs/decisions.md         FROZEN product decisions (2026-11-17)
 ├── docs/bom.md               bay/study educational BOM (#85)
 ├── docs/assembly.md          bay/study assembly sequence (#85)
 ├── docs/assembly-notes.md    prototype build sequence (#78)
@@ -64,7 +64,7 @@ fighter-jet/
 | Study shell | `shell/` | Parametric OpenSCAD + `airframe.stl` |
 
 ## Status
-**Design program in progress.** Concept architecture, diagrams, and materials/mechanical/FBW/avionics narratives are in-tree. Bay study Gerbers + airframe STL + educational bay BOM/assembly are exported; Soft Flight Lab / HIL and open product decisions remain.
+**Design program in progress.** Concept architecture, diagrams, and materials/mechanical/FBW/avionics narratives are in-tree. Bay study Gerbers + airframe STL + educational bay BOM/assembly are exported; D1–D5 product decisions FROZEN 2026-11-17; Soft Flight Lab / HIL remain (Steve).
 
 ## Branding
 Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM squirrel badge on the vertical stabilizer and avionics silkscreen. No external trademarks. See `docs/branding.md`.
@@ -74,11 +74,11 @@ Industrial Warp-era lines; warm grays / soft browns; single accent (TBD). ISM sq
 2. Carrier suitability load cases YAML (hook / catapult / wing fold).
 3. Stores integration inert models + SMS interface YAML (no seeker/warhead/fuze).
 4. Comparative fighter programme survey under `docs/research/`.
-5. Lock product decisions; expand KiCad beyond study bay; freeze bay connector pinout beyond Rev A stubs.
+5. Expand KiCad beyond study bay; freeze bay connector pinout beyond Rev A stubs (D1–D5 already FROZEN 2026-11-17).
 
-## Open product decisions
+## Product decisions (FROZEN 2026-11-17)
 
-**PROPOSED baselines (not frozen):** [`docs/decisions.md`](docs/decisions.md). Soft #79/#80 remain Steve’s lane.
+**FROZEN baselines:** [`docs/decisions.md`](docs/decisions.md) (D1–D5 approved). Soft #79/#80 remain Steve’s lane.
 
 1. Twin vs single engine (baseline docs assume twin).
 2. Empty-weight / length class for full-scale FS tables.

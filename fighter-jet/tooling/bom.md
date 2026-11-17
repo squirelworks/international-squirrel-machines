@@ -8,7 +8,7 @@
 - Assembly / layup / forming **study tools** only (reduced-scale mm)
 - Eric shop machines = **required equipment reference only** (not designed here)
 - Soft #79/#80 remain **Steve’s lane**
-- Product decisions stay **PROPOSED** (`../docs/decisions.md`) — not frozen
+- Product decisions are **FROZEN 2026-11-17** (`../docs/decisions.md`)
 - Stores / weapons tooling out of scope beyond inert-structure fixtures
 - **Not** a procurement order
 
