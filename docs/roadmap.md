@@ -41,8 +41,8 @@ Pure Squirrel-OS/2 Warp-style hardware. Scaffold → implement → polish → in
 - [x] CPU (`cpu/`) — fab-ready · [#13](https://github.com/squirelworks/international-squirrel-machines/issues/13) (PR #198)
 - [x] Graphics card (`graphics-card/`) — fab-ready · [#14](https://github.com/squirelworks/international-squirrel-machines/issues/14) (PR #203)
 - [x] Sound card (`sound-card/`) — fab-ready · [#15](https://github.com/squirelworks/international-squirrel-machines/issues/15) (PR #208)
-- [x] Network card (`network-card/`) — fab-ready · [#16](https://github.com/squirelworks/international-squirrel-machines/issues/16) (this PR)
-- [ ] Power supply (to be added) · [#23](https://github.com/squirelworks/international-squirrel-machines/issues/23)
+- [x] Network card (`network-card/`) — fab-ready · [#16](https://github.com/squirelworks/international-squirrel-machines/issues/16) (PR #213)
+- [x] Power supply (`power-supply/`) — fab-ready DC rail board (Track A) · [#23](https://github.com/squirelworks/international-squirrel-machines/issues/23) (this PR)
 
 ## Phase 5 — Complements
 - [ ] Terminal (`terminal/`)

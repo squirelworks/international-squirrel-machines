@@ -1,0 +1,40 @@
+# ISM Power Supply — Steve bench interface
+device: power-supply
+vid_pid: "0x1209/0x0018"
+track: A  # DC-side only; certified 12V brick off-board
+
+input:
+  connector: J_IN
+  type: barrel_dc
+  voltage_v: 12
+  polarity: center_positive
+  note: "Certified AC-DC brick only — no mains on PCB"
+
+output_mb_pwr:
+  connector: J_OUT
+  mates: motherboard/J_PWR
+  pins:
+    1: { net: "+12V", v: 12 }
+    2: { net: "+12V", v: 12 }
+    3: { net: "+5V", v: 5 }
+    4: { net: "+5V", v: 5 }
+    5: { net: "+3V3", v: 3.3 }
+    6: { net: "+3V3", v: 3.3 }
+    7: { net: "GND" }
+    8: { net: "GND" }
+
+control:
+  connector: J_CTL
+  pins:
+    1: { net: "PS_ON", sense: "active_low_atx", pullup: "+5V" }
+    2: { net: "PWR_OK", drive: "open_collector_style_gpio", pullup: "+5V" }
+    3: { net: "GND" }
+    4: { net: "+5V", role: "5VSB_stub" }
+  timing:
+    ps_on_to_pwr_ok_ms_max: 500
+    note: "Bring-up firmware; tighten to ATX guide on validation"
+
+sense_gpio:
+  SNS_12V: { module_pad: 4, gpio: 2, divider: "10k/10k" }
+  SNS_5V:  { module_pad: 5, gpio: 3, divider: "10k/10k" }
+  SNS_3V3: { module_pad: 6, gpio: 4, divider: "10k/10k" }
