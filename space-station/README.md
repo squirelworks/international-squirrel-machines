@@ -1,10 +1,10 @@
 # ISM Space Station — (#42)
 
 **Program ID:** ISM-SSN-1 (study name TBD)  
-**This PR:** Gerbers + mechanical STL export slice.
+**This PR:** BOM / assembly notes for the study Gerbers + module STL package.
 
 ## Prior slices
-Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board. Structural shells / berthing rings / truss. This PR exports study Gerbers and STL.
+Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board. Structural shells / berthing rings / truss. Gerbers + STL. This PR adds educational master BOM + assembly sequence.
 
 ## Weapons boundary (hard)
 
@@ -12,7 +12,7 @@ Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board.
 - **No** weapons, seekers, guidance-to-target, warheads, fuzing, or combat employment
 - Docked spacecraft follow the same rule (mass/power/berthing stubs)
 - **No** export-controlled (ITAR/EAR) station or weapon designs
-- Fab/STL outputs are **educational layout stubs** only
+- Fab/STL/BOM outputs are **educational layout stubs** only
 
 ## Deliverables
 
@@ -21,6 +21,8 @@ Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board.
 | `docs/design-note.md` | Modules, power, life support, docking, avionics |
 | `docs/structural.md` | Habitat/node/lab shells + truss study |
 | `docs/fab-mechanical.md` | Gerber + STL notes |
+| `docs/bom.md` | Educational master BOM |
+| `docs/assembly.md` | Study assembly sequence |
 | `docs/citations.yaml` | Open / public citations |
 | `docs/eclss_budget_examples.py` | Teaching ECLSS / power budget check |
 | `interfaces/station.yaml` | Machine-readable module / power / ECLSS stubs |
@@ -36,8 +38,8 @@ Design-note (modules / power / ECLSS / docking / avionics). KiCad habitat board.
 - [x] Design note (modules, power, life support, docking, avionics)
 - [x] KiCad boards (power, environmental, computing)
 - [x] Structural / mechanical design
-- [x] Gerbers + mechanical files (this PR)
-- [ ] BOM / assembly
+- [x] Gerbers + mechanical files
+- [x] BOM / assembly (this PR)
 - [ ] Polish and inquire for release
 
 ## Weapons boundary
