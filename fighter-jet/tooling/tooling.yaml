@@ -1,13 +1,17 @@
 schema_version: "1.0.0"
 aircraft_id: "ISM-FJ-1"
 revision: "A"
-status: stub
+status: fab_ready_study
 issue: 106
+slice: "4b"
 provisional: true
 scale_study_mm: true
 full_scale_factor: 36.9
 source_docs:
   - fighter-jet/tooling/README.md
+  - fighter-jet/tooling/bom.md
+  - fighter-jet/tooling/drawings.md
+  - fighter-jet/tooling/assembly.md
   - fighter-jet/materials/manufacturing-sourcing.md
   - fighter-jet/interfaces/manufacturing.yaml
 source_drawings:
@@ -16,6 +20,11 @@ source_drawings:
   - ISM-FJ-DWG-030
   - ISM-FJ-DWG-050
   - ISM-FJ-DWG-060
+exports:
+  script: fighter-jet/tooling/export.sh
+  stl: true
+  step: study_placeholder
+  note: "STEP files are study placeholder markers (repo convention); STL is the printable solid."
 
 required_equipment_eric_lane:
   items:
@@ -31,6 +40,8 @@ tools:
     name: fuselage_splice_assembly_jig
     category: assembly_jig
     path: jigs/fuselage_splice_jig.scad
+    stl: jigs/fuselage_splice_jig.stl
+    step: jigs/fuselage_splice_jig.step
     format: openscad
     assemblies: [A01, A02, A03]
     stations: [FS-42, FS-72]
@@ -43,6 +54,8 @@ tools:
     name: wing_box_assembly_jig
     category: assembly_jig
     path: jigs/wing_box_jig.scad
+    stl: jigs/wing_box_jig.stl
+    step: jigs/wing_box_jig.step
     format: openscad
     assemblies: [A04, A05]
     stations: [WS-0, WS-2, WS-4, WS-6, WS-8, WS-10]
@@ -55,6 +68,8 @@ tools:
     name: empennage_assembly_jig
     category: assembly_jig
     path: jigs/empennage_jig.scad
+    stl: jigs/empennage_jig.stl
+    step: jigs/empennage_jig.step
     format: openscad
     assemblies: [A06, A07]
     stations: [FS-88, FS-92]
@@ -66,6 +81,8 @@ tools:
     name: drill_rivet_edge_fixture
     category: drill_rivet_fixture
     path: fixtures/drill_rivet_fixture.scad
+    stl: fixtures/drill_rivet_fixture.stl
+    step: fixtures/drill_rivet_fixture.step
     format: openscad
     assemblies: [A01, A02]
     stations: [FS-22, FS-42, FS-48]
@@ -78,6 +95,8 @@ tools:
     name: wing_lower_skin_layup_tool
     category: composite_layup_tool
     path: layup/wing_skin_layup_tool.scad
+    stl: layup/wing_skin_layup_tool.stl
+    step: layup/wing_skin_layup_tool.step
     format: openscad
     assemblies: [A04, A05]
     stations: [WS-0, WS-10]
@@ -90,6 +109,8 @@ tools:
     name: forward_skin_form_die_pair
     category: forming_die
     path: dies/skin_form_die.scad
+    stl: dies/skin_form_die.stl
+    step: dies/skin_form_die.step
     format: openscad
     assemblies: [A01]
     stations: [FS-12, FS-28]
@@ -97,14 +118,47 @@ tools:
     process: sheet_rivet
     material_formed: ISM-Al-2xxx
 
+  - id: ISM-FJ-TOOL-070
+    rev: A
+    name: canopy_layup_mandrel
+    category: composite_layup_tool
+    path: layup/canopy_layup_mandrel.scad
+    stl: layup/canopy_layup_mandrel.stl
+    step: layup/canopy_layup_mandrel.step
+    format: openscad
+    assemblies: [A01]
+    stations: [FS-18, FS-28]
+    drawing_refs: [ISM-FJ-DWG-010]
+    process: composite_auto
+    cure_equipment: eric_oven_reference_only
+    note: educational canopy bubble mandrel — not transparency recipe
+
+  - id: ISM-FJ-TOOL-080
+    rev: A
+    name: intake_layup_mandrel
+    category: composite_layup_tool
+    path: layup/intake_layup_mandrel.scad
+    stl: layup/intake_layup_mandrel.stl
+    step: layup/intake_layup_mandrel.step
+    format: openscad
+    assemblies: [A02]
+    stations: [FS-55, FS-75]
+    drawing_refs: [ISM-FJ-DWG-010, ISM-FJ-DWG-050]
+    process: composite_auto
+    cure_equipment: eric_oven_reference_only
+    note: packaging duct mandrel only — no LO / acoustic recipe
+
 index_by_drawing:
-  ISM-FJ-DWG-010: [ISM-FJ-TOOL-030, ISM-FJ-TOOL-060]
+  ISM-FJ-DWG-010: [ISM-FJ-TOOL-030, ISM-FJ-TOOL-060, ISM-FJ-TOOL-070, ISM-FJ-TOOL-080]
   ISM-FJ-DWG-020: [ISM-FJ-TOOL-040]
   ISM-FJ-DWG-030: [ISM-FJ-TOOL-020]
-  ISM-FJ-DWG-050: [ISM-FJ-TOOL-010, ISM-FJ-TOOL-030, ISM-FJ-TOOL-040, ISM-FJ-TOOL-060]
+  ISM-FJ-DWG-050: [ISM-FJ-TOOL-010, ISM-FJ-TOOL-030, ISM-FJ-TOOL-040, ISM-FJ-TOOL-060, ISM-FJ-TOOL-080]
   ISM-FJ-DWG-060: [ISM-FJ-TOOL-020, ISM-FJ-TOOL-050]
 
 expected_behaviour:
-  step_exports: future_optional
+  step_exports: study_placeholder
   steve_may_reference_for_hil_fixture_envelopes: true
   manufacturing_yaml_process_codes_align: true
+  soft_lane: steve_79_80
+  decisions_file: fighter-jet/docs/decisions.md
+  decisions_status: PROPOSED_only

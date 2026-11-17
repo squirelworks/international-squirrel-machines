@@ -19,7 +19,7 @@ Single-seat, twin-engine (baseline), single-fin multirole fighter. Industrial Wa
 | Sensors & weapons (fictional) | `fighter-jet/sensors-weapons/` |
 | Research notes | `fighter-jet/docs/research/` (comparative survey #95) |
 | Viability / geometry | `fighter-jet/docs/viability.md`, `fighter-jet/geometry/` |
-| Tooling | `fighter-jet/tooling/` (#106) |
+| Tooling | `fighter-jet/tooling/` (#106) — fab-ready study STL/STEP/BOM |
 | Firmware (bay I/O) | `fighter-jet/firmware/` (#84) |
 | BOM / assembly / validation | `fighter-jet/docs/bom/`, `assembly-notes.md`, `validation.md` (#78) |
 | Bay/study educational BOM | `fighter-jet/docs/bom.md`, `assembly.md` (#85 Gerbers follow-on) |

@@ -14,6 +14,7 @@ Soft Flight Lab (#79) and Soft HIL UI (#80) are **Steve’s lane**. Soft inquire
 - [x] Gerbers for bay PCB + study STL for airframe shell
 - [x] Bay/study educational BOM + assembly (`docs/bom.md`, `docs/assembly.md`)
 - [x] Product decisions file (`docs/decisions.md`) — **PROPOSED only**, pending user approval
+- [x] Tooling fab-ready study package (`tooling/` STL/STEP/BOM/drawings/assembly) — #106 / 4b
 - [ ] Renders / livery accent decision
 - [ ] Inquire-for-release sign-off (Sarah / program)
 

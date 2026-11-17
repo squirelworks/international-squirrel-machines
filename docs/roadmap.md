@@ -194,6 +194,7 @@ Build our own software. Third-party sims are **not** source of truth.
 - [x] FJ product decisions file — `fighter-jet/docs/decisions.md` (**PROPOSED** only; not frozen).
 - [x] Military sibling roadmap reconcile note — [`docs/military-sibling-roadmap-status.md`](military-sibling-roadmap-status.md) (GitHub #43/#44/… bodies still need owner sync).
 - [ ] FJ Soft inquire gates (#79 Flight Lab, #80 HIL) — **blocked on Soft (Steve)**; do not build Soft in ISM.
+- [x] FJ tooling fab-ready study package (#106 / 4b) — STL/STEP for every tool `.scad`, BOM, drawings, assembly; canopy/intake mandrels added.
 - [ ] FJ remaining polish (coupon allowables, livery accent, inquire-for-release) + approved decisions freeze
 
 ### Issues
