@@ -65,6 +65,7 @@ SCRIPT_DEVICE_PREFIXES = (
     ("scripts/build_memory.py", "memory/"),
     ("scripts/build_flash_cards.py", "storage/flash-cards/"),
     ("scripts/build_thumbdrives.py", "storage/thumbdrives/"),
+    ("scripts/build_nvme.py", "storage/nvme/"),
     ("scripts/build_trackball.py", "trackball/"),
     ("scripts/build_mouse.py", "mouse/"),
 )

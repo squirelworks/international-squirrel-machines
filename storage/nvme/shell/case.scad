@@ -1,0 +1,49 @@
+// ISM NVMe M.2 2280 carrier shell (original ISM)
+pcb_w = 100;
+pcb_d = 45;
+wall = 2.2;
+box_h = 14;
+eps = 0.02;
+mount_d = 2.2;
+badge_depth = 0.4;
+
+mounts = [[3.5, 3.5], [pcb_w - 3.5, 3.5], [3.5, pcb_d - 3.5], [pcb_w - 3.5, pcb_d - 3.5]];
+
+module carrier() {
+  difference() {
+    union() {
+      cube([pcb_w + 2 * wall, pcb_d + 2 * wall, box_h]);
+      for (p = mounts)
+        translate([p[0] + wall, p[1] + wall, wall - eps])
+          cylinder(h = 4 + eps, d = 5, $fn = 24);
+    }
+    translate([wall, wall, wall])
+      cube([pcb_w, pcb_d, box_h - wall + eps]);
+    // USB-C
+    translate([wall + 40, -eps, wall + 2])
+      cube([14, wall + 4, 7]);
+    // M.2 bay access (top)
+    translate([wall + 58, wall + 8, box_h - 2])
+      cube([38, 28, 4]);
+    for (p = mounts)
+      translate([p[0] + wall, p[1] + wall, wall - eps])
+        cylinder(h = 8 + 2 * eps, d = mount_d, $fn = 20);
+    // 2280 retention screw
+    translate([wall + 95, wall + 22, wall - eps])
+      cylinder(h = 8 + 2 * eps, d = mount_d, $fn = 20);
+    translate([wall + 4, wall + 4, wall - badge_depth])
+      linear_extrude(height = badge_depth + eps)
+        text("ISM", size = 3.5, font = "Liberation Sans:style=Bold");
+  }
+}
+
+module lid() {
+  difference() {
+    cube([pcb_w + 2 * wall, pcb_d + 2 * wall, 2.5]);
+    translate([4, 4, 2.5 - badge_depth])
+      linear_extrude(height = badge_depth + eps)
+        text("NVMe", size = 4, font = "Liberation Sans:style=Bold");
+  }
+}
+
+carrier();
