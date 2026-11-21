@@ -161,4 +161,4 @@ expected_behaviour:
   manufacturing_yaml_process_codes_align: true
   soft_lane: steve_79_80
   decisions_file: fighter-jet/docs/decisions.md
-  decisions_status: PROPOSED_only
+  decisions_status: FROZEN_2026-11-17

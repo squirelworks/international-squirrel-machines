@@ -17,7 +17,7 @@
 
 **Audit result (4a):** no missing design notes, structural docs, fab packages, or BOM/assembly files for the rows above. No new roadmap issues required — each device already has one. Remaining gap = **polish / inquire** (and GitHub checkbox sync).
 
-**Fighter jet (#85 / #78):** bay Gerbers + study BOM done; Soft #79/#80 blocked on Steve; product decisions in `fighter-jet/docs/decisions.md` are **PROPOSED only**.
+**Fighter jet (#85 / #78):** bay Gerbers + study BOM done; Soft #79/#80 blocked on Steve; product decisions in `fighter-jet/docs/decisions.md` are **FROZEN 2026-11-17** (D1–D5).
 
 ## Weapons boundary
 Unchanged per device READMEs (mass/footprint or SAFE/INHIBIT / educational echo / civil habitat / hobby rocket / payload stubs as applicable).

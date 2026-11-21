@@ -13,13 +13,13 @@ Soft Flight Lab (#79) and Soft HIL UI (#80) are **Steve’s lane**. Soft inquire
 - [ ] Coupon / allowables campaign replace provisional Ftu/Fty
 - [x] Gerbers for bay PCB + study STL for airframe shell
 - [x] Bay/study educational BOM + assembly (`docs/bom.md`, `docs/assembly.md`)
-- [x] Product decisions file (`docs/decisions.md`) — **PROPOSED only**, pending user approval
+- [x] Product decisions file (`docs/decisions.md`) — **FROZEN 2026-11-17** (D1–D5 approved)
 - [x] Tooling fab-ready study package (`tooling/` STL/STEP/BOM/drawings/assembly) — #106 / 4b
 - [ ] Renders / livery accent decision
 - [ ] Inquire-for-release sign-off (Sarah / program)
 
 ## Inquire-for-release gate
-Do **not** claim flight-cleared article. Release inquire is for **design package Rev A** once Soft co-check blockers are accepted or waived. Product decisions in `decisions.md` must be approved (or explicitly deferred) before freeze language is used.
+Do **not** claim flight-cleared article. Release inquire is for **design package Rev A** once Soft co-check blockers are accepted or waived. Product decisions D1–D5 in `decisions.md` are **FROZEN 2026-11-17**. Soft #79/#80 remain Steve’s lane.
 
 ## Weapons boundary
 Inert stores / SAFE-INHIBIT only. No seekers, guidance, munition propulsion, warheads, fuzing, or arming.

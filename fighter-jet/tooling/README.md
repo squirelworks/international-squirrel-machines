@@ -10,7 +10,7 @@ Assembly jigs, drill/rivet fixtures, composite layup tools (incl. canopy / intak
 ## Hard stop
 Do **not** design Eric’s shop machines (CNC mill, large-format printer, heat-treat/cure oven). They appear in `tooling.yaml` only as `required_equipment_eric_lane`.
 
-Soft #79/#80 = **Steve’s lane**. Product decisions = **PROPOSED only** (`../docs/decisions.md`).
+Soft #79/#80 = **Steve’s lane**. Product decisions = **FROZEN 2026-11-17** (`../docs/decisions.md`).
 
 ## Layout
 
